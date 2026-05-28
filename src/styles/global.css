@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    SANE - Society for AV Norms & Engineering
    Global Stylesheet
    ============================================================ */
@@ -8,13 +8,13 @@
   --color-navy:    #0d1b2a;
   --color-navy-mid:#1e3a5f;
   --color-teal:    #00a8c6;
-  --color-teal-lt: #e0f7fc;
+  --color-teal-lt: #0a2535;
   --color-orange:  #f47c20;
-  --color-bg:      #f8f9fb;
-  --color-surface: #ffffff;
-  --color-border:  #dde3ea;
-  --color-text:    #1a202c;
-  --color-muted:   #64748b;
+  --color-bg:      #0f1923;
+  --color-surface: #182534;
+  --color-border:  #273d52;
+  --color-text:    #e2e8f0;
+  --color-muted:   #94a3b8;
   --color-success: #16a34a;
   --color-warn:    #ca8a04;
   --color-danger:  #dc2626;
