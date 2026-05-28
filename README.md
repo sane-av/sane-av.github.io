@@ -1,8 +1,7 @@
-# SANE — Society for AV Norms & Engineering
+﻿# SANE - Society for AV Norms & Engineering
 
 > Open source AV standards, data, and tools for the professional audiovisual industry.
 
-[![Deploy to GitHub Pages](https://github.com/sane-av/sane-av/actions/workflows/deploy.yml/badge.svg)](https://github.com/sane-av/sane-av/actions/workflows/deploy.yml)
 [![License: MIT](https://img.shields.io/badge/Code-MIT-blue.svg)](LICENSE)
 [![License: CC BY 4.0](https://img.shields.io/badge/Content-CC%20BY%204.0-lightgrey.svg)](LICENSE-CONTENT)
 
@@ -29,7 +28,7 @@ No membership fees. No paywalls. No gatekeeping.
 ## Getting Started
 
 ```bash
-git clone https://github.com/sane-av/sane-av.git
+git clone https://github.com/sane-av/sane-av.github.io.git
 cd sane-av
 npm install
 npm run dev        # http://localhost:4321
@@ -43,20 +42,20 @@ npm run build      # builds to dist/
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide.
 
 Quick summary:
-- **Standards**: Open an [RFC issue](https://github.com/sane-av/sane-av/issues/new?template=rfc.yml) first
-- **Content**: Submit a [content issue](https://github.com/sane-av/sane-av/issues/new?template=content_submission.yml) or open a PR directly
+- **Standards**: Open an [RFC issue](https://github.com/sane-av/sane-av.github.io/issues/new?template=rfc.yml) first
+- **Content**: Submit a [content issue](https://github.com/sane-av/sane-av.github.io/issues/new?template=content_submission.yml) or open a PR directly
 - **Equipment data**: Add JSON entries to `src/data/equipment/` following `schema.json`
-- **Tools**: Add an `.astro` file to `src/pages/tools/` — client-side JS only
+- **Tools**: Add an `.astro` file to `src/pages/tools/` - client-side JS only
 
 ## Standards Process
 
 SANE standards follow an RFC process inspired by the IETF:
 
-1. **Proposal** — Open an RFC issue
-2. **Discussion** — Public comment on the issue
-3. **Draft PR** — Open a PR with the standards document
-4. **14-day review** — Public review period
-5. **Ratification** — Merge on consensus
+1. **Proposal** - Open an RFC issue
+2. **Discussion** - Public comment on the issue
+3. **Draft PR** - Open a PR with the standards document
+4. **14-day review** - Public review period
+5. **Ratification** - Merge on consensus
 
 See [sane-av.github.io/rfc](https://sane-av.github.io/rfc) for full details.
 

@@ -1,6 +1,6 @@
----
+﻿---
 title: "Why Open AV Standards Matter"
-description: "The case for treating AV standards like open source software — and what the industry loses when they're locked away."
+description: "The case for treating AV standards like open source software - and what the industry loses when they're locked away."
 pubDate: 2026-05-28
 author: "SANE Community"
 tags: ["standards", "open source", "industry"]
@@ -9,7 +9,7 @@ draft: false
 
 Open standards are not a radical idea. The entire internet runs on them.
 
-HTTP, TCP/IP, HTML, CSS, WebRTC — these technologies power billions of dollars in economic
+HTTP, TCP/IP, HTML, CSS, WebRTC - these technologies power billions of dollars in economic
 activity and they're all built on openly published, freely implementable specifications.
 Anyone can read them. Anyone can build with them. Anyone can propose improvements.
 
@@ -38,7 +38,7 @@ a permanent classroom-to-industry gap for the next generation of AV professional
 
 Look at what open standards did for adjacent industries:
 
-- **Networking**: 802.11 (WiFi), 802.3 (Ethernet) — open IEEE standards drove an explosion
+- **Networking**: 802.11 (WiFi), 802.3 (Ethernet) - open IEEE standards drove an explosion
   of competing implementations and drove costs to near-zero
 - **Web**: HTML and CSS from the W3C enabled every website you've ever visited
 - **VoIP**: SIP and RTP from the IETF enabled an entire industry of open-source telephone systems

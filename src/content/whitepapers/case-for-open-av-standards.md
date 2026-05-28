@@ -1,4 +1,4 @@
----
+﻿---
 title: "The Case for Open AV Standards"
 description: "A technical and economic argument for why the professional AV industry should adopt openly published, freely implementable standards."
 pubDate: 2026-05-28
@@ -43,7 +43,7 @@ smaller operators who provide the same services.
 ### 2.2 Education and Training Costs
 
 Vocational training programs face a particular challenge. Teaching students to comply with
-industry standards requires access to those standards — but educational institutions often
+industry standards requires access to those standards - but educational institutions often
 lack the budget for full organizational membership.
 
 The result is a classroom-to-industry gap: graduates who have learned about standards in
@@ -57,13 +57,13 @@ defines the ecosystem.
 
 Open standards lower this barrier, enabling more competitors to build interoperable products.
 More competition in a well-defined interoperability space tends to drive up quality and
-drive down prices — outcomes that benefit the end users of AV systems.
+drive down prices - outcomes that benefit the end users of AV systems.
 
 ## 3. Precedents
 
 ### 3.1 The Internet Engineering Task Force (IETF)
 
-The IETF has produced the core protocols of the internet — TCP, IP, HTTP, SMTP, DNS —
+The IETF has produced the core protocols of the internet - TCP, IP, HTTP, SMTP, DNS -
 through an open process. All RFCs are freely available. Anyone can participate in the
 process. The result is a remarkably robust and interoperable global network built by
 thousands of competing vendors.
@@ -85,7 +85,7 @@ of hundreds of manufacturers.
 
 We do not argue that existing standards organizations should be disbanded or that their
 work has no value. Much of it is valuable. What we argue is that the access model should
-change — and that the industry should additionally develop new standards in the open
+change - and that the industry should additionally develop new standards in the open
 for areas currently lacking adequate coverage.
 
 The model we propose, and that SANE implements:
@@ -99,7 +99,7 @@ The model we propose, and that SANE implements:
 ## 5. Conclusion
 
 The professional AV industry is a mature technical discipline with a rich body of practical
-knowledge. That knowledge belongs to the people who built it — the engineers, integrators,
+knowledge. That knowledge belongs to the people who built it - the engineers, integrators,
 and technicians who design and deploy AV systems every day. SANE exists to make that
 knowledge freely accessible to everyone in the field, and to those who will enter it.
 

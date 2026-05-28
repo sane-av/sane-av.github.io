@@ -1,6 +1,6 @@
-# Contributing to SANE
+﻿# Contributing to SANE
 
-Thank you for your interest in contributing to SANE — Society for AV Norms & Engineering.
+Thank you for your interest in contributing to SANE - Society for AV Norms & Engineering.
 All contributions, large and small, are welcome.
 
 ## Table of Contents
@@ -47,7 +47,7 @@ substantive technical documents, not product promotions.
 
 Add JSON entries to the appropriate file in `src/data/equipment/` (or create a new file
 for a new category). All entries must conform to `src/data/equipment/schema.json`.
-Specs must be sourced from official manufacturer documentation — include the source URL
+Specs must be sourced from official manufacturer documentation - include the source URL
 in the `notes` field.
 
 ### Build a Tool
@@ -78,17 +78,17 @@ npm run preview # preview the production build
 ## Proposing a Standard (RFC Process)
 
 1. **Open an RFC issue** using the [RFC template](https://github.com/sane-av/sane-av/issues/new?template=rfc.yml)
-2. **Community discussion** happens on the issue — typically 14+ days
+2. **Community discussion** happens on the issue - typically 14+ days
 3. **Open a draft PR** once rough consensus is reached, adding a Markdown document to
    `src/content/standards/` following the SANE-001 document as a template
-4. **14-day review period** — the PR must be open for at least 14 days with no blocking objections
-5. **Merge** — a maintainer merges the PR and the standard is published
+4. **14-day review period** - the PR must be open for at least 14 days with no blocking objections
+5. **Merge** - a maintainer merges the PR and the standard is published
 
 **Guiding principles:**
 - Rough consensus, not unanimity
 - Technical merit backed by evidence
-- No IP encumbrances — freely implementable without licensing fees
-- Plain English — write for the working AV professional
+- No IP encumbrances - freely implementable without licensing fees
+- Plain English - write for the working AV professional
 
 ## Content Contributions
 
@@ -123,7 +123,7 @@ Data should be accurate and complete regardless of brand.
   - `fix(tools): correct SPL formula`
   - `docs(standards): publish SANE-003`
   - `data(equipment): add Crown DCi entries`
-- One logical change per PR — keep diffs small and focused
+- One logical change per PR - keep diffs small and focused
 - PR descriptions should explain *what* and *why*, not just *what*
 
 ## License

@@ -1,4 +1,4 @@
----
+﻿---
 import '../styles/global.css';
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 
 const {
   title,
-  description = 'SANE — Society for AV Norms & Engineering. Open source AV standards, data, and tools.',
+  description = 'SANE - Society for AV Norms & Engineering. Open source AV standards, data, and tools.',
   ogImage = '/og-default.png',
 } = Astro.props;
 
@@ -21,7 +21,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} | SANE — Society for AV Norms & Engineering</title>
+    <title>{title} | SANE - Society for AV Norms & Engineering</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
 

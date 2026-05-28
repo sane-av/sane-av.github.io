@@ -1,4 +1,4 @@
----
+﻿---
 saneId: "SANE-002"
 title: "Video Signal Levels for Professional AV Systems"
 description: "Defines analog and digital video signal level conventions for professional AV installations including composite, component, HDMI, and SDI."
@@ -10,7 +10,7 @@ tags: ["video", "signal levels", "HDMI", "SDI", "installation"]
 relatedStandards: ["SANE-001"]
 ---
 
-> **Status: Under Review** — This standard is in its 14-day public review period.
+> **Status: Under Review** - This standard is in its 14-day public review period.
 > Feedback welcome via [GitHub Issues](https://github.com/sane-av/sane-av/issues).
 
 ## 1. Scope
@@ -94,7 +94,7 @@ short runs (< 0.5 m) with identical termination.
 
 ## 5. References
 
-- SMPTE ST 259: SDTV Digital Signal/Data — Serial Digital Interface
+- SMPTE ST 259: SDTV Digital Signal/Data - Serial Digital Interface
 - SMPTE ST 292-1: 1.5 Gb/s Signal/Data Serial Interface
 - SMPTE ST 424: 3 Gb/s Signal/Data Serial Interface
 - CEA-861: A DTV Profile for Uncompressed High Speed Digital Interfaces

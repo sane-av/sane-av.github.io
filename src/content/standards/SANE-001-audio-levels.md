@@ -1,4 +1,4 @@
----
+﻿---
 saneId: "SANE-001"
 title: "Audio Signal Levels for Professional AV Systems"
 description: "Defines nominal and maximum signal levels for analog audio in professional AV installations, including line level, microphone level, and loudspeaker level reference points."
@@ -25,18 +25,18 @@ equipment except where it interfaces with professional systems.
 
 ## 2. Definitions
 
-**Nominal Level** — The operating signal level around which a device is designed to function.
+**Nominal Level** - The operating signal level around which a device is designed to function.
 Typical program material should average at or near the nominal level.
 
-**Headroom** — The difference in dB between the nominal level and the clip point (maximum
+**Headroom** - The difference in dB between the nominal level and the clip point (maximum
 undistorted output).
 
-**dBu** — A decibel unit referenced to 0.775 V RMS (the voltage that dissipates 1 mW into a
+**dBu** - A decibel unit referenced to 0.775 V RMS (the voltage that dissipates 1 mW into a
 600 Ω load). The standard reference for professional audio signal levels.
 
-**dBV** — A decibel unit referenced to 1.0 V RMS. Common in consumer and semi-pro equipment.
+**dBV** - A decibel unit referenced to 1.0 V RMS. Common in consumer and semi-pro equipment.
 
-**Clip Point** — The signal level at which a device begins to produce significant harmonic
+**Clip Point** - The signal level at which a device begins to produce significant harmonic
 distortion due to clipping.
 
 ## 3. Nominal Signal Levels
@@ -125,9 +125,9 @@ Equipment claiming compliance with SANE-001 shall:
 
 ## 7. References
 
-- IEC 60268-12: Sound system equipment — Part 12: Application of connectors for broadcast,
+- IEC 60268-12: Sound system equipment - Part 12: Application of connectors for broadcast,
   audio and audiovisual technology
-- AES17: AES standard method for digital audio engineering — Measurement of digital audio
+- AES17: AES standard method for digital audio engineering - Measurement of digital audio
   equipment
 - ITU-R BS.468: Measurement of audio-frequency noise voltage level in sound broadcasting
 

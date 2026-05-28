@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
@@ -65,7 +65,7 @@ const letters = [...new Set(entries.map((e) => e.data.term[0].toUpperCase()))];
                     <span class="tag tag-orange" style="margin-left:.5rem">{entry.data.category}</span>
                   </div>
                   <div class="prose" style="font-size:.9rem">
-                    <!-- Inline content rendered via the listing page — link to detail if needed -->
+                    <!-- Inline content rendered via the listing page - link to detail if needed -->
                     <a href={`/glossary/${entry.id}`}>View full definition →</a>
                   </div>
                   {entry.data.relatedTerms.length > 0 && (
