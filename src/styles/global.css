@@ -7,9 +7,9 @@
 :root {
   --color-navy:    #0f0f12;
   --color-navy-mid:#1a1a1f;
-  --color-teal:    #fbbf24;
+  --color-teal:    #f1a10d;
   --color-teal-lt: #1c1c20;
-  --color-orange:  #f59e0b;
+  --color-orange:  #b45309;
   --color-bg:      #0a0a0b;
   --color-surface: #141417;
   --color-border:  #26262d;
@@ -256,7 +256,7 @@ th { background: var(--color-bg); font-weight: 600; }
   color: #fff;
   border-color: var(--color-orange);
 }
-.btn-primary:hover { background: #d97706; border-color: #d97706; }
+.btn-primary:hover { background: #92400e; border-color: #92400e; }
 
 .btn-outline {
   background: transparent;
@@ -270,7 +270,7 @@ th { background: var(--color-bg); font-weight: 600; }
   color: var(--color-navy);
   border-color: var(--color-teal);
 }
-.btn-teal:hover { background: #eab308; border-color: #eab308; }
+.btn-teal:hover { background: #d97706; border-color: #d97706; }
 
 /* --- Section --- */
 .section { padding: 3rem 0; }
@@ -330,13 +330,13 @@ th { background: var(--color-bg); font-weight: 600; }
   font-weight: 600;
   padding: .18em .55em;
   border-radius: var(--radius-sm);
-  background: rgba(251,191,36,.12);
+  background: rgba(241,161,13,.08);
   color: var(--color-teal);
   text-transform: uppercase;
   letter-spacing: .04em;
 }
 
-.tag-orange { background: rgba(245,158,11,.12); color: #fcd34d; }
+.tag-orange { background: rgba(180,83,9,.18); color: #fcd34d; }
 .tag-navy   { background: var(--color-teal); color: var(--color-navy); }
 
 /* --- Status Badges --- */
@@ -495,7 +495,7 @@ th { background: var(--color-bg); font-weight: 600; }
 
 /* --- RFC Box --- */
 .rfc-box {
-  background: linear-gradient(135deg, rgba(245,158,11,.06), rgba(20,20,23,.6));
+  background: linear-gradient(135deg, rgba(180,83,9,.08), rgba(20,20,23,.6));
   border: 1px solid var(--color-teal);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
