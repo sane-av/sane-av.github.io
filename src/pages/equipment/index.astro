@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Load all JSON equipment files from src/data/equipment/ (exclude schema.json)
+const files = import.meta.glob<{ default: unknown[] }>('../../data/equipment/*.json', { eager: true });
+const allEquipment = Object.entries(files)
+  .filter(([path]) => !path.endsWith('schema.json'))
+  .flatMap(([, f]) => Array.isArray(f.default) ? f.default : []) as {
+  id: string;
+  manufacturer: string;
+  model: string;
+  category: string;
+  specs: Record<string, string>;
+  tags: string[];
+  notes?: string;
+}[];
+
+const categories = [...new Set(allEquipment.map((e) => e.category))].sort();
+---
+
+<BaseLayout title="Equipment Database" description="Open community database of AV equipment specifications.">
+  <div class="page-header">
+    <div class="container">
+      <h1>Equipment Database</h1>
+      <p>
+        An open, community-maintained database of AV equipment specs.
+        All data is CC BY 4.0 — use it in your tools, reports, and designs.
+      </p>
+      <div style="margin-top:.75rem">
+        <a href="https://github.com/sane-av/sane-av/issues/new?template=content_submission.yml&title=[Equipment]+" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:.875rem">
+          Submit Equipment Data →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="equipment-filter">
+        <input type="search" id="eq-search" placeholder="Search manufacturer, model, or spec…" aria-label="Search equipment" />
+        <select id="eq-cat" aria-label="Filter by category">
+          <option value="">All categories</option>
+          {categories.map((c) => <option value={c}>{c}</option>)}
+        </select>
+      </div>
+
+      <p id="eq-count" style="font-size:.875rem;color:var(--color-muted);margin-bottom:1rem">
+        {allEquipment.length} entries
+      </p>
+
+      <div style="overflow-x:auto">
+        <table id="eq-table">
+          <thead>
+            <tr>
+              <th>Manufacturer</th>
+              <th>Model</th>
+              <th>Category</th>
+              <th>Key Specs</th>
+              <th>Tags</th>
+            </tr>
+          </thead>
+          <tbody>
+            {allEquipment.map((item) => (
+              <tr data-cat={item.category} data-search={`${item.manufacturer} ${item.model} ${item.tags.join(' ')} ${Object.values(item.specs).join(' ')}`.toLowerCase()}>
+                <td><strong>{item.manufacturer}</strong></td>
+                <td>{item.model}</td>
+                <td><span class="tag">{item.category}</span></td>
+                <td>
+                  {Object.entries(item.specs).slice(0, 3).map(([k, v]) => (
+                    <div style="font-size:.8rem"><span style="color:var(--color-muted)">{k}:</span> {v}</div>
+                  ))}
+                </td>
+                <td>
+                  <div class="card-tags">
+                    {item.tags.map((t) => <span class="tag tag-orange">{t}</span>)}
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const search = document.getElementById('eq-search') as HTMLInputElement;
+  const catSelect = document.getElementById('eq-cat') as HTMLSelectElement;
+  const rows = document.querySelectorAll<HTMLTableRowElement>('#eq-table tbody tr');
+  const countEl = document.getElementById('eq-count')!;
+
+  function filter() {
+    const q = search.value.toLowerCase();
+    const cat = catSelect.value;
+    let visible = 0;
+    rows.forEach((row) => {
+      const matchSearch = !q || row.dataset.search?.includes(q);
+      const matchCat = !cat || row.dataset.cat === cat;
+      const show = matchSearch && matchCat;
+      row.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    countEl.textContent = `${visible} entries`;
+  }
+
+  search.addEventListener('input', filter);
+  catSelect.addEventListener('change', filter);
+</script>

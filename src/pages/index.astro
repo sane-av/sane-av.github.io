@@ -1,17 +1,128 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
 
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const standards = (await getCollection('standards', ({ data }) => data.status === 'published'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Home">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Open Source AV Standards<br />for the Modern World</h1>
+      <p>
+        SANE is a community-driven organization creating free, open, and transparent
+        standards for professional audiovisual systems — no membership fees, no paywalls,
+        no gatekeeping.
+      </p>
+      <div class="hero-actions">
+        <a href="/standards" class="btn btn-primary">Browse Standards</a>
+        <a href="/rfc" class="btn btn-outline">Propose a Standard</a>
+        <a href="https://github.com/sane-av/sane-av" target="_blank" rel="noopener" class="btn btn-outline">
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why SANE? -->
+  <section class="section">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem">
+        {[
+          { icon: '📖', head: 'Free & Open', body: 'Every standard, document, and dataset is freely available under CC BY 4.0. No paywalls, ever.' },
+          { icon: '🤝', head: 'Community Driven', body: 'Standards are proposed and refined through an open RFC process. Anyone can contribute.' },
+          { icon: '🛠️', head: 'Practical First', body: 'Built by working AV professionals for real-world deployment. Theory informed by practice.' },
+          { icon: '🔄', head: 'Version Controlled', body: 'Every change is tracked in Git. Audit the full history of any standard or data entry.' },
+        ].map(({ icon, head, body }) => (
+          <div class="card">
+            <div style="font-size:2rem">{icon}</div>
+            <h3>{head}</h3>
+            <p>{body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Standards -->
+  {standards.length > 0 && (
+    <section class="section" style="background:var(--color-surface);border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border)">
+      <div class="container">
+        <h2 class="section-title">Latest Standards</h2>
+        <p class="section-sub">Published SANE standards, free to use and implement.</p>
+        <div class="card-grid">
+          {standards.map((std) => (
+            <div class="card">
+              <div class="card-meta">
+                <span class={`status-badge status-${std.data.status}`}>{std.data.status}</span>
+                <span>{std.data.saneId}</span>
+                <span>v{std.data.version}</span>
+              </div>
+              <h3><a href={`/standards/${std.id}`}>{std.data.title}</a></h3>
+              <p>{std.data.description}</p>
+              <div class="card-tags">
+                {std.data.tags.slice(0, 3).map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <p style="margin-top:1.5rem"><a href="/standards" class="btn btn-teal">All Standards →</a></p>
+      </div>
+    </section>
+  )}
+
+  <!-- Latest Blog Posts -->
+  {posts.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">From the Blog</h2>
+        <p class="section-sub">Perspectives, announcements, and deep dives from the SANE community.</p>
+        <div class="card-grid">
+          {posts.map((post) => (
+            <div class="card">
+              <div class="card-meta">
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                </time>
+                <span>{post.data.author}</span>
+              </div>
+              <h3><a href={`/blog/${post.id}`}>{post.data.title}</a></h3>
+              <p>{post.data.description}</p>
+              <div class="card-tags">
+                {post.data.tags.slice(0, 3).map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <p style="margin-top:1.5rem"><a href="/blog" class="btn btn-teal">All Posts →</a></p>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA -->
+  <section class="section" style="background:var(--color-navy);color:#fff;text-align:center">
+    <div class="container">
+      <h2 style="color:#fff;margin-bottom:.75rem">Ready to Contribute?</h2>
+      <p style="color:rgba(255,255,255,.75);max-width:520px;margin-inline:auto;margin-bottom:1.75rem">
+        SANE is built by the community. Submit an RFC, improve documentation,
+        add equipment data, or just spread the word.
+      </p>
+      <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap">
+        <a href="/contributing" class="btn btn-primary">Contribution Guide</a>
+        <a href="/rfc" class="btn btn-outline">Open an RFC</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

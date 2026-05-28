@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('glossary');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={entry.data.term} description={`Definition of ${entry.data.term} in professional AV.`}>
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> <span>›</span>
+        <a href="/glossary">Glossary</a> <span>›</span>
+        <span>{entry.data.term}</span>
+      </nav>
+      <h1>
+        {entry.data.term}
+        {entry.data.abbreviation && <code class="glossary-abbr">{entry.data.abbreviation}</code>}
+      </h1>
+      <span class="tag tag-orange">{entry.data.category}</span>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container content-width">
+      <article class="prose">
+        <Content />
+      </article>
+
+      {entry.data.relatedTerms.length > 0 && (
+        <div style="margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--color-border)">
+          <h3 style="margin-bottom:.75rem">Related Terms</h3>
+          <div class="card-tags">
+            {entry.data.relatedTerms.map((t) => <span class="tag">{t}</span>)}
+          </div>
+        </div>
+      )}
+
+      <hr />
+      <p style="font-size:.875rem;color:var(--color-muted)">
+        Want to improve this definition?
+        <a href="https://github.com/sane-av/sane-av/issues/new?template=content_submission.yml" target="_blank" rel="noopener">
+          Submit a suggestion on GitHub
+        </a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

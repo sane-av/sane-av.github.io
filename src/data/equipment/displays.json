@@ -1,0 +1,54 @@
+[
+  {
+    "id": "disp-001",
+    "manufacturer": "Samsung",
+    "model": "QM55B",
+    "category": "display",
+    "specs": {
+      "screenSize": "55\"",
+      "resolution": "3840×2160 (4K UHD)",
+      "brightness": "500 nit",
+      "contrastRatio": "1200:1",
+      "inputs": "HDMI 2.0 ×3, DisplayPort 1.2, USB-C",
+      "mounting": "VESA 400×400",
+      "orientation": "Landscape / Portrait",
+      "usageHours": "16/7"
+    },
+    "tags": ["display", "video", "commercial", "4k", "samsung"],
+    "notes": "Commercial-grade display suitable for digital signage and conference rooms."
+  },
+  {
+    "id": "disp-002",
+    "manufacturer": "LG",
+    "model": "86UH5F",
+    "category": "display",
+    "specs": {
+      "screenSize": "86\"",
+      "resolution": "3840×2160 (4K UHD)",
+      "brightness": "400 nit",
+      "inputs": "HDMI 2.0 ×3, USB ×2, RS-232",
+      "mounting": "VESA 600×400",
+      "orientation": "Landscape",
+      "usageHours": "24/7"
+    },
+    "tags": ["display", "video", "commercial", "4k", "large-format"],
+    "notes": "Large format display for lobby and boardroom applications."
+  },
+  {
+    "id": "proj-001",
+    "manufacturer": "Epson",
+    "model": "EB-PU2216B",
+    "category": "projector",
+    "specs": {
+      "brightness": "16,000 lumens",
+      "resolution": "1920×1200 (WUXGA)",
+      "technology": "3LCD laser",
+      "throwRatio": "Various (interchangeable lenses)",
+      "inputs": "HDMI ×2, DVI-D, HDBaseT",
+      "lifetime": "20,000 hr (laser)",
+      "weight": "24 kg"
+    },
+    "tags": ["projector", "video", "laser", "large-venue", "wuxga"],
+    "notes": "High-brightness laser projector for large venues and auditoriums."
+  }
+]

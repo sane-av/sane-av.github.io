@@ -1,0 +1,50 @@
+name: Content Submission
+description: Submit a glossary term, blog post idea, equipment data, or whitepaper.
+title: "[Content] "
+labels: ["content"]
+body:
+  - type: dropdown
+    id: content-type
+    attributes:
+      label: Content Type
+      options:
+        - Glossary term
+        - Blog post
+        - Whitepaper
+        - Equipment database entry
+        - Tool / calculator
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: title
+    attributes:
+      label: Title / Term
+      placeholder: "e.g. 'dBFS' or 'The Case for Open AV Standards'"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description / Content
+      description: Provide the content, or a detailed outline if submitting for review before writing.
+    validations:
+      required: true
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources & Attribution
+      description: List any sources, references, or prior work you're drawing from.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Submission Checklist
+      options:
+        - label: This content is original or properly attributed
+          required: true
+        - label: I agree to license this contribution under CC BY 4.0
+          required: true

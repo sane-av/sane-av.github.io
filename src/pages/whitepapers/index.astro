@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const papers = (await getCollection('whitepapers', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="Whitepapers" description="Technical white papers on AV system design and engineering from the SANE community.">
+  <div class="page-header">
+    <div class="container">
+      <h1>Whitepapers</h1>
+      <p>In-depth technical papers on AV system design, best practices, and engineering principles.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      {papers.length === 0 ? (
+        <p style="color:var(--color-muted)">
+          No whitepapers yet.
+          <a href="https://github.com/sane-av/sane-av">Submit the first →</a>
+        </p>
+      ) : (
+        <div class="card-grid">
+          {papers.map((paper) => (
+            <div class="card">
+              <div class="card-meta">
+                <time datetime={paper.data.pubDate.toISOString()}>
+                  {paper.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                </time>
+                <span>{paper.data.authors.join(', ')}</span>
+              </div>
+              <h3><a href={`/whitepapers/${paper.id}`}>{paper.data.title}</a></h3>
+              <p>{paper.data.description}</p>
+              <div class="card-tags">
+                {paper.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

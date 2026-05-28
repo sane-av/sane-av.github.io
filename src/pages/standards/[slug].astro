@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const standards = await getCollection('standards');
+  return standards.map((std) => ({
+    params: { slug: std.id },
+    props: { std },
+  }));
+}
+
+const { std } = Astro.props;
+const { Content } = await render(std);
+
+const pubDate = std.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+const updDate = std.data.updatedDate?.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout title={`${std.data.saneId}: ${std.data.title}`} description={std.data.description}>
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> <span>›</span>
+        <a href="/standards">Standards</a> <span>›</span>
+        <span>{std.data.saneId}</span>
+      </nav>
+      <div style="display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;margin-bottom:.5rem">
+        <span class={`status-badge status-${std.data.status}`}>{std.data.status}</span>
+        <span style="font-family:var(--font-mono);font-weight:700;color:var(--color-navy-mid)">{std.data.saneId}</span>
+        <span style="color:var(--color-muted);font-size:.9rem">Version {std.data.version}</span>
+      </div>
+      <h1>{std.data.title}</h1>
+      <p>{std.data.description}</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container content-width">
+      <!-- Metadata block -->
+      <div class="standard-meta">
+        <div class="meta-item">
+          <span class="meta-label">Standard ID</span>
+          <strong style="font-family:var(--font-mono)">{std.data.saneId}</strong>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Version</span>
+          <strong>{std.data.version}</strong>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Status</span>
+          <span class={`status-badge status-${std.data.status}`}>{std.data.status}</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Published</span>
+          <span>{pubDate}</span>
+        </div>
+        {updDate && (
+          <div class="meta-item">
+            <span class="meta-label">Last Updated</span>
+            <span>{updDate}</span>
+          </div>
+        )}
+        <div class="meta-item">
+          <span class="meta-label">Authors</span>
+          <span>{std.data.authors.join(', ')}</span>
+        </div>
+      </div>
+
+      {std.data.tags.length > 0 && (
+        <div class="card-tags" style="margin-bottom:1.75rem">
+          {std.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+        </div>
+      )}
+
+      {std.data.relatedStandards.length > 0 && (
+        <div class="rfc-box" style="margin-bottom:2rem">
+          <h3>Related Standards</h3>
+          <p>{std.data.relatedStandards.join(' · ')}</p>
+        </div>
+      )}
+
+      <article class="prose">
+        <Content />
+      </article>
+
+      <hr />
+      <p style="font-size:.875rem;color:var(--color-muted)">
+        This standard is published under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>.
+        Found an error or want to suggest changes? <a href={`https://github.com/sane-av/sane-av/issues/new?template=rfc.yml&title=[Amendment+${std.data.saneId}]`} target="_blank" rel="noopener">Open an issue on GitHub</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

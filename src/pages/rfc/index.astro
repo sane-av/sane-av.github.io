@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="RFC Process" description="How to propose and advance new SANE standards through the RFC process.">
+  <div class="page-header">
+    <div class="container">
+      <h1>RFC — Request for Comments</h1>
+      <p>The open process for proposing, discussing, and ratifying SANE standards.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container" style="max-width:800px">
+
+      <div class="rfc-box">
+        <h3>Ready to propose a standard?</h3>
+        <p>
+          Open a GitHub issue using the RFC template. Anyone can propose; the community discusses;
+          consensus drives ratification.
+        </p>
+        <p style="margin-top:.75rem">
+          <a
+            href="https://github.com/sane-av/sane-av/issues/new?template=rfc.yml"
+            target="_blank" rel="noopener"
+            class="btn btn-primary"
+          >
+            Open an RFC Issue →
+          </a>
+        </p>
+      </div>
+
+      <h2>How the Process Works</h2>
+
+      <div style="display:grid;gap:1rem;margin-top:1.25rem;margin-bottom:2rem">
+        {[
+          { step: '1', title: 'Proposal', body: 'Open a GitHub issue using the RFC template. Describe the problem, proposed solution, and affected AV domains.' },
+          { step: '2', title: 'Discussion', body: 'The community reviews the RFC. Comments, concerns, and proposed amendments are discussed openly on the issue.' },
+          { step: '3', title: 'Draft PR', body: 'Once rough consensus is reached, open a Pull Request with the draft standard document in Markdown format.' },
+          { step: '4', title: 'Review Period', body: 'The PR enters a minimum 14-day public review. Major changes restart the clock.' },
+          { step: '5', title: 'Ratification', body: 'After review with no blocking objections, the PR is merged. The standard is published with status: published.' },
+        ].map(({ step, title, body }) => (
+          <div style="display:flex;gap:1rem;align-items:flex-start">
+            <div style="min-width:2.25rem;height:2.25rem;background:var(--color-teal);color:var(--color-navy);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;flex-shrink:0">
+              {step}
+            </div>
+            <div>
+              <h3 style="font-size:1rem;margin-bottom:.25rem">{title}</h3>
+              <p style="font-size:.9rem;color:var(--color-muted);margin:0">{body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <h2>RFC Statuses</h2>
+      <table style="margin-top:1rem">
+        <thead>
+          <tr><th>Status</th><th>Meaning</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="status-badge status-draft">draft</span></td><td>Work in progress, not ready for review</td></tr>
+          <tr><td><span class="status-badge status-review">review</span></td><td>In the 14-day public review period</td></tr>
+          <tr><td><span class="status-badge status-published">published</span></td><td>Ratified and recommended for implementation</td></tr>
+          <tr><td><span class="status-badge status-deprecated">deprecated</span></td><td>Superseded by a newer standard</td></tr>
+        </tbody>
+      </table>
+
+      <h2 style="margin-top:2rem">Principles</h2>
+      <ul class="prose" style="margin-top:1rem">
+        <li><strong>Rough consensus, not unanimity.</strong> We seek broad agreement, not perfection.</li>
+        <li><strong>Technical merit first.</strong> Arguments backed by evidence and real-world data carry more weight.</li>
+        <li><strong>No IP encumbrances.</strong> All standards must be implementable freely without patent licensing fees.</li>
+        <li><strong>Plain English.</strong> Write for the working AV professional, not just academics.</li>
+        <li><strong>Versioned and auditable.</strong> Every change is in Git. Nothing is ever quietly altered.</li>
+      </ul>
+
+    </div>
+  </section>
+</BaseLayout>

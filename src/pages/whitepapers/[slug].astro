@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const papers = await getCollection('whitepapers', ({ data }) => !data.draft);
+  return papers.map((paper) => ({
+    params: { slug: paper.id },
+    props: { paper },
+  }));
+}
+
+const { paper } = Astro.props;
+const { Content } = await render(paper);
+
+const dateStr = paper.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout title={paper.data.title} description={paper.data.description}>
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>›</span>
+        <a href="/whitepapers">Whitepapers</a> <span>›</span>
+        <span>{paper.data.title}</span>
+      </nav>
+      <h1>{paper.data.title}</h1>
+      <p>{paper.data.description}</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container content-width">
+      <div class="card-meta" style="margin-bottom:1.25rem">
+        <time datetime={paper.data.pubDate.toISOString()}>{dateStr}</time>
+        <span>By {paper.data.authors.join(', ')}</span>
+      </div>
+      {paper.data.tags.length > 0 && (
+        <div class="card-tags" style="margin-bottom:1.75rem">
+          {paper.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+        </div>
+      )}
+      <article class="prose">
+        <Content />
+      </article>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,92 @@
+name: RFC — Request for Comments
+description: Propose a new SANE standard or a significant amendment to an existing one.
+title: "[RFC] "
+labels: ["rfc", "needs-discussion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## SANE RFC Template
+        Thank you for proposing a standard! Please fill out all sections thoroughly.
+        The more detail you provide, the faster the community can engage with your proposal.
+
+  - type: input
+    id: title
+    attributes:
+      label: Standard Title
+      description: A concise title for the proposed standard.
+      placeholder: "e.g. Audio Signal Levels for Professional AV Systems"
+    validations:
+      required: true
+
+  - type: input
+    id: sane-id
+    attributes:
+      label: Proposed SANE ID (if amendment)
+      description: Leave blank for new standards. For amendments, provide the existing ID (e.g. SANE-001).
+      placeholder: "SANE-XXX"
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem does this standard solve? Why does it need to exist?
+      placeholder: "Describe the current pain point, inconsistency, or gap in existing guidance."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed Solution
+      description: Describe your proposed standard at a high level. A full draft is not required at this stage.
+      placeholder: "Describe the proposed normative requirements."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: av-domains
+    attributes:
+      label: Affected AV Domains
+      description: Check all that apply.
+      options:
+        - label: Audio — signal levels / gain structure
+        - label: Audio — acoustics / room design
+        - label: Audio — network audio (AES67, Dante, AVB)
+        - label: Video — signal levels / formats
+        - label: Video — display systems / projection
+        - label: Video — network video (NDI, IPMX, SMPTE ST 2110)
+        - label: Control — protocols / APIs
+        - label: Control — room automation
+        - label: Cabling — infrastructure / connectors
+        - label: Systems — documentation / drawings
+        - label: Systems — commissioning / testing
+        - label: Education / certification
+        - label: Other
+
+  - type: textarea
+    id: prior-art
+    attributes:
+      label: Prior Art & Related Standards
+      description: Are there existing standards (SMPTE, AES, IEC, ITU, proprietary) that address this partially? How does this proposal differ?
+
+  - type: textarea
+    id: ip
+    attributes:
+      label: IP & Patent Considerations
+      description: Are you aware of any patents or IP that could encumber free implementation of this standard?
+      placeholder: "e.g. 'Not aware of any' or describe known IP issues."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Submission Checklist
+      options:
+        - label: This proposal is original work or properly attributed to its source
+          required: true
+        - label: I am willing to participate in the review discussion
+          required: true
+        - label: I agree to license my contribution under CC BY 4.0
+          required: true

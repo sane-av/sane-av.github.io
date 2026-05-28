@@ -1,0 +1,76 @@
+---
+import ContentLayout from '../layouts/ContentLayout.astro';
+---
+
+<ContentLayout title="Contributing to SANE">
+  <p>
+    SANE is a fully open source project. Everything — the standards, data, tools, and this website —
+    lives in a public GitHub repository. All contributions are welcome.
+  </p>
+
+  <h2>Ways to Contribute</h2>
+
+  <h3>Propose a Standard (RFC)</h3>
+  <p>
+    Open a GitHub issue using the <strong>RFC template</strong>. Describe the problem, your
+    proposed solution, and which AV domains are affected. See the <a href="/rfc">RFC Process</a>
+    page for the full workflow.
+  </p>
+
+  <h3>Write or Improve Content</h3>
+  <ul>
+    <li>Add or improve glossary terms in <code>src/content/glossary/</code></li>
+    <li>Write a blog post in <code>src/content/blog/</code></li>
+    <li>Submit a whitepaper in <code>src/content/whitepapers/</code></li>
+  </ul>
+
+  <h3>Add Equipment Data</h3>
+  <p>
+    Add equipment specs as JSON entries in <code>src/data/equipment/</code>. Each file is a
+    JSON array following the schema defined in <code>src/data/equipment/schema.json</code>.
+    Open a PR with your additions or corrections.
+  </p>
+
+  <h3>Build a Tool</h3>
+  <p>
+    AV calculators live in <code>src/pages/tools/</code> as self-contained Astro pages with
+    client-side JavaScript. No framework required — just HTML, CSS, and vanilla JS in the
+    <code>&lt;script&gt;</code> block.
+  </p>
+
+  <h3>Fix Bugs or Improve the Site</h3>
+  <p>
+    The site is built with <a href="https://astro.build" target="_blank" rel="noopener">Astro</a>.
+    Issues and PRs for design, accessibility, and performance improvements are very welcome.
+  </p>
+
+  <h2>Getting Started</h2>
+
+  <pre><code>git clone https://github.com/sane-av/sane-av.git
+cd sane-av
+npm install
+npm run dev</code></pre>
+
+  <p>The dev server starts at <code>http://localhost:4321</code>.</p>
+
+  <h2>Commit & PR Guidelines</h2>
+  <ul>
+    <li>Use clear, descriptive commit messages (e.g. <code>feat(glossary): add dBFS entry</code>)</li>
+    <li>One logical change per PR — keep diffs small and reviewable</li>
+    <li>For new standards, follow the RFC process before opening a content PR</li>
+    <li>All content must be original or properly attributed under CC BY 4.0</li>
+    <li>No vendor-specific content that favors proprietary products over open alternatives</li>
+  </ul>
+
+  <h2>Code of Conduct</h2>
+  <p>
+    Be respectful and constructive. Technical disagreements are normal; personal attacks are not.
+    SANE follows the <a href="https://www.contributor-covenant.org/version/2/1/code_of_conduct/" target="_blank" rel="noopener">Contributor Covenant v2.1</a>.
+  </p>
+
+  <h2>License</h2>
+  <p>
+    By contributing, you agree that your contributions will be licensed under
+    <strong>MIT</strong> (code) and <strong>CC BY 4.0</strong> (content and data).
+  </p>
+</ContentLayout>

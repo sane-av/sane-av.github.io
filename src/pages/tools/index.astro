@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const tools = [
+  {
+    href: '/tools/spl-calculator',
+    icon: '🔊',
+    title: 'SPL / dB Calculator',
+    description: 'Convert between dBu, dBV, dBFS, and acoustic SPL. Calculate voltage and power ratios.',
+    tags: ['audio', 'signal levels'],
+  },
+  {
+    href: '/tools/throw-ratio',
+    icon: '📽️',
+    title: 'Throw Ratio Calculator',
+    description: 'Calculate projector throw distance, screen width, or throw ratio from any two known values.',
+    tags: ['video', 'projection'],
+  },
+  {
+    href: '/tools/cable-loss',
+    icon: '🔌',
+    title: 'Cable Loss Calculator',
+    description: 'Estimate signal loss over copper cable runs for audio, video, and control systems.',
+    tags: ['cabling', 'signal integrity'],
+  },
+  {
+    href: '/tools/room-modes',
+    icon: '🏛️',
+    title: 'Room Mode Calculator',
+    description: 'Calculate axial, tangential, and oblique room modes for acoustic analysis.',
+    tags: ['acoustics', 'room design'],
+  },
+];
+---
+
+<BaseLayout title="Tools" description="Free open source AV engineering calculators and tools.">
+  <div class="page-header">
+    <div class="container">
+      <h1>AV Engineering Tools</h1>
+      <p>Free, open source calculators for AV system design and engineering.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="card-grid">
+        {tools.map((tool) => (
+          <a href={tool.href} class="card" style="text-decoration:none;color:inherit">
+            <div style="font-size:2.5rem">{tool.icon}</div>
+            <h3 style="margin-top:.25rem">{tool.title}</h3>
+            <p>{tool.description}</p>
+            <div class="card-tags">
+              {tool.tags.map((t) => <span class="tag">{t}</span>)}
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="rfc-box" style="margin-top:2.5rem">
+        <h3>Missing a tool?</h3>
+        <p>
+          Open an issue on GitHub to request a calculator, or submit a PR with your own.
+          All tools are client-side JavaScript — no server required.
+        </p>
+        <p style="margin-top:.75rem">
+          <a href="https://github.com/sane-av/sane-av/issues/new" target="_blank" rel="noopener" class="btn btn-teal" style="font-size:.875rem">
+            Request a Tool →
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

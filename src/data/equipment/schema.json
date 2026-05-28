@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SANE Equipment Entry",
+  "description": "Schema for equipment database entries in src/data/equipment/",
+  "type": "object",
+  "required": ["id", "manufacturer", "model", "category", "specs", "tags"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier, e.g. amp-001",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "manufacturer": { "type": "string" },
+    "model": { "type": "string" },
+    "category": {
+      "type": "string",
+      "enum": [
+        "amplifier", "dsp", "mixer", "microphone", "speaker", "subwoofer",
+        "display", "projector", "videowall", "switcher", "scaler", "extender",
+        "matrix", "control-processor", "touch-panel", "cable", "connector", "other"
+      ]
+    },
+    "specs": {
+      "type": "object",
+      "description": "Key-value pairs of specification name to value (all strings)",
+      "additionalProperties": { "type": "string" }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional free-text notes about the device"
+    }
+  },
+  "additionalProperties": false
+}

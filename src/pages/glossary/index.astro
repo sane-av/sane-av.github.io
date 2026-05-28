@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const entries = (await getCollection('glossary'))
+  .sort((a, b) => a.data.term.localeCompare(b.data.term));
+
+const categories = [...new Set(entries.map((e) => e.data.category))].sort();
+
+// Group alphabetically
+const letters = [...new Set(entries.map((e) => e.data.term[0].toUpperCase()))];
+---
+
+<BaseLayout title="Glossary" description="Definitions for common AV terminology, from dBu to throw ratio.">
+  <div class="page-header">
+    <div class="container">
+      <h1>AV Glossary</h1>
+      <p>Community-maintained definitions of common professional AV terms and abbreviations.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <!-- Alpha jump links -->
+      {letters.length > 0 && (
+        <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:2rem">
+          {letters.map((l) => (
+            <a href={`#letter-${l}`} class="tag" style="cursor:pointer">{l}</a>
+          ))}
+        </div>
+      )}
+
+      <!-- Category filter pills -->
+      {categories.length > 0 && (
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-bottom:1.75rem">
+          <span style="font-size:.8rem;color:var(--color-muted);font-weight:600;text-transform:uppercase;letter-spacing:.08em">Category:</span>
+          {categories.map((cat) => <span class="tag tag-orange">{cat}</span>)}
+        </div>
+      )}
+
+      {entries.length === 0 ? (
+        <p style="color:var(--color-muted)">
+          No glossary entries yet.
+          <a href="https://github.com/sane-av/sane-av">Contribute the first term →</a>
+        </p>
+      ) : (
+        <ul class="glossary-list">
+          {entries.map((entry, i) => {
+            const letter = entry.data.term[0].toUpperCase();
+            const prevLetter = i > 0 ? entries[i - 1].data.term[0].toUpperCase() : null;
+            const isNewLetter = letter !== prevLetter;
+            return (
+              <>
+                {isNewLetter && (
+                  <li id={`letter-${letter}`} style="list-style:none;padding:.5rem 0;font-size:1.5rem;font-weight:800;color:var(--color-teal);border-bottom:2px solid var(--color-border);margin-bottom:.75rem">
+                    {letter}
+                  </li>
+                )}
+                <li class="glossary-item">
+                  <div class="glossary-term">
+                    {entry.data.term}
+                    {entry.data.abbreviation && (
+                      <code class="glossary-abbr">{entry.data.abbreviation}</code>
+                    )}
+                    <span class="tag tag-orange" style="margin-left:.5rem">{entry.data.category}</span>
+                  </div>
+                  <div class="prose" style="font-size:.9rem">
+                    <!-- Inline content rendered via the listing page — link to detail if needed -->
+                    <a href={`/glossary/${entry.id}`}>View full definition →</a>
+                  </div>
+                  {entry.data.relatedTerms.length > 0 && (
+                    <div style="margin-top:.5rem;font-size:.8rem;color:var(--color-muted)">
+                      Related: {entry.data.relatedTerms.join(', ')}
+                    </div>
+                  )}
+                </li>
+              </>
+            );
+          })}
+        </ul>
+      )}
+    </div>
+  </section>
+</BaseLayout>

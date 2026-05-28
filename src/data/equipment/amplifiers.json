@@ -1,0 +1,53 @@
+[
+  {
+    "id": "amp-001",
+    "manufacturer": "Crown",
+    "model": "XLi 800",
+    "category": "amplifier",
+    "specs": {
+      "powerOutput": "2× 300W @ 4Ω",
+      "powerOutput8ohm": "2× 200W @ 8Ω",
+      "inputImpedance": "20 kΩ balanced",
+      "frequency": "20 Hz – 20 kHz (±0.5 dB)",
+      "snr": "> 100 dB",
+      "inputSensitivity": "0.775V / 1.4V",
+      "dimensions": "2U rackmount"
+    },
+    "tags": ["amplifier", "audio", "commercial", "install"],
+    "notes": "Common choice for commercial background music and paging systems."
+  },
+  {
+    "id": "amp-002",
+    "manufacturer": "QSC",
+    "model": "GX5",
+    "category": "amplifier",
+    "specs": {
+      "powerOutput": "2× 700W @ 4Ω",
+      "powerOutput8ohm": "2× 500W @ 8Ω",
+      "inputImpedance": "20 kΩ balanced",
+      "frequency": "20 Hz – 20 kHz (±0.25 dB)",
+      "snr": "> 100 dB",
+      "thd": "< 0.1% at 1W",
+      "dimensions": "2U rackmount"
+    },
+    "tags": ["amplifier", "audio", "commercial", "touring"],
+    "notes": ""
+  },
+  {
+    "id": "amp-003",
+    "manufacturer": "Lab.gruppen",
+    "model": "IPD 1200",
+    "category": "amplifier",
+    "specs": {
+      "powerOutput": "2× 600W @ 4Ω",
+      "powerOutput8ohm": "2× 400W @ 8Ω",
+      "inputImpedance": "20 kΩ balanced",
+      "frequency": "20 Hz – 20 kHz",
+      "snr": "> 108 dB",
+      "features": "Dante network audio, integrated DSP",
+      "dimensions": "1U rackmount"
+    },
+    "tags": ["amplifier", "audio", "dante", "networked", "dsp"],
+    "notes": "Network-enabled amplifier with integrated DSP and Dante audio."
+  }
+]

@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="SPL / dB Calculator"
+  description="Convert between dBu, dBV, dBFS, dB SPL and calculate voltage and power ratios."
+>
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>›</span>
+        <a href="/tools">Tools</a> <span>›</span>
+        <span>SPL / dB Calculator</span>
+      </nav>
+      <h1>SPL / dB Calculator</h1>
+      <p>Convert between dBu, dBV, voltage, and calculate level differences.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container" style="max-width:680px">
+
+      <!-- dBu ↔ dBV ↔ Voltage -->
+      <div class="tool-card" style="margin-bottom:1.5rem">
+        <h2 style="font-size:1.1rem;margin-bottom:1.25rem">Level Converter</h2>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+          <div>
+            <label for="inp-dbu">dBu</label>
+            <input id="inp-dbu" type="number" step="0.1" placeholder="e.g. 4" />
+          </div>
+          <div>
+            <label for="inp-dbv">dBV</label>
+            <input id="inp-dbv" type="number" step="0.1" placeholder="e.g. 1.78" />
+          </div>
+          <div>
+            <label for="inp-v">Voltage (V RMS)</label>
+            <input id="inp-v" type="number" step="0.001" placeholder="e.g. 1.228" />
+          </div>
+          <div>
+            <label for="inp-mv">Voltage (mV RMS)</label>
+            <input id="inp-mv" type="number" step="0.1" placeholder="e.g. 1228" />
+          </div>
+        </div>
+
+        <div class="tool-result" id="level-result" style="display:none">
+          <div style="font-size:.8rem;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.6);margin-bottom:.5rem">Result</div>
+          <div id="level-result-text"></div>
+        </div>
+      </div>
+
+      <!-- dB ratio -->
+      <div class="tool-card" style="margin-bottom:1.5rem">
+        <h2 style="font-size:1.1rem;margin-bottom:1.25rem">Level Difference</h2>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+          <div>
+            <label for="ratio-v1">Voltage 1 (V)</label>
+            <input id="ratio-v1" type="number" step="0.001" placeholder="e.g. 1.228" />
+          </div>
+          <div>
+            <label for="ratio-v2">Voltage 2 (V)</label>
+            <input id="ratio-v2" type="number" step="0.001" placeholder="e.g. 0.775" />
+          </div>
+        </div>
+
+        <div class="tool-result" id="ratio-result" style="display:none">
+          <div style="font-size:.8rem;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.6);margin-bottom:.5rem">Difference</div>
+          <div class="result-value" id="ratio-result-text"></div>
+        </div>
+      </div>
+
+      <!-- Reference levels table -->
+      <div class="tool-card">
+        <h2 style="font-size:1.1rem;margin-bottom:1rem">Common Reference Levels</h2>
+        <table>
+          <thead>
+            <tr><th>Level</th><th>dBu</th><th>dBV</th><th>V RMS</th><th>Use</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>+4 dBu</td><td>+4.0</td><td>+2.22</td><td>1.228</td><td>Pro audio nominal</td></tr>
+            <tr><td>0 dBV</td><td>+2.22</td><td>0</td><td>1.000</td><td>Consumer reference</td></tr>
+            <tr><td>0 dBu</td><td>0</td><td>−2.22</td><td>0.775</td><td>0 dBu reference (600 Ω)</td></tr>
+            <tr><td>−10 dBV</td><td>−7.78</td><td>−10</td><td>0.316</td><td>Consumer nominal</td></tr>
+            <tr><td>Mic level</td><td>−60 to −40</td><td>—</td><td>1–10 mV</td><td>Microphone output</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // 0 dBu = 0.7746 V (referenced to 1 mW into 600 Ω)
+  const DBU_REF = 0.7746;
+  const DBV_REF = 1.0;
+
+  function vToDBu(v: number) { return 20 * Math.log10(v / DBU_REF); }
+  function vToDBv(v: number) { return 20 * Math.log10(v / DBV_REF); }
+  function dbuToV(d: number) { return DBU_REF * Math.pow(10, d / 20); }
+  function dbvToV(d: number) { return DBV_REF * Math.pow(10, d / 20); }
+
+  function fmt(n: number, decimals = 3) { return Number(n.toFixed(decimals)); }
+
+  const fields = {
+    dbu: document.getElementById('inp-dbu') as HTMLInputElement,
+    dbv: document.getElementById('inp-dbv') as HTMLInputElement,
+    v:   document.getElementById('inp-v')   as HTMLInputElement,
+    mv:  document.getElementById('inp-mv')  as HTMLInputElement,
+  };
+  const result = document.getElementById('level-result')!;
+  const resultText = document.getElementById('level-result-text')!;
+
+  let updating = false;
+
+  function updateFrom(source: keyof typeof fields) {
+    if (updating) return;
+    updating = true;
+    const raw = parseFloat(fields[source].value);
+    if (isNaN(raw)) { updating = false; return; }
+
+    let v: number;
+    if (source === 'dbu')  v = dbuToV(raw);
+    else if (source === 'dbv') v = dbvToV(raw);
+    else if (source === 'mv')  v = raw / 1000;
+    else v = raw;
+
+    fields.dbu.value = fmt(vToDBu(v)).toString();
+    fields.dbv.value = fmt(vToDBv(v)).toString();
+    fields.v.value   = fmt(v).toString();
+    fields.mv.value  = fmt(v * 1000, 2).toString();
+
+    result.style.display = 'block';
+    resultText.innerHTML = `
+      <span class="result-value">${fmt(vToDBu(v), 2)} dBu</span>
+      &nbsp;/&nbsp; ${fmt(vToDBv(v), 2)} dBV &nbsp;/&nbsp; ${fmt(v, 4)} V RMS
+    `;
+    updating = false;
+  }
+
+  (Object.keys(fields) as (keyof typeof fields)[]).forEach((key) => {
+    fields[key].addEventListener('input', () => updateFrom(key));
+  });
+
+  // Ratio calculator
+  const rv1 = document.getElementById('ratio-v1') as HTMLInputElement;
+  const rv2 = document.getElementById('ratio-v2') as HTMLInputElement;
+  const ratioResult = document.getElementById('ratio-result')!;
+  const ratioText = document.getElementById('ratio-result-text')!;
+
+  function calcRatio() {
+    const v1 = parseFloat(rv1.value);
+    const v2 = parseFloat(rv2.value);
+    if (!isNaN(v1) && !isNaN(v2) && v1 > 0 && v2 > 0) {
+      const diff = 20 * Math.log10(v1 / v2);
+      ratioResult.style.display = 'block';
+      ratioText.textContent = `${diff >= 0 ? '+' : ''}${fmt(diff, 2)} dB`;
+    }
+  }
+
+  rv1.addEventListener('input', calcRatio);
+  rv2.addEventListener('input', calcRatio);
+</script>

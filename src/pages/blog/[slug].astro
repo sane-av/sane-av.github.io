@@ -1,0 +1,42 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const dateStr = post.data.pubDate.toLocaleDateString('en-US', {
+  year: 'numeric', month: 'long', day: 'numeric',
+});
+const updatedStr = post.data.updatedDate?.toLocaleDateString('en-US', {
+  year: 'numeric', month: 'long', day: 'numeric',
+});
+---
+
+<ContentLayout
+  title={post.data.title}
+  description={post.data.description}
+  breadcrumb={[{ label: 'Blog', href: '/blog' }]}
+>
+  <div class="card-meta" style="margin-bottom:1.25rem">
+    <time datetime={post.data.pubDate.toISOString()}>{dateStr}</time>
+    <span>By {post.data.author}</span>
+    {updatedStr && <span>Updated {updatedStr}</span>}
+  </div>
+
+  {post.data.tags.length > 0 && (
+    <div class="card-tags" style="margin-bottom:1.75rem">
+      {post.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+    </div>
+  )}
+
+  <Content />
+</ContentLayout>

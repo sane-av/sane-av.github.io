@@ -1,0 +1,119 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description = 'SANE — Society for AV Norms & Engineering. Open source AV standards, data, and tools.',
+  ogImage = '/og-default.png',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | SANE — Society for AV Norms & Engineering</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+  </head>
+  <body>
+    <slot name="header">
+      <header class="site-header">
+        <div class="container">
+          <a href="/" class="site-logo">
+            <span class="logo-badge">SANE</span>
+            Society for AV Norms &amp; Engineering
+          </a>
+          <nav class="site-nav" aria-label="Main navigation">
+            <a href="/blog">Blog</a>
+            <a href="/standards">Standards</a>
+            <a href="/glossary">Glossary</a>
+            <a href="/whitepapers">Whitepapers</a>
+            <a href="/equipment">Equipment DB</a>
+            <a href="/tools">Tools</a>
+            <a href="/rfc">RFCs</a>
+          </nav>
+        </div>
+      </header>
+    </slot>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h4>SANE</h4>
+            <p style="font-size:.85rem;line-height:1.6">
+              Open source AV standards, data, and engineering resources for the pro AV community.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Standards</h4>
+            <ul>
+              <li><a href="/standards">All Standards</a></li>
+              <li><a href="/rfc">Propose a Standard (RFC)</a></li>
+              <li><a href="/whitepapers">Whitepapers</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="/glossary">Glossary</a></li>
+              <li><a href="/equipment">Equipment DB</a></li>
+              <li><a href="/tools">Calculators</a></li>
+              <li><a href="/blog">Blog</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Community</h4>
+            <ul>
+              <li><a href="https://github.com/sane-av" target="_blank" rel="noopener">GitHub</a></li>
+              <li><a href="https://github.com/sane-av/sane-av/discussions" target="_blank" rel="noopener">Discussions</a></li>
+              <li><a href="https://github.com/sane-av/sane-av/issues" target="_blank" rel="noopener">Issues / RFCs</a></li>
+              <li><a href="/contributing">Contributing</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>
+            &copy; {new Date().getFullYear()} SANE Contributors.
+            Code: <a href="/license" style="color:rgba(255,255,255,.65)">MIT</a> &bull;
+            Content: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.65)">CC BY 4.0</a>
+          </span>
+          <span>
+            <a href="https://github.com/sane-av/sane-av" target="_blank" rel="noopener">
+              View on GitHub
+            </a>
+          </span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

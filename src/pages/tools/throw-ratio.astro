@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Throw Ratio Calculator"
+  description="Calculate projector throw distance, screen width, or throw ratio."
+>
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>›</span>
+        <a href="/tools">Tools</a> <span>›</span>
+        <span>Throw Ratio Calculator</span>
+      </nav>
+      <h1>Throw Ratio Calculator</h1>
+      <p>Solve for throw distance, screen width, or throw ratio — enter any two values.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container" style="max-width:680px">
+
+      <div class="tool-card" style="margin-bottom:1.5rem">
+        <p style="font-size:.875rem;color:var(--color-muted);margin-bottom:1.25rem">
+          <strong>Formula:</strong> Throw Ratio = Throw Distance ÷ Screen Width &nbsp;|&nbsp;
+          Leave one field blank to solve for it.
+        </p>
+
+        <label for="tr-ratio">Throw Ratio (TR)</label>
+        <input id="tr-ratio" type="number" step="0.01" placeholder="e.g. 1.5" min="0" />
+
+        <label for="tr-dist">Throw Distance (m)</label>
+        <input id="tr-dist" type="number" step="0.01" placeholder="e.g. 4.5" min="0" />
+
+        <label for="tr-width">Screen Width (m)</label>
+        <input id="tr-width" type="number" step="0.01" placeholder="e.g. 3.0" min="0" />
+
+        <button id="tr-calc" class="btn btn-teal" style="width:100%;justify-content:center;margin-top:.25rem">
+          Calculate
+        </button>
+
+        <div class="tool-result" id="tr-result" style="display:none">
+          <div style="font-size:.8rem;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.6);margin-bottom:.5rem">Result</div>
+          <div class="result-value" id="tr-result-value"></div>
+          <div id="tr-result-sub" style="margin-top:.5rem;font-size:.9rem;color:rgba(255,255,255,.75)"></div>
+        </div>
+
+        <div id="tr-error" style="display:none;color:var(--color-danger);font-size:.875rem;margin-top:.75rem"></div>
+      </div>
+
+      <!-- Reference table -->
+      <div class="tool-card">
+        <h2 style="font-size:1.1rem;margin-bottom:1rem">Common Throw Ratios</h2>
+        <table>
+          <thead>
+            <tr><th>Lens Type</th><th>Typical TR Range</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Ultra-short throw (UST)</td><td>0.1 – 0.4</td><td>Mounted very close or on the screen</td></tr>
+            <tr><td>Short throw</td><td>0.4 – 1.0</td><td>Common in classrooms</td></tr>
+            <tr><td>Standard</td><td>1.0 – 2.5</td><td>General purpose, flexible placement</td></tr>
+            <tr><td>Long throw</td><td>2.5 – 8.0+</td><td>Large venues, rear projection</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:.8rem;color:var(--color-muted);margin-top:.5rem">
+          Always verify throw ratio specs from the manufacturer's datasheet for your specific lens.
+        </p>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const ratioIn = document.getElementById('tr-ratio') as HTMLInputElement;
+  const distIn  = document.getElementById('tr-dist')  as HTMLInputElement;
+  const widthIn = document.getElementById('tr-width') as HTMLInputElement;
+  const calcBtn = document.getElementById('tr-calc')  as HTMLButtonElement;
+  const resultEl    = document.getElementById('tr-result')!;
+  const resultValue = document.getElementById('tr-result-value')!;
+  const resultSub   = document.getElementById('tr-result-sub')!;
+  const errorEl     = document.getElementById('tr-error')!;
+
+  function val(el: HTMLInputElement) {
+    const n = parseFloat(el.value);
+    return isNaN(n) || n <= 0 ? null : n;
+  }
+
+  calcBtn.addEventListener('click', () => {
+    errorEl.style.display = 'none';
+    resultEl.style.display = 'none';
+
+    const tr = val(ratioIn);
+    const d  = val(distIn);
+    const w  = val(widthIn);
+    const filled = [tr, d, w].filter((v) => v !== null).length;
+
+    if (filled < 2) {
+      errorEl.textContent = 'Please enter at least two values.';
+      errorEl.style.display = 'block';
+      return;
+    }
+
+    let solvedLabel = '';
+    let solvedValue = 0;
+    let extra = '';
+
+    if (tr === null) {
+      // Solve for TR
+      solvedValue = d! / w!;
+      solvedLabel = 'Throw Ratio';
+      ratioIn.value = solvedValue.toFixed(3);
+      extra = `${d} m distance ÷ ${w} m width`;
+    } else if (d === null) {
+      // Solve for distance
+      solvedValue = tr * w!;
+      solvedLabel = 'Throw Distance';
+      distIn.value = solvedValue.toFixed(3);
+      extra = `TR ${tr} × ${w} m wide = ${solvedValue.toFixed(2)} m`;
+    } else {
+      // Solve for width
+      solvedValue = d / tr;
+      solvedLabel = 'Screen Width';
+      widthIn.value = solvedValue.toFixed(3);
+      extra = `${d} m ÷ TR ${tr} = ${solvedValue.toFixed(2)} m wide`;
+    }
+
+    resultValue.textContent = `${solvedLabel}: ${solvedValue.toFixed(3)}${solvedLabel !== 'Throw Ratio' ? ' m' : ''}`;
+    resultSub.textContent = extra;
+    resultEl.style.display = 'block';
+  });
+</script>
