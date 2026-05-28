@@ -5,16 +5,16 @@
 
 /* --- Custom Properties --- */
 :root {
-  --color-navy:    #0d1b2a;
-  --color-navy-mid:#1e3a5f;
-  --color-teal:    #00a8c6;
-  --color-teal-lt: #0a2535;
-  --color-orange:  #f47c20;
-  --color-bg:      #0f1923;
-  --color-surface: #182534;
-  --color-border:  #273d52;
-  --color-text:    #e2e8f0;
-  --color-muted:   #94a3b8;
+  --color-navy:    #0f0f12;
+  --color-navy-mid:#1a1a1f;
+  --color-teal:    #fbbf24;
+  --color-teal-lt: #1c1c20;
+  --color-orange:  #f59e0b;
+  --color-bg:      #0a0a0b;
+  --color-surface: #141417;
+  --color-border:  #26262d;
+  --color-text:    #ededf0;
+  --color-muted:   #8b8b94;
   --color-success: #16a34a;
   --color-warn:    #ca8a04;
   --color-danger:  #dc2626;
@@ -224,7 +224,7 @@ th { background: var(--color-bg); font-weight: 600; }
 
 /* --- Hero --- */
 .hero {
-  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-mid) 100%);
+  background: linear-gradient(180deg, #0a0a0b 0%, #141417 100%); border-bottom: 1px solid var(--color-border);
   color: #fff;
   padding: 4rem 0 4.5rem;
 }
@@ -256,7 +256,7 @@ th { background: var(--color-bg); font-weight: 600; }
   color: #fff;
   border-color: var(--color-orange);
 }
-.btn-primary:hover { background: #e06b10; border-color: #e06b10; }
+.btn-primary:hover { background: #d97706; border-color: #d97706; }
 
 .btn-outline {
   background: transparent;
@@ -270,7 +270,7 @@ th { background: var(--color-bg); font-weight: 600; }
   color: var(--color-navy);
   border-color: var(--color-teal);
 }
-.btn-teal:hover { background: #009ab6; border-color: #009ab6; }
+.btn-teal:hover { background: #eab308; border-color: #eab308; }
 
 /* --- Section --- */
 .section { padding: 3rem 0; }
@@ -330,13 +330,13 @@ th { background: var(--color-bg); font-weight: 600; }
   font-weight: 600;
   padding: .18em .55em;
   border-radius: var(--radius-sm);
-  background: rgba(0,168,198,.15);
+  background: rgba(251,191,36,.12);
   color: var(--color-teal);
   text-transform: uppercase;
   letter-spacing: .04em;
 }
 
-.tag-orange { background: rgba(244,124,32,.15); color: #fba86f; }
+.tag-orange { background: rgba(245,158,11,.12); color: #fcd34d; }
 .tag-navy   { background: var(--color-teal); color: var(--color-navy); }
 
 /* --- Status Badges --- */
@@ -495,7 +495,7 @@ th { background: var(--color-bg); font-weight: 600; }
 
 /* --- RFC Box --- */
 .rfc-box {
-  background: linear-gradient(135deg, rgba(0,168,198,.08), rgba(14,32,64,.4));
+  background: linear-gradient(135deg, rgba(245,158,11,.06), rgba(20,20,23,.6));
   border: 1px solid var(--color-teal);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
