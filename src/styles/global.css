@@ -26,8 +26,8 @@
   --radius-md: 8px;
   --radius-lg: 12px;
 
-  --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
-  --shadow-md: 0 4px 12px rgba(0,0,0,.10);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.35);
+  --shadow-md: 0 4px 12px rgba(0,0,0,.5);
 
   --max-w: 1200px;
   --content-w: 760px;
@@ -58,7 +58,7 @@ a:hover { text-decoration: underline; }
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 1.25;
-  color: var(--color-navy);
+  color: var(--color-text);
 }
 
 h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
@@ -317,7 +317,7 @@ th { background: var(--color-bg); font-weight: 600; }
 }
 
 .card h3 { font-size: 1.05rem; }
-.card h3 a { color: var(--color-navy); }
+.card h3 a { color: var(--color-text); }
 .card h3 a:hover { color: var(--color-teal); text-decoration: none; }
 .card p { font-size: .9rem; color: var(--color-muted); flex: 1; }
 
@@ -330,14 +330,14 @@ th { background: var(--color-bg); font-weight: 600; }
   font-weight: 600;
   padding: .18em .55em;
   border-radius: var(--radius-sm);
-  background: var(--color-teal-lt);
-  color: var(--color-navy-mid);
+  background: rgba(0,168,198,.15);
+  color: var(--color-teal);
   text-transform: uppercase;
   letter-spacing: .04em;
 }
 
-.tag-orange { background: #fff0e6; color: #9a4500; }
-.tag-navy   { background: var(--color-navy); color: #fff; }
+.tag-orange { background: rgba(244,124,32,.15); color: #fba86f; }
+.tag-navy   { background: var(--color-teal); color: var(--color-navy); }
 
 /* --- Status Badges --- */
 .status-badge {
@@ -349,10 +349,10 @@ th { background: var(--color-bg); font-weight: 600; }
   text-transform: uppercase;
   letter-spacing: .07em;
 }
-.status-published  { background: #dcfce7; color: #166534; }
-.status-review     { background: #fef9c3; color: #854d0e; }
-.status-draft      { background: #f1f5f9; color: #475569; }
-.status-deprecated { background: #fee2e2; color: #991b1b; }
+.status-published  { background: #14532d; color: #bbf7d0; }
+.status-review     { background: #78350f; color: #fde68a; }
+.status-draft      { background: #1e293b; color: #94a3b8; }
+.status-deprecated { background: #7f1d1d; color: #fca5a5; }
 
 /* --- Page Header --- */
 .page-header {
@@ -398,7 +398,7 @@ th { background: var(--color-bg); font-weight: 600; }
   font-size: .875rem;
   font-weight: 600;
   margin-bottom: .4rem;
-  color: var(--color-navy);
+  color: var(--color-text);
 }
 
 .tool-card input, .tool-card select {
@@ -444,13 +444,14 @@ th { background: var(--color-bg); font-weight: 600; }
 .glossary-term {
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--color-navy);
+  color: var(--color-text);
   margin-bottom: .3rem;
 }
 .glossary-abbr {
   font-size: .8rem;
   font-family: var(--font-mono);
   background: var(--color-teal-lt);
+  color: var(--color-teal);
   padding: .1em .4em;
   border-radius: var(--radius-sm);
   margin-left: .5rem;
@@ -472,6 +473,8 @@ th { background: var(--color-bg); font-weight: 600; }
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   font-size: .9rem;
+  background: var(--color-surface);
+  color: var(--color-text);
 }
 
 .equipment-filter input:focus {
@@ -492,14 +495,14 @@ th { background: var(--color-bg); font-weight: 600; }
 
 /* --- RFC Box --- */
 .rfc-box {
-  background: linear-gradient(135deg, var(--color-teal-lt), #e8f4fd);
+  background: linear-gradient(135deg, rgba(0,168,198,.08), rgba(14,32,64,.4));
   border: 1px solid var(--color-teal);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
   margin-bottom: 2rem;
 }
-.rfc-box h3 { color: var(--color-navy-mid); margin-bottom: .5rem; }
-.rfc-box p { color: var(--color-navy-mid); margin: 0; font-size: .9rem; }
+.rfc-box h3 { color: var(--color-teal); margin-bottom: .5rem; }
+.rfc-box p { color: var(--color-text); margin: 0; font-size: .9rem; }
 
 /* --- Responsive --- */
 @media (max-width: 640px) {
