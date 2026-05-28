@@ -15,9 +15,9 @@
   --color-border:  #26262d;
   --color-text:    #ededf0;
   --color-muted:   #8b8b94;
-  --color-success: #16a34a;
-  --color-warn:    #ca8a04;
-  --color-danger:  #dc2626;
+  --color-success: #4ade80;
+  --color-warn:    #fcd34d;
+  --color-danger:  #f87171;
 
   --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'Cascadia Code', 'Fira Code', Consolas, monospace;
