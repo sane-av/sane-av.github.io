@@ -52,12 +52,12 @@ reverted. See the comments at the top of [src/styles/global.css](src/styles/glob
 
 | Token | Value | Purpose | Contrast |
 |---|---|---|---|
-| `--color-bg` | `#0a0a0b` | App background | - |
-| `--color-navy` | `#0f0f12` | Header/footer chrome (legacy name) | - |
-| `--color-surface` | `#141417` | Cards, page-header, panels | - |
-| `--color-navy-mid` | `#1a1a1f` | Gradient end | - |
-| `--color-teal-lt` | `#1c1c20` | Inline code bg, abbr pill bg | - |
-| `--color-border` | `#26262d` | Borders, dividers | - |
+| `--color-bg` | `#0a0a0c` | App background (deepest) | - |
+| `--color-navy` | `#111116` | Header/footer chrome (legacy name) | - |
+| `--color-surface` | `#18181d` | Cards, page-header, panels | - |
+| `--color-navy-mid` | `#1f1f26` | Raised surfaces, table headers | - |
+| `--color-teal-lt` | `#1f1f26` | Inline code bg, abbr pill bg | - |
+| `--color-border` | `#353540` | Borders, dividers (Radix gray-7) | - |
 | `--color-text` | `#ededf0` | Primary text | 17:1 on bg |
 | `--color-muted` | `#8b8b94` | Secondary text | 5.85:1 on bg |
 | `--color-teal` | `#f1a10d` | Links, accents (warm amber, legacy name) | 9.27:1 on bg |
@@ -77,6 +77,12 @@ reverted. See the comments at the top of [src/styles/global.css](src/styles/glob
 - Large text/UI: AA = **>= 3:1**.
 - **Never use `--color-navy` or `--color-navy-mid` as a TEXT color.** They are the same value family as the backgrounds and disappear. These tokens have legacy names from when the site was light-mode; in dark mode they are surface tiers.
 - Before adding a new color, compute contrast against the surface it sits on.
+
+### Elevation and Dark Reader compatibility
+- `html { color-scheme: dark; }` is set so browsers and the Dark Reader extension recognise the site as intentionally dark and leave it alone.
+- Surface tiers follow a Radix-style elevation ramp (bg -> navy -> surface -> navy-mid). Each tier should differ by at least 5 luminance points to stay visible without being noisy.
+- `--color-border` is intentionally lighter than typical "dark UI" borders (#353540 instead of ~#26) so card and section edges are perceptible without harsh outlines. Hover state lifts to `#44444f`.
+- Sections that need clear separation (page-header, hero) use both a 1px border and a subtle `box-shadow` underneath. Do not rely on the border alone.
 
 ## 4. Critical Windows / PowerShell gotchas
 

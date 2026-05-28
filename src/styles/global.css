@@ -9,12 +9,12 @@
    Token names are SEMANTIC; do not rename without sweeping templates. */
 :root {
   /* Surface tiers (darkest to lightest) */
-  --color-bg:      #0a0a0b;  /* App background */
-  --color-navy:    #0f0f12;  /* Header/footer chrome (legacy name) */
-  --color-surface: #141417;  /* Cards, page-header, raised panels */
-  --color-navy-mid:#1a1a1f;  /* Higher-elevation gradient end */
-  --color-teal-lt: #1c1c20;  /* Inline code bg, abbr pill bg */
-  --color-border:  #26262d;  /* Subtle borders / dividers */
+  --color-bg:      #0a0a0c;  /* App background */
+  --color-navy:    #111116;  /* Header/footer chrome (legacy name) */
+  --color-surface: #18181d;  /* Cards, page-header, raised panels */
+  --color-navy-mid:#1f1f26;  /* Higher-elevation gradient end */
+  --color-teal-lt: #1f1f26;  /* Inline code bg, abbr pill bg */
+  --color-border:  #353540;  /* Borders / dividers (Radix gray-7) */
 
   /* Foreground */
   --color-text:    #ededf0;  /* Primary text (17:1 on bg) */
@@ -46,7 +46,7 @@
 /* --- Reset --- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { font-size: 16px; scroll-behavior: smooth; }
+html { font-size: 16px; scroll-behavior: smooth; color-scheme: dark; }
 
 body {
   font-family: var(--font-sans);
@@ -111,7 +111,7 @@ hr {
 
 table { width: 100%; border-collapse: collapse; margin-bottom: 1.25rem; }
 th, td { padding: .6rem .9rem; text-align: left; border-bottom: 1px solid var(--color-border); }
-th { background: var(--color-bg); font-weight: 600; }
+th { background: var(--color-navy-mid); font-weight: 600; color: var(--color-text); }
 
 /* --- Layout Utilities --- */
 .container {
@@ -234,7 +234,7 @@ th { background: var(--color-bg); font-weight: 600; }
 
 /* --- Hero --- */
 .hero {
-  background: linear-gradient(180deg, #0a0a0b 0%, #141417 100%); border-bottom: 1px solid var(--color-border);
+  background: linear-gradient(180deg, #0a0a0c 0%, #1c1c23 100%); border-bottom: 1px solid var(--color-border); box-shadow: 0 6px 14px rgba(0,0,0,.3);
   color: #fff;
   padding: 4rem 0 4.5rem;
 }
@@ -306,11 +306,14 @@ th { background: var(--color-bg); font-weight: 600; }
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: 1.4rem;
-  transition: box-shadow .15s, transform .15s;
+  transition: box-shadow .15s, transform .15s, border-color .15s;
   display: flex;
   flex-direction: column;
   gap: .5rem;
+  box-shadow: 0 1px 0 rgba(255,255,255,.02) inset, var(--shadow-sm);
 }
+
+.card:hover { border-color: #44444f; }
 
 .card:hover {
   box-shadow: var(--shadow-md);
@@ -368,6 +371,9 @@ th { background: var(--color-bg); font-weight: 600; }
   background: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
   padding: 2.5rem 0 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,.25);
+  position: relative;
+  z-index: 1;
 }
 .page-header h1 { margin-bottom: .4rem; }
 .page-header p { color: var(--color-muted); max-width: 600px; }
@@ -390,6 +396,7 @@ th { background: var(--color-bg); font-weight: 600; }
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 1rem;
+  box-shadow: 0 1px 0 rgba(255,255,255,.02) inset;
 }
 .meta-item { font-size: .875rem; }
 .meta-label { color: var(--color-muted); font-size: .75rem; text-transform: uppercase; letter-spacing: .07em; display: block; margin-bottom: .2rem; }
@@ -413,7 +420,7 @@ th { background: var(--color-bg); font-weight: 600; }
 .tool-card input, .tool-card select {
   width: 100%;
   padding: .55rem .85rem;
-  border: 1px solid var(--color-border);
+  border: 1px solid #3d3d48;
   border-radius: var(--radius-md);
   font-size: 1rem;
   font-family: var(--font-sans);
