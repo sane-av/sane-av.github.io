@@ -1,4 +1,4 @@
-﻿---
+---
 saneId: "SANE-002"
 title: "Video Signal Levels for Professional AV Systems"
 description: "Defines analog and digital video signal level conventions for professional AV installations including composite, component, HDMI, and SDI."
@@ -11,7 +11,7 @@ relatedStandards: ["SANE-001"]
 ---
 
 > **Status: Under Review** - This standard is in its 14-day public review period.
-> Feedback welcome via [GitHub Issues](https://github.com/sane-av/sane-av/issues).
+> Feedback welcome via [GitHub Issues](https://github.com/sane-av/sane-av.github.io/issues).
 
 ## 1. Scope
 

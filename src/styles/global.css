@@ -3,21 +3,31 @@
    Global Stylesheet
    ============================================================ */
 
-/* --- Custom Properties --- */
+/* --- Custom Properties ---
+   Dark theme palette (Radix-aligned). All text/text-on-accent
+   combinations are WCAG AA compliant (>= 4.5:1).
+   Token names are SEMANTIC; do not rename without sweeping templates. */
 :root {
-  --color-navy:    #0f0f12;
-  --color-navy-mid:#1a1a1f;
-  --color-teal:    #f1a10d;
-  --color-teal-lt: #1c1c20;
-  --color-orange:  #b45309;
-  --color-bg:      #0a0a0b;
-  --color-surface: #141417;
-  --color-border:  #26262d;
-  --color-text:    #ededf0;
-  --color-muted:   #8b8b94;
-  --color-success: #4ade80;
-  --color-warn:    #fcd34d;
-  --color-danger:  #f87171;
+  /* Surface tiers (darkest to lightest) */
+  --color-bg:      #0a0a0b;  /* App background */
+  --color-navy:    #0f0f12;  /* Header/footer chrome (legacy name) */
+  --color-surface: #141417;  /* Cards, page-header, raised panels */
+  --color-navy-mid:#1a1a1f;  /* Higher-elevation gradient end */
+  --color-teal-lt: #1c1c20;  /* Inline code bg, abbr pill bg */
+  --color-border:  #26262d;  /* Subtle borders / dividers */
+
+  /* Foreground */
+  --color-text:    #ededf0;  /* Primary text (17:1 on bg) */
+  --color-muted:   #8b8b94;  /* Secondary text (5.85:1 on bg) */
+
+  /* Accent (warm amber - Radix-aligned, NOT bright yellow) */
+  --color-teal:    #f1a10d;  /* Links, accents (9.27:1 on bg) - legacy name */
+  --color-orange:  #b45309;  /* Solid CTA bg (white text gives 5.02:1) */
+
+  /* Semantic status (dark-theme tuned) */
+  --color-success: #4ade80;  /* Pass / success (8.3:1) */
+  --color-warn:    #fcd34d;  /* Caution (12:1) */
+  --color-danger:  #f87171;  /* Error text (6.9:1) */
 
   --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'Cascadia Code', 'Fira Code', Consolas, monospace;
@@ -337,7 +347,6 @@ th { background: var(--color-bg); font-weight: 600; }
 }
 
 .tag-orange { background: rgba(180,83,9,.18); color: #fcd34d; }
-.tag-navy   { background: var(--color-teal); color: var(--color-navy); }
 
 /* --- Status Badges --- */
 .status-badge {

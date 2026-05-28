@@ -1,4 +1,4 @@
-﻿---
+---
 title: "The Case for Open AV Standards"
 description: "A technical and economic argument for why the professional AV industry should adopt openly published, freely implementable standards."
 pubDate: 2026-05-28
@@ -109,4 +109,4 @@ the will to use it. We believe it does.
 ---
 
 *This paper is published under CC BY 4.0. To suggest additions or corrections, open an issue
-on [GitHub](https://github.com/sane-av/sane-av).*
+on [GitHub](https://github.com/sane-av/sane-av.github.io).*

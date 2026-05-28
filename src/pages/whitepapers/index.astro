@@ -19,7 +19,7 @@ const papers = (await getCollection('whitepapers', ({ data }) => !data.draft))
       {papers.length === 0 ? (
         <p style="color:var(--color-muted)">
           No whitepapers yet.
-          <a href="https://github.com/sane-av/sane-av">Submit the first →</a>
+          <a href="https://github.com/sane-av/sane-av.github.io">Submit the first →</a>
         </p>
       ) : (
         <div class="card-grid">

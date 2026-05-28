@@ -28,7 +28,7 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
       )}
 
       {posts.length === 0 ? (
-        <p style="color:var(--color-muted)">No posts yet. <a href="https://github.com/sane-av/sane-av">Be the first to contribute!</a></p>
+        <p style="color:var(--color-muted)">No posts yet. <a href="https://github.com/sane-av/sane-av.github.io">Be the first to contribute!</a></p>
       ) : (
         <div class="card-grid">
           {posts.map((post) => (

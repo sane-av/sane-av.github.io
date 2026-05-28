@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Welcome to SANE"
 description: "Introducing the Society for AV Norms & Engineering - an open source alternative to proprietary AV standards bodies."
 pubDate: 2026-05-28
@@ -38,7 +38,7 @@ with attribution.
 
 ## How to get involved
 
-Everything lives on [GitHub](https://github.com/sane-av/sane-av). You can:
+Everything lives on [GitHub](https://github.com/sane-av/sane-av.github.io). You can:
 
 - **Propose a standard** by opening an RFC issue
 - **Improve the glossary** by submitting a PR

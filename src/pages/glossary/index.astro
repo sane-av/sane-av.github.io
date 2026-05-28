@@ -1,4 +1,4 @@
-﻿---
+---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
@@ -41,7 +41,7 @@ const letters = [...new Set(entries.map((e) => e.data.term[0].toUpperCase()))];
       {entries.length === 0 ? (
         <p style="color:var(--color-muted)">
           No glossary entries yet.
-          <a href="https://github.com/sane-av/sane-av">Contribute the first term →</a>
+          <a href="https://github.com/sane-av/sane-av.github.io">Contribute the first term →</a>
         </p>
       ) : (
         <ul class="glossary-list">
