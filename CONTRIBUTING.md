@@ -131,4 +131,4 @@ Data should be accurate and complete regardless of brand.
 By contributing to this repository, you agree that:
 - Your **code contributions** are licensed under [MIT](LICENSE)
 - Your **content contributions** (standards, blog posts, glossary, whitepapers, data) are
-  licensed under [CC BY 4.0](LICENSE-CONTENT)
+  licensed under [CC BY 4.0](CONTENT-LICENSE.md)
