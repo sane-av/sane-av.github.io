@@ -400,53 +400,6 @@ th { background: var(--color-navy-mid); font-weight: 600; color: var(--color-tex
 .meta-item { font-size: .875rem; }
 .meta-label { color: var(--color-muted); font-size: .75rem; text-transform: uppercase; letter-spacing: .07em; display: block; margin-bottom: .2rem; }
 
-/* --- Tool Card --- */
-.tool-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: 1.75rem;
-}
-
-.tool-card label {
-  display: block;
-  font-size: .875rem;
-  font-weight: 600;
-  margin-bottom: .4rem;
-  color: var(--color-text);
-}
-
-.tool-card input, .tool-card select {
-  width: 100%;
-  padding: .55rem .85rem;
-  border: 1px solid #3d3d48;
-  border-radius: var(--radius-md);
-  font-size: 1rem;
-  font-family: var(--font-sans);
-  margin-bottom: 1rem;
-  background: var(--color-surface);
-  color: var(--color-text);
-}
-
-.tool-card input:focus, .tool-card select:focus {
-  outline: 2px solid var(--color-teal);
-  outline-offset: 2px;
-}
-
-.tool-result {
-  background: var(--color-navy);
-  color: #fff;
-  border-radius: var(--radius-md);
-  padding: 1.25rem 1.5rem;
-  margin-top: 1rem;
-}
-
-.tool-result .result-value {
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--color-teal);
-}
-
 /* --- Glossary --- */
 .glossary-list { list-style: none; }
 .glossary-item {
@@ -527,19 +480,54 @@ th { background: var(--color-navy-mid); font-weight: 600; color: var(--color-tex
 .mt-3 { margin-top: 2.5rem; }
 .mb-1 { margin-bottom: 1.25rem; }
 .mb-2 { margin-bottom: 1.75rem; }
-.flex-wrap { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; }
+.flex-wrap { display: flex; gap: .5rem; flex-wrap: wrap;   align-items: center;
+}
+.footer-bottom a { color: rgba(255,255,255,.65); }
+.footer-desc { font-size: .85rem; line-height: 1.6; }
 .container-narrow { max-width: 680px; margin-inline: auto; }
 .container-medium { max-width: 800px; margin-inline: auto; }
 
 /* --- Tool Pages --- */
-.tool-card { margin-bottom: 1.5rem; }
+.tool-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+}
 .tool-card h2 { font-size: 1.1rem; margin-bottom: 1.25rem; }
 .tool-card label { display: block; margin: 1rem 0 .35rem; font-size: .875rem; font-weight: 600; color: var(--color-text); }
-.tool-card input[type="number"] { width: 100%; padding: .6rem .75rem; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-navy); color: var(--color-text); font-size: 1rem; }
-.tool-card input[type="number"]:focus { outline: 2px solid var(--color-teal); border-color: transparent; }
-.tool-result { background: var(--color-navy); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 1rem; margin-top: 1rem; }
+.tool-card input[type="number"] {
+  width: 100%;
+  padding: .6rem .75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-navy);
+  color: var(--color-text);
+  font-size: 1rem;
+  font-family: var(--font-sans);
+  margin-bottom: 1rem;
+}
+.tool-card input[type="number"]:focus {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 2px;
+  border-color: transparent;
+}
+.tool-result {
+  background: var(--color-navy);
+  color: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin-top: 1rem;
+}
 .tool-result-label { font-size: .8rem; text-transform: uppercase; letter-spacing: .07em; color: rgba(255,255,255,.6); margin-bottom: .5rem; }
-.result-value { font-size: 1.35rem; font-weight: 700; color: var(--color-teal); font-family: var(--font-mono); }
+.tool-result .result-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-teal);
+  font-family: var(--font-mono);
+}
 .emoji-xl { font-size: 2.5rem; }
 .emoji-lg { font-size: 2rem; }
 .btn-small { font-size: .875rem; padding: .5rem 1rem; }

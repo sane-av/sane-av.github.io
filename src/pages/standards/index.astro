@@ -6,7 +6,6 @@ import { formatDateMonthYear } from '../../lib/date';
 const standards = (await getCollection('standards'))
   .sort((a, b) => a.data.saneId.localeCompare(b.data.saneId));
 
-const statusOrder = { published: 0, review: 1, draft: 2, deprecated: 3 };
 const grouped = standards.reduce<Record<string, typeof standards>>((groups, standard) => {
   const status = standard.data.status;
   if (!groups[status]) groups[status] = [];

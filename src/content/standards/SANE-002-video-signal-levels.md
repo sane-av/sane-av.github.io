@@ -60,7 +60,7 @@ System designers shall:
 
 **EDID and HDCP considerations:** Active distribution systems shall preserve EDID and HDCP
 handshaking. Stripping HDCP in unauthorized contexts violates the HDCP specification and
-applicable law; this standard makes no recommendation to do so.
+applicable law; this standard does not endorse such practices.
 
 ### 3.2 SDI (Serial Digital Interface)
 

@@ -8,13 +8,13 @@ relatedTerms: ["lens shift", "zoom ratio", "screen gain", "projector placement"]
 **Throw ratio** is the relationship between a projector's **throw distance** (the distance from
 the lens to the screen) and the **screen width**. It is expressed as a dimensionless ratio.
 
-$$\text{Throw Ratio} = \frac{\text{Throw Distance}}{\text{Screen Width}}$$
+<p><strong>TR = Throw Distance / Screen Width</strong></p>
 
 ## Examples
 
 If a projector is placed 4.5 m from a 3.0 m wide screen:
 
-$$\text{TR} = \frac{4.5}{3.0} = 1.5$$
+<p><strong>TR = 4.5 / 3.0 = 1.5</strong></p>
 
 This lens has a throw ratio of **1.5:1** (or simply 1.5).
 

@@ -26,7 +26,7 @@ has been retained as the professional audio standard.
 |-------|-----|---------|-----|
 | +4 dBu | +4 | 1.228 V RMS | Pro audio nominal |
 | 0 dBu | 0 | 0.775 V RMS | Reference voltage |
-| −10 dBu | −10 | 0.245 V RMS | - |
+| −10 dBu | −10 | 0.245 V RMS | Consumer nominal |
 
 ## In Practice
 
