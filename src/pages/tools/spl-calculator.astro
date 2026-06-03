@@ -133,10 +133,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     fields.mv.value  = fmt(voltage * 1000, 2).toString();
 
     result.style.display = 'block';
-    resultText.innerHTML = `
-      <span class="result-value">${fmt(vToDBu(voltage), 2)} dBu</span>
-      &nbsp;/&nbsp; ${fmt(vToDBv(voltage), 2)} dBV &nbsp;/&nbsp; ${fmt(voltage, 4)} V RMS
-    `;
+    resultText.innerHTML = '';
+    const summary = document.createElement('span');
+    summary.className = 'result-value';
+    summary.textContent = `${fmt(vToDBu(voltage), 2)} dBu`;
+    resultText.appendChild(summary);
+    resultText.appendChild(document.createTextNode(` / ${fmt(vToDBv(voltage), 2)} dBV / ${fmt(voltage, 4)} V RMS`));
     updating = false;
   }
 

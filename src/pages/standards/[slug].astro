@@ -14,8 +14,8 @@ export async function getStaticPaths() {
 const { std } = Astro.props;
 const { Content } = await render(std);
 
-const pubDate = formatDateLong(std.data.pubDate);
-const updDate = std.data.updatedDate ? formatDateLong(std.data.updatedDate) : undefined;
+const dateStr = formatDateLong(std.data.pubDate);
+const updatedStr = std.data.updatedDate ? formatDateLong(std.data.updatedDate) : undefined;
 ---
 
 <BaseLayout title={`${std.data.saneId}: ${std.data.title}`} description={std.data.description}>
@@ -54,12 +54,12 @@ const updDate = std.data.updatedDate ? formatDateLong(std.data.updatedDate) : un
         </div>
         <div class="meta-item">
           <span class="meta-label">Published</span>
-          <span>{pubDate}</span>
+          <span>{dateStr}</span>
         </div>
-        {updDate && (
+        {updatedStr && (
           <div class="meta-item">
             <span class="meta-label">Last Updated</span>
-            <span>{updDate}</span>
+            <span>{updatedStr}</span>
           </div>
         )}
         <div class="meta-item">

@@ -65,7 +65,7 @@ Open an issue or PR for any site bugs, accessibility issues, or design improveme
 ## Development Setup
 
 ```bash
-git clone https://github.com/sane-av/sane-av.github.io.github.io.git
+git clone https://github.com/sane-av/sane-av.github.io
 cd sane-av
 npm install
 npm run dev     # dev server at http://localhost:4321

@@ -1,6 +1,5 @@
 ﻿---
 term: "dBu"
-abbreviation: "dBu"
 category: "Audio"
 relatedTerms: ["dBV", "dBFS", "nominal level", "gain structure"]
 ---

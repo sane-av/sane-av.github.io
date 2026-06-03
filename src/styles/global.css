@@ -189,9 +189,6 @@ th { background: var(--color-navy-mid); font-weight: 600; color: var(--color-tex
   text-decoration: none;
 }
 
-.site-nav a.active {
-  color: var(--color-teal);
-}
 
 /* --- Footer --- */
 .site-footer {
@@ -480,8 +477,7 @@ th { background: var(--color-navy-mid); font-weight: 600; color: var(--color-tex
 .mt-3 { margin-top: 2.5rem; }
 .mb-1 { margin-bottom: 1.25rem; }
 .mb-2 { margin-bottom: 1.75rem; }
-.flex-wrap { display: flex; gap: .5rem; flex-wrap: wrap;   align-items: center;
-}
+.flex-wrap { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; }
 .footer-bottom a { color: rgba(255,255,255,.65); }
 .footer-desc { font-size: .85rem; line-height: 1.6; }
 .container-narrow { max-width: 680px; margin-inline: auto; }
