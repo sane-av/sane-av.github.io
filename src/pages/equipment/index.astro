@@ -26,8 +26,8 @@ const categories = [...new Set(allEquipment.map((e) => e.category))].sort();
         An open, community-maintained database of AV equipment specs.
         All data is CC BY 4.0 - use it in your tools, reports, and designs.
       </p>
-      <div style="margin-top:.75rem">
-        <a href="https://github.com/sane-av/sane-av.github.io/issues/new?template=content_submission.yml&title=[Equipment]+" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:.875rem">
+      <div class="mt-1">
+        <a href="https://github.com/sane-av/sane-av.github.io/issues/new?template=content_submission.yml&title=[Equipment]+" target="_blank" rel="noopener" class="btn btn-primary btn-small">
           Submit Equipment Data →
         </a>
       </div>
@@ -44,11 +44,11 @@ const categories = [...new Set(allEquipment.map((e) => e.category))].sort();
         </select>
       </div>
 
-      <p id="eq-count" style="font-size:.875rem;color:var(--color-muted);margin-bottom:1rem">
+      <p id="eq-count" class="text-muted mb-1">
         {allEquipment.length} entries
       </p>
 
-      <div style="overflow-x:auto">
+      <div class="table-wrapper">
         <table id="eq-table">
           <thead>
             <tr>
@@ -67,7 +67,7 @@ const categories = [...new Set(allEquipment.map((e) => e.category))].sort();
                 <td><span class="tag">{item.category}</span></td>
                 <td>
                   {Object.entries(item.specs).slice(0, 3).map(([k, v]) => (
-                    <div style="font-size:.8rem"><span style="color:var(--color-muted)">{k}:</span> {v}</div>
+                    <div class="text-small"><span class="text-muted">{k}:</span> {v}</div>
                   ))}
                 </td>
                 <td>
@@ -91,13 +91,13 @@ const categories = [...new Set(allEquipment.map((e) => e.category))].sort();
   const countEl = document.getElementById('eq-count')!;
 
   function filter() {
-    const q = search.value.toLowerCase();
-    const cat = catSelect.value;
+    const query = search.value.toLowerCase();
+    const category = catSelect.value;
     let visible = 0;
     rows.forEach((row) => {
-      const matchSearch = !q || row.dataset.search?.includes(q);
-      const matchCat = !cat || row.dataset.cat === cat;
-      const show = matchSearch && matchCat;
+      const matchSearch = !query || row.dataset.search?.includes(query);
+      const matchCategory = !category || row.dataset.cat === category;
+      const show = matchSearch && matchCategory;
       row.style.display = show ? '' : 'none';
       if (show) visible++;
     });

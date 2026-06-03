@@ -19,13 +19,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   </div>
 
   <section class="section">
-    <div class="container" style="max-width:680px">
+    <div class="container container-narrow">
 
       <!-- dBu ↔ dBV ↔ Voltage -->
-      <div class="tool-card" style="margin-bottom:1.5rem">
-        <h2 style="font-size:1.1rem;margin-bottom:1.25rem">Level Converter</h2>
+      <div class="tool-card">
+        <h2>Level Converter</h2>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+        <div class="grid-2">
           <div>
             <label for="inp-dbu">dBu</label>
             <input id="inp-dbu" type="number" step="0.1" placeholder="e.g. 4" />
@@ -45,16 +45,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </div>
 
         <div class="tool-result" id="level-result" style="display:none">
-          <div style="font-size:.8rem;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.6);margin-bottom:.5rem">Result</div>
+          <div class="tool-result-label">Result</div>
           <div id="level-result-text"></div>
         </div>
       </div>
 
       <!-- dB ratio -->
-      <div class="tool-card" style="margin-bottom:1.5rem">
-        <h2 style="font-size:1.1rem;margin-bottom:1.25rem">Level Difference</h2>
+      <div class="tool-card">
+        <h2>Level Difference</h2>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+        <div class="grid-2">
           <div>
             <label for="ratio-v1">Voltage 1 (V)</label>
             <input id="ratio-v1" type="number" step="0.001" placeholder="e.g. 1.228" />
@@ -66,14 +66,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </div>
 
         <div class="tool-result" id="ratio-result" style="display:none">
-          <div style="font-size:.8rem;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.6);margin-bottom:.5rem">Difference</div>
+          <div class="tool-result-label">Difference</div>
           <div class="result-value" id="ratio-result-text"></div>
         </div>
       </div>
 
       <!-- Reference levels table -->
       <div class="tool-card">
-        <h2 style="font-size:1.1rem;margin-bottom:1rem">Common Reference Levels</h2>
+        <h2>Common Reference Levels</h2>
         <table>
           <thead>
             <tr><th>Level</th><th>dBu</th><th>dBV</th><th>V RMS</th><th>Use</th></tr>
@@ -118,24 +118,24 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   function updateFrom(source: keyof typeof fields) {
     if (updating) return;
     updating = true;
-    const raw = parseFloat(fields[source].value);
-    if (isNaN(raw)) { updating = false; return; }
+    const inputValue = parseFloat(fields[source].value);
+    if (isNaN(inputValue)) { updating = false; return; }
 
-    let v: number;
-    if (source === 'dbu')  v = dbuToV(raw);
-    else if (source === 'dbv') v = dbvToV(raw);
-    else if (source === 'mv')  v = raw / 1000;
-    else v = raw;
+    let voltage: number;
+    if (source === 'dbu')  voltage = dbuToV(inputValue);
+    else if (source === 'dbv') voltage = dbvToV(inputValue);
+    else if (source === 'mv')  voltage = inputValue / 1000;
+    else voltage = inputValue;
 
-    fields.dbu.value = fmt(vToDBu(v)).toString();
-    fields.dbv.value = fmt(vToDBv(v)).toString();
-    fields.v.value   = fmt(v).toString();
-    fields.mv.value  = fmt(v * 1000, 2).toString();
+    fields.dbu.value = fmt(vToDBu(voltage)).toString();
+    fields.dbv.value = fmt(vToDBv(voltage)).toString();
+    fields.v.value   = fmt(voltage).toString();
+    fields.mv.value  = fmt(voltage * 1000, 2).toString();
 
     result.style.display = 'block';
     resultText.innerHTML = `
-      <span class="result-value">${fmt(vToDBu(v), 2)} dBu</span>
-      &nbsp;/&nbsp; ${fmt(vToDBv(v), 2)} dBV &nbsp;/&nbsp; ${fmt(v, 4)} V RMS
+      <span class="result-value">${fmt(vToDBu(voltage), 2)} dBu</span>
+      &nbsp;/&nbsp; ${fmt(vToDBv(voltage), 2)} dBV &nbsp;/&nbsp; ${fmt(voltage, 4)} V RMS
     `;
     updating = false;
   }

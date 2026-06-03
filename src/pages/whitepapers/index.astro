@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { formatDateShort } from '../../lib/date';
 
 const papers = (await getCollection('whitepapers', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
@@ -17,7 +18,7 @@ const papers = (await getCollection('whitepapers', ({ data }) => !data.draft))
   <section class="section">
     <div class="container">
       {papers.length === 0 ? (
-        <p style="color:var(--color-muted)">
+        <p class="text-muted">
           No whitepapers yet.
           <a href="https://github.com/sane-av/sane-av.github.io">Submit the first →</a>
         </p>
@@ -27,7 +28,7 @@ const papers = (await getCollection('whitepapers', ({ data }) => !data.draft))
             <div class="card">
               <div class="card-meta">
                 <time datetime={paper.data.pubDate.toISOString()}>
-                  {paper.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                  {formatDateShort(paper.data.pubDate)}
                 </time>
                 <span>{paper.data.authors.join(', ')}</span>
               </div>

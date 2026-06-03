@@ -11,7 +11,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   </div>
 
   <section class="section">
-    <div class="container" style="max-width:800px">
+    <div class="container container-medium">
 
       <div class="rfc-box">
         <h3>Ready to propose a standard?</h3>
@@ -19,7 +19,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           Open a GitHub issue using the RFC template. Anyone can propose; the community discusses;
           consensus drives ratification.
         </p>
-        <p style="margin-top:.75rem">
+        <p class="mt-1">
           <a
             href="https://github.com/sane-av/sane-av.github.io/issues/new?template=rfc.yml"
             target="_blank" rel="noopener"
@@ -32,7 +32,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
       <h2>How the Process Works</h2>
 
-      <div style="display:grid;gap:1rem;margin-top:1.25rem;margin-bottom:2rem">
+      <div class="steps">
         {[
           { step: '1', title: 'Proposal', body: 'Open a GitHub issue using the RFC template. Describe the problem, proposed solution, and affected AV domains.' },
           { step: '2', title: 'Discussion', body: 'The community reviews the RFC. Comments, concerns, and proposed amendments are discussed openly on the issue.' },
@@ -40,20 +40,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           { step: '4', title: 'Review Period', body: 'The PR enters a minimum 14-day public review. Major changes restart the clock.' },
           { step: '5', title: 'Ratification', body: 'After review with no blocking objections, the PR is merged. The standard is published with status: published.' },
         ].map(({ step, title, body }) => (
-          <div style="display:flex;gap:1rem;align-items:flex-start">
-            <div style="min-width:2.25rem;height:2.25rem;background:var(--color-teal);color:var(--color-navy);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;flex-shrink:0">
-              {step}
-            </div>
+          <div class="step">
+            <div class="step-number">{step}</div>
             <div>
-              <h3 style="font-size:1rem;margin-bottom:.25rem">{title}</h3>
-              <p style="font-size:.9rem;color:var(--color-muted);margin:0">{body}</p>
+              <h3 class="step-title">{title}</h3>
+              <p class="step-body">{body}</p>
             </div>
           </div>
         ))}
       </div>
 
       <h2>RFC Statuses</h2>
-      <table style="margin-top:1rem">
+      <table class="mt-1">
         <thead>
           <tr><th>Status</th><th>Meaning</th></tr>
         </thead>
@@ -65,8 +63,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </tbody>
       </table>
 
-      <h2 style="margin-top:2rem">Principles</h2>
-      <ul class="prose" style="margin-top:1rem">
+      <h2 class="mt-3">Principles</h2>
+      <ul class="prose mt-1">
         <li><strong>Rough consensus, not unanimity.</strong> We seek broad agreement, not perfection.</li>
         <li><strong>Technical merit first.</strong> Arguments backed by evidence and real-world data carry more weight.</li>
         <li><strong>No IP encumbrances.</strong> All standards must be implementable freely without patent licensing fees.</li>

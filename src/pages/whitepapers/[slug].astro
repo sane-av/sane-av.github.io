@@ -1,6 +1,7 @@
 ---
 import ContentLayout from '../../layouts/ContentLayout.astro';
 import { getCollection, render } from 'astro:content';
+import { formatDateLong } from '../../lib/date';
 
 export async function getStaticPaths() {
   const papers = await getCollection('whitepapers', ({ data }) => !data.draft);
@@ -13,7 +14,7 @@ export async function getStaticPaths() {
 const { paper } = Astro.props;
 const { Content } = await render(paper);
 
-const dateStr = paper.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+const dateStr = formatDateLong(paper.data.pubDate);
 ---
 
 <ContentLayout
@@ -21,12 +22,12 @@ const dateStr = paper.data.pubDate.toLocaleDateString('en-US', { year: 'numeric'
   description={paper.data.description}
   breadcrumb={[{ label: 'Whitepapers', href: '/whitepapers' }]}
 >
-  <div class="card-meta" style="margin-bottom:1.25rem">
+  <div class="card-meta mb-1">
     <time datetime={paper.data.pubDate.toISOString()}>{dateStr}</time>
     <span>By {paper.data.authors.join(', ')}</span>
   </div>
   {paper.data.tags.length > 0 && (
-    <div class="card-tags" style="margin-bottom:1.75rem">
+    <div class="card-tags mb-2">
       {paper.data.tags.map((tag) => <span class="tag">{tag}</span>)}
     </div>
   )}

@@ -1,20 +1,21 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { formatDateMonthYear } from '../../lib/date';
 
 const standards = (await getCollection('standards'))
   .sort((a, b) => a.data.saneId.localeCompare(b.data.saneId));
 
 const statusOrder = { published: 0, review: 1, draft: 2, deprecated: 3 };
-const grouped = standards.reduce<Record<string, typeof standards>>((acc, std) => {
-  const s = std.data.status;
-  if (!acc[s]) acc[s] = [];
-  acc[s].push(std);
-  return acc;
+const grouped = standards.reduce<Record<string, typeof standards>>((groups, standard) => {
+  const status = standard.data.status;
+  if (!groups[status]) groups[status] = [];
+  groups[status].push(standard);
+  return groups;
 }, {});
 
 const orderedStatuses = (['published', 'review', 'draft', 'deprecated'] as const)
-  .filter((s) => grouped[s]?.length);
+  .filter((status) => grouped[status]?.length);
 ---
 
 <BaseLayout title="Standards" description="Free, open AV standards from the SANE community.">
@@ -22,8 +23,8 @@ const orderedStatuses = (['published', 'review', 'draft', 'deprecated'] as const
     <div class="container">
       <h1>SANE Standards</h1>
       <p>Free, open, community-developed standards for professional AV systems.</p>
-      <div style="margin-top:1rem">
-        <a href="/rfc" class="btn btn-primary" style="font-size:.875rem">
+        <div class="mt-1">
+        <a href="/rfc" class="btn btn-primary btn-small">
           Propose a Standard via RFC →
         </a>
       </div>
@@ -36,33 +37,33 @@ const orderedStatuses = (['published', 'review', 'draft', 'deprecated'] as const
         <div class="rfc-box">
           <h3>No standards published yet</h3>
           <p>Be the first to contribute! Open an RFC on GitHub to propose the first SANE standard.</p>
-          <p style="margin-top:.75rem">
-            <a href="/rfc" class="btn btn-teal" style="font-size:.875rem">Open an RFC →</a>
+          <p class="mt-1">
+            <a href="/rfc" class="btn btn-teal btn-small">Open an RFC →</a>
           </p>
         </div>
       ) : (
         orderedStatuses.map((status) => (
-          <div style="margin-bottom:2.5rem">
-            <h2 style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;font-size:1.2rem">
+          <div class="mb-3">
+            <h2 class="section-heading">
               <span class={`status-badge status-${status}`}>{status}</span>
-              <span style="color:var(--color-muted);font-weight:400;font-size:.9rem">
+              <span class="text-muted font-normal">
                 {grouped[status].length} standard{grouped[status].length !== 1 ? 's' : ''}
               </span>
             </h2>
             <div class="card-grid">
-              {grouped[status].map((std) => (
+              {grouped[status].map((standard) => (
                 <div class="card">
                   <div class="card-meta">
-                    <span style="font-family:var(--font-mono);font-weight:700;color:var(--color-teal)">{std.data.saneId}</span>
-                    <span>v{std.data.version}</span>
-                    <time datetime={std.data.pubDate.toISOString()}>
-                      {std.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
+                    <span class="sane-id">{standard.data.saneId}</span>
+                    <span>v{standard.data.version}</span>
+                    <time datetime={standard.data.pubDate.toISOString()}>
+                      {formatDateMonthYear(standard.data.pubDate)}
                     </time>
                   </div>
-                  <h3><a href={`/standards/${std.id}`}>{std.data.title}</a></h3>
-                  <p>{std.data.description}</p>
+                  <h3><a href={`/standards/${standard.id}`}>{standard.data.title}</a></h3>
+                  <p>{standard.data.description}</p>
                   <div class="card-tags">
-                    {std.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+                    {standard.data.tags.map((tag) => <span class="tag">{tag}</span>)}
                   </div>
                 </div>
               ))}

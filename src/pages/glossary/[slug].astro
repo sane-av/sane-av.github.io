@@ -37,8 +37,8 @@ const { Content } = await render(entry);
       </article>
 
       {entry.data.relatedTerms.length > 0 && (
-        <div style="margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--color-border)">
-          <h3 style="margin-bottom:.75rem">Related Terms</h3>
+        <div class="related-terms">
+          <h3 class="mb-1">Related Terms</h3>
           <div class="card-tags">
             {entry.data.relatedTerms.map((t) => <span class="tag">{t}</span>)}
           </div>
@@ -46,7 +46,7 @@ const { Content } = await render(entry);
       )}
 
       <hr />
-      <p style="font-size:.875rem;color:var(--color-muted)">
+      <p class="text-muted">
         Want to improve this definition?
         <a href="https://github.com/sane-av/sane-av.github.io/issues/new?template=content_submission.yml" target="_blank" rel="noopener">
           Submit a suggestion on GitHub

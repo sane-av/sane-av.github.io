@@ -31,9 +31,9 @@ const tools = [
     <div class="container">
       <div class="card-grid">
         {tools.map((tool) => (
-          <a href={tool.href} class="card" style="text-decoration:none;color:inherit">
-            <div style="font-size:2.5rem">{tool.icon}</div>
-            <h3 style="margin-top:.25rem">{tool.title}</h3>
+          <a href={tool.href} class="card tool-card-link">
+            <div class="emoji-xl">{tool.icon}</div>
+            <h3 class="mt-1">{tool.title}</h3>
             <p>{tool.description}</p>
             <div class="card-tags">
               {tool.tags.map((t) => <span class="tag">{t}</span>)}
@@ -42,14 +42,14 @@ const tools = [
         ))}
       </div>
 
-      <div class="rfc-box" style="margin-top:2.5rem">
+      <div class="rfc-box mt-3">
         <h3>Missing a tool?</h3>
         <p>
           Open an issue on GitHub to request a calculator, or submit a PR with your own.
           All tools are client-side JavaScript - no server required.
         </p>
-        <p style="margin-top:.75rem">
-          <a href="https://github.com/sane-av/sane-av.github.io/issues/new" target="_blank" rel="noopener" class="btn btn-teal" style="font-size:.875rem">
+        <p class="mt-1">
+          <a href="https://github.com/sane-av/sane-av.github.io/issues/new" target="_blank" rel="noopener" class="btn btn-teal btn-small">
             Request a Tool →
           </a>
         </p>

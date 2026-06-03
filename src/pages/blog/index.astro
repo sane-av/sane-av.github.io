@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { formatDateShort } from '../../lib/date';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
@@ -19,8 +20,8 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
   <section class="section">
     <div class="container">
       {allTags.length > 0 && (
-        <div style="margin-bottom:1.75rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center">
-          <span style="font-size:.85rem;color:var(--color-muted);font-weight:600">Filter:</span>
+        <div class="flex-wrap mb-2">
+          <span class="text-small font-semibold">Filter:</span>
           {allTags.map((tag) => (
             <span class="tag">{tag}</span>
           ))}
@@ -28,14 +29,14 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
       )}
 
       {posts.length === 0 ? (
-        <p style="color:var(--color-muted)">No posts yet. <a href="https://github.com/sane-av/sane-av.github.io">Be the first to contribute!</a></p>
+        <p class="text-muted">No posts yet. <a href="https://github.com/sane-av/sane-av.github.io">Be the first to contribute!</a></p>
       ) : (
         <div class="card-grid">
           {posts.map((post) => (
             <div class="card">
               <div class="card-meta">
                 <time datetime={post.data.pubDate.toISOString()}>
-                  {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                  {formatDateShort(post.data.pubDate)}
                 </time>
                 <span>{post.data.author}</span>
               </div>

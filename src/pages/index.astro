@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { formatDateShort, formatDateMonthYear } from '../lib/date';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
@@ -34,16 +35,16 @@ const standards = (await getCollection('standards', ({ data }) => data.status ==
   <!-- Why SANE? -->
   <section class="section">
     <div class="container">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem">
+      <div class="value-grid">
         {[
-          { icon: '📖', head: 'Free & Open', body: 'Every standard, document, and dataset is freely available under CC BY 4.0. No paywalls, ever.' },
-          { icon: '🤝', head: 'Community Driven', body: 'Standards are proposed and refined through an open RFC process. Anyone can contribute.' },
-          { icon: '🛠️', head: 'Practical First', body: 'Built by working AV professionals for real-world deployment. Theory informed by practice.' },
-          { icon: '🔄', head: 'Version Controlled', body: 'Every change is tracked in Git. Audit the full history of any standard or data entry.' },
-        ].map(({ icon, head, body }) => (
+          { icon: '📖', heading: 'Free & Open', body: 'Every standard, document, and dataset is freely available under CC BY 4.0. No paywalls, ever.' },
+          { icon: '🤝', heading: 'Community Driven', body: 'Standards are proposed and refined through an open RFC process. Anyone can contribute.' },
+          { icon: '🛠️', heading: 'Practical First', body: 'Built by working AV professionals for real-world deployment. Theory informed by practice.' },
+          { icon: '🔄', heading: 'Version Controlled', body: 'Every change is tracked in Git. Audit the full history of any standard or data entry.' },
+        ].map(({ icon, heading, body }) => (
           <div class="card">
-            <div style="font-size:2rem">{icon}</div>
-            <h3>{head}</h3>
+            <div class="emoji-lg">{icon}</div>
+              <h3>{heading}</h3>
             <p>{body}</p>
           </div>
         ))}
@@ -53,7 +54,7 @@ const standards = (await getCollection('standards', ({ data }) => data.status ==
 
   <!-- Latest Standards -->
   {standards.length > 0 && (
-    <section class="section" style="background:var(--color-surface);border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border)">
+    <section class="section section-elevated">
       <div class="container">
         <h2 class="section-title">Latest Standards</h2>
         <p class="section-sub">Published SANE standards, free to use and implement.</p>
@@ -75,7 +76,7 @@ const standards = (await getCollection('standards', ({ data }) => data.status ==
             </div>
           ))}
         </div>
-        <p style="margin-top:1.5rem"><a href="/standards" class="btn btn-teal">All Standards →</a></p>
+        <p class="mt-2"><a href="/standards" class="btn btn-teal">All Standards →</a></p>
       </div>
     </section>
   )}
@@ -91,7 +92,7 @@ const standards = (await getCollection('standards', ({ data }) => data.status ==
             <div class="card">
               <div class="card-meta">
                 <time datetime={post.data.pubDate.toISOString()}>
-                  {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                  {formatDateShort(post.data.pubDate)}
                 </time>
                 <span>{post.data.author}</span>
               </div>
@@ -105,20 +106,20 @@ const standards = (await getCollection('standards', ({ data }) => data.status ==
             </div>
           ))}
         </div>
-        <p style="margin-top:1.5rem"><a href="/blog" class="btn btn-teal">All Posts →</a></p>
+        <p class="mt-2"><a href="/blog" class="btn btn-teal">All Posts →</a></p>
       </div>
     </section>
   )}
 
   <!-- CTA -->
-  <section class="section" style="background:var(--color-navy);color:#fff;text-align:center">
+  <section class="section section-cta">
     <div class="container">
-      <h2 style="color:#fff;margin-bottom:.75rem">Ready to Contribute?</h2>
-      <p style="color:rgba(255,255,255,.75);max-width:520px;margin-inline:auto;margin-bottom:1.75rem">
+      <h2>Ready to Contribute?</h2>
+      <p class="cta-text">
         SANE is built by the community. Submit an RFC, improve documentation,
         add equipment data, or just spread the word.
       </p>
-      <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap">
+      <div class="cta-actions">
         <a href="/contributing" class="btn btn-primary">Contribution Guide</a>
         <a href="/rfc" class="btn btn-outline">Open an RFC</a>
       </div>

@@ -19,10 +19,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   </div>
 
   <section class="section">
-    <div class="container" style="max-width:680px">
+    <div class="container container-narrow">
 
-      <div class="tool-card" style="margin-bottom:1.5rem">
-        <p style="font-size:.875rem;color:var(--color-muted);margin-bottom:1.25rem">
+      <div class="tool-card">
+        <p class="text-muted mb-1">
           <strong>Formula:</strong> Throw Ratio = Throw Distance ÷ Screen Width &nbsp;|&nbsp;
           Leave one field blank to solve for it.
         </p>
@@ -36,22 +36,22 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <label for="tr-width">Screen Width (m)</label>
         <input id="tr-width" type="number" step="0.01" placeholder="e.g. 3.0" min="0" />
 
-        <button id="tr-calc" class="btn btn-teal" style="width:100%;justify-content:center;margin-top:.25rem">
+        <button id="tr-calc" class="btn btn-teal btn-full mt-1">
           Calculate
         </button>
 
         <div class="tool-result" id="tr-result" style="display:none">
-          <div style="font-size:.8rem;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.6);margin-bottom:.5rem">Result</div>
+          <div class="tool-result-label">Result</div>
           <div class="result-value" id="tr-result-value"></div>
-          <div id="tr-result-sub" style="margin-top:.5rem;font-size:.9rem;color:rgba(255,255,255,.75)"></div>
+          <div id="tr-result-sub" class="text-muted mt-1"></div>
         </div>
 
-        <div id="tr-error" style="display:none;color:var(--color-danger);font-size:.875rem;margin-top:.75rem"></div>
+        <div id="tr-error" class="text-danger mt-1" style="display:none"></div>
       </div>
 
       <!-- Reference table -->
       <div class="tool-card">
-        <h2 style="font-size:1.1rem;margin-bottom:1rem">Common Throw Ratios</h2>
+        <h2>Common Throw Ratios</h2>
         <table>
           <thead>
             <tr><th>Lens Type</th><th>Typical TR Range</th><th>Notes</th></tr>
@@ -63,7 +63,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             <tr><td>Long throw</td><td>2.5 – 8.0+</td><td>Large venues, rear projection</td></tr>
           </tbody>
         </table>
-        <p style="font-size:.8rem;color:var(--color-muted);margin-top:.5rem">
+        <p class="note">
           Always verify throw ratio specs from the manufacturer's datasheet for your specific lens.
         </p>
       </div>
