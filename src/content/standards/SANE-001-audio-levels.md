@@ -130,7 +130,3 @@ Equipment claiming compliance with SANE-001 shall:
 - AES17: AES standard method for digital audio engineering - Measurement of digital audio
   equipment
 - ITU-R BS.468: Measurement of audio-frequency noise voltage level in sound broadcasting
-
----
-
-*This standard is published under CC BY 4.0. To propose amendments, open an RFC issue on GitHub.*

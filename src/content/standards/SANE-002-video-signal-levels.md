@@ -98,7 +98,3 @@ short runs (< 0.5 m) with identical termination.
 - SMPTE ST 292-1: 1.5 Gb/s Signal/Data Serial Interface
 - SMPTE ST 424: 3 Gb/s Signal/Data Serial Interface
 - CEA-861: A DTV Profile for Uncompressed High Speed Digital Interfaces
-
----
-
-*This standard is in review under CC BY 4.0. Submit feedback via GitHub.*
