@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
-  - name: RFC — Propose a Standard
-    url: https://github.com/sane-av/sane-av/issues/new?template=rfc.yml
+  - name: RFC - Propose a Standard
+    url: https://github.com/sane-av/sane-av.github.io/issues/new?template=rfc.yml
     about: Propose a new SANE standard or amendment to an existing one.
   - name: Community Discussion
-    url: https://github.com/sane-av/sane-av/discussions
+    url: https://github.com/sane-av/sane-av.github.io/discussions
     about: General questions, ideas, and community discussion.

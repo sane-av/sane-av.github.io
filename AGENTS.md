@@ -24,22 +24,41 @@ easy to repeat as mistakes.
 ## 2. Repository layout
 
 ```
-.github/workflows/deploy.yml  # CI/CD - Node 24-native action versions only
-astro.config.mjs              # `site` MUST be set for sitemap & canonical URLs
+.github/workflows/deploy.yml     # CI/CD - Node 24-native action versions only
+.github/ISSUE_TEMPLATE/          # RFC and content submission templates
+.github/pull_request_template.md # PR description template
+.vscode/                         # Extensions + launch config
+astro.config.mjs                 # `site` MUST be set for sitemap & canonical URLs
+public/
+  favicon.ico, favicon.svg       # Site favicons
 src/
-  content.config.ts           # Zod schemas for all content collections
+  content.config.ts              # Zod schemas for all content collections
   content/
-    standards/                # SANE-NNN-*.md - normative documents
-    glossary/                 # term entries (saneId-style refs encouraged)
-    blog/                     # blog posts
-    whitepapers/              # long-form articles
-  data/                       # JSON/YAML data (e.g. equipment registry)
-  layouts/BaseLayout.astro    # site shell (header, footer, meta)
-  pages/                      # routes; folder index.astro + [slug].astro
-  styles/global.css           # SINGLE stylesheet - all theme + components
-LICENSE                       # MIT (code)
-CONTENT-LICENSE.md            # CC BY 4.0 (content) - DO NOT rename to LICENSE-*
-                              # (GitHub's license scanner will flag it)
+    standards/                   # SANE-NNN-*.md - normative documents
+    glossary/                    # term entries (saneId-style refs encouraged)
+    blog/                        # blog posts
+    whitepapers/                 # long-form articles
+  data/equipment/                # JSON equipment specs + schema.json
+  layouts/
+    BaseLayout.astro             # site shell (header, footer, meta)
+    ContentLayout.astro          # page shell with breadcrumb nav
+  pages/
+    index.astro                  # home page (hero, latest standards/blog, CTA)
+    contributing.astro           # standalone contribution guide page
+    blog/                        # index.astro + [slug].astro
+    standards/                   # index.astro + [slug].astro
+    glossary/                    # index.astro + [slug].astro
+    whitepapers/                 # index.astro + [slug].astro
+    rfc/                         # index.astro (static RFC process page)
+    equipment/                   # index.astro (filterable equipment table)
+    tools/
+      index.astro                # tools listing page (4 entries, 2 implemented)
+      spl-calculator.astro       # dBu/dBV/voltage + level difference calculators
+      throw-ratio.astro          # projector throw ratio solver
+  styles/global.css              # SINGLE stylesheet (~530 lines) - all theme + components
+LICENSE                          # MIT (code)
+CONTENT-LICENSE.md               # CC BY 4.0 (content) - DO NOT rename to LICENSE-*
+                                 # (GitHub's license scanner will flag it)
 ```
 
 ## 3. Design system - read this before changing colors
@@ -89,15 +108,15 @@ reverted. See the comments at the top of [src/styles/global.css](src/styles/glob
 The repo lives on Windows. `src/styles/global.css` (and possibly other files
 written by PowerShell scripts) have **CRLF line endings**.
 
-### `replace_string_in_file` and `multi_replace_string_in_file` silently fail on CRLF files for multi-line strings.
+### Multi-line `edit` tool operations silently fail on CRLF files.
 
 The tool reports success, the file is unchanged. This has happened multiple times.
 
 **Workarounds**:
 
-1. **Single-line replacements**: usually work. Always verify with a grep after.
+1. **Single-line replacements**: usually work. Always verify with `grep` after.
 
-2. **Multi-line replacements on CRLF files**: use PowerShell `[System.IO.File]::ReadAllText/.Replace/.WriteAllText`. Write the script to a `.ps1` file first; chained heredocs piped through `run_in_terminal` get mangled by the shell:
+2. **Multi-line replacements on CRLF files**: use PowerShell `[System.IO.File]::ReadAllText/.Replace/.WriteAllText`. Write the script to a `.ps1` file first; chained heredocs piped through `bash` get mangled by the shell:
 
    ```powershell
    $p = 'C:\dev\sane-av\src\styles\global.css'
@@ -107,7 +126,7 @@ The tool reports success, the file is unchanged. This has happened multiple time
    [System.IO.File]::WriteAllText($p, $cLf.Replace("`n","`r`n"))
    ```
 
-3. **Verify every edit** with `Select-String` or `grep_search` immediately.
+3. **Verify every edit** with `grep` immediately.
 
 ## 5. CI/CD - GitHub Actions versions
 
@@ -126,14 +145,24 @@ Do **not** add `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24` - the pinned major versions 
 
 ### Standards (`src/content/standards/`)
 - Filename: `SANE-NNN-kebab-case-title.md`
-- Frontmatter must satisfy the schema in [src/content.config.ts](src/content.config.ts) (`saneId`, `version`, `status`, `pubDate`, `description`, `tags`, optional `relatedStandards`).
+- Frontmatter must satisfy the schema in [src/content.config.ts](src/content.config.ts). Required fields: `saneId`, `title`, `description`, `status`, `version`, `pubDate`, `authors`. Optional: `updatedDate`, `tags`, `relatedStandards`.
 - `status`: one of `published`, `review`, `draft`, `deprecated`. Determines badge color.
 - Use RFC 2119 normative language (`MUST`, `SHOULD`, `MAY`).
 - Cross-reference other standards as `[SANE-001](/standards/SANE-001-audio-levels)`.
 
+### Blog (`src/content/blog/`)
+- Filename: kebab-case (e.g. `welcome-to-sane.md`)
+- Required frontmatter: `title`, `description`, `pubDate`, `author`. Optional: `updatedDate`, `tags`, `draft`.
+- `draft: true` hides the post from listings and RSS (filtered in `getCollection` calls).
+
 ### Glossary (`src/content/glossary/`)
-- One term per file. Use `abbr` for the short form (renders as a pill).
+- One term per file. Filename is kebab-case term name (e.g. `gain-structure.md`).
+- Required frontmatter: `term`, `category`. Optional: `abbreviation` (renders as a pill), `relatedTerms`.
 - Cross-link to standards and other glossary terms where relevant.
+
+### Whitepapers (`src/content/whitepapers/`)
+- Required frontmatter: `title`, `description`, `pubDate`, `authors`. Optional: `tags`, `draft`.
+- `draft: true` hides the paper from listings (filtered in `getCollection` calls).
 
 ### Punctuation
 - **No em-dashes (`U+2014`).** Use ` - ` (space-hyphen-space) or `: ` instead. This is enforced; a prior pass removed all 49 from the repo.
@@ -160,7 +189,7 @@ Commit messages are imperative, lowercase after the type, no trailing period.
 | Pitfall | Symptom | Prevention |
 |---|---|---|
 | Using `--color-navy` as text color | Element invisible on cards | Use `--color-text` or `--color-teal` for SANE IDs; navy is surface chrome only |
-| Multi-line `replace_string_in_file` on global.css | "Success" reported, no change | Use PowerShell raw replace via `.ps1` script |
+| Multi-line `edit` on global.css | "Success" reported, no change | Use PowerShell raw replace via `.ps1` script |
 | Adding bright accents | "Looks like a warning, not a link" | Stick to Radix amber-11 family; muted, not saturated |
 | Renaming a CSS token | Templates break silently (inline `style=`) | Add new token as alias; sweep templates first; never remove the old name without verifying with grep |
 | Creating `LICENSE-CONTENT` file | GitHub flags repo as "Unknown licenses found" | Name it `CONTENT-LICENSE.md` (any name not starting with `LICENSE`) |
@@ -176,16 +205,16 @@ Before `git add`:
 3. No `--color-navy` / `--color-navy-mid` used as text color.
 4. No em-dashes introduced (grep `[\u2014]`).
 5. No `github.com/sane-av/sane-av/` (missing `.github.io`).
-6. If you edited a CRLF file with multi-line replacements, you verified the change with `Select-String`.
+6. If you edited a CRLF file with multi-line replacements, you verified the change with `grep`.
 
 ## 10. What NOT to do
 
 - Do not add a light-mode toggle "to be nice". The site is intentionally dark-only; light mode would require duplicating every token and re-validating contrast on every component. If genuinely needed, open an RFC first.
-- Do not introduce a CSS framework (Tailwind, Bootstrap). The site is ~450 lines of hand-written CSS - keeping it that way is a feature.
+- Do not introduce a CSS framework (Tailwind, Bootstrap). The site is ~530 lines of hand-written CSS - keeping it that way is a feature.
 - Do not add client-side JS frameworks (React, Vue, Svelte). Astro static + tiny inline scripts is the contract.
 - Do not auto-add docstrings, type annotations, or comments to code you did not change.
 - Do not "improve" file structure (extracting components, splitting CSS, etc.) without an explicit ask. Small repo; flat is fine.
 
 ---
 
-*Last updated: May 2026. If something here is outdated, fix it in the same PR as the change that outdated it.*
+*Last updated: June 2026. If something here is outdated, fix it in the same PR as the change that outdated it.*

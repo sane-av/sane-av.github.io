@@ -10,7 +10,7 @@ interface Props {
 const {
   title,
   description = 'SANE - Society for AV Norms & Engineering. Open source AV standards, data, and tools.',
-  ogImage = '/og-default.png',
+  ogImage,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -29,7 +29,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:image" content={ogImage} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
     <meta property="og:type" content="website" />
 
     <!-- Twitter Card -->
@@ -104,7 +104,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         <div class="footer-bottom">
           <span>
             &copy; {new Date().getFullYear()} SANE Contributors.
-            Code: <a href="/license" style="color:rgba(255,255,255,.65)">MIT</a> &bull;
+            Code: <a href="https://github.com/sane-av/sane-av.github.io/blob/main/LICENSE" style="color:rgba(255,255,255,.65)">MIT</a> &bull;
             Content: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.65)">CC BY 4.0</a>
           </span>
           <span>

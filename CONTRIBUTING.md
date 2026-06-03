@@ -25,7 +25,7 @@ personal attacks are not.
 
 ### Propose or Improve a Standard
 
-Open a [GitHub issue using the RFC template](https://github.com/sane-av/sane-av/issues/new?template=rfc.yml).
+Open a [GitHub issue using the RFC template](https://github.com/sane-av/sane-av.github.io/issues/new?template=rfc.yml).
 See the [RFC Process](#proposing-a-standard-rfc-process) section for the full workflow.
 
 ### Add Glossary Terms
@@ -65,7 +65,7 @@ Open an issue or PR for any site bugs, accessibility issues, or design improveme
 ## Development Setup
 
 ```bash
-git clone https://github.com/sane-av/sane-av.git
+git clone https://github.com/sane-av/sane-av.github.io.github.io.git
 cd sane-av
 npm install
 npm run dev     # dev server at http://localhost:4321
@@ -77,7 +77,7 @@ npm run preview # preview the production build
 
 ## Proposing a Standard (RFC Process)
 
-1. **Open an RFC issue** using the [RFC template](https://github.com/sane-av/sane-av/issues/new?template=rfc.yml)
+1. **Open an RFC issue** using the [RFC template](https://github.com/sane-av/sane-av.github.io/issues/new?template=rfc.yml)
 2. **Community discussion** happens on the issue - typically 14+ days
 3. **Open a draft PR** once rough consensus is reached, adding a Markdown document to
    `src/content/standards/` following the SANE-001 document as a template

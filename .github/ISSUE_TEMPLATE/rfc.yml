@@ -1,4 +1,4 @@
-name: RFC — Request for Comments
+name: RFC - Request for Comments
 description: Propose a new SANE standard or a significant amendment to an existing one.
 title: "[RFC] "
 labels: ["rfc", "needs-discussion"]
@@ -50,17 +50,17 @@ body:
       label: Affected AV Domains
       description: Check all that apply.
       options:
-        - label: Audio — signal levels / gain structure
-        - label: Audio — acoustics / room design
-        - label: Audio — network audio (AES67, Dante, AVB)
-        - label: Video — signal levels / formats
-        - label: Video — display systems / projection
-        - label: Video — network video (NDI, IPMX, SMPTE ST 2110)
-        - label: Control — protocols / APIs
-        - label: Control — room automation
-        - label: Cabling — infrastructure / connectors
-        - label: Systems — documentation / drawings
-        - label: Systems — commissioning / testing
+        - label: Audio - signal levels / gain structure
+        - label: Audio - acoustics / room design
+        - label: Audio - network audio (AES67, Dante, AVB)
+        - label: Video - signal levels / formats
+        - label: Video - display systems / projection
+        - label: Video - network video (NDI, IPMX, SMPTE ST 2110)
+        - label: Control - protocols / APIs
+        - label: Control - room automation
+        - label: Cabling - infrastructure / connectors
+        - label: Systems - documentation / drawings
+        - label: Systems - commissioning / testing
         - label: Education / certification
         - label: Other
 

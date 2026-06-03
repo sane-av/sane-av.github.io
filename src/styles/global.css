@@ -313,9 +313,8 @@ th { background: var(--color-navy-mid); font-weight: 600; color: var(--color-tex
   box-shadow: 0 1px 0 rgba(255,255,255,.02) inset, var(--shadow-sm);
 }
 
-.card:hover { border-color: #44444f; }
-
 .card:hover {
+  border-color: #44444f;
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
