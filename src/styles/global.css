@@ -504,6 +504,37 @@ th { background: var(--color-navy-mid); font-weight: 600; color: var(--color-tex
   margin-bottom: .3rem;
 }
 .hidden { display: none; }
+
+/* --- Back to Top --- */
+.back-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 300;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-muted);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity .25s, transform .25s, border-color .15s, color .15s;
+}
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.back-to-top:hover {
+  border-color: var(--color-teal);
+  color: var(--color-teal);
+}
 .glossary-definition {
   font-size: .9rem;
   line-height: 1.55;

@@ -121,6 +121,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         </div>
       </div>
     </footer>
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M10 16V4M4 10l6-6 6 6"/>
+      </svg>
+    </button>
   </body>
   <script>
     // Touch-friendly dropdown toggle
@@ -131,5 +136,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         this.setAttribute('aria-expanded', String(!!isOpen));
       });
     });
+
+    // Back to top button
+    const btt = document.getElementById('back-to-top');
+    if (btt) {
+      window.addEventListener('scroll', () => {
+        btt.classList.toggle('visible', window.scrollY > 400);
+      });
+      btt.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
   </script>
 </html>
