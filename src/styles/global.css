@@ -157,8 +157,8 @@ th { background: var(--color-navy-mid); font-weight: 600; color: var(--color-tex
 }
 
 .site-logo .logo-badge {
-  width: 28px;
-  height: 28px;
+  width: 34px;
+  height: 34px;
   flex-shrink: 0;
 }
 .site-logo:hover .logo-badge {
