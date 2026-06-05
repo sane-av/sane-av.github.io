@@ -16,18 +16,29 @@ const standards = (await getCollection('standards', ({ data }) => data.status ==
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <h1>Open Source AV Standards<br />for the Modern World</h1>
-      <p>
-        SANE is a community-driven organization creating free, open, and transparent
-        standards for professional audiovisual systems - no membership fees, no paywalls,
-        no gatekeeping.
-      </p>
-      <div class="hero-actions">
-        <a href="/standards" class="btn btn-primary">Browse Standards</a>
-        <a href="/rfc" class="btn btn-outline">Propose a Standard</a>
-        <a href="https://github.com/sane-av/sane-av.github.io" target="_blank" rel="noopener" class="btn btn-outline">
-          GitHub
-        </a>
+      <div class="hero-layout">
+        <img
+          class="hero-image"
+          src="/sanebrain.png"
+          alt="SANE AV brain icon"
+          width="200"
+          height="200"
+        />
+        <div class="hero-body">
+          <h1>Open Source AV Standards<br />for the Modern World</h1>
+          <p>
+            SANE is a community-driven organization creating free, open, and transparent
+            standards for professional audiovisual systems - no membership fees, no paywalls,
+            no gatekeeping.
+          </p>
+          <div class="hero-actions">
+            <a href="/standards" class="btn btn-primary">Browse Standards</a>
+            <a href="/rfc" class="btn btn-outline">Propose a Standard</a>
+            <a href="https://github.com/sane-av/sane-av.github.io" target="_blank" rel="noopener" class="btn btn-outline">
+              GitHub
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
