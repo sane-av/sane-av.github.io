@@ -449,6 +449,37 @@ th { background: var(--color-navy-mid); font-weight: 600; color: var(--color-tex
   border-color: transparent;
 }
 
+/* --- Glossary Filters --- */
+.glossary-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  align-items: center;
+  margin-bottom: .5rem;
+}
+.glossary-filters input {
+  flex: 1;
+  min-width: 200px;
+  padding: .5rem .85rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: .9rem;
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+.glossary-filters input:focus {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 2px;
+  border-color: transparent;
+}
+.glossary-cat-btn {
+  cursor: pointer;
+  transition: border-color .15s;
+}
+.glossary-cat-btn.active {
+  border-color: var(--color-teal);
+}
+
 /* --- Breadcrumb --- */
 .breadcrumb {
   font-size: .85rem;

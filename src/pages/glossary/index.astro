@@ -6,9 +6,7 @@ const entries = (await getCollection('glossary'))
   .sort((a, b) => a.data.term.localeCompare(b.data.term));
 
 const categories = [...new Set(entries.map((e) => e.data.category))].sort();
-
-// Group alphabetically
-const letters = [...new Set(entries.map((e) => e.data.term[0].toUpperCase()))];
+const total = entries.length;
 ---
 
 <BaseLayout title="Glossary" description="Definitions for common AV terminology, from dBu to throw ratio.">
@@ -21,30 +19,31 @@ const letters = [...new Set(entries.map((e) => e.data.term[0].toUpperCase()))];
 
   <section class="section">
     <div class="container">
-      <!-- Alpha jump links -->
-      {letters.length > 0 && (
-        <div class="alpha-jump">
-          {letters.map((l) => (
-            <a href={`#letter-${l}`} class="tag">{l}</a>
+      <div class="glossary-filters">
+        <input
+          type="search"
+          id="glossary-search"
+          placeholder="Search terms and definitions..."
+          aria-label="Search glossary"
+        />
+        <div class="flex-wrap mt-1" id="glossary-categories">
+          {categories.map((cat) => (
+            <button type="button" class="tag tag-orange glossary-cat-btn" data-category={cat}>
+              {cat}
+            </button>
           ))}
         </div>
-      )}
+      </div>
 
-      <!-- Category filter pills -->
-      {categories.length > 0 && (
-        <div class="flex-wrap mb-2">
-          <span class="text-small label-heading">Category:</span>
-          {categories.map((cat) => <span class="tag tag-orange">{cat}</span>)}
-        </div>
-      )}
+      <p id="glossary-count" class="text-muted mt-1">{total} terms</p>
 
       {entries.length === 0 ? (
         <p class="text-muted">
           No glossary entries yet.
-          <a href="https://github.com/sane-av/sane-av.github.io">Contribute the first term →</a>
+          <a href="https://github.com/sane-av/sane-av.github.io">Contribute the first term &rarr;</a>
         </p>
       ) : (
-        <ul class="glossary-list">
+        <ul class="glossary-list mt-2" id="glossary-list">
           {entries.map((entry, i) => {
             const letter = entry.data.term[0].toUpperCase();
             const prevLetter = i > 0 ? entries[i - 1].data.term[0].toUpperCase() : null;
@@ -52,11 +51,15 @@ const letters = [...new Set(entries.map((e) => e.data.term[0].toUpperCase()))];
             return (
               <>
                 {isNewLetter && (
-                  <li id={`letter-${letter}`} class="glossary-letter">
+                  <li id={`letter-${letter}`} class="glossary-letter" data-letter={letter}>
                     {letter}
                   </li>
                 )}
-                <li class="glossary-item">
+                <li
+                  class="glossary-item"
+                  data-term={entry.data.term.toLowerCase()}
+                  data-category={entry.data.category}
+                >
                   <div class="glossary-term">
                     {entry.data.term}
                     {entry.data.abbreviation && (
@@ -65,8 +68,7 @@ const letters = [...new Set(entries.map((e) => e.data.term[0].toUpperCase()))];
                     <span class="tag tag-orange ml-1">{entry.data.category}</span>
                   </div>
                   <div class="prose text-muted">
-                    <!-- Inline content rendered via the listing page - link to detail if needed -->
-                    <a href={`/glossary/${entry.id}`}>View full definition →</a>
+                    <a href={`/glossary/${entry.id}`}>View full definition &rarr;</a>
                   </div>
                   {entry.data.relatedTerms.length > 0 && (
                     <div class="text-small mt-1">
@@ -82,3 +84,56 @@ const letters = [...new Set(entries.map((e) => e.data.term[0].toUpperCase()))];
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  const searchInput = document.getElementById('glossary-search') as HTMLInputElement;
+  const catButtons = document.querySelectorAll<HTMLButtonElement>('.glossary-cat-btn');
+  const items = document.querySelectorAll<HTMLLIElement>('.glossary-item');
+  const letterHeadings = document.querySelectorAll<HTMLLIElement>('.glossary-letter');
+  const countEl = document.getElementById('glossary-count')!;
+  const totalItems = items.length;
+
+  let activeCategory = '';
+
+  catButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const category = btn.dataset.category!;
+      activeCategory = activeCategory === category ? '' : category;
+      applyFilters();
+    });
+  });
+
+  searchInput.addEventListener('input', applyFilters);
+
+  function applyFilters() {
+    const query = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    catButtons.forEach((btn) => {
+      const isActive = btn.dataset.category === activeCategory;
+      btn.classList.toggle('active', isActive);
+    });
+
+    const visibleLetters = new Set<string>();
+
+    items.forEach((item) => {
+      const matchesSearch = !query || item.dataset.term!.includes(query);
+      const matchesCategory = !activeCategory || item.dataset.category === activeCategory;
+      const show = matchesSearch && matchesCategory;
+
+      (item as HTMLElement).style.display = show ? '' : 'none';
+      if (show) {
+        visibleCount++;
+        visibleLetters.add(item.dataset.term![0].toUpperCase());
+      }
+    });
+
+    letterHeadings.forEach((heading) => {
+      (heading as HTMLElement).style.display =
+        visibleLetters.has(heading.dataset.letter!) ? '' : 'none';
+    });
+
+    const filtering = query || activeCategory;
+    countEl.textContent = filtering ? `${visibleCount} of ${totalItems} terms` : `${totalItems} terms`;
+  }
+</script>
