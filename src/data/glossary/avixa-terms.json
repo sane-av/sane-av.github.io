@@ -3,7 +3,7 @@
     "term": "1/3 octave equalizer",
     "slug": "13-octave-equalizer",
     "definition": "An audio equalizer that provides 30 or 31 slider adjustments corresponding to specific fixed frequencies with fixed bandwidths, with the frequencies centered at every one-third of an octave. The adjustment points shape the overall frequency response of the system.",
-    "categories": ["Audio", "Networking"],
+    "categories": ["Audio"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -43,7 +43,7 @@
     "term": "4K ecosystem",
     "slug": "4k-ecosystem",
     "definition": "The video cameras, recorders, editors, processors, servers, distribution networks, and display technologies used for the production, distribution, and display of 4K ultra-high-resolution video.",
-    "categories": ["Video", "Signal Processing"],
+    "categories": ["Video"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -67,7 +67,7 @@
     "term": "8K ecosystem",
     "slug": "8k-ecosystem",
     "definition": "The video cameras, recorders, editors, processors, servers, distribution networks, and display technologies used for the production, distribution, and display of 8K ultra-high-resolution video.",
-    "categories": ["Video", "Signal Processing"],
+    "categories": ["Video"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -299,7 +299,7 @@
     "term": "audio processor",
     "slug": "audio-processor",
     "definition": "A device used to manipulate audio signals.",
-    "categories": ["Audio", "Signal Processing"],
+    "categories": ["Audio"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -419,7 +419,7 @@
     "term": "bandwidth",
     "slug": "bandwidth",
     "definition": "1. A range of frequencies. 2. A measure of the amount of data or signal that can pass through a system during a given time interval.",
-    "categories": ["Networking"],
+    "categories": ["General"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -427,7 +427,7 @@
     "term": "bandwidth limiting",
     "slug": "bandwidth-limiting",
     "definition": "The process of limiting the bandwidth of a signal, usually to allow the signal to be transmitted over a lower-bandwidth path.",
-    "categories": ["Networking", "Signal Processing"],
+    "categories": ["Signal Processing"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -443,7 +443,7 @@
     "term": "baseband",
     "slug": "baseband",
     "definition": "A signal that has not been modulated onto a higher-frequency carrier.",
-    "categories": ["Networking"],
+    "categories": ["General"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -459,7 +459,7 @@
     "term": "benchmarking",
     "slug": "benchmarking",
     "definition": "The process of examining methods, techniques, and principles to establish a standard to which comparisons can be made.",
-    "categories": ["Networking", "Project Management"],
+    "categories": ["Project Management"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -915,7 +915,7 @@
     "term": "codec",
     "slug": "codec",
     "definition": "A contraction of the term coder/decoder. An electronic device or software process that encodes or decodes a data stream for transmission and reception over a communications medium.",
-    "categories": ["Networking"],
+    "categories": ["General"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -947,7 +947,7 @@
     "term": "color space",
     "slug": "color-space",
     "definition": "A color space is the range of spectral colors that can be interpreted or displayed by a device. The range is usually identified by being mapped against an area on the CIE chromaticity diagram. A range of wellknown color spaces is used in imaging and display.",
-    "categories": ["Video", "Networking"],
+    "categories": ["Video"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -1083,7 +1083,7 @@
     "term": "Consumer Electronic Control (CEC)",
     "slug": "consumer-electronic-control-cec",
     "definition": "A single-wire, bi-directional serial bus that uses AV link protocols to perform remote-control functions. It is an optional feature of the HDMI specification that allows for system-level automation when all devices in an AV system support it.",
-    "categories": ["Audio", "Video", "Electrical", "Cabling", "Systems & Control"],
+    "categories": ["Video", "Electrical", "Cabling", "Systems & Control"],
     "abbreviation": "CEC",
     "relatedTerms": []
   },
@@ -1307,7 +1307,7 @@
     "term": "dielectric strength",
     "slug": "dielectric-strength",
     "definition": "The ability of a material to act as an insulator: how much potential difference it can withstand before breaking down and becoming a conductor.",
-    "categories": ["Networking", "Electrical"],
+    "categories": ["Electrical"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -1443,7 +1443,7 @@
     "term": "DisplayID",
     "slug": "displayid",
     "definition": "A standard developed by VESA outlining how video display data is structured to describe the display’s performance and capabilities when communicating with other devices. By structuring data in a flexible, modular way, DisplayID enables devices to identify new display resolutions, refresh rates, audio standards, and other formats as they become available. For example, the standard can support a single image segmented across tiled displays using multiple video processors.",
-    "categories": ["Audio", "Video", "Networking", "Signal Processing", "Standards"],
+    "categories": ["Audio", "Video", "Standards"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -1451,7 +1451,7 @@
     "term": "DisplayPort",
     "slug": "displayport",
     "definition": "A VESA-developed, high-speed digital data transport protocol used to connect a video source to display devices. It can also carry audio, USB, and other data.",
-    "categories": ["Audio", "Video", "Networking", "Signal Processing", "Standards"],
+    "categories": ["Audio", "Video", "Signal Processing", "Standards"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -1707,7 +1707,7 @@
     "term": "equivalent acoustic distance (EAD)",
     "slug": "equivalent-acoustic-distance-ead",
     "definition": "The farthest distance one can go from the source without the need for sound amplification or reinforcement to maintain good speech intelligibility. The distance is dependent on the level of the presenter and the noise level in the room.",
-    "categories": ["Acoustics", "Networking"],
+    "categories": ["Acoustics"],
     "abbreviation": "EAD",
     "relatedTerms": []
   },
@@ -1739,7 +1739,7 @@
     "term": "expander",
     "slug": "expander",
     "definition": "An audio processor that increases the dynamic range of an audio signal. It comes in two types: a downward expander and as part of a compander.",
-    "categories": ["Audio", "Signal Processing"],
+    "categories": ["Audio"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -1867,7 +1867,7 @@
     "term": "flex life",
     "slug": "flex-life",
     "definition": "The number of times a cable can be bent before it breaks. A wire with more strands or twists per meter will have a greater flex life than one with a lower number of strands or fewer twists per meter.",
-    "categories": ["Networking", "Cabling"],
+    "categories": ["Cabling"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -1947,7 +1947,7 @@
     "term": "full-duplex communication",
     "slug": "full-duplex-communication",
     "definition": "A form of bi-directional data transmission in which messages may simultaneously travel in both directions.",
-    "categories": ["Audio", "Networking"],
+    "categories": ["Networking"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -1979,7 +1979,7 @@
     "term": "gain control",
     "slug": "gain-control",
     "definition": "A gain control is an electronic adjustment through which the amplitude of a signal can be increased or decreased.",
-    "categories": ["Audio", "Networking"],
+    "categories": ["Audio"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -1995,7 +1995,7 @@
     "term": "gate",
     "slug": "gate",
     "definition": "An audio processor that allows signals to pass only above a certain setting or threshold.",
-    "categories": ["Audio", "Signal Processing"],
+    "categories": ["Audio"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -2059,7 +2059,7 @@
     "term": "graphics processing unit (GPU)",
     "slug": "graphics-processing-unit-gpu",
     "definition": "A specialized circuit designed for processing display functions. The processor is optimized to render and manipulate images in a video frame buffer.",
-    "categories": ["Video", "Electrical", "Signal Processing"],
+    "categories": ["Video", "Electrical"],
     "abbreviation": "GPU",
     "relatedTerms": []
   },
@@ -2099,7 +2099,7 @@
     "term": "ground loop",
     "slug": "ground-loop",
     "definition": "An electrically conductive loop that has two or more ground reference connections. The loop can be detrimental when the reference connections are at different potentials, which causes current flow within the loop.",
-    "categories": ["Networking", "Electrical"],
+    "categories": ["Electrical"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -2203,7 +2203,7 @@
     "term": "half-duplex communication",
     "slug": "half-duplex-communication",
     "definition": "A form of bi-directional data transmission in which messages can only travel in one direction at any time.",
-    "categories": ["Audio", "Networking"],
+    "categories": ["Networking"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -2243,7 +2243,7 @@
     "term": "HDCP",
     "slug": "hdcp",
     "definition": "High-bandwidth digital content protection.",
-    "categories": ["Video", "Networking", "Security"],
+    "categories": ["Video", "Security"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -2259,7 +2259,7 @@
     "term": "HDCP receiver/sink",
     "slug": "hdcp-receiversink",
     "definition": "A device that can receive and decode HDCP signals. A television is an example of a receiver.",
-    "categories": ["Video", "Networking", "Security"],
+    "categories": ["Video", "Security"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -2267,7 +2267,7 @@
     "term": "HDCP repeater",
     "slug": "hdcp-repeater",
     "definition": "A device that can receive HDCP signals and transmit them to another device, such as a switcher or distribution amplifier.",
-    "categories": ["Audio", "Video", "Networking", "Signal Processing", "Security"],
+    "categories": ["Audio", "Video", "Signal Processing", "Security"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -2275,7 +2275,7 @@
     "term": "HDCP transmitter/source",
     "slug": "hdcp-transmittersource",
     "definition": "A device that can send HDCP-encoded signals and content. A Blu-ray Disc player is an example of an HDCP transmitter.",
-    "categories": ["Video", "Networking", "Signal Processing", "Security"],
+    "categories": ["Video", "Signal Processing", "Security"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -2315,7 +2315,7 @@
     "term": "headroom",
     "slug": "headroom",
     "definition": "The difference between the average performance level of a system and the maximum level it can produce. Usually measured in dB.",
-    "categories": ["Audio", "Networking"],
+    "categories": ["Audio"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -2363,7 +2363,7 @@
     "term": "High-Bandwidth Digital Content Protection (HDCP)",
     "slug": "high-bandwidth-digital-content-protection-hdcp",
     "definition": "A form of encryption developed by Intel to control digital audio and video content as it travels across Digital Video Interface (DVI), DisplayPort (DP), or High-Definition Multimedia Interface (HDMI) connections. It prevents transmission or interception of unencrypted HD content. Does not work across Serial Digital Interface (SDI) streams.",
-    "categories": ["Audio", "Video", "Networking", "Signal Processing", "Security"],
+    "categories": ["Audio", "Video", "Signal Processing", "Security"],
     "abbreviation": "HDCP",
     "relatedTerms": []
   },
@@ -2411,7 +2411,7 @@
     "term": "hot plug",
     "slug": "hot-plug",
     "definition": "1. A low-level signal sent by an EDID source that indicates whether a sink or display is connected. 2. A system that can detect and respond to devices being connected or disconnected during normal operations (e.g., USB). 3. Plugging or unplugging equipment while it is still powered up.",
-    "categories": ["Video", "Networking", "Signal Processing"],
+    "categories": ["Video", "Signal Processing"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -2459,7 +2459,7 @@
     "term": "image constraint token (ICT)",
     "slug": "image-constraint-token-ict",
     "definition": "A digital flag signal incorporated into some high-definition digital video streams. If present, the video stream can be decoded at full resolution only on HDCP-enabled devices.",
-    "categories": ["Video", "Networking", "Security"],
+    "categories": ["Video", "Security"],
     "abbreviation": "ICT",
     "relatedTerms": []
   },
@@ -2731,7 +2731,7 @@
     "term": "junction box",
     "slug": "junction-box",
     "definition": "A structure for enclosing the junction of electrical wires and cables. In North America a junction box can be used as a termination point with a custom connector plate or interface plate. A junction box can also be installed and used as a pull box for longer cable runs.",
-    "categories": ["Networking", "Electrical", "Cabling"],
+    "categories": ["Electrical", "Cabling"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -2771,7 +2771,7 @@
     "term": "law of conservation of energy",
     "slug": "law-of-conservation-of-energy",
     "definition": "States that energy cannot be created or destroyed. Energy can be transformed from one form to another and transferred from one body to another, but the total amount of energy remains constant.",
-    "categories": ["Networking", "Standards"],
+    "categories": ["Standards"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -2915,7 +2915,7 @@
     "term": "lossless compression",
     "slug": "lossless-compression",
     "definition": "A process that compresses data without losing any information.",
-    "categories": ["Networking"],
+    "categories": ["General"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -2923,7 +2923,7 @@
     "term": "lossy compression",
     "slug": "lossy-compression",
     "definition": "A form of compression that produces an approximation of the original data by eliminating noncritical or redundant information.",
-    "categories": ["Networking"],
+    "categories": ["General"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -3123,7 +3123,7 @@
     "term": "microelectromechanical systems (MEMS)",
     "slug": "microelectromechanical-systems-mems",
     "definition": "Mechanical devices built directly onto silicon chips using the same fabrication processes as microprocessors and memory systems. Best known as the digital micromirror devices (DMD) used for light switching in DLP projectors.",
-    "categories": ["Video", "Signal Processing"],
+    "categories": ["Video"],
     "abbreviation": "MEMS",
     "relatedTerms": []
   },
@@ -3147,7 +3147,7 @@
     "term": "milestone",
     "slug": "milestone",
     "definition": "A significant or key event in a project, usually the completion of a major deliverable or the occurrence of an important event. It can often be associated with payment milestones and client approvals.",
-    "categories": ["Networking", "Project Management"],
+    "categories": ["Project Management"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -3267,7 +3267,7 @@
     "term": "Murphy’s law",
     "slug": "murphys-law",
     "definition": "Also known as Sod’s law. If anything can go wrong, it will go wrong. A reminder that no assumptions should ever be made about the cause of a fault in a system. If you saw the identical fault last week, it will almost certainly have an entirely different cause this week.",
-    "categories": ["Networking"],
+    "categories": ["General"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -3459,7 +3459,7 @@
     "term": "Nyquist-Shannon sampling theorem",
     "slug": "nyquist-shannon-sampling-theorem",
     "definition": "States that an analog signal can be reconstructed if it is encoded using a sampling rate that is greater than twice the highest frequency sampled. For example, since the range of human hearing extends to 20kHz, the minimum sampling rate for digital audio should be greater than 40kHz. The higher the sampling rate above this minimum, the more accurate the digital sample.",
-    "categories": ["Audio", "Networking", "Signal Processing", "Standards"],
+    "categories": ["Audio", "Signal Processing", "Standards"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -3579,7 +3579,7 @@
     "term": "parametric equalizer",
     "slug": "parametric-equalizer",
     "definition": "An equalizer that allows discrete selection of a center frequency and adjustment of the width of the frequency range that will be affected. This can allow for precise manipulation with minimal impact of adjacent frequencies.",
-    "categories": ["Audio", "Networking", "Signal Processing"],
+    "categories": ["Audio", "Signal Processing"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -3611,7 +3611,7 @@
     "term": "peaking control",
     "slug": "peaking-control",
     "definition": "Electronic adjustments within a video component that can be used to compensate for system losses.",
-    "categories": ["Video", "Networking", "Signal Processing"],
+    "categories": ["Video", "Signal Processing"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -3843,7 +3843,7 @@
     "term": "potential acoustic gain (PAG)",
     "slug": "potential-acoustic-gain-pag",
     "definition": "The potential gain that can be delivered by the sound system without ringing and before feedback occurs. It is based upon the number of open microphones and the distances between sources (like a presenter) and microphones, microphones and loudspeakers, and listeners and loudspeakers.",
-    "categories": ["Acoustics", "Audio", "Networking"],
+    "categories": ["Acoustics", "Audio"],
     "abbreviation": "PAG",
     "relatedTerms": []
   },
@@ -3979,7 +3979,7 @@
     "term": "pulling tension",
     "slug": "pulling-tension",
     "definition": "The maximum amount of tension that can be applied to a cable or conductor before it is damaged.",
-    "categories": ["Networking", "Electrical", "Cabling"],
+    "categories": ["Electrical", "Cabling"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -3995,7 +3995,7 @@
     "term": "Q factor",
     "slug": "q-factor",
     "definition": "The quality factor of an audio filter is the ratio of the height of the center frequency of the filter to the bandwidth of the filter at the 3dB point.",
-    "categories": ["Audio", "Networking", "Signal Processing"],
+    "categories": ["Audio", "Signal Processing"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -4291,7 +4291,7 @@
     "term": "RGBHV signal",
     "slug": "rgbhv-signal",
     "definition": "A high-bandwidth video signal with separate conductors for the red signal, green signal, blue signal, horizontal sync, and vertical sync.",
-    "categories": ["Video", "Networking", "Electrical"],
+    "categories": ["Video", "Electrical"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -4611,7 +4611,7 @@
     "term": "shield or screen",
     "slug": "shield-or-screen",
     "definition": "A grounded conductive partition placed between two regions of space to control the propagation of electric and magnetic fields between them. The screen or shield acts as a Faraday cage. It can be the chassis (metallic box) that houses an electronic device or the conductive enclosure (aluminum foil, conductive polymer, or copper braid) that surrounds a screened/shielded wire or cable.",
-    "categories": ["Networking", "Electrical", "Cabling"],
+    "categories": ["Electrical", "Cabling"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -4947,7 +4947,7 @@
     "term": "tensile strength",
     "slug": "tensile-strength",
     "definition": "The maximum stress that a material can withstand before deforming or stretching while being pulled.",
-    "categories": ["Networking", "Cabling"],
+    "categories": ["Cabling"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -5091,7 +5091,7 @@
     "term": "triac",
     "slug": "triac",
     "definition": "A bi-directional semiconductor device from the thyristor power-switching family that can switch both half-cycles of an AC current. The equivalent of a pair of SCRs in inverse parallel. The switching device used in many commercial phase-control dimmers.",
-    "categories": ["Audio", "Networking", "Electrical", "Lighting"],
+    "categories": ["Electrical", "Lighting"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -5147,7 +5147,7 @@
     "term": "ultra-wideband (UWB)",
     "slug": "ultra-wideband-uwb",
     "definition": "UWB is a low-power communications protocol that transmits an extremely wide bandwidth (500+MHz) signal using time modulation to encode the data. Its signals are highly immune to interference from other RF systems, yet produce very little interference with them. UWB can detect the distance between the transmitter and receiver, enabling proximity detection and triggering.",
-    "categories": ["Networking", "Lighting"],
+    "categories": ["Lighting"],
     "abbreviation": "UWB",
     "relatedTerms": []
   },
@@ -5275,7 +5275,7 @@
     "term": "visual field",
     "slug": "visual-field",
     "definition": "The volume of space that can be seen when a person’s head and eyes are absolutely still. It is specified as an angle, usually in degrees. The visual field of a single eye is termed monocular vision, and the combined visual field where the perceived image from both eyes overlap is called binocular vision.",
-    "categories": ["Video", "Networking"],
+    "categories": ["Video"],
     "abbreviation": null,
     "relatedTerms": []
   },
@@ -5291,7 +5291,7 @@
     "term": "volatile memory",
     "slug": "volatile-memory",
     "definition": "Computer memory that loses its data when no longer powered. This type of memory includes the fastaccess, dynamic random-access memory (DRAM) associated with most processor CPUs and GPUs.",
-    "categories": ["Signal Processing"],
+    "categories": ["General"],
     "abbreviation": null,
     "relatedTerms": []
   },
