@@ -44,7 +44,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           </div>
         </div>
 
-        <div class="tool-result" id="level-result" style="display:none">
+        <div class="tool-result hidden" id="level-result">
           <div class="tool-result-label">Result</div>
           <div id="level-result-text"></div>
         </div>
@@ -65,7 +65,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           </div>
         </div>
 
-        <div class="tool-result" id="ratio-result" style="display:none">
+        <div class="tool-result hidden" id="ratio-result">
           <div class="tool-result-label">Difference</div>
           <div class="result-value" id="ratio-result-text"></div>
         </div>
@@ -132,7 +132,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     fields.v.value   = fmt(voltage);
     fields.mv.value  = fmt(voltage * 1000, 2);
 
-    result.style.display = 'block';
+    result.classList.remove('hidden');
     resultText.innerHTML = '';
     const summary = document.createElement('span');
     summary.className = 'result-value';
@@ -158,7 +158,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     const v2 = parseFloat(rv2.value);
     if (!isNaN(v1) && !isNaN(v2) && v1 > 0 && v2 > 0) {
       const diff = 20 * Math.log10(v1 / v2);
-      ratioResult.style.display = 'block';
+      ratioResult.classList.remove('hidden');
       ratioText.textContent = `${diff >= 0 ? '+' : ''}${fmt(diff, 2)} dB`;
     }
   }

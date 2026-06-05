@@ -1,23 +1,25 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContentLayout from '../../layouts/ContentLayout.astro';
 import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import avixaTerms from '../../data/glossary/avixa-terms.json';
+import type { GlossaryTerm } from '../../lib/glossary';
 
-interface GlossaryTerm {
+interface JsonTerm {
   term: string;
   slug: string;
   definition: string;
-  categories: string[];
+  categories?: string[];
   category?: string;
   abbreviation: string | null;
-  relatedTerms: string[];
+  relatedTerms?: string[];
 }
 
 export async function getStaticPaths() {
   const mdEntries = await getCollection('glossary');
   const mdSlugs = new Set(mdEntries.map((e) => e.id));
-  const jsonOnlyTerms = avixaTerms.filter((t: GlossaryTerm) => !mdSlugs.has(t.slug));
+  const jsonOnlyTerms = (avixaTerms as JsonTerm[]).filter((t) => !mdSlugs.has(t.slug));
   
   const paths = [
     ...mdEntries.map((entry) => ({

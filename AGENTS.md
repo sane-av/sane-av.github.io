@@ -30,7 +30,7 @@ easy to repeat as mistakes.
 .vscode/                         # Extensions + launch config
 astro.config.mjs                 # `site` MUST be set for sitemap & canonical URLs
 public/
-  favicon.ico, favicon.svg       # Site favicons
+  favicon.svg, sanebrain.png     # Site favicon + hero graphic
 src/
   content.config.ts              # Zod schemas for all content collections
   content/
@@ -237,9 +237,13 @@ Commit messages are imperative, lowercase after the type, no trailing period.
 | Renaming a CSS token | Templates break silently (inline `style=`) | Add new token as alias; sweep templates first; never remove the old name without verifying with grep |
 | Creating `LICENSE-CONTENT` file | GitHub flags repo as "Unknown licenses found" | Name it `CONTENT-LICENSE.md` (any name not starting with `LICENSE`) |
 | Forgetting `astro.config.mjs` `site` | Broken sitemap / canonical URLs | Always set to deployed origin |
-| Em-dashes sneaking back in | Inconsistency with prior content | Search for `U+2014` after any content edit |
+| Em-dashes sneaking back in | Inconsistency with prior content | Search for `U+2014` after any content edit; also check auto-generated JSON data |
 | Special chars in PowerShell string literals | `©` and `®` matched incorrectly | Use regex `.+?` patterns (not exact strings) when cleaning PDF-extracted text; verify with byte-level analysis |
 | Substring keyword matching in auto-categorizer | Short tokens match mid-word (e.g., `IR` in `thIRd`) | Use `\b` word-boundary regex for keywords ≤4 chars in `convert_to_json.ps1` |
+| Inline `style=` attributes | Breaks CSP, harder to maintain | Use `.hidden` utility class instead of `style="display:none"` |
+| Duplicated glossary merge logic | Two files independently implement the JSON+MD merge | Shared logic lives in `src/lib/glossary.ts`; both `glossary/index.astro` and `glossary/[slug].astro` import from there |
+| Broken favicon references | 404s in dev tools | Only `favicon.svg` exists; do not reference `.ico` or `.png` variants |
+| Missing `.gitattributes` | CRLF/LF noise in cross-platform diffs | `.gitattributes` sets `* text=auto` and `*.astro text eol=lf` |
 
 ## 9. Pre-commit checklist for agents
 
@@ -248,9 +252,10 @@ Before `git add`:
 1. `npm run build` succeeds with zero warnings.
 2. New colors checked for >= 4.5:1 contrast on the surface they sit on.
 3. No `--color-navy` / `--color-navy-mid` used as text color.
-4. No em-dashes introduced (grep `[\u2014]`).
+4. No em-dashes introduced (grep `[\u2014]`). Also check auto-generated JSON data files.
 5. No `github.com/sane-av/sane-av/` (missing `.github.io`).
 6. If you edited a CRLF file with multi-line replacements, you verified the change with `grep`.
+7. No inline `style=` attributes introduced; use `.hidden` class instead.
 
 ## 10. What NOT to do
 

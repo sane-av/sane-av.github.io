@@ -1,61 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
-import avixaTerms from '../../data/glossary/avixa-terms.json';
+import { getGlossaryTerms } from '../../lib/glossary';
+import type { GlossaryTerm } from '../../lib/glossary';
 
-// Load the content collection entries (rich .md pages)
-const mdEntries = await getCollection('glossary');
-
-// Build a lookup by slug → content collection entry
-const mdBySlug = new Map<string, (typeof mdEntries)[number]>();
-for (const e of mdEntries) {
-  mdBySlug.set(e.id, e);
-}
-
-// Merge: JSON terms provide the base, .md entries override when they exist
-interface GlossaryEntry {
-  term: string;
-  slug: string;
-  definition: string;
-  categories: string[];
-  abbreviation: string | null;
-  relatedTerms: string[];
-  hasPage: boolean;
-}
-
-const merged: GlossaryEntry[] = [];
-
-// First, add all JSON terms
-for (const t of avixaTerms) {
-  const mdEntry = mdBySlug.get(t.slug);
-  merged.push({
-    term: t.term,
-    slug: t.slug,
-    definition: t.definition,
-    categories: t.categories ?? [t.category ?? 'General'],
-    abbreviation: t.abbreviation,
-    relatedTerms: t.relatedTerms ?? [],
-    hasPage: !!mdEntry,
-  });
-}
-
-// Then add any .md entries that don't have a JSON counterpart
-for (const e of mdEntries) {
-  if (!merged.find((m) => m.slug === e.id)) {
-    merged.push({
-      term: e.data.term,
-      slug: e.id,
-      definition: '',
-      categories: [e.data.category],
-      abbreviation: e.data.abbreviation ?? null,
-      relatedTerms: e.data.relatedTerms ?? [],
-      hasPage: true,
-    });
-  }
-}
-
-// Sort alphabetically
-merged.sort((a, b) => a.term.localeCompare(b.term));
+const merged: GlossaryTerm[] = await getGlossaryTerms();
 
 // Collect unique categories from all entries
 const allCats = new Set<string>();
@@ -161,7 +109,7 @@ const pageCount = merged.filter((e) => e.hasPage).length;
             );
           })}
         </ul>
-        <p id="glossary-no-results" class="text-muted mt-3" style="display:none">
+        <p id="glossary-no-results" class="text-muted mt-3 hidden">
           No terms match your filters. Try adjusting your search or clearing the category.
         </p>
       )}
@@ -236,6 +184,6 @@ const pageCount = merged.filter((e) => e.hasPage).length;
 
     const filtering = query || activeCategory;
     countEl.textContent = filtering ? `${visibleCount} of ${totalItems} terms` : `${totalItems} terms`;
-    (noResults as HTMLElement).style.display = filtering && visibleCount === 0 ? '' : 'none';
+    noResults.classList.toggle('hidden', !(filtering && visibleCount === 0));
   }
 </script>

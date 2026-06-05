@@ -994,7 +994,7 @@
   {
     "term": "component video",
     "slug": "component-video",
-    "definition": "Color video in which the brightness (luminance), color hue, and saturation (chrominance) are handled independently. The red, green, and blue signals—or, more commonly, the Y, R-Y, and B-Y signals—are encoded onto three wires.",
+    "definition": "Color video in which the brightness (luminance), color hue, and saturation (chrominance) are handled independently. The red, green, and blue signals - or, more commonly, the Y, R-Y, and B-Y signals - are encoded onto three wires.",
     "categories": ["Video", "Signal Processing"],
     "abbreviation": null,
     "relatedTerms": []

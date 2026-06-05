@@ -21,7 +21,7 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
     <div class="container">
       {allTags.length > 0 && (
         <div class="flex-wrap mb-2">
-          <span class="text-small font-semibold">Filter:</span>
+          <span class="text-small font-semibold">Tags:</span>
           {allTags.map((tag) => (
             <span class="tag">{tag}</span>
           ))}
