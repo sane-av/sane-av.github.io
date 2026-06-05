@@ -239,14 +239,14 @@ th { background: var(--color-navy-mid); font-weight: 600; color: var(--color-tex
 .hero-layout {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 4rem;
 }
 
 .hero-image {
   flex-shrink: 0;
-  width: 200px;
+  width: 260px;
   height: auto;
-  filter: drop-shadow(0 0 20px rgba(241,161,13,.12));
+  filter: drop-shadow(0 0 24px rgba(241,161,13,.12));
 }
 
 .hero-body {
