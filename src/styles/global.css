@@ -432,6 +432,20 @@ th { background: var(--color-navy-mid); font-weight: 600; color: var(--color-tex
   flex-wrap: wrap;
   align-items: center;
 }
+.glossary-tags-inline .tag {
+  background: transparent;
+  border: 1px solid rgba(241,161,13,.18);
+  color: var(--color-muted);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+  font-size: .7rem;
+  padding: .12em .5em;
+}
+.glossary-tags-inline .tag:hover {
+  border-color: rgba(241,161,13,.35);
+  color: var(--color-teal);
+}
 .glossary-term a {
   color: var(--color-teal);
   text-decoration: none;
