@@ -6,6 +6,7 @@ const entries = (await getCollection('glossary'))
   .sort((a, b) => a.data.term.localeCompare(b.data.term));
 
 const categories = [...new Set(entries.map((e) => e.data.category))].sort();
+const allLetters = [...new Set(entries.map((e) => e.data.term[0].toUpperCase()))].sort();
 const total = entries.length;
 ---
 
@@ -23,16 +24,28 @@ const total = entries.length;
         <input
           type="search"
           id="glossary-search"
-          placeholder="Search terms and definitions..."
+          placeholder="Search terms..."
           aria-label="Search glossary"
         />
-        <div class="flex-wrap mt-1" id="glossary-categories">
+      </div>
+
+      {categories.length > 0 && (
+        <div class="glossary-categories" id="glossary-categories">
+          <span class="text-small label-heading">Category:</span>
           {categories.map((cat) => (
-            <button type="button" class="tag tag-orange glossary-cat-btn" data-category={cat}>
+            <button type="button" class="tag tag-orange glossary-tag" data-category={cat}>
               {cat}
             </button>
           ))}
         </div>
+      )}
+
+      <div class="glossary-jump" id="glossary-jump">
+        {allLetters.map((letter) => (
+          <button type="button" class="glossary-jump-btn" data-letter={letter}>
+            {letter}
+          </button>
+        ))}
       </div>
 
       <p id="glossary-count" class="text-muted mt-1">{total} terms</p>
@@ -43,7 +56,7 @@ const total = entries.length;
           <a href="https://github.com/sane-av/sane-av.github.io">Contribute the first term &rarr;</a>
         </p>
       ) : (
-        <ul class="glossary-list mt-2" id="glossary-list">
+        <ul class="glossary-list" id="glossary-list">
           {entries.map((entry, i) => {
             const letter = entry.data.term[0].toUpperCase();
             const prevLetter = i > 0 ? entries[i - 1].data.term[0].toUpperCase() : null;
@@ -59,6 +72,7 @@ const total = entries.length;
                   class="glossary-item"
                   data-term={entry.data.term.toLowerCase()}
                   data-category={entry.data.category}
+                  data-letter={letter}
                 >
                   <div class="glossary-term">
                     {entry.data.term}
@@ -80,6 +94,9 @@ const total = entries.length;
             );
           })}
         </ul>
+        <p id="glossary-no-results" class="text-muted mt-3" style="display:none">
+          No terms match your filters. Try adjusting your search or clearing the category.
+        </p>
       )}
     </div>
   </section>
@@ -87,19 +104,31 @@ const total = entries.length;
 
 <script>
   const searchInput = document.getElementById('glossary-search') as HTMLInputElement;
-  const catButtons = document.querySelectorAll<HTMLButtonElement>('.glossary-cat-btn');
+  const tagButtons = document.querySelectorAll<HTMLButtonElement>('.glossary-tag');
+  const jumpButtons = document.querySelectorAll<HTMLButtonElement>('.glossary-jump-btn');
   const items = document.querySelectorAll<HTMLLIElement>('.glossary-item');
   const letterHeadings = document.querySelectorAll<HTMLLIElement>('.glossary-letter');
   const countEl = document.getElementById('glossary-count')!;
+  const noResults = document.getElementById('glossary-no-results')!;
   const totalItems = items.length;
 
   let activeCategory = '';
 
-  catButtons.forEach((btn) => {
+  tagButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
       const category = btn.dataset.category!;
       activeCategory = activeCategory === category ? '' : category;
       applyFilters();
+    });
+  });
+
+  jumpButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const letter = btn.dataset.letter!;
+      const heading = document.getElementById(`letter-${letter}`);
+      if (heading) {
+        heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
   });
 
@@ -109,9 +138,8 @@ const total = entries.length;
     const query = searchInput.value.toLowerCase().trim();
     let visibleCount = 0;
 
-    catButtons.forEach((btn) => {
-      const isActive = btn.dataset.category === activeCategory;
-      btn.classList.toggle('active', isActive);
+    tagButtons.forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.category === activeCategory);
     });
 
     const visibleLetters = new Set<string>();
@@ -124,16 +152,21 @@ const total = entries.length;
       (item as HTMLElement).style.display = show ? '' : 'none';
       if (show) {
         visibleCount++;
-        visibleLetters.add(item.dataset.term![0].toUpperCase());
+        visibleLetters.add(item.dataset.letter!);
       }
     });
 
     letterHeadings.forEach((heading) => {
-      (heading as HTMLElement).style.display =
-        visibleLetters.has(heading.dataset.letter!) ? '' : 'none';
+      const letter = heading.dataset.letter!;
+      (heading as HTMLElement).style.display = visibleLetters.has(letter) ? '' : 'none';
+    });
+
+    jumpButtons.forEach((btn) => {
+      btn.classList.toggle('dim', !visibleLetters.has(btn.dataset.letter!));
     });
 
     const filtering = query || activeCategory;
     countEl.textContent = filtering ? `${visibleCount} of ${totalItems} terms` : `${totalItems} terms`;
+    (noResults as HTMLElement).style.display = filtering && visibleCount === 0 ? '' : 'none';
   }
 </script>
