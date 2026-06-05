@@ -1,20 +1,73 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import avixaTerms from '../../data/glossary/avixa-terms.json';
 
-const entries = (await getCollection('glossary'))
-  .sort((a, b) => a.data.term.localeCompare(b.data.term));
+// Load the content collection entries (rich .md pages)
+const mdEntries = await getCollection('glossary');
 
-const categories = [...new Set(entries.map((e) => e.data.category))].sort();
-const allLetters = [...new Set(entries.map((e) => e.data.term[0].toUpperCase()))].sort();
-const total = entries.length;
+// Build a lookup by slug → content collection entry
+const mdBySlug = new Map<string, (typeof mdEntries)[number]>();
+for (const e of mdEntries) {
+  mdBySlug.set(e.id, e);
+}
+
+// Merge: JSON terms provide the base, .md entries override when they exist
+interface GlossaryEntry {
+  term: string;
+  slug: string;
+  definition: string;
+  category: string;
+  abbreviation: string | null;
+  relatedTerms: string[];
+  hasPage: boolean;
+}
+
+const merged: GlossaryEntry[] = [];
+
+// First, add all JSON terms
+for (const t of avixaTerms) {
+  const mdEntry = mdBySlug.get(t.slug);
+  merged.push({
+    term: t.term,
+    slug: t.slug,
+    definition: t.definition,
+    category: t.category,
+    abbreviation: t.abbreviation,
+    relatedTerms: t.relatedTerms ?? [],
+    hasPage: !!mdEntry,
+  });
+}
+
+// Then add any .md entries that don't have a JSON counterpart
+for (const e of mdEntries) {
+  if (!merged.find((m) => m.slug === e.id)) {
+    merged.push({
+      term: e.data.term,
+      slug: e.id,
+      definition: '',
+      category: e.data.category,
+      abbreviation: e.data.abbreviation ?? null,
+      relatedTerms: e.data.relatedTerms ?? [],
+      hasPage: true,
+    });
+  }
+}
+
+// Sort alphabetically
+merged.sort((a, b) => a.term.localeCompare(b.term));
+
+const categories = [...new Set(merged.map((e) => e.category))].sort();
+const allLetters = [...new Set(merged.map((e) => e.term[0].toUpperCase()))].sort();
+const total = merged.length;
+const pageCount = merged.filter((e) => e.hasPage).length;
 ---
 
 <BaseLayout title="Glossary" description="Definitions for common AV terminology, from dBu to throw ratio.">
   <div class="page-header">
     <div class="container">
       <h1>AV Glossary</h1>
-      <p>Community-maintained definitions of common professional AV terms and abbreviations.</p>
+      <p>{total} terms ({pageCount} with expanded definitions). Community-maintained definitions of professional AV terms and abbreviations.</p>
     </div>
   </div>
 
@@ -50,16 +103,16 @@ const total = entries.length;
 
       <p id="glossary-count" class="text-muted mt-1">{total} terms</p>
 
-      {entries.length === 0 ? (
+      {merged.length === 0 ? (
         <p class="text-muted">
           No glossary entries yet.
           <a href="https://github.com/sane-av/sane-av.github.io">Contribute the first term &rarr;</a>
         </p>
       ) : (
         <ul class="glossary-list" id="glossary-list">
-          {entries.map((entry, i) => {
-            const letter = entry.data.term[0].toUpperCase();
-            const prevLetter = i > 0 ? entries[i - 1].data.term[0].toUpperCase() : null;
+          {merged.map((entry, i) => {
+            const letter = entry.term[0].toUpperCase();
+            const prevLetter = i > 0 ? merged[i - 1].term[0].toUpperCase() : null;
             const isNewLetter = letter !== prevLetter;
             return (
               <>
@@ -70,23 +123,28 @@ const total = entries.length;
                 )}
                 <li
                   class="glossary-item"
-                  data-term={entry.data.term.toLowerCase()}
-                  data-category={entry.data.category}
+                  data-term={entry.term.toLowerCase()}
+                  data-category={entry.category}
                   data-letter={letter}
                 >
                   <div class="glossary-term">
-                    {entry.data.term}
-                    {entry.data.abbreviation && (
-                      <code class="glossary-abbr">{entry.data.abbreviation}</code>
+                    <a href={`/glossary/${entry.slug}`}>{entry.term}</a>
+                    {entry.abbreviation && (
+                      <code class="glossary-abbr">{entry.abbreviation}</code>
                     )}
-                    <span class="tag tag-orange ml-1">{entry.data.category}</span>
+                    <span class="tag tag-orange ml-1">{entry.category}</span>
                   </div>
-                  <div class="prose text-muted">
-                    <a href={`/glossary/${entry.id}`}>View full definition &rarr;</a>
+                  <div class="glossary-definition text-muted">
+                    {entry.definition}
                   </div>
-                  {entry.data.relatedTerms.length > 0 && (
+                  {entry.hasPage && (
+                    <div class="mt-1">
+                      <a href={`/glossary/${entry.slug}`} class="text-small">Expanded definition &rarr;</a>
+                    </div>
+                  )}
+                  {entry.relatedTerms.length > 0 && (
                     <div class="text-small mt-1">
-                      Related: {entry.data.relatedTerms.join(', ')}
+                      Related: {entry.relatedTerms.join(', ')}
                     </div>
                   )}
                 </li>

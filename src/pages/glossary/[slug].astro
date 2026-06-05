@@ -1,46 +1,126 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import avixaTerms from '../../data/glossary/avixa-terms.json';
 
-export async function getStaticPaths() {
-  const entries = await getCollection('glossary');
-  return entries.map((entry) => ({
-    params: { slug: entry.id },
-    props: { entry },
-  }));
+interface GlossaryTerm {
+  term: string;
+  slug: string;
+  definition: string;
+  category: string;
+  abbreviation: string | null;
+  relatedTerms: string[];
 }
 
-const { entry } = Astro.props;
-const { Content } = await render(entry);
+export async function getStaticPaths() {
+  const mdEntries = await getCollection('glossary');
+  
+  // Build a set of slugs that have content collection pages
+  const mdSlugs = new Set(mdEntries.map((e) => e.id));
+  
+  // Find JSON terms that DON'T have a .md page yet
+  const jsonOnlyTerms = avixaTerms.filter((t: GlossaryTerm) => !mdSlugs.has(t.slug));
+  
+  // Build paths: .md entries carry the full entry object, JSON-only carry the term data
+  const paths = [
+    ...mdEntries.map((entry) => ({
+      params: { slug: entry.id },
+      props: { 
+        source: 'md' as const,
+        entry,
+        jsonTerm: null as GlossaryTerm | null,
+      },
+    })),
+    ...jsonOnlyTerms.map((t: GlossaryTerm) => ({
+      params: { slug: t.slug },
+      props: { 
+        source: 'json' as const,
+        entry: null as CollectionEntry<'glossary'> | null,
+        jsonTerm: t,
+      },
+    })),
+  ];
+  
+  return paths;
+}
+
+const { source, entry, jsonTerm } = Astro.props;
+
+let Content: any = null;
+let termName: string;
+let category: string;
+let abbreviation: string | null;
+let relatedTerms: string[];
+let definition: string;
+
+if (source === 'md' && entry) {
+  const rendered = await render(entry);
+  Content = rendered.Content;
+  termName = entry.data.term;
+  category = entry.data.category;
+  abbreviation = entry.data.abbreviation ?? null;
+  relatedTerms = entry.data.relatedTerms ?? [];
+  definition = '';
+} else if (jsonTerm) {
+  termName = jsonTerm.term;
+  category = jsonTerm.category;
+  abbreviation = jsonTerm.abbreviation;
+  relatedTerms = jsonTerm.relatedTerms ?? [];
+  definition = jsonTerm.definition;
+} else {
+  // Fallback (shouldn't happen)
+  termName = 'Unknown';
+  category = 'General';
+  abbreviation = null;
+  relatedTerms = [];
+  definition = '';
+}
+
+const description = `Definition of ${termName} in professional AV.${category ? ` Category: ${category}.` : ''}`;
 ---
 
-<BaseLayout title={entry.data.term} description={`Definition of ${entry.data.term} in professional AV.`}>
+<BaseLayout title={termName} description={description}>
   <div class="page-header">
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="/">Home</a> <span>›</span>
         <a href="/glossary">Glossary</a> <span>›</span>
-        <span>{entry.data.term}</span>
+        <span>{termName}</span>
       </nav>
       <h1>
-        {entry.data.term}
-        {entry.data.abbreviation && <code class="glossary-abbr">{entry.data.abbreviation}</code>}
+        {termName}
+        {abbreviation && <code class="glossary-abbr">{abbreviation}</code>}
       </h1>
-      <span class="tag tag-orange">{entry.data.category}</span>
+      <span class="tag tag-orange">{category}</span>
     </div>
   </div>
 
   <section class="section">
     <div class="container content-width">
-      <article class="prose">
-        <Content />
-      </article>
+      {source === 'md' && Content ? (
+        <article class="prose">
+          <Content />
+        </article>
+      ) : (
+        <article class="prose">
+          <p>{definition}</p>
+          <div class="mt-3">
+            <p class="text-muted text-small">
+              This definition is from the AVIXA CTS-D Exam Guide glossary.
+              <a href={`https://github.com/sane-av/sane-av.github.io/issues/new?template=content_submission.yml&title=Expanded+definition+for+${encodeURIComponent(termName)}`} target="_blank" rel="noopener">
+                Submit an expanded definition
+              </a>.
+            </p>
+          </div>
+        </article>
+      )}
 
-      {entry.data.relatedTerms.length > 0 && (
-        <div class="related-terms">
+      {relatedTerms.length > 0 && (
+        <div class="related-terms mt-3">
           <h3 class="mb-1">Related Terms</h3>
           <div class="card-tags">
-            {entry.data.relatedTerms.map((t) => <span class="tag">{t}</span>)}
+            {relatedTerms.map((t) => <span class="tag">{t}</span>)}
           </div>
         </div>
       )}
@@ -48,7 +128,7 @@ const { Content } = await render(entry);
       <hr />
       <p class="text-muted">
         Want to improve this definition?
-        <a href="https://github.com/sane-av/sane-av.github.io/issues/new?template=content_submission.yml" target="_blank" rel="noopener">
+        <a href={`https://github.com/sane-av/sane-av.github.io/issues/new?template=content_submission.yml&title=${encodeURIComponent('Glossary: ' + termName)}`} target="_blank" rel="noopener">
           Submit a suggestion on GitHub
         </a>.
       </p>

@@ -421,6 +421,18 @@ th { background: var(--color-navy-mid); font-weight: 600; color: var(--color-tex
   border-radius: var(--radius-sm);
   margin-left: .5rem;
 }
+.glossary-definition {
+  font-size: .9rem;
+  line-height: 1.55;
+  margin-top: .35rem;
+}
+.glossary-term a {
+  color: var(--color-teal);
+  text-decoration: none;
+}
+.glossary-term a:hover {
+  text-decoration: underline;
+}
 
 /* --- Equipment Table --- */
 .equipment-filter {

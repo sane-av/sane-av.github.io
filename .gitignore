@@ -19,3 +19,6 @@ npm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# temporary working files
+working_files/
