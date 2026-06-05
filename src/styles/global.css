@@ -251,7 +251,6 @@ th { background: var(--color-navy-mid); font-weight: 600; color: var(--color-tex
 }
 
 .hero-body {
-  flex: 1;
   min-width: 0;
 }
 
