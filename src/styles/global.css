@@ -157,14 +157,12 @@ th { background: var(--color-navy-mid); font-weight: 600; color: var(--color-tex
 }
 
 .site-logo .logo-badge {
-  background: var(--color-teal);
-  color: var(--color-navy);
-  font-size: .7rem;
-  font-weight: 900;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  padding: .18em .55em;
-  border-radius: var(--radius-sm);
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+.site-logo:hover .logo-badge {
+  filter: brightness(1.2);
 }
 
 .site-logo:hover { text-decoration: none; }
@@ -743,7 +741,6 @@ th { background: var(--color-navy-mid); font-weight: 600; color: var(--color-tex
     font-size: 1rem;
     justify-content: center;
   }
-  .site-logo .logo-badge { font-size: .65rem; }
   .site-logo-text { display: none; }
   .site-nav {
     gap: 0;
