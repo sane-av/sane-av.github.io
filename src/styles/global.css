@@ -354,16 +354,17 @@ th { background: var(--color-navy-mid); font-weight: 600; color: var(--color-tex
 .tag {
   display: inline-block;
   font-size: .72rem;
-  font-weight: 600;
-  padding: .18em .55em;
+  font-weight: 500;
+  padding: .15em .55em;
   border-radius: var(--radius-sm);
-  background: rgba(241,161,13,.08);
+  background: transparent;
+  border: 1px solid rgba(241,161,13,.22);
   color: var(--color-teal);
   text-transform: uppercase;
   letter-spacing: .04em;
 }
 
-.tag-orange { background: rgba(180,83,9,.18); color: #fcd34d; }
+.tag-orange { background: rgba(180,83,9,.18); border-color: transparent; color: #fcd34d; }
 
 /* --- Status Badges --- */
 .status-badge {
@@ -443,9 +444,8 @@ th { background: var(--color-navy-mid); font-weight: 600; color: var(--color-tex
   align-items: center;
 }
 .glossary-tags-inline .tag {
-  background: transparent;
-  border: 1px solid rgba(241,161,13,.18);
-  color: var(--color-muted);
+  border-color: rgba(241,161,13,.25);
+  color: rgba(241,161,13,.82);
   text-transform: none;
   letter-spacing: 0;
   font-weight: 500;
@@ -453,7 +453,7 @@ th { background: var(--color-navy-mid); font-weight: 600; color: var(--color-tex
   padding: .12em .5em;
 }
 .glossary-tags-inline .tag:hover {
-  border-color: rgba(241,161,13,.35);
+  border-color: rgba(241,161,13,.5);
   color: var(--color-teal);
 }
 .glossary-term a {
