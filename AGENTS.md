@@ -35,10 +35,13 @@ src/
   content.config.ts              # Zod schemas for all content collections
   content/
     standards/                   # SANE-NNN-*.md - normative documents
-    glossary/                    # term entries (saneId-style refs encouraged)
+    glossary/                    # expanded-definition .md files (overrides JSON)
     blog/                        # blog posts
     whitepapers/                 # long-form articles
-  data/equipment/                # JSON equipment specs + schema.json
+  data/
+    equipment/                   # JSON equipment specs + schema.json
+    glossary/
+      avixa-terms.json           # 680 AVIXA CTS-D terms (primary glossary source)
   layouts/
     BaseLayout.astro             # site shell (header, footer, meta)
     ContentLayout.astro          # page shell with breadcrumb nav
@@ -55,7 +58,8 @@ src/
       index.astro                # tools listing page (4 entries, 2 implemented)
       spl-calculator.astro       # dBu/dBV/voltage + level difference calculators
       throw-ratio.astro          # projector throw ratio solver
-  styles/global.css              # SINGLE stylesheet (~530 lines) - all theme + components
+  styles/global.css              # SINGLE stylesheet (~605 lines) - all theme + components
+working_files/                   # gitignored - dev scripts, raw glossary sources
 LICENSE                          # MIT (code)
 CONTENT-LICENSE.md               # CC BY 4.0 (content) - DO NOT rename to LICENSE-*
                                  # (GitHub's license scanner will flag it)
@@ -155,10 +159,49 @@ Do **not** add `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24` - the pinned major versions 
 - Required frontmatter: `title`, `description`, `pubDate`, `author`. Optional: `updatedDate`, `tags`, `draft`.
 - `draft: true` hides the post from listings and RSS (filtered in `getCollection` calls).
 
-### Glossary (`src/content/glossary/`)
-- One term per file. Filename is kebab-case term name (e.g. `gain-structure.md`).
-- Required frontmatter: `term`, `category`. Optional: `abbreviation` (renders as a pill), `relatedTerms`.
-- Cross-link to standards and other glossary terms where relevant.
+### Glossary (`src/content/glossary/` + `src/data/glossary/avixa-terms.json`)
+
+The glossary uses a **hybrid storage system**:
+
+| Source | Purpose | Count |
+|---|---|---|
+| `src/data/glossary/avixa-terms.json` | Primary glossary: 680 AVIXA CTS-D reference terms with short definitions, auto-categorized | 680 |
+| `src/content/glossary/*.md` | Expanded-definition pages that override a JSON entry | 3 |
+
+**How it works:**
+- The glossary index page (`src/pages/glossary/index.astro`) loads both sources and merges them. JSON terms show their definition inline. Terms with a matching `.md` file show an "Expanded definition →" link instead.
+- The detail page (`src/pages/glossary/[slug].astro`) generates static pages for ALL terms (JSON + .md). If a `.md` file exists, it renders the rich Markdown body. If only a JSON entry exists, it shows the short definition with an AVIXA attribution.
+- To create an expanded definition, add a `.md` file in `src/content/glossary/` whose filename slug matches the JSON `slug` field. The system auto-detects it.
+
+**JSON entry structure** (in `avixa-terms.json`):
+```json
+{
+  "term": "acoustics",
+  "slug": "acoustics",
+  "definition": "The properties or qualities of a room...",
+  "categories": ["Acoustics", "Audio"],
+  "abbreviation": null,
+  "relatedTerms": []
+}
+```
+
+**Content collection .md frontmatter** (for expanded pages):
+- Required: `term`, `category`. Optional: `abbreviation`, `relatedTerms`.
+- Filename must be kebab-case matching the term slug (e.g. `audio-video-bridging-avb.md`).
+- Body is full Markdown (tables, headings, cross-references to standards).
+- The `.md` entry's `term` and `category` override the JSON values on the detail page.
+
+**Auto-categorization:**
+- JSON terms are auto-categorized by a PowerShell script at `working_files/convert_to_json.ps1`.
+- It uses keyword heuristics across 13 domain categories (Audio, Video, Networking, Electrical, etc.).
+- Short keywords (≤4 chars) use `\b` word-boundary regex matching to prevent substring false positives (e.g., `IR` must not match `thIRd`).
+- To re-run: `powershell -ExecutionPolicy Bypass -File working_files/convert_to_json.ps1`.
+- To fix a mis-categorized term, edit the keyword rules in the `.ps1` script and re-run.
+
+**Multi-category support:**
+- JSON uses `categories` (array of strings). The index page renders one tag pill per category per term.
+- The content collection schema still uses `category` (singular string). This is intentional - expanded .md pages have one primary category.
+- Index page filtering: clicking a category tag shows all terms that include that category in their array.
 
 ### Whitepapers (`src/content/whitepapers/`)
 - Required frontmatter: `title`, `description`, `pubDate`, `authors`. Optional: `tags`, `draft`.
@@ -195,6 +238,8 @@ Commit messages are imperative, lowercase after the type, no trailing period.
 | Creating `LICENSE-CONTENT` file | GitHub flags repo as "Unknown licenses found" | Name it `CONTENT-LICENSE.md` (any name not starting with `LICENSE`) |
 | Forgetting `astro.config.mjs` `site` | Broken sitemap / canonical URLs | Always set to deployed origin |
 | Em-dashes sneaking back in | Inconsistency with prior content | Search for `U+2014` after any content edit |
+| Special chars in PowerShell string literals | `©` and `®` matched incorrectly | Use regex `.+?` patterns (not exact strings) when cleaning PDF-extracted text; verify with byte-level analysis |
+| Substring keyword matching in auto-categorizer | Short tokens match mid-word (e.g., `IR` in `thIRd`) | Use `\b` word-boundary regex for keywords ≤4 chars in `convert_to_json.ps1` |
 
 ## 9. Pre-commit checklist for agents
 
@@ -210,7 +255,7 @@ Before `git add`:
 ## 10. What NOT to do
 
 - Do not add a light-mode toggle "to be nice". The site is intentionally dark-only; light mode would require duplicating every token and re-validating contrast on every component. If genuinely needed, open an RFC first.
-- Do not introduce a CSS framework (Tailwind, Bootstrap). The site is ~530 lines of hand-written CSS - keeping it that way is a feature.
+- Do not introduce a CSS framework (Tailwind, Bootstrap). The site is ~605 lines of hand-written CSS - keeping it that way is a feature.
 - Do not add client-side JS frameworks (React, Vue, Svelte). Astro static + tiny inline scripts is the contract.
 - Do not auto-add docstrings, type annotations, or comments to code you did not change.
 - Do not "improve" file structure (extracting components, splitting CSS, etc.) without an explicit ask. Small repo; flat is fine.
