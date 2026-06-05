@@ -136,7 +136,7 @@
     "relatedTerms": []
   },
   {
-    "term": "alternating current (AC)",
+    "term": "alternating current",
     "slug": "alternating-current-ac",
     "definition": "An electric current that reverses its direction periodically.",
     "categories": ["Electrical"],
@@ -184,11 +184,11 @@
     "relatedTerms": []
   },
   {
-    "term": "analog (analogue)",
+    "term": "analog",
     "slug": "analog-analogue",
     "definition": "A continuously variable signal.",
     "categories": ["General"],
-    "abbreviation": "analogue",
+    "abbreviation": null,
     "relatedTerms": []
   },
   {
@@ -232,7 +232,7 @@
     "relatedTerms": []
   },
   {
-    "term": "arc-fault circuit interrupter (AFCI)",
+    "term": "arc-fault circuit interrupter",
     "slug": "arc-fault-circuit-interrupter-afci",
     "definition": "Also known as an arc-fault detection device (AFDD), a type of circuit breaker that triggers on detecting an electrical-arc fault in its load circuit.",
     "categories": ["Video", "Electrical"],
@@ -280,15 +280,15 @@
     "relatedTerms": []
   },
   {
-    "term": "Audio Coverage Uniformity measurement locations (ACUMLs)",
+    "term": "Audio Coverage Uniformity measurement locations",
     "slug": "audio-coverage-uniformity-measurement-locations-acumls",
     "definition": "The test points within a venue that have been determined to carry out the measurements for the AVIXA Audio Coverage Uniformity test.",
     "categories": ["Audio", "Standards"],
-    "abbreviation": "ACUMLs",
+    "abbreviation": null,
     "relatedTerms": []
   },
   {
-    "term": "Audio Coverage Uniformity Plan (ACUP)",
+    "term": "Audio Coverage Uniformity Plan",
     "slug": "audio-coverage-uniformity-plan-acup",
     "definition": "A stand-alone document that identifies the Audio Coverage Uniformity measurement locations for a particular venue, using the AVIXA indication symbol.",
     "categories": ["Audio", "Standards"],
@@ -304,7 +304,7 @@
     "relatedTerms": []
   },
   {
-    "term": "Audio Return Channel (ARC)",
+    "term": "Audio Return Channel",
     "slug": "audio-return-channel-arc",
     "definition": "Introduced to the HDMI standard with version 1.4. ARC allows a display to send audio data upstream to a receiver or surround-sound controller, eliminating the need for a separate audio connection.",
     "categories": ["Audio", "Video"],
@@ -328,7 +328,7 @@
     "relatedTerms": []
   },
   {
-    "term": "Audio Video Bridging (AVB)",
+    "term": "Audio Video Bridging",
     "slug": "audio-video-bridging-avb",
     "definition": "A standards-based audiovisual Data Link-layer (layer 2) protocol defined under IEEE 802.1-AVB. It runs across a standard Ethernet network but requires AVB-enabled switches and network components that handle QoS prioritization of data. AVB has been renamed Time-Sensitive Networking to reflect the standard’s applicability to communication among different types of devices, such as network sensors.",
     "categories": ["Audio", "Video", "Networking", "Standards"],
@@ -360,7 +360,7 @@
     "relatedTerms": []
   },
   {
-    "term": "authority having jurisdiction (AHJ)",
+    "term": "authority having jurisdiction",
     "slug": "authority-having-jurisdiction-ahj",
     "definition": "An organization, office, or individual responsible for enforcing the requirements of a code or standard or for approving equipment, materials, installation, or procedures. In some places the authority having jurisdiction may be known as the regional regulatory authority.",
     "categories": ["Project Management"],
@@ -376,7 +376,7 @@
     "relatedTerms": []
   },
   {
-    "term": "automatic gain control (AGC)",
+    "term": "automatic gain control",
     "slug": "automatic-gain-control-agc",
     "definition": "A circuit or process that maintains a constant output gain in response to input variables such as signal strength or ambient noise level.",
     "categories": ["Audio", "Electrical"],
@@ -384,7 +384,7 @@
     "relatedTerms": []
   },
   {
-    "term": "Automatic Private IP Addressing (APIPA)",
+    "term": "Automatic Private IP Addressing",
     "slug": "automatic-private-ip-addressing-apipa",
     "definition": "A Windows function that assigns locally routable addresses from the reserved network 169.254.0.0/16 to devices that do not have or cannot obtain an IP address. This allows devices to communicate with other devices on the same LAN. APIPA operates at the Network layer (layer 3) of the OSI Model and the Internet layer of the TCP/IP protocol stack.",
     "categories": ["Networking"],
@@ -432,11 +432,11 @@
     "relatedTerms": []
   },
   {
-    "term": "bandwidth (networking)",
+    "term": "bandwidth",
     "slug": "bandwidth-networking",
     "definition": "The available or consumed data communication resources of a communication path, measured in bits per second (bps). It is also called data throughput or bit rate.",
     "categories": ["Networking"],
-    "abbreviation": "networking",
+    "abbreviation": null,
     "relatedTerms": []
   },
   {
@@ -480,7 +480,7 @@
     "relatedTerms": []
   },
   {
-    "term": "bill of materials (BOM)",
+    "term": "bill of materials",
     "slug": "bill-of-materials-bom",
     "definition": "A complete equipment list of components that must be procured in order to build the system as specified. The BOM also lists the costs associated with each aspect of designing and implementing the system.",
     "categories": ["Project Management"],
@@ -504,7 +504,7 @@
     "relatedTerms": []
   },
   {
-    "term": "bit error rate (BER)",
+    "term": "bit error rate",
     "slug": "bit-error-rate-ber",
     "definition": "The number of error bits present in a signal stream per unit of time.",
     "categories": ["Networking"],
@@ -576,7 +576,7 @@
     "relatedTerms": []
   },
   {
-    "term": "bring-your-own-device (BYOD)",
+    "term": "bring-your-own-device",
     "slug": "bring-your-own-device-byod",
     "definition": "An approach that allows users to access resources such as a network with personal devices.",
     "categories": ["Systems & Control"],
@@ -600,7 +600,7 @@
     "relatedTerms": []
   },
   {
-    "term": "building information modeling (BIM)",
+    "term": "building information modeling",
     "slug": "building-information-modeling-bim",
     "definition": "A data repository for building design, construction, and maintenance data shared by multiple disciplines on a single project.",
     "categories": ["Systems & Control", "Project Management"],
@@ -656,7 +656,7 @@
     "relatedTerms": []
   },
   {
-    "term": "campus area network (CAN)",
+    "term": "campus area network",
     "slug": "campus-area-network-can",
     "definition": "A type of network linking multiple LANs in a limited geographical area such as a university campus or a cluster of buildings.",
     "categories": ["Networking"],
@@ -688,7 +688,7 @@
     "relatedTerms": []
   },
   {
-    "term": "capacitive reactance (XC)",
+    "term": "capacitive reactance",
     "slug": "capacitive-reactance-xc",
     "definition": "The opposition a capacitive device offers to alternating current flow. It is measured in ohms (Ω). The symbol for capacitive reactance is XC . Capacitive reactance is inversely proportional to the frequency of the current in a circuit.",
     "categories": ["Electrical"],
@@ -776,7 +776,7 @@
     "relatedTerms": []
   },
   {
-    "term": "cathode ray tube (CRT)",
+    "term": "cathode ray tube",
     "slug": "cathode-ray-tube-crt",
     "definition": "A high-vacuum glass tube containing an electron gun to produce the images seen on the phosphorcoated face of the tube. This video display technology was used in early-generation video monitors, television receivers, radar displays, and oscilloscopes.",
     "categories": ["Video", "Lighting"],
@@ -808,7 +808,7 @@
     "relatedTerms": []
   },
   {
-    "term": "central processing unit (CPU)",
+    "term": "central processing unit",
     "slug": "central-processing-unit-cpu",
     "definition": "The portion of a computer system that reads and executes commands.",
     "categories": ["General"],
@@ -816,7 +816,7 @@
     "relatedTerms": []
   },
   {
-    "term": "charged-coupled device (CCD)",
+    "term": "charged-coupled device",
     "slug": "charged-coupled-device-ccd",
     "definition": "A light-sensitive semiconductor device, commonly used in video and digital cameras, that converts optical images into electronic signals.",
     "categories": ["Video", "Electrical", "Cabling"],
@@ -856,7 +856,7 @@
     "relatedTerms": []
   },
   {
-    "term": "Classless Inter-Domain Routing (CIDR) notation",
+    "term": "Classless Inter-Domain Routing notation",
     "slug": "classless-inter-domain-routing-cidr-notation",
     "definition": "A compact representation of an IP address and its subnet mask using a slash and a decimal number to indicate how many leading 1 bits are in the network mask, with the remaining bits being the network host identifiers (e.g., 192.168.220.16/24). The subnet mask of 255.255.255.0 (24 mask bits) is represented as /24 in CIDR notation. CIDR replaces the class designations (A, B, and C) for IP address ranges.",
     "categories": ["Networking"],
@@ -896,7 +896,7 @@
     "relatedTerms": []
   },
   {
-    "term": "coaxial (coax) cable",
+    "term": "coaxial cable",
     "slug": "coaxial-coax-cable",
     "definition": "A cable consisting of a center conductor surrounded by insulating material, concentric outer conductor, and optional protective covering, all of circular cross section.",
     "categories": ["Electrical", "Cabling"],
@@ -936,7 +936,7 @@
     "relatedTerms": []
   },
   {
-    "term": "color rendering index (CRI)",
+    "term": "color rendering index",
     "slug": "color-rendering-index-cri",
     "definition": "The effect a light source has on the perceived color of objects indexed against an incandescent source (CRI 100) of the same correlated color temperature.",
     "categories": ["Video", "Lighting"],
@@ -976,7 +976,7 @@
     "relatedTerms": []
   },
   {
-    "term": "common-mode rejection ratio (CMRR)",
+    "term": "common-mode rejection ratio",
     "slug": "common-mode-rejection-ratio-cmrr",
     "definition": "The ratio of the differential voltage gain to the common-mode voltage gain; expressed in decibels.",
     "categories": ["Audio", "Electrical", "Signal Processing"],
@@ -1024,11 +1024,11 @@
     "relatedTerms": []
   },
   {
-    "term": "compressor (audio)",
+    "term": "compressor",
     "slug": "compressor-audio",
     "definition": "A device that controls the overall amplitude of a signal by reducing the part of the signal that exceeds an adjustable threshold level set by the user. When the signal exceeds the threshold level, the overall amplitude is reduced by a ratio, also usually adjustable by the user.",
     "categories": ["Audio"],
-    "abbreviation": "audio",
+    "abbreviation": null,
     "relatedTerms": []
   },
   {
@@ -1080,7 +1080,7 @@
     "relatedTerms": []
   },
   {
-    "term": "Consumer Electronic Control (CEC)",
+    "term": "Consumer Electronic Control",
     "slug": "consumer-electronic-control-cec",
     "definition": "A single-wire, bi-directional serial bus that uses AV link protocols to perform remote-control functions. It is an optional feature of the HDMI specification that allows for system-level automation when all devices in an AV system support it.",
     "categories": ["Video", "Electrical", "Cabling", "Systems & Control"],
@@ -1104,7 +1104,7 @@
     "relatedTerms": []
   },
   {
-    "term": "content delivery network (CDN)",
+    "term": "content delivery network",
     "slug": "content-delivery-network-cdn",
     "definition": "A distributed network of caching servers that can provide hosted unicast distribution of media for an organization. They are most often utilized by organizations whose content is in high demand.",
     "categories": ["Networking"],
@@ -1136,7 +1136,7 @@
     "relatedTerms": []
   },
   {
-    "term": "correlated color temperature (CCT)",
+    "term": "correlated color temperature",
     "slug": "correlated-color-temperature-cct",
     "definition": "The color appearance of a light source as compared with a standardized object heated to a temperature measured on the Kelvin scale. CCT is measured kelvins (K).",
     "categories": ["Video", "Lighting"],
@@ -1240,11 +1240,11 @@
     "relatedTerms": []
   },
   {
-    "term": "decibel (dB)",
+    "term": "decibel",
     "slug": "decibel-db",
     "definition": "A base-10 logarithmic representation of the ratio between two numbers. This ratio is used for quantifying differences in voltage, distance, sound pressure, and power.",
     "categories": ["Acoustics", "Electrical"],
-    "abbreviation": "dB",
+    "abbreviation": null,
     "relatedTerms": []
   },
   {
@@ -1320,11 +1320,11 @@
     "relatedTerms": []
   },
   {
-    "term": "differentiated service (DiffServ)",
+    "term": "differentiated service",
     "slug": "differentiated-service-diffserv",
     "definition": "A network quality-of-service (QoS) strategy wherein data from specific applications or protocols is assigned a class of service. Flows assigned a high priority are given preferential treatment at the router, but delivery is not guaranteed.",
     "categories": ["Networking"],
-    "abbreviation": "DiffServ",
+    "abbreviation": null,
     "relatedTerms": []
   },
   {
@@ -1368,7 +1368,7 @@
     "relatedTerms": []
   },
   {
-    "term": "digital signal processor (DSP)",
+    "term": "digital signal processor",
     "slug": "digital-signal-processor-dsp",
     "definition": "A digital device designed to process signal streams such as audio, video, and RF data.",
     "categories": ["Audio", "Video", "Signal Processing"],
@@ -1392,7 +1392,7 @@
     "relatedTerms": []
   },
   {
-    "term": "direct current (DC)",
+    "term": "direct current",
     "slug": "direct-current-dc",
     "definition": "Electric current that does not reverse direction, unlike alternating current (AC). DC may vary in amplitude but not direction.",
     "categories": ["Electrical"],
@@ -1432,7 +1432,7 @@
     "relatedTerms": []
   },
   {
-    "term": "Display Data Channel (DDC)",
+    "term": "Display Data Channel",
     "slug": "display-data-channel-ddc",
     "definition": "A data channel used between video sources and video displays to carry information about display capabilities and video formats. The channel used for exchanging EDID and HDCP data.",
     "categories": ["Video", "Security"],
@@ -1464,7 +1464,7 @@
     "relatedTerms": []
   },
   {
-    "term": "distribution amplifier (DA)",
+    "term": "distribution amplifier",
     "slug": "distribution-amplifier-da",
     "definition": "An active device used to split one input signal into multiple isolated output signals at a constant amplitude.",
     "categories": ["Audio", "Signal Processing"],
@@ -1488,7 +1488,7 @@
     "relatedTerms": []
   },
   {
-    "term": "Domain Name System (DNS)",
+    "term": "Domain Name System",
     "slug": "domain-name-system-dns",
     "definition": "A hierarchical, distributed database that maps names to data such as IP addresses, name server addresses, and mail exchange addresses.",
     "categories": ["Networking"],
@@ -1544,7 +1544,7 @@
     "relatedTerms": []
   },
   {
-    "term": "Dynamic Host Configuration Protocol (DHCP)",
+    "term": "Dynamic Host Configuration Protocol",
     "slug": "dynamic-host-configuration-protocol-dhcp",
     "definition": "An IP address management process that automates the assignment of IP addresses and networking parameters to devices on an IP network.",
     "categories": ["Networking"],
@@ -1624,7 +1624,7 @@
     "relatedTerms": []
   },
   {
-    "term": "electromagnetic interference (EMI)",
+    "term": "electromagnetic interference",
     "slug": "electromagnetic-interference-emi",
     "definition": "Interference signals produced by electromagnetic fields.",
     "categories": ["General"],
@@ -1664,7 +1664,7 @@
     "relatedTerms": []
   },
   {
-    "term": "energy management plan (EMP)",
+    "term": "energy management plan",
     "slug": "energy-management-plan-emp",
     "definition": "A document that details a systematic approach to implementing the most effective power consumption methods and procedures to achieve and maintain optimum energy usage.",
     "categories": ["Project Management"],
@@ -1688,7 +1688,7 @@
     "relatedTerms": []
   },
   {
-    "term": "equipment grounding conductor (EGC)",
+    "term": "equipment grounding conductor",
     "slug": "equipment-grounding-conductor-egc",
     "definition": "North American term for the safety earth, the conductive path installed to connect normally noncurrent-carrying conductive parts of equipment to the grounding/earthing electrode (planet Earth).",
     "categories": ["Electrical"],
@@ -1704,7 +1704,7 @@
     "relatedTerms": []
   },
   {
-    "term": "equivalent acoustic distance (EAD)",
+    "term": "equivalent acoustic distance",
     "slug": "equivalent-acoustic-distance-ead",
     "definition": "The farthest distance one can go from the source without the need for sound amplification or reinforcement to maintain good speech intelligibility. The distance is dependent on the level of the presenter and the noise level in the room.",
     "categories": ["Acoustics"],
@@ -1752,7 +1752,7 @@
     "relatedTerms": []
   },
   {
-    "term": "extended display identification data (EDID)",
+    "term": "extended display identification data",
     "slug": "extended-display-identification-data-edid",
     "definition": "A data structure within a video sink device that is used to describe the sink’s characteristics to a video source. The characteristics described include the sink’s native resolution, color space information, and audio type (mono or stereo).",
     "categories": ["Audio", "Video"],
@@ -1800,7 +1800,7 @@
     "relatedTerms": []
   },
   {
-    "term": "feedback stability margin (FSM)",
+    "term": "feedback stability margin",
     "slug": "feedback-stability-margin-fsm",
     "definition": "The extra margin added (usually 6dB) into the needed acoustic gain (NAG) formula that represents extra gain that a sound system may have available before the onset of feedback.",
     "categories": ["Acoustics", "Audio"],
@@ -2040,7 +2040,7 @@
     "relatedTerms": []
   },
   {
-    "term": "graphical user interface (GUI)",
+    "term": "graphical user interface",
     "slug": "graphical-user-interface-gui",
     "definition": "Often pronounced “gooey,” provides a graphical (image-based) interface for a user to view a system’s elements and functions.",
     "categories": ["Video", "Systems & Control"],
@@ -2056,7 +2056,7 @@
     "relatedTerms": []
   },
   {
-    "term": "graphics processing unit (GPU)",
+    "term": "graphics processing unit",
     "slug": "graphics-processing-unit-gpu",
     "definition": "A specialized circuit designed for processing display functions. The processor is optimized to render and manipulate images in a video frame buffer.",
     "categories": ["Video", "Electrical"],
@@ -2136,7 +2136,7 @@
     "relatedTerms": []
   },
   {
-    "term": "ground-fault circuit interrupter (GFCI)",
+    "term": "ground-fault circuit interrupter",
     "slug": "ground-fault-circuit-interrupter-gfci",
     "definition": "A safety device that de-energizes a circuit within an established period of time when a current to ground exceeds a specified level. Triggered by an imbalance between the supply and return currents. Similar in function to an earth leakage circuit breaker (ELCB), a residual current device (RCD), or a core balance relay (CBR).",
     "categories": ["Electrical"],
@@ -2184,7 +2184,7 @@
     "relatedTerms": []
   },
   {
-    "term": "Group Management Protocol (GMP)",
+    "term": "Group Management Protocol",
     "slug": "group-management-protocol-gmp",
     "definition": "A protocol that allows a host to inform its neighboring routers of its desire to start or stop receiving multicast transmissions.",
     "categories": ["Networking"],
@@ -2192,11 +2192,11 @@
     "relatedTerms": []
   },
   {
-    "term": "group of pictures (GoP)",
+    "term": "group of pictures",
     "slug": "group-of-pictures-gop",
     "definition": "A set of successive frames that are required to display a complete series in a digital video signal. It includes the visible picture, timing/sync information, and compression frames.",
     "categories": ["Video", "Networking"],
-    "abbreviation": "GoP",
+    "abbreviation": null,
     "relatedTerms": []
   },
   {
@@ -2280,7 +2280,7 @@
     "relatedTerms": []
   },
   {
-    "term": "HDMI Ethernet Audio Control (HEAC)",
+    "term": "HDMI Ethernet Audio Control",
     "slug": "hdmi-ethernet-audio-control-heac",
     "definition": "In HDMI, the combining of HDMI Ethernet Channel (HEC) and Audio Return Channel (ARC) into one port or cable. See HDMI Ethernet Channel (HEC) and Audio Return Channel (ARC).",
     "categories": ["Audio", "Video", "Networking", "Cabling"],
@@ -2288,7 +2288,7 @@
     "relatedTerms": []
   },
   {
-    "term": "HDMI Ethernet Channel (HEC)",
+    "term": "HDMI Ethernet Channel",
     "slug": "hdmi-ethernet-channel-hec",
     "definition": "Consolidates video, audio, and data streams into a single HDMI cable. A dedicated data channel enables high-speed, bi-directional networking to support future IP solutions and allow multiple devices to share an Internet connection.",
     "categories": ["Audio", "Video", "Networking", "Cabling"],
@@ -2344,11 +2344,11 @@
     "relatedTerms": []
   },
   {
-    "term": "hertz (Hz)",
+    "term": "hertz",
     "slug": "hertz-hz",
     "definition": "The unit of frequency. 1Hz = 1 cycle per second.",
     "categories": ["General"],
-    "abbreviation": "Hz",
+    "abbreviation": null,
     "relatedTerms": []
   },
   {
@@ -2360,7 +2360,7 @@
     "relatedTerms": []
   },
   {
-    "term": "High-Bandwidth Digital Content Protection (HDCP)",
+    "term": "High-Bandwidth Digital Content Protection",
     "slug": "high-bandwidth-digital-content-protection-hdcp",
     "definition": "A form of encryption developed by Intel to control digital audio and video content as it travels across Digital Video Interface (DVI), DisplayPort (DP), or High-Definition Multimedia Interface (HDMI) connections. It prevents transmission or interception of unencrypted HD content. Does not work across Serial Digital Interface (SDI) streams.",
     "categories": ["Audio", "Video", "Signal Processing", "Security"],
@@ -2368,7 +2368,7 @@
     "relatedTerms": []
   },
   {
-    "term": "High Definition Multimedia Interface (HDMI)",
+    "term": "High Definition Multimedia Interface",
     "slug": "high-definition-multimedia-interface-hdmi",
     "definition": "A point-to-point connection protocol between video devices for digital video and audio. HDMI signals include audio, control, Ethernet, and digital asset rights management information.",
     "categories": ["Audio", "Video", "Networking"],
@@ -2376,7 +2376,7 @@
     "relatedTerms": []
   },
   {
-    "term": "high dynamic range (HDR)",
+    "term": "high dynamic range",
     "slug": "high-dynamic-range-hdr",
     "definition": "Digital images having a bit depth of at least 10 bits (1,024 levels) per channel. Standard dynamic range images have a bit depth of 8 bits (256 levels) per channel.",
     "categories": ["Audio", "Video"],
@@ -2456,7 +2456,7 @@
     "relatedTerms": []
   },
   {
-    "term": "image constraint token (ICT)",
+    "term": "image constraint token",
     "slug": "image-constraint-token-ict",
     "definition": "A digital flag signal incorporated into some high-definition digital video streams. If present, the video stream can be decoded at full resolution only on HDCP-enabled devices.",
     "categories": ["Video", "Security"],
@@ -2504,11 +2504,11 @@
     "relatedTerms": []
   },
   {
-    "term": "incident (security)",
+    "term": "incident",
     "slug": "incident-security",
     "definition": "An event that threatens or adversely affects AV and information systems or the data that resides on them.",
     "categories": ["Security"],
-    "abbreviation": "security",
+    "abbreviation": null,
     "relatedTerms": []
   },
   {
@@ -2544,7 +2544,7 @@
     "relatedTerms": []
   },
   {
-    "term": "infrared (IR)",
+    "term": "infrared",
     "slug": "infrared-ir",
     "definition": "The range of nonvisible light frequencies below the red end of the visible spectrum. IR signal transmission requires an uninterrupted signal path between transmitter and receiver.",
     "categories": ["Lighting"],
@@ -2576,7 +2576,7 @@
     "relatedTerms": []
   },
   {
-    "term": "Integrated Services Digital Network (ISDN)",
+    "term": "Integrated Services Digital Network",
     "slug": "integrated-services-digital-network-isdn",
     "definition": "A communications standard for transmitting data over digital telephone lines.",
     "categories": ["Networking"],
@@ -2584,7 +2584,7 @@
     "relatedTerms": []
   },
   {
-    "term": "intellectual property (IP)",
+    "term": "intellectual property",
     "slug": "intellectual-property-ip",
     "definition": "A type of property that includes the creations of the human intellect. It includes ideas; written material such as books, articles, poems, and essays; designs including plans, specifications, diagrams, sketches, and program code; images such as photographs, graphic arts, and other artworks; music and songs; and movie and video . Intellectual property rights are usually asserted through the use of patents, trademarks, copyrights, and trade secrets. All IP used in the design, execution, and operation of an AV installation must be correctly licensed from each of the owners of that IP.",
     "categories": ["Video"],
@@ -2600,7 +2600,7 @@
     "relatedTerms": []
   },
   {
-    "term": "Internet Corporation for Assigned Names and Numbers (ICANN)",
+    "term": "Internet Corporation for Assigned Names and Numbers",
     "slug": "internet-corporation-for-assigned-names-and-numbers-icann",
     "definition": "An organization chartered to oversee several Internet-related tasks. ICANN manages Domain Name System (DNS) policy, including the top-level domain space for the Internet.",
     "categories": ["Networking", "Standards"],
@@ -2608,7 +2608,7 @@
     "relatedTerms": []
   },
   {
-    "term": "Internet Group Management Protocol (IGMP)",
+    "term": "Internet Group Management Protocol",
     "slug": "internet-group-management-protocol-igmp",
     "definition": "The group management protocol for IPv4. IGMPv1 allowed individual clients to subscribe to a multicast channel. IGMPv2 and IGMPv3 added the ability to unsubscribe from a multicast channel.",
     "categories": ["Networking"],
@@ -2632,15 +2632,15 @@
     "relatedTerms": []
   },
   {
-    "term": "Internet of Things (IoT)",
+    "term": "Internet of Things",
     "slug": "internet-of-things-iot",
     "definition": "Refers to a situation where network connectivity and computing capability have been extended to include objects, sensors, and other devices, allowing these devices to exchange data.",
     "categories": ["Systems & Control"],
-    "abbreviation": "IoT",
+    "abbreviation": null,
     "relatedTerms": []
   },
   {
-    "term": "Internet Protocol (IP)",
+    "term": "Internet Protocol",
     "slug": "internet-protocol-ip",
     "definition": "A TCP/IP protocol defined in the IETF standard RFC 791. IP defines rules for addressing, packaging, fragmenting, and routing data sent across an IP network. IP falls under the Internet layer of the TCP/ IP protocol stack and the Network layer (layer 3) of the OSI Model.",
     "categories": ["Networking", "Standards"],
@@ -2648,7 +2648,7 @@
     "relatedTerms": []
   },
   {
-    "term": "Internet Protocol Television (IPTV)",
+    "term": "Internet Protocol Television",
     "slug": "internet-protocol-television-iptv",
     "definition": "A system that delivers television services over an IP network such as a LAN or the Internet.",
     "categories": ["Networking"],
@@ -2696,7 +2696,7 @@
     "relatedTerms": []
   },
   {
-    "term": "isolated ground (IG)",
+    "term": "isolated ground",
     "slug": "isolated-ground-ig",
     "definition": "An equipment grounding method permitted by the North American NEC for reducing electrical noise (electromagnetic interference) on the grounding circuit. The isolation between IG receptacles and circuits and the normal equipment grounding is maintained up to the point of the service entrance (or a separately derived system) where the grounded (neutral) conductor, equipment grounding, and isolated equipment grounding conductor are bonded together and to earth/ground (planet Earth).",
     "categories": ["Electrical"],
@@ -2848,7 +2848,7 @@
     "relatedTerms": []
   },
   {
-    "term": "liquid crystal display (LCD)",
+    "term": "liquid crystal display",
     "slug": "liquid-crystal-display-lcd",
     "definition": "A video display technology that uses light transmission through polarizing liquid crystals to display an image.",
     "categories": ["Video"],
@@ -2856,11 +2856,11 @@
     "relatedTerms": []
   },
   {
-    "term": "liquid crystal on silicon (LCoS)",
+    "term": "liquid crystal on silicon",
     "slug": "liquid-crystal-on-silicon-lcos",
     "definition": "A reflective liquid crystal imaging technology. A liquid crystal layer is applied to a reflective complementary metal oxide semiconductor (CMOS) mirror substrate. The embedded CMOS circuitry controls the reflectivity of the liquid crystal pixels.",
     "categories": ["Video", "Electrical"],
-    "abbreviation": "LCoS",
+    "abbreviation": null,
     "relatedTerms": []
   },
   {
@@ -2880,7 +2880,7 @@
     "relatedTerms": []
   },
   {
-    "term": "local area network (LAN)",
+    "term": "local area network",
     "slug": "local-area-network-lan",
     "definition": "1. A computer network connecting devices within a confined geographical area, such as a building. 2. A Data Link-layer (layer 2) network.",
     "categories": ["Networking"],
@@ -2952,7 +2952,7 @@
     "relatedTerms": []
   },
   {
-    "term": "low smoke zero halogen (LSZH) cable",
+    "term": "low smoke zero halogen cable",
     "slug": "low-smoke-zero-halogen-lszh-cable",
     "definition": "A type of cable with insulation and sheathing that produces only low levels of smoke and no halogen products on combustion. Suitable for use in ventilation plenum spaces.",
     "categories": ["Electrical", "Cabling"],
@@ -2984,7 +2984,7 @@
     "relatedTerms": []
   },
   {
-    "term": "luminance (Y)",
+    "term": "luminance",
     "slug": "luminance-y",
     "definition": "Also called luma, the brightness component of a combined video signal that includes synchronization, color, and brightness information. Its symbol is Y.",
     "categories": ["Video"],
@@ -3048,7 +3048,7 @@
     "relatedTerms": []
   },
   {
-    "term": "maximum transmission unit (MTU)",
+    "term": "maximum transmission unit",
     "slug": "maximum-transmission-unit-mtu",
     "definition": "The size in bytes of the largest frame that can pass over a Data Link-layer (layer 2) connection. Header information must be included within the MTU.",
     "categories": ["Networking"],
@@ -3096,7 +3096,7 @@
     "relatedTerms": []
   },
   {
-    "term": "metropolitan area network (MAN)",
+    "term": "metropolitan area network",
     "slug": "metropolitan-area-network-man",
     "definition": "A communications network that covers a single geographic area, such as a suburb or city.",
     "categories": ["Networking"],
@@ -3120,7 +3120,7 @@
     "relatedTerms": []
   },
   {
-    "term": "microelectromechanical systems (MEMS)",
+    "term": "microelectromechanical systems",
     "slug": "microelectromechanical-systems-mems",
     "definition": "Mechanical devices built directly onto silicon chips using the same fabrication processes as microprocessors and memory systems. Best known as the digital micromirror devices (DMD) used for light switching in DLP projectors.",
     "categories": ["Video"],
@@ -3184,7 +3184,7 @@
     "relatedTerms": []
   },
   {
-    "term": "Mobile High-Definition Link (MHL)",
+    "term": "Mobile High-Definition Link",
     "slug": "mobile-high-definition-link-mhl",
     "definition": "A standard audio/video interface for connecting mobile electronics to high-definition televisions and audio receivers. SuperMHL is capable of 36Gbps with HDR and WCG video up to 8K at 120fps.",
     "categories": ["Audio", "Video"],
@@ -3216,7 +3216,7 @@
     "relatedTerms": []
   },
   {
-    "term": "Multicast Listener Discovery (MLD)",
+    "term": "Multicast Listener Discovery",
     "slug": "multicast-listener-discovery-mld",
     "definition": "The IPv6 group management protocol. Multicast is natively supported by IPv6; any IPv6 router will support MLD. MLDv1 performs roughly the same functions as IGMPv2, and MLDv2 supports roughly the same functions as IGMPv3.",
     "categories": ["Networking"],
@@ -3256,7 +3256,7 @@
     "relatedTerms": []
   },
   {
-    "term": "Multi-Protocol Label Switching (MPLS)",
+    "term": "Multi-Protocol Label Switching",
     "slug": "multi-protocol-label-switching-mpls",
     "definition": "A networking protocol that allows any combination of Data Link-layer (layer 2) protocols to be transported over any type of Network layer (layer 3). MPLS routes data by examining each packet’s MPLS label without examining packet . Implementing MPLS improves interoperability and routing speed.",
     "categories": ["Networking"],
@@ -3288,7 +3288,7 @@
     "relatedTerms": []
   },
   {
-    "term": "needed acoustic gain (NAG)",
+    "term": "needed acoustic gain",
     "slug": "needed-acoustic-gain-nag",
     "definition": "The gain the sound system requires to achieve an equivalent acoustic level at the farthest listener equal to the level at the Equivalent Acoustic Distance (EAD).",
     "categories": ["Acoustics", "Audio"],
@@ -3304,7 +3304,7 @@
     "relatedTerms": []
   },
   {
-    "term": "network address translation (NAT)",
+    "term": "network address translation",
     "slug": "network-address-translation-nat",
     "definition": "Any method of altering IP address information in IP packet headers as the packet traverses a routing device. NAT is typically implemented as part of a firewall strategy. The most common form of NAT is port address translation (PAT).",
     "categories": ["Networking", "Security"],
@@ -3320,7 +3320,7 @@
     "relatedTerms": []
   },
   {
-    "term": "network interface card (NIC)",
+    "term": "network interface card",
     "slug": "network-interface-card-nic",
     "definition": "An interface that allows a device to be connected to a network.",
     "categories": ["Networking"],
@@ -3392,7 +3392,7 @@
     "relatedTerms": []
   },
   {
-    "term": "noise criterion (NC)",
+    "term": "noise criterion",
     "slug": "noise-criterion-nc",
     "definition": "See noise rating.",
     "categories": ["Acoustics"],
@@ -3400,7 +3400,7 @@
     "relatedTerms": []
   },
   {
-    "term": "noise rating (NR)",
+    "term": "noise rating",
     "slug": "noise-rating-nr",
     "definition": "A rating system developed to establish satisfactory conditions for speech intelligibility and general living environments. Measurements are taken at eight center octave frequencies from 63Hz to 8kHz and plotted against a standardized curve. Very similar to the noise criterion (NC) rating system used in the United States.",
     "categories": ["Acoustics"],
@@ -3448,7 +3448,7 @@
     "relatedTerms": []
   },
   {
-    "term": "number of open microphones (NOM)",
+    "term": "number of open microphones",
     "slug": "number-of-open-microphones-nom",
     "definition": "A measure that takes into account the increased possibility of feedback by adding more live microphones in a space. Each time the number of open microphones is doubled, you lose 3dB of gain before feedback.",
     "categories": ["Audio"],
@@ -3512,7 +3512,7 @@
     "relatedTerms": []
   },
   {
-    "term": "organic light-emitting diode (OLED)",
+    "term": "organic light-emitting diode",
     "slug": "organic-light-emitting-diode-oled",
     "definition": "A semiconductor light-emitting diode constructed from organic compounds. Displays built from OLEDs generally use separate layers for emitting the red, green, and blue components of an image.",
     "categories": ["Video", "Electrical"],
@@ -3632,7 +3632,7 @@
     "relatedTerms": []
   },
   {
-    "term": "personal area network (PAN)",
+    "term": "personal area network",
     "slug": "personal-area-network-pan",
     "definition": "A limited-range, usually wireless, network that serves a single person or small workgroup.",
     "categories": ["Networking"],
@@ -3712,7 +3712,7 @@
     "relatedTerms": []
   },
   {
-    "term": "pink noise generator (PNG)",
+    "term": "pink noise generator",
     "slug": "pink-noise-generator-png",
     "definition": "A device to generate pink noise. An audio PNG is commonly used in conjunction with an audio spectrum analyzer to evaluate and align a sound system in an environment.",
     "categories": ["Audio"],
@@ -3744,7 +3744,7 @@
     "relatedTerms": []
   },
   {
-    "term": "plasma display panel (PDP)",
+    "term": "plasma display panel",
     "slug": "plasma-display-panel-pdp",
     "definition": "A direct-view display technology consisting of an array of pixels, which are composed of three subpixels, corresponding to the colors red, green, and blue. Gas in the plasma state is used to react with phosphors in each subpixel to produce colored light (red, green, or blue) from a phosphor in each subpixel.",
     "categories": ["Video", "Lighting"],
@@ -3824,7 +3824,7 @@
     "relatedTerms": []
   },
   {
-    "term": "port address translation (PAT)",
+    "term": "port address translation",
     "slug": "port-address-translation-pat",
     "definition": "A method of network address translation (NAT) whereby devices with private, unregistered IP addresses can access the Internet through a device with a registered IP address. Unregistered clients send datagrams to a NAT server with a globally routable address (typically a firewall, a gateway, or a router). The NAT server forwards the data to its destination and relays responses to the original client.",
     "categories": ["Networking", "Security"],
@@ -3840,7 +3840,7 @@
     "relatedTerms": []
   },
   {
-    "term": "potential acoustic gain (PAG)",
+    "term": "potential acoustic gain",
     "slug": "potential-acoustic-gain-pag",
     "definition": "The potential gain that can be delivered by the sound system without ringing and before feedback occurs. It is based upon the number of open microphones and the distances between sources (like a presenter) and microphones, microphones and loudspeakers, and listeners and loudspeakers.",
     "categories": ["Acoustics", "Audio"],
@@ -3872,7 +3872,7 @@
     "relatedTerms": []
   },
   {
-    "term": "power distribution unit (PDU)",
+    "term": "power distribution unit",
     "slug": "power-distribution-unit-pdu",
     "definition": "An electrical device that distributes mains power to multiple electrical devices. A PDU may contain switches, overcurrent protection, voltage and/or current monitoring, remote circuit-controllers, and power receptacles. See also power strip.",
     "categories": ["Electrical"],
@@ -3880,11 +3880,11 @@
     "relatedTerms": []
   },
   {
-    "term": "power over Ethernet (PoE)",
+    "term": "power over Ethernet",
     "slug": "power-over-ethernet-poe",
     "definition": "Also known as power over data line (PoDL), PoE is DC power supply delivered as an “invisible” overlay on the data lines of an Ethernet network system. The voltage is overlaid in common mode across both wires in a twisted-pair to eliminate any effect on the data. PoE is used to power a wide range of Ethernet-connected devices.",
     "categories": ["Networking", "Electrical", "Cabling", "Signal Processing"],
-    "abbreviation": "PoE",
+    "abbreviation": null,
     "relatedTerms": []
   },
   {
@@ -3936,7 +3936,7 @@
     "relatedTerms": []
   },
   {
-    "term": "pressure zone microphone (PZM)",
+    "term": "pressure zone microphone",
     "slug": "pressure-zone-microphone-pzm",
     "definition": "An alternative name for a boundary microphone.",
     "categories": ["Audio", "Systems & Control"],
@@ -3968,7 +3968,7 @@
     "relatedTerms": []
   },
   {
-    "term": "Protocol Independent Multicast (PIM)",
+    "term": "Protocol Independent Multicast",
     "slug": "protocol-independent-multicast-pim",
     "definition": "Allows multicast routing over LANs, WANs, or the open Internet. Rather than routing information on their own, PIM protocols use the routing information supplied by whatever routing protocol the network is already using.",
     "categories": ["Networking"],
@@ -4000,11 +4000,11 @@
     "relatedTerms": []
   },
   {
-    "term": "quality of service (QoS)",
+    "term": "quality of service",
     "slug": "quality-of-service-qos",
     "definition": "Any method of managing network data traffic to preserve system functionality and provide the required bandwidth for critical applications. Typically, QoS involves some combination of bandwidth allocation and data prioritization.",
     "categories": ["Networking"],
-    "abbreviation": "QoS",
+    "abbreviation": null,
     "relatedTerms": []
   },
   {
@@ -4040,7 +4040,7 @@
     "relatedTerms": []
   },
   {
-    "term": "rack unit (RU)",
+    "term": "rack unit",
     "slug": "rack-unit-ru",
     "definition": "A unit of measure of the vertical space in a rack. One RU equals 1.75 inches (44.5mm).",
     "categories": ["Project Management"],
@@ -4048,7 +4048,7 @@
     "relatedTerms": []
   },
   {
-    "term": "radio frequency (RF)",
+    "term": "radio frequency",
     "slug": "radio-frequency-rf",
     "definition": "The portion of the electromagnetic spectrum that is suitable for radio communications. Generally, this is considered to be from 10kHz up to 300MHz. This range extends to 300GHz if the microwave portion of the spectrum is included.",
     "categories": ["General"],
@@ -4056,7 +4056,7 @@
     "relatedTerms": []
   },
   {
-    "term": "radio frequency interference (RFI)",
+    "term": "radio frequency interference",
     "slug": "radio-frequency-interference-rfi",
     "definition": "Radiated electromagnetic energy that interferes with or disturbs an electrical circuit.",
     "categories": ["Electrical"],
@@ -4136,7 +4136,7 @@
     "relatedTerms": []
   },
   {
-    "term": "reflected ceiling plan (RCP)",
+    "term": "reflected ceiling plan",
     "slug": "reflected-ceiling-plan-rcp",
     "definition": "A plan used to illustrate elements in the ceiling with respect to the floor. It should be interpreted as though the floor is a mirrored surface, reflecting the features within the ceiling.",
     "categories": ["Project Management"],
@@ -4208,7 +4208,7 @@
     "relatedTerms": []
   },
   {
-    "term": "residual current device (RCD)",
+    "term": "residual current device",
     "slug": "residual-current-device-rcd",
     "definition": "A safety device that de-energizes a circuit (or a portion of that circuit) within an established period of time when a current to ground exceeds a specified level. Also known as a residual current circuit breaker (RCCB). Similar in function to an earth leakage circuit breaker (ELCB), a ground-fault circuit interrupter (GFCI), or a core balance relay (CBR).",
     "categories": ["Electrical"],
@@ -4360,7 +4360,7 @@
     "relatedTerms": []
   },
   {
-    "term": "room criteria (RC) rating",
+    "term": "room criteria rating",
     "slug": "room-criteria-rc-rating",
     "definition": "A single number rating that quantifies the tonal characteristics of background noise, including the characteristics of ventilation noise, such as rumble or hiss.",
     "categories": ["Audio", "Electrical"],
@@ -4552,7 +4552,7 @@
     "relatedTerms": []
   },
   {
-    "term": "serial digital interface (SDI)",
+    "term": "serial digital interface",
     "slug": "serial-digital-interface-sdi",
     "definition": "A set of serial data standards to transport digital AV data over BNC-terminated 75Ω coaxial cable or over optical fiber. Variants include HD-SDI for HD video, 6G-SDI (6Gbps) for 4kp30, 12G-SDI (12Gbps) for 4kp60, and 24G-SDI (24Gbps) for 8kp30 video.",
     "categories": ["Video", "Cabling"],
@@ -4584,7 +4584,7 @@
     "relatedTerms": []
   },
   {
-    "term": "service-level agreement (SLA)",
+    "term": "service-level agreement",
     "slug": "service-level-agreement-sla",
     "definition": "A document used to record an agreement between a service provider and a customer. It describes the services to be provided, documents service-level targets, and specifies the roles and responsibilities of the service provider(s) and the customer(s).",
     "categories": ["Project Management"],
@@ -4592,7 +4592,7 @@
     "relatedTerms": []
   },
   {
-    "term": "session border controller (SBC)",
+    "term": "session border controller",
     "slug": "session-border-controller-sbc",
     "definition": "A device used in VoIP networks to control the signaling and media streams involved in setting up, conducting, and tearing down calls. The SBC enforces security, QoS, and admission control over VoIP sessions.",
     "categories": ["Networking"],
@@ -4664,7 +4664,7 @@
     "relatedTerms": []
   },
   {
-    "term": "single-pair Ethernet (SPE)",
+    "term": "single-pair Ethernet",
     "slug": "single-pair-ethernet-spe",
     "definition": "An Ethernet variant based on a single 100Ω twisted-pair cable rather than the more-common four-pair configuration. Originally developed for automotive and industrial control applications, it has been adopted for Internet of Things (IOT) and other remotely-located devices. Capable of full-duplex data transmission speeds of up to 1Gbps over 15m (50ft), and extending to up to 1km (3,280ft) at 10Mbps. Most commonly used connectors used are the IEC 63171-1 (Type 1) “LC” style and the IEC 63171-6 industrial style. Used in conjunction with a PoE (Power over Ethernet)/PoDL (Power over Data Line) feed of up to 50w, remote Ethernet devices such as video cameras can be powered and operated over a single-pair cable.",
     "categories": ["Video", "Networking", "Cabling", "Systems & Control"],
@@ -4680,7 +4680,7 @@
     "relatedTerms": []
   },
   {
-    "term": "single-point ground (SPG)",
+    "term": "single-point ground",
     "slug": "single-point-ground-spg",
     "definition": "In the context of IEEE Standard 1100, refers to implementation of an isolated equipment grounding configuration for the purposes of minimizing problems caused by circulating current in ground loops.",
     "categories": ["Electrical", "Standards"],
@@ -4696,7 +4696,7 @@
     "relatedTerms": []
   },
   {
-    "term": "Simple Network Management Protocol (SNMP)",
+    "term": "Simple Network Management Protocol",
     "slug": "simple-network-management-protocol-snmp",
     "definition": "A set of Internet Engineering Task Force (IETF) standards for network management.",
     "categories": ["Networking", "Standards"],
@@ -4720,7 +4720,7 @@
     "relatedTerms": []
   },
   {
-    "term": "sound pressure level (SPL)",
+    "term": "sound pressure level",
     "slug": "sound-pressure-level-spl",
     "definition": "The effective pressure level of a sound, usually stated in relation to a reference pressure such as 20µPa (the threshold of human hearing). In the context of AVIXA Standard A102.01:2017, expressed in unweighted decibels.",
     "categories": ["Acoustics", "Standards"],
@@ -4736,7 +4736,7 @@
     "relatedTerms": []
   },
   {
-    "term": "source-specific multicast (SSM)",
+    "term": "source-specific multicast",
     "slug": "source-specific-multicast-ssm",
     "definition": "In data streaming SSM allows clients to specify the sources from which they will accept content. This has the dual benefits of reducing demands on the network while improving network security.",
     "categories": ["Networking"],
@@ -5016,7 +5016,7 @@
     "relatedTerms": []
   },
   {
-    "term": "Time-Sensitive Networking (TSN)",
+    "term": "Time-Sensitive Networking",
     "slug": "time-sensitive-networking-tsn",
     "definition": "The IEEE working group overseeing the Audio Video Bridging standard has been renamed Time-Sensitive Networking to reflect the standard’s applicability to communication among different types of devices, such as network sensors. Also known as Audio Video Bridging (AVB).",
     "categories": ["Audio", "Video", "Standards"],
@@ -5048,7 +5048,7 @@
     "relatedTerms": []
   },
   {
-    "term": "transition-minimized differential signaling (TMDS)",
+    "term": "transition-minimized differential signaling",
     "slug": "transition-minimized-differential-signaling-tmds",
     "definition": "A technology for transmitting high-speed serial data. The signaling method used in the HDMI and DVI interfaces.",
     "categories": ["Video"],
@@ -5064,7 +5064,7 @@
     "relatedTerms": []
   },
   {
-    "term": "Transmission Control Protocol (TCP)",
+    "term": "Transmission Control Protocol",
     "slug": "transmission-control-protocol-tcp",
     "definition": "A connection-oriented, reliable Transport-layer (layer 4) protocol. TCP transport uses two-way communication to provide guaranteed delivery of information to a remote host. It is connection-oriented, meaning it creates and verifies a connection with the remote host before sending it any data. It is reliable because it tracks each packet and ensures that it arrives intact. TCP is the most common transport protocol for sending data across the Internet.",
     "categories": ["Networking"],
@@ -5144,7 +5144,7 @@
     "relatedTerms": []
   },
   {
-    "term": "ultra-wideband (UWB)",
+    "term": "ultra-wideband",
     "slug": "ultra-wideband-uwb",
     "definition": "UWB is a low-power communications protocol that transmits an extremely wide bandwidth (500+MHz) signal using time modulation to encode the data. Its signals are highly immune to interference from other RF systems, yet produce very little interference with them. UWB can detect the distance between the transmitter and receiver, enabling proximity detection and triggering.",
     "categories": ["Lighting"],
@@ -5176,7 +5176,7 @@
     "relatedTerms": []
   },
   {
-    "term": "Universal Serial Bus (USB)",
+    "term": "Universal Serial Bus",
     "slug": "universal-serial-bus-usb",
     "definition": "A standard for connecting, communicating, and supplying power between electronic devices. Version 3.2 of USB is capable of communicating at 20Gbps and can utilize a USB Type-C (USB-C) connector, which supports DisplayPort, HDMI, VGA, power, USB 2.0, and USB3.2. USB4 includes handling the Thunderbolt protocol. USB4 version 1 communicates at up to 40Gbps, while version 2 communicates at up to 80Gbps in symmetric mode, and at up to 120/40Gbps in asymmetric mode.",
     "categories": ["Video", "Networking", "Electrical", "Cabling", "Signal Processing"],
@@ -5184,7 +5184,7 @@
     "relatedTerms": []
   },
   {
-    "term": "unshielded twisted-pair (UTP) cable",
+    "term": "unshielded twisted-pair cable",
     "slug": "unshielded-twisted-pair-utp-cable",
     "definition": "Typically used for data transfer, UTP cable contains multiple two-conductor pairs of similar impedance, twisted at regular intervals, employing no external shielding.",
     "categories": ["Electrical", "Cabling"],
@@ -5248,7 +5248,7 @@
     "relatedTerms": []
   },
   {
-    "term": "virtual local area network (VLAN)",
+    "term": "virtual local area network",
     "slug": "virtual-local-area-network-vlan",
     "definition": "A network created when network devices on separate LAN segments are linked to form a logical group.",
     "categories": ["Networking"],
@@ -5256,7 +5256,7 @@
     "relatedTerms": []
   },
   {
-    "term": "virtual private network (VPN)",
+    "term": "virtual private network",
     "slug": "virtual-private-network-vpn",
     "definition": "A virtual point-to-point private connection established across a network via an encrypted tunneling protocol. VPNs are used for secure remote access, monitoring, troubleshooting, and control.",
     "categories": ["Signal Processing", "Security"],
@@ -5280,11 +5280,11 @@
     "relatedTerms": []
   },
   {
-    "term": "Voice over Internet Protocol (VoIP)",
+    "term": "Voice over Internet Protocol",
     "slug": "voice-over-internet-protocol-voip",
     "definition": "A suite of technologies and protocols that allow the transmission of telephone calls and multimedia over Internet Protocol (IP) networks.",
     "categories": ["Networking"],
-    "abbreviation": "VoIP",
+    "abbreviation": null,
     "relatedTerms": []
   },
   {
@@ -5376,7 +5376,7 @@
     "relatedTerms": []
   },
   {
-    "term": "wide area network (WAN)",
+    "term": "wide area network",
     "slug": "wide-area-network-wan",
     "definition": "A data communications network that links local area networks (LANs) that are distributed over large geographic areas, such as cities, states, countries, regions, and continents.",
     "categories": ["Networking"],
@@ -5400,7 +5400,7 @@
     "relatedTerms": []
   },
   {
-    "term": "wireless local area network (WLAN)",
+    "term": "wireless local area network",
     "slug": "wireless-local-area-network-wlan",
     "definition": "A network that shares information by radio frequency (RF) wireless transmission.",
     "categories": ["Networking"],
@@ -5416,7 +5416,7 @@
     "relatedTerms": []
   },
   {
-    "term": "work breakdown structure (WBS)",
+    "term": "work breakdown structure",
     "slug": "work-breakdown-structure-wbs",
     "definition": "A deliverable-oriented grouping of project elements that will ultimately organize and define the total scope of the project. Each descending level represents an increasingly detailed definition of a project component.",
     "categories": ["Project Management"],

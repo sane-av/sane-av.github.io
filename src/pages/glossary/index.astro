@@ -134,10 +134,10 @@ const pageCount = merged.filter((e) => e.hasPage).length;
                   data-letter={letter}
                 >
                   <div class="glossary-term">
-                    <a href={`/glossary/${entry.slug}`}>{entry.term}</a>
                     {entry.abbreviation && (
                       <code class="glossary-abbr">{entry.abbreviation}</code>
                     )}
+                    <a href={`/glossary/${entry.slug}`}>{entry.term}</a>
                     <span class="glossary-tags-inline">
                       {entry.categories.map((cat) => (
                         <span class="tag tag-orange ml-1">{cat}</span>

@@ -419,7 +419,7 @@ th { background: var(--color-navy-mid); font-weight: 600; color: var(--color-tex
   color: var(--color-teal);
   padding: .1em .4em;
   border-radius: var(--radius-sm);
-  margin-left: .5rem;
+  margin-right: .5rem;
 }
 .glossary-definition {
   font-size: .9rem;
