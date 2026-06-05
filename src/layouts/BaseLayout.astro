@@ -49,13 +49,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             <span class="site-logo-text">Society for AV Norms &amp; Engineering</span>
           </a>
           <nav class="site-nav" aria-label="Main navigation">
-            <a href="/blog">Blog</a>
             <a href="/standards">Standards</a>
             <a href="/glossary">Glossary</a>
-            <a href="/whitepapers">Whitepapers</a>
-            <a href="/equipment">Equipment DB</a>
-            <a href="/tools">Tools</a>
-            <a href="/rfc">RFCs</a>
+            <a href="/blog">Blog</a>
+            <div class="nav-dropdown">
+              <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Resources</button>
+              <div class="nav-dropdown-menu">
+                <a href="/whitepapers">Whitepapers</a>
+                <a href="/equipment">Equipment DB</a>
+                <a href="/tools">Tools &amp; Calculators</a>
+                <a href="/rfc">RFCs</a>
+              </div>
+            </div>
+            <a href="/contributing">Contributing</a>
           </nav>
         </div>
       </header>
@@ -116,4 +122,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       </div>
     </footer>
   </body>
+  <script>
+    // Touch-friendly dropdown toggle
+    document.querySelectorAll('.nav-dropdown-trigger').forEach(btn => {
+      btn.addEventListener('click', function(this: HTMLButtonElement, e: MouseEvent) {
+        const dd = this.closest('.nav-dropdown');
+        const isOpen = dd?.classList.toggle('open');
+        this.setAttribute('aria-expanded', String(!!isOpen));
+      });
+    });
+  </script>
 </html>
