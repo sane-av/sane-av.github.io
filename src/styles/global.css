@@ -426,6 +426,12 @@ th { background: var(--color-navy-mid); font-weight: 600; color: var(--color-tex
   line-height: 1.55;
   margin-top: .35rem;
 }
+.glossary-tags-inline {
+  display: inline-flex;
+  gap: .35rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
 .glossary-term a {
   color: var(--color-teal);
   text-decoration: none;

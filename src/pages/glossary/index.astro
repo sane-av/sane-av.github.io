@@ -17,7 +17,7 @@ interface GlossaryEntry {
   term: string;
   slug: string;
   definition: string;
-  category: string;
+  categories: string[];
   abbreviation: string | null;
   relatedTerms: string[];
   hasPage: boolean;
@@ -32,7 +32,7 @@ for (const t of avixaTerms) {
     term: t.term,
     slug: t.slug,
     definition: t.definition,
-    category: t.category,
+    categories: t.categories ?? [t.category ?? 'General'],
     abbreviation: t.abbreviation,
     relatedTerms: t.relatedTerms ?? [],
     hasPage: !!mdEntry,
@@ -46,7 +46,7 @@ for (const e of mdEntries) {
       term: e.data.term,
       slug: e.id,
       definition: '',
-      category: e.data.category,
+      categories: [e.data.category],
       abbreviation: e.data.abbreviation ?? null,
       relatedTerms: e.data.relatedTerms ?? [],
       hasPage: true,
@@ -57,17 +57,22 @@ for (const e of mdEntries) {
 // Sort alphabetically
 merged.sort((a, b) => a.term.localeCompare(b.term));
 
-const categories = [...new Set(merged.map((e) => e.category))].sort();
+// Collect unique categories from all entries
+const allCats = new Set<string>();
+for (const e of merged) {
+  for (const c of e.categories) allCats.add(c);
+}
+const categories = [...allCats].sort();
 const allLetters = [...new Set(merged.map((e) => e.term[0].toUpperCase()))].sort();
 const total = merged.length;
 const pageCount = merged.filter((e) => e.hasPage).length;
 ---
 
-<BaseLayout title="Glossary" description="Definitions for common AV terminology, from dBu to throw ratio.">
+<BaseLayout title="Glossary" description="Community-maintained definitions of common AV terminology.">
   <div class="page-header">
     <div class="container">
       <h1>AV Glossary</h1>
-      <p>{total} terms ({pageCount} with expanded definitions). Community-maintained definitions of professional AV terms and abbreviations.</p>
+      <p>Community-maintained definitions of professional AV terms and abbreviations.</p>
     </div>
   </div>
 
@@ -114,6 +119,7 @@ const pageCount = merged.filter((e) => e.hasPage).length;
             const letter = entry.term[0].toUpperCase();
             const prevLetter = i > 0 ? merged[i - 1].term[0].toUpperCase() : null;
             const isNewLetter = letter !== prevLetter;
+            const catData = entry.categories.join(',');
             return (
               <>
                 {isNewLetter && (
@@ -124,7 +130,7 @@ const pageCount = merged.filter((e) => e.hasPage).length;
                 <li
                   class="glossary-item"
                   data-term={entry.term.toLowerCase()}
-                  data-category={entry.category}
+                  data-categories={catData}
                   data-letter={letter}
                 >
                   <div class="glossary-term">
@@ -132,7 +138,11 @@ const pageCount = merged.filter((e) => e.hasPage).length;
                     {entry.abbreviation && (
                       <code class="glossary-abbr">{entry.abbreviation}</code>
                     )}
-                    <span class="tag tag-orange ml-1">{entry.category}</span>
+                    <span class="glossary-tags-inline">
+                      {entry.categories.map((cat) => (
+                        <span class="tag tag-orange ml-1">{cat}</span>
+                      ))}
+                    </span>
                   </div>
                   <div class="glossary-definition text-muted">
                     {entry.definition}
@@ -204,7 +214,9 @@ const pageCount = merged.filter((e) => e.hasPage).length;
 
     items.forEach((item) => {
       const matchesSearch = !query || item.dataset.term!.includes(query);
-      const matchesCategory = !activeCategory || item.dataset.category === activeCategory;
+      // Check if the item's categories include the active category
+      const itemCategories = (item.dataset.categories || '').split(',');
+      const matchesCategory = !activeCategory || itemCategories.includes(activeCategory);
       const show = matchesSearch && matchesCategory;
 
       (item as HTMLElement).style.display = show ? '' : 'none';
