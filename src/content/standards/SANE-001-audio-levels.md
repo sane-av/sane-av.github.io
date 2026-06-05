@@ -7,7 +7,6 @@ version: "1.0.0"
 pubDate: 2026-05-28
 authors: ["SANE Community"]
 tags: ["audio", "signal levels", "analog", "installation"]
-relatedStandards: []
 ---
 
 ## 1. Scope

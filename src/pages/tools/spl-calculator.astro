@@ -102,7 +102,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   function dbuToV(d: number) { return DBU_REF * Math.pow(10, d / 20); }
   function dbvToV(d: number) { return DBV_REF * Math.pow(10, d / 20); }
 
-  function fmt(n: number, decimals = 3) { return Number(n.toFixed(decimals)); }
+  function fmt(n: number, decimals = 3) { return n.toFixed(decimals); }
 
   const fields = {
     dbu: document.getElementById('inp-dbu') as HTMLInputElement,
@@ -127,10 +127,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     else if (source === 'mv')  voltage = inputValue / 1000;
     else voltage = inputValue;
 
-    fields.dbu.value = fmt(vToDBu(voltage)).toString();
-    fields.dbv.value = fmt(vToDBv(voltage)).toString();
-    fields.v.value   = fmt(voltage).toString();
-    fields.mv.value  = fmt(voltage * 1000, 2).toString();
+    fields.dbu.value = fmt(vToDBu(voltage));
+    fields.dbv.value = fmt(vToDBv(voltage));
+    fields.v.value   = fmt(voltage);
+    fields.mv.value  = fmt(voltage * 1000, 2);
 
     result.style.display = 'block';
     resultText.innerHTML = '';
@@ -142,9 +142,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     updating = false;
   }
 
-  (Object.keys(fields) as (keyof typeof fields)[]).forEach((key) => {
-    fields[key].addEventListener('input', () => updateFrom(key));
-  });
+  fields.dbu.addEventListener('input', () => updateFrom('dbu'));
+  fields.dbv.addEventListener('input', () => updateFrom('dbv'));
+  fields.v.addEventListener('input',   () => updateFrom('v'));
+  fields.mv.addEventListener('input',  () => updateFrom('mv'));
 
   // Ratio calculator
   const rv1 = document.getElementById('ratio-v1') as HTMLInputElement;

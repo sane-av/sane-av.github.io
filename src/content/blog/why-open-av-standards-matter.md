@@ -4,7 +4,6 @@ description: "The case for treating AV standards like open source software - and
 pubDate: 2026-05-28
 author: "SANE Community"
 tags: ["standards", "open source", "industry"]
-draft: false
 ---
 
 Open standards are not a radical idea. The entire internet runs on them.

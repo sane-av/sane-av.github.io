@@ -1,11 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-// Load all JSON equipment files from src/data/equipment/ (exclude schema.json)
-const files = import.meta.glob<{ default: unknown[] }>('../../data/equipment/*.json', { eager: true });
-const allEquipment = Object.entries(files)
-  .filter(([path]) => !path.endsWith('schema.json'))
-  .flatMap(([, f]) => Array.isArray(f.default) ? f.default : []) as {
+interface EquipmentEntry {
   id: string;
   manufacturer: string;
   model: string;
@@ -13,7 +9,12 @@ const allEquipment = Object.entries(files)
   specs: Record<string, string>;
   tags: string[];
   notes?: string;
-}[];
+}
+
+const files = import.meta.glob<{ default: unknown[] }>('../../data/equipment/*.json', { eager: true });
+const allEquipment: EquipmentEntry[] = Object.entries(files)
+  .filter(([path]) => !path.endsWith('schema.json'))
+  .flatMap(([, f]) => Array.isArray(f.default) ? f.default : []);
 
 const categories = [...new Set(allEquipment.map((e) => e.category))].sort();
 ---

@@ -4,7 +4,6 @@ description: "Introducing the Society for AV Norms & Engineering - an open sourc
 pubDate: 2026-05-28
 author: "SANE Community"
 tags: ["announcement", "open source", "community"]
-draft: false
 ---
 
 The AV industry has a standards problem.

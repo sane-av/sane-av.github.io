@@ -4,7 +4,6 @@ description: "A technical and economic argument for why the professional AV indu
 pubDate: 2026-05-28
 authors: ["SANE Community"]
 tags: ["standards", "open source", "industry policy", "economics"]
-draft: false
 ---
 
 ## Abstract

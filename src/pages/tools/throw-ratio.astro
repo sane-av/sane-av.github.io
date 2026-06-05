@@ -94,9 +94,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     const tr = val(ratioIn);
     const d  = val(distIn);
     const w  = val(widthIn);
-    const filled = [tr, d, w].filter((v) => v !== null).length;
+    const enoughInputs = [tr, d, w].filter((v) => v !== null).length >= 2;
 
-    if (filled < 2) {
+    if (!enoughInputs) {
       errorEl.textContent = 'Please enter at least two values.';
       errorEl.style.display = 'block';
       return;
