@@ -7,9 +7,11 @@
 
 **Website:** https://sane-av.github.io
 
-SANE is a community-driven alternative to proprietary AV standards bodies. All standards,
-data, and tools are freely published, version-controlled, and open for community contribution.
+SANE is building free, open, and transparent standards for building professional audiovisual systems.
+
 No membership fees. No paywalls. No gatekeeping.
+
+Are your AV systems SANE?
 
 ---
 
