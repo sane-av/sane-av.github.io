@@ -48,7 +48,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             <img class="logo-badge" src="/sanebrainonly.png" alt="SANE" width="48" height="48" />
             <span class="site-logo-text">Society for AV Norms &amp; Engineering</span>
           </a>
-          <nav class="site-nav" aria-label="Main navigation">
+          <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+          </button>
+          <nav class="site-nav" id="site-nav" aria-label="Main navigation">
             <a href="/standards">Standards</a>
             <a href="/glossary">Glossary</a>
             <a href="/blog">Blog</a>
@@ -136,6 +141,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         this.setAttribute('aria-expanded', String(!!isOpen));
       });
     });
+
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('nav-toggle');
+    const siteNav = document.getElementById('site-nav');
+    if (hamburger && siteNav) {
+      hamburger.addEventListener('click', () => {
+        const isOpen = hamburger.classList.toggle('active');
+        siteNav.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
 
     // Back to top button
     const btt = document.getElementById('back-to-top');
