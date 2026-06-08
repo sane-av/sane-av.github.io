@@ -74,6 +74,8 @@ Background noise in a space limits the usable signal-to-noise ratio of speech. [
 
 ---
 
+## References
+
 [^1]: [ANSI/ASA S1.1-2013](https://acousticalsociety.org/standards/). *Acoustical Terminology*. Acoustical Society of America. (Definition 12.04, "acoustics"; Definition 12.06, "room acoustics".)
 [^2]: Boyer, C.; Merzbach, U. (1991). [*A History of Mathematics*](https://www.worldcat.org/isbn/9780471543978). Wiley. p. 55. ISBN 978-0-471-54397-8.
 [^3]: Princeton University Press. ["How Sound Propagates"](http://press.princeton.edu/chapters/s9912.pdf) (PDF). Quoting Aristotle's *Treatise on Sound and Hearing*. Archived from the original 2022-10-09.

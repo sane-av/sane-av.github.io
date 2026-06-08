@@ -50,6 +50,8 @@ ARC and eARC work alongside **HDMI CEC**, which allows control signals (volume, 
 
 ---
 
+## References
+
 [^1]: HDMI Forum. [*HDMI Specification 2.1*](https://www.hdmi.org/spec21Sub/EArc). Section on eARC. 2017. (Defines eARC bandwidth at 37 Mbit/s, dedicated audio channel, and lossless format support.)
 [^2]: HDMI Licensing LLC. [*High-Definition Multimedia Interface Specification Version 1.4*](https://www.hdmi.org/spec/14). May 28, 2009. (Introduced ARC, 3D video, and HDMI Ethernet Channel.)
 [^3]: HDMI Forum. [*High-Definition Multimedia Interface Specification Version 2.1*](https://www.hdmi.org/spec/21). November 2017. (Section 7.7: Enhanced Audio Return Channel; specifies the HEC pin repurposing and eARC discovery protocol.)

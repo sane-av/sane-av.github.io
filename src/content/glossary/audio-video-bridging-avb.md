@@ -65,6 +65,8 @@ The AVnu Alliance operates a compliance testing program. Only certified devices 
 
 ---
 
+## References
+
 [^1]: IEEE 802.1 Working Group. [IEEE Std 802.1Q-2018](https://ieeexplore.ieee.org/document/8403927): *Bridges and Bridged Networks*. IEEE Standards Association. 2018. doi:10.1109/IEEESTD.2018.8403927. (Clause 34: Credit-Based Shaper; Clause 35: Stream Reservation Protocol.)
 [^2]: IEEE Standards Association. [IEEE Std 802.1AS-2020](https://ieeexplore.ieee.org/document/9121845): *Timing and Synchronization for Time-Sensitive Applications*. IEEE. 2020. doi:10.1109/IEEESTD.2020.9121845.
 [^3]: IEEE Standards Association. [IEEE Std 802.1Qat-2010](https://ieeexplore.ieee.org/document/5594708): *Stream Reservation Protocol*. IEEE. 2010. doi:10.1109/IEEESTD.2010.5594708.

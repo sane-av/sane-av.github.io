@@ -50,6 +50,8 @@ In modern practice, DSPs with parametric EQ sections have largely replaced hardw
 
 ---
 
+## References
+
 [^1]: White, Glenn; Louie, Gary (2005). [*The Audio Dictionary*](https://books.google.com/books?id=DulVm8t88QkC), 3rd ed. University of Washington Press. p. 140. ISBN 978-0-295-98498-8.
 [^2]: ISO 266:1997. [*Acoustics - Preferred frequencies*](https://www.iso.org/standard/3822.html). International Organization for Standardization.
 [^3]: Bohn, Dennis (August 1997). ["Operator Adjustable Equalizers: An Overview"](https://web.archive.org/web/20140402040654/http://www.rane.com/note122.html). Rane Corporation. Archived from the original 2014-04-02.

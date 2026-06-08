@@ -51,6 +51,8 @@ Modern audio DSPs (e.g., from QSC, Biamp, Shure, ClearOne) implement multi-chann
 
 ---
 
+## References
+
 [^1]: Cisco Systems. ["Echo Analysis for Voice over IP"](http://www.cisco.com/c/en/us/td/docs/ios/solutions_docs/voip_solutions/EA_ISD.html). Cisco IOS Solutions Documentation. Retrieved 2014-07-02. (Defines ERL, ERLE, ACOM; discusses 50 ms perception threshold.)
 [^2]: Eneroth, Peter (2001). [*Stereophonic Acoustic Echo Cancellation: Theory and Implementation*](http://lup.lub.lu.se/luur/download?func=downloadFile&recordOId=41259&fileOId=1001945) (PDF). Doctoral thesis, Lund University. ISBN 91-7874-110-6. (Covers adaptive filter theory, convergence times, double-talk.)
 [^3]: Åhgren, Per (November 2005). ["Acoustic Echo Cancellation and Doubletalk Detection Using Estimated Loudspeaker Impulse Responses"](https://www.cs.columbia.edu/~hgs/research/projects/echo-detection/Acoustic%20Echo%20Cancellation%20and%20Doubletalk%20Detection.pdf) (PDF). *IEEE Transactions on Speech and Audio Processing*. 13 (6): 1231-1237. doi:10.1109/TSA.2005.851995.

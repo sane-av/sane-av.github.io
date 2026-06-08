@@ -49,6 +49,7 @@ In professional AV installations, AGC is generally avoided on program audio beca
 
 ---
 
+## References
+
 [^1]: Wheeler, Harold A. (1928). "Automatic Volume Control for Radio Receiving Sets." *Proceedings of the Institute of Radio Engineers*, 16(10): 30-31. U.S. Patent 1,743,523 - Wheeler, Harold A., ["Automatic volume control"](https://patents.google.com/patent/US1743523), filed 1925, issued 1930-01-14. (Original AVC/AGC patent and foundational paper.)
 [^2]: Engineering and Technology History Wiki. ["Harold A. Wheeler"](https://ethw.org/Harold_A._Wheeler). IEEE History Center. (Biography documenting Wheeler's invention of AVC and its widespread adoption in commercial broadcast receivers from the late 1920s.)
-[^3]: Zolzer, Udo, ed. (2008). [*DAFX: Digital Audio Effects*](https://www.worldcat.org/isbn/9780470665992), 2nd ed. Wiley. ISBN 978-0-470-66599-2. (Chapter 3: Dynamics processing - covers AGC, compressors, limiters with DSP implementation detail.)

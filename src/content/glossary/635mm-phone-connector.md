@@ -86,6 +86,8 @@ Physical compatibility between plug and socket of the same diameter does not gua
 
 ---
 
+## References
+
 [^1]: Sherwin, Thomas. ["The Birthplace of the Telephone"](https://web.archive.org/web/20180819011644/http://www.newvision-sherwinpioneers.org/the-birthplace-of-the-telephone/). New Vision-Sherwin Pioneers. Archived from the original 2018-08-19.
 [^2]: ["First Commercial Telephone Exchange - Today in History: January 28"](https://connecticuthistory.org/the-first-commercial-telephone-exchange-today-in-history/). Connecticut History. 28 January 2020.
 [^3]: U.S. Patent 293,198 - Scribner, Charles E., "Telephone-Switch", issued 1884-02-05. [View at USPTO](https://patentimages.storage.googleapis.com/a6/07/a9/c8bf785c7d1260/US293198.pdf)

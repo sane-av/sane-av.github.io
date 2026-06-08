@@ -63,6 +63,8 @@ When content and display have different aspect ratios, one of three approaches i
 
 ---
 
+## References
+
 [^1]: Lipton, Lenny (1982). [*The Super 8 Book*](https://www.worldcat.org/isbn/0671253263). Simon & Schuster. ISBN 0-671-25326-5. (Covers Academy aperture history and the 1932 standardization.) Also: SMPTE Journal Vol. 89 (1980), documenting Academy aperture specifications.
 [^2]: Carr, Robert E. and Hayes, R. M. (1988). [*Wide Screen Movies: A History and Filmography of Wide Gauge Filmmaking*](https://www.worldcat.org/isbn/9780899502427). McFarland. ISBN 978-0-89950-242-9. (Documents CinemaScope development, Chrétien's Hypergonar, and 2.55:1 → 2.39:1 standardization.)
 [^3]: ITU-R. [Recommendation BT.709-6: Parameter values for the HDTV standards for production and international programme exchange](https://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.709-6-201506-I!!PDF-E.pdf) (PDF). June 2015. (Table 1 specifies 16:9 aspect ratio for all HDTV systems.)
