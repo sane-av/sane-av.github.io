@@ -1,0 +1,197 @@
+[
+    {
+        "term":  "vectorscope",
+        "slug":  "vectorscope",
+        "definition":  "A specialized oscilloscope-type display used in video systems to display and measure chrominance accuracy and levels. A vectorscope mode may be included in video waveform monitoring systems.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "vertical scan rate",
+        "slug":  "vertical-scan-rate",
+        "definition":  "The number of complete fields a device draws in a second. This may also be called the frame rate, vertical sync rate, or refresh rate. The vertical scan rate is measured in hertz (Hz).",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "videowall",
+        "slug":  "videowall",
+        "definition":  "A video display composed of a matrix of smaller video displays linked to display a contiguous image.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "viewing angle",
+        "slug":  "viewing-angle",
+        "definition":  "The angle at which a viewer is located in reference to the center axis of a display.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "viewing area plan",
+        "slug":  "viewing-area-plan",
+        "definition":  "A plan-view drawing of the viewing environment that identifies five viewing locations as defined in the requirements section of the ANSI/AVIXA V201.01 Standard Image System Contrast Ratio.",
+        "categories":  [
+                           "Video",
+                           "Standards"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "viewing cone",
+        "slug":  "viewing-cone",
+        "definition":  "The volume of space containing the audience viewing a display. The term cone is used because there are width, height, and depth to the viewing space, which emanate from the center of the display.",
+        "categories":  [
+                           "Audio",
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "virtual local area network",
+        "slug":  "virtual-local-area-network-vlan",
+        "definition":  "A network created when network devices on separate LAN segments are linked to form a logical group.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  "VLAN",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "virtual private network",
+        "slug":  "virtual-private-network-vpn",
+        "definition":  "A virtual point-to-point private connection established across a network via an encrypted tunneling protocol. VPNs are used for secure remote access, monitoring, troubleshooting, and control.",
+        "categories":  [
+                           "Signal Processing",
+                           "Security"
+                       ],
+        "abbreviation":  "VPN",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "visual acuity",
+        "slug":  "visual-acuity",
+        "definition":  "The eye’s ability to discern fine details. There are several different kinds of acuity, including resolution acuity, which is the ability to detect that there are two stimuli, rather than one, in a visual field, and recognition acuity, which is the ability to identify correctly a visual target, such as differentiating between a G and a C.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "visual field",
+        "slug":  "visual-field",
+        "definition":  "The volume of space that can be seen when a person’s head and eyes are absolutely still. It is specified as an angle, usually in degrees. The visual field of a single eye is termed monocular vision, and the combined visual field where the perceived image from both eyes overlap is called binocular vision.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Voice over Internet Protocol",
+        "slug":  "voice-over-internet-protocol-voip",
+        "definition":  "A suite of technologies and protocols that allow the transmission of telephone calls and multimedia over Internet Protocol (IP) networks.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "volatile memory",
+        "slug":  "volatile-memory",
+        "definition":  "Computer memory that loses its data when no longer powered. This type of memory includes the fastaccess, dynamic random-access memory (DRAM) associated with most processor CPUs and GPUs.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "volt",
+        "slug":  "volt",
+        "definition":  "The basic international unit of potential difference (electromotive force). It is represented by the symbol V.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "voltage",
+        "slug":  "voltage",
+        "definition":  "The electrical potential difference across a circuit.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "vulnerability",
+        "slug":  "vulnerability",
+        "definition":  "A weakness in a system, such as an AV or IT service, that may be exploited to adversely affect an organization.",
+        "categories":  [
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "vulnerability testing",
+        "slug":  "vulnerability-testing",
+        "definition":  "An assessment process that involves tools that connect to networked AV or IT systems to determine how they are configured and what vulnerabilities may exist on them.",
+        "categories":  [
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    }
+]

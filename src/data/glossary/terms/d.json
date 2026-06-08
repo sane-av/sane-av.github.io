@@ -1,0 +1,550 @@
+[
+    {
+        "term":  "Dante",
+        "slug":  "dante",
+        "definition":  "A proprietary digital audio Network-layer (layer 3) protocol created by Audinate. Dante sends audio and video information as Internet Protocol (IP) packets. It is fully routable over IP networks using standard Ethernet switches, routers, and other components. Dante controller software manages data prioritization and signal routes.",
+        "categories":  [
+                           "Audio",
+                           "Video",
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "dB SPL",
+        "slug":  "db-spl",
+        "definition":  "A measure of sound pressure level with reference to 0dB SPL (a sound pressure of 20 micropascal [µPa]).",
+        "categories":  [
+                           "Acoustics"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "decay time",
+        "slug":  "decay-time",
+        "definition":  "The time taken for an effect to diminish.",
+        "categories":  [
+                           "Acoustics"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "decibel",
+        "slug":  "decibel-db",
+        "definition":  "A base-10 logarithmic representation of the ratio between two numbers. This ratio is used for quantifying differences in voltage, distance, sound pressure, and power.",
+        "categories":  [
+                           "Acoustics",
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "decryption",
+        "slug":  "decryption",
+        "definition":  "The process of translating encrypted communications or data into its original form.",
+        "categories":  [
+                           "Signal Processing",
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "DECT",
+        "slug":  "dect",
+        "definition":  "Digital enhanced cordless telecommunications (DECT). A wireless communications protocol widely used for cordless telephone systems and some other portable devices.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "delay",
+        "slug":  "delay",
+        "definition":  "A signal-processing device or circuit used to delay the delivery of a signal.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "demodulator",
+        "slug":  "demodulator",
+        "definition":  "A device or process that extracts the information from a modulated signal.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "depth of field",
+        "slug":  "depth-of-field",
+        "definition":  "The area in front of a lens that is in focus. The distance from the closest focused item to the focused item farthest away.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "detail drawing",
+        "slug":  "detail-drawing",
+        "definition":  "A detail drawing which shows small details at a larger scale than the main drawing.",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "dielectric constant (relative permittivity)",
+        "slug":  "dielectric-constant-relative-permittivity",
+        "definition":  "The ratio of the permittivity of a material compared to the permittivity of a vacuum. A measure of the dielectric strength of a material.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "dielectric strength",
+        "slug":  "dielectric-strength",
+        "definition":  "The ability of a material to act as an insulator: how much potential difference it can withstand before breaking down and becoming a conductor.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "differential mode",
+        "slug":  "differential-mode",
+        "definition":  "A signaling mode where two wires carry the same signal but one is in reverse polarity.",
+        "categories":  [
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "differentiated service",
+        "slug":  "differentiated-service-diffserv",
+        "definition":  "A network quality-of-service (QoS) strategy wherein data from specific applications or protocols is assigned a class of service. Flows assigned a high priority are given preferential treatment at the router, but delivery is not guaranteed.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "diffusion",
+        "slug":  "diffusion",
+        "definition":  "The scattering or random reflection or transmission of a wave from a surface.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "digital media player",
+        "slug":  "digital-media-player",
+        "definition":  "Device or software application that replays recorded or streamed audio and video content.",
+        "categories":  [
+                           "Audio",
+                           "Video",
+                           "Systems \u0026 Control"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "digital signage",
+        "slug":  "digital-signage",
+        "definition":  "Digital video displays used for signage. Sometimes referred to as dynamic signage to differentiate it from conventional static signage.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "digital signage media player",
+        "slug":  "digital-signage-media-player",
+        "definition":  "A specialized media player used to store and forward or play back digital signage content.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "digital signage template",
+        "slug":  "digital-signage-template",
+        "definition":  "Customizable layout and content templates used for the content of digital signage. Used to simplify the design and maintenance of standardized content.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "digital signal processor",
+        "slug":  "digital-signal-processor-dsp",
+        "definition":  "A digital device designed to process signal streams such as audio, video, and RF data.",
+        "categories":  [
+                           "Audio",
+                           "Video",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  "DSP",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "digital-to-analog converter",
+        "slug":  "digital-to-analog-converter",
+        "definition":  "A device that converts a digital signal into an analog form.",
+        "categories":  [
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "direct coupled",
+        "slug":  "direct-coupled",
+        "definition":  "A loudspeaker signal distribution system in which the amplifier is connected directly to the loudspeaker(s).",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "direct current",
+        "slug":  "direct-current-dc",
+        "definition":  "Electric current that does not reverse direction, unlike alternating current (AC). DC may vary in amplitude but not direction.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  "DC",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "direct sound",
+        "slug":  "direct-sound",
+        "definition":  "Also known as near-field. Sound that is received directly from the source and not colored by the acoustics of its surroundings.",
+        "categories":  [
+                           "Acoustics"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "direct view display",
+        "slug":  "direct-view-display",
+        "definition":  "A display such as an LCD, LED, OLED, vacuum fluorescent, or plasma screen where the viewer is looking directly at the image source, not at a projection screen.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "directivity",
+        "slug":  "directivity",
+        "definition":  "The coverage pattern of loudspeakers.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "dispersion",
+        "slug":  "dispersion",
+        "definition":  "The separation of light into different frequencies/wavelengths, such as when a white light beam passes through a triangular prism. The different wavelengths of light refract at different angles, dispersing the light into its individual wavelengths.",
+        "categories":  [
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Display Data Channel",
+        "slug":  "display-data-channel-ddc",
+        "definition":  "A data channel used between video sources and video displays to carry information about display capabilities and video formats. The channel used for exchanging EDID and HDCP data.",
+        "categories":  [
+                           "Video",
+                           "Security"
+                       ],
+        "abbreviation":  "DDC",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "DisplayID",
+        "slug":  "displayid",
+        "definition":  "A standard developed by VESA outlining how video display data is structured to describe the display’s performance and capabilities when communicating with other devices. By structuring data in a flexible, modular way, DisplayID enables devices to identify new display resolutions, refresh rates, audio standards, and other formats as they become available. For example, the standard can support a single image segmented across tiled displays using multiple video processors.",
+        "categories":  [
+                           "Audio",
+                           "Video",
+                           "Standards"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "DisplayPort",
+        "slug":  "displayport",
+        "definition":  "A VESA-developed, high-speed digital data transport protocol used to connect a video source to display devices. It can also carry audio, USB, and other data.",
+        "categories":  [
+                           "Audio",
+                           "Video",
+                           "Signal Processing",
+                           "Standards"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "distributed sound system",
+        "slug":  "distributed-sound-system",
+        "definition":  "A sound system using multiple distributed loudspeakers to provide sound coverage across an area at a constant sound pressure level.",
+        "categories":  [
+                           "Acoustics",
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "distribution amplifier",
+        "slug":  "distribution-amplifier-da",
+        "definition":  "An active device used to split one input signal into multiple isolated output signals at a constant amplitude.",
+        "categories":  [
+                           "Audio",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  "DA",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "diversity receiver",
+        "slug":  "diversity-receiver",
+        "definition":  "An RF receiver that uses multiple antennas to receive a single RF transmission. The receiver calculates phase differences between the received signals to dynamically shift between antennas to avoid multipath signal cancellation.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "DLP",
+        "slug":  "dlp",
+        "definition":  "Digital Light Processing. A projection technology based on the MEMS digital micromirror device (DMD) chip family. It uses a matrix of thousands of movable microscopic mirrors on a chip to display images on a screen.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Domain Name System",
+        "slug":  "domain-name-system-dns",
+        "definition":  "A hierarchical, distributed database that maps names to data such as IP addresses, name server addresses, and mail exchange addresses.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  "DNS",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "dome",
+        "slug":  "dome",
+        "definition":  "A type of loudspeaker driver construction. Fabric, thin metallic, or woven materials are used to create a dome-shaped diaphragm. The voice coil is attached to the edge of the dome-shaped diaphragm.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "dotted-decimal/dotted-quad notation",
+        "slug":  "dotted-decimaldotted-quad-notation",
+        "definition":  "A format commonly used for expressing 32-bit IPv4 addresses using four decimal numbers in the range 0 to 255, separated by decimal points (dots) (e.g., 192.168.12.254).",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "driver",
+        "slug":  "driver",
+        "definition":  "1. In audio, an individual loudspeaker unit. 2. In electronics, a piece of software or firmware that takes a high-level command set and implements the commands in a specific format for the actual hardware or software present in the system.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "dual channel",
+        "slug":  "dual-channel",
+        "definition":  "In test equipment, refers to a test device with two independent input channels.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "DVD",
+        "slug":  "dvd",
+        "definition":  "Digital Video Disc or Digital Versatile Disc. An optical storage medium for digital data or video. Widely used for video content distribution from the late 1990s to approximately 2015.",
+        "categories":  [
+                           "Video",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "DVI",
+        "slug":  "dvi",
+        "definition":  "Digital Visual Interface. A digital interface to connect an uncompressed video source to a display device. DVI has largely been replaced by HDMI, DisplayPort, and other formats.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Dynamic Host Configuration Protocol",
+        "slug":  "dynamic-host-configuration-protocol-dhcp",
+        "definition":  "An IP address management process that automates the assignment of IP addresses and networking parameters to devices on an IP network.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  "DHCP",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "dynamic microphone",
+        "slug":  "dynamic-microphone",
+        "definition":  "A microphone with a diaphragm attached to a moveable coil of wire located in a magnetic field. Sound pressure waves cause the diaphragm to move the coil in the magnetic field, inducing a small electric current in the coil.",
+        "categories":  [
+                           "Acoustics",
+                           "Audio",
+                           "Electrical",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "dynamic range",
+        "slug":  "dynamic-range",
+        "definition":  "The difference between the highest and lowest levels of a signal. Usually expressed in decibels (dB).",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    }
+]

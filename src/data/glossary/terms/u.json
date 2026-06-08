@@ -1,0 +1,117 @@
+[
+    {
+        "term":  "UHD ecosystem",
+        "slug":  "uhd-ecosystem",
+        "definition":  "The video cameras, recorders, servers, media players, displays, distribution, processing, and networking technologies used for recording, editing, producing, delivering, and displaying ultra-high-definition video.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "ultra-high-definition (UHD or ultra HD)",
+        "slug":  "ultra-high-definition-uhd-or-ultra-hd",
+        "definition":  "A term used to describe video formats with a minimum resolution of 3840×2160 pixels in a 16×9 or wider aspect ratio.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "ultra-wideband",
+        "slug":  "ultra-wideband-uwb",
+        "definition":  "UWB is a low-power communications protocol that transmits an extremely wide bandwidth (500+MHz) signal using time modulation to encode the data. Its signals are highly immune to interference from other RF systems, yet produce very little interference with them. UWB can detect the distance between the transmitter and receiver, enabling proximity detection and triggering.",
+        "categories":  [
+                           "Lighting"
+                       ],
+        "abbreviation":  "UWB",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "unbalanced circuit",
+        "slug":  "unbalanced-circuit",
+        "definition":  "A circuit in which one conductor carries the signal and another conductor carries the return. The return conductor is often the cable shield or drain wire and is a low-impedance connection connected to the signal ground. As the impedances of the two conductors are quite different, they are unbalanced with respect to one another.",
+        "categories":  [
+                           "Electrical",
+                           "Cabling",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "unicast streaming",
+        "slug":  "unicast-streaming",
+        "definition":  "A one-to-one connection between the streaming server sending out the data and client devices listening to the stream. Each client has a direct relationship with the server. Since the server is sending out a separate stream for each client, unicast streaming of media to three clients at 100kbps actually uses 300kbps of bandwidth. IP unicast streams may use either UDP or TCP transport, although TCP transport will inevitably require some buffering.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "unity gain",
+        "slug":  "unity-gain",
+        "definition":  "Derived from the number 1; refers to no change in gain.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Universal Serial Bus",
+        "slug":  "universal-serial-bus-usb",
+        "definition":  "A standard for connecting, communicating, and supplying power between electronic devices. Version 3.2 of USB is capable of communicating at 20Gbps and can utilize a USB Type-C (USB-C) connector, which supports DisplayPort, HDMI, VGA, power, USB 2.0, and USB3.2. USB4 includes handling the Thunderbolt protocol. USB4 version 1 communicates at up to 40Gbps, while version 2 communicates at up to 80Gbps in symmetric mode, and at up to 120/40Gbps in asymmetric mode.",
+        "categories":  [
+                           "Video",
+                           "Networking",
+                           "Electrical",
+                           "Cabling",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  "USB",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "unshielded twisted-pair cable",
+        "slug":  "unshielded-twisted-pair-utp-cable",
+        "definition":  "Typically used for data transfer, UTP cable contains multiple two-conductor pairs of similar impedance, twisted at regular intervals, employing no external shielding.",
+        "categories":  [
+                           "Electrical",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "UX",
+        "slug":  "ux",
+        "definition":  "User experience. How a user interacts with and experiences a system or an object.",
+        "categories":  [
+                           "Systems \u0026 Control"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    }
+]

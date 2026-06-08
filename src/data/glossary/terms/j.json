@@ -1,0 +1,28 @@
+[
+    {
+        "term":  "jacket",
+        "slug":  "jacket",
+        "definition":  "Outside covering used to protect cable conductors and their shielding.",
+        "categories":  [
+                           "Electrical",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "junction box",
+        "slug":  "junction-box",
+        "definition":  "A structure for enclosing the junction of electrical wires and cables. In North America a junction box can be used as a termination point with a custom connector plate or interface plate. A junction box can also be installed and used as a pull box for longer cable runs.",
+        "categories":  [
+                           "Electrical",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    }
+]

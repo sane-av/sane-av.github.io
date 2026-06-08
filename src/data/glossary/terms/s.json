@@ -1,0 +1,770 @@
+[
+    {
+        "term":  "sabin",
+        "slug":  "sabin",
+        "definition":  "An index of sound absorption efficiency. Possible values range from 1.00 (absorbs everything) to 0.00 (absorbs nothing).",
+        "categories":  [
+                           "Acoustics"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "sampling rate",
+        "slug":  "sampling-rate",
+        "definition":  "The number of samples taken per unit of time when converting a continuous analog signal to a digital signal.",
+        "categories":  [
+                           "Audio",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "scale",
+        "slug":  "scale",
+        "definition":  "The representation of a number by another number differing by a fixed ratio.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "scale drawing",
+        "slug":  "scale-drawing",
+        "definition":  "A drawing that shows objects in accurate proportion, with all dimensions enlarged or reduced by a fixed ratio.",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "scaler",
+        "slug":  "scaler",
+        "definition":  "A processor that changes the resolution of an image without changing its apparent content. Scaling may be required when the image resolution does not match the resolution of the display device.",
+        "categories":  [
+                           "Video",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "scan rate",
+        "slug":  "scan-rate",
+        "definition":  "The rate at which a raster-scan image is displayed. Horizontal scan rate is the rate at which a single horizontal line is displayed. Vertical scan rate (refresh rate) is the rate at which an entire screen image is displayed.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "scattering",
+        "slug":  "scattering",
+        "definition":  "When a wave strikes a textured surface, the incoming waves are reflected in multiple directions because the surface is uneven.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "scene",
+        "slug":  "scene",
+        "definition":  "A recallable preset or state of lighting levels for one or more zones.",
+        "categories":  [
+                           "Systems \u0026 Control"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "scope statement",
+        "slug":  "scope-statement",
+        "definition":  "A written agreement between the client, the project sponsor, the key stakeholders, and the project team that defines the boundaries of the project.",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "SCR",
+        "slug":  "scr",
+        "definition":  "The silicon-controlled rectifier (SCR) is a semiconductor from the thyristor family of four-layer powerswitching devices. As it is a rectifier, it must be used in an inverse-pair to control both the positive and negative half-cycles of mains power. It was the first type of solid-state device to be used for power control and phase-control dimming.",
+        "categories":  [
+                           "Electrical",
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "screen gain",
+        "slug":  "screen-gain",
+        "definition":  "The ability of a projection screen to concentrate the light reflected from it. Gain is compared to the reflection of a matte-white screen, which reflects light uniformly in all directions (a gain of 1).",
+        "categories":  [
+                           "Audio",
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "SDTV",
+        "slug":  "sdtv",
+        "definition":  "Standard-definition television. It has a 4:3 aspect ratio and a resolution of 576i for PAL and SECAM and 480i for NTSC.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "section drawing",
+        "slug":  "section-drawing",
+        "definition":  "A section drawing is a view of the interior of a building in the vertical plane. Section drawings show bisected features, which allows you to view what is behind them.",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "security policy",
+        "slug":  "security-policy",
+        "definition":  "A set of rules that establish the acceptable use of an organization’s AV and IT systems based on the risk that each system faces and the measures taken to address those risks.",
+        "categories":  [
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "sensitivity specification",
+        "slug":  "sensitivity-specification",
+        "definition":  "The measure of a device’s capacity to convert one form of energy into another form of energy. Usually stated as a ratio of input units to output units, such as mV/Pa for microphones.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "serial digital interface",
+        "slug":  "serial-digital-interface-sdi",
+        "definition":  "A set of serial data standards to transport digital AV data over BNC-terminated 75Ω coaxial cable or over optical fiber. Variants include HD-SDI for HD video, 6G-SDI (6Gbps) for 4kp30, 12G-SDI (12Gbps) for 4kp60, and 24G-SDI (24Gbps) for 8kp30 video.",
+        "categories":  [
+                           "Video",
+                           "Cabling"
+                       ],
+        "abbreviation":  "SDI",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "series circuit",
+        "slug":  "series-circuit",
+        "definition":  "A circuit arrangement where all the current supplied by the source will flow through the entire circuit. While all the current flows through all the circuit elements, the voltage is divided between the loads and the wires that connect them.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "series/parallel loudspeaker circuit",
+        "slug":  "seriesparallel-loudspeaker-circuit",
+        "definition":  "An arrangement of loudspeakers where some are wired in parallel and some are wired in series. Typically, groups of loudspeakers are wired in parallel, then those groups are connected to the amplifier in series.",
+        "categories":  [
+                           "Audio",
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "server",
+        "slug":  "server",
+        "definition":  "A computer system that shares resources and services with other connected devices.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "service-level agreement",
+        "slug":  "service-level-agreement-sla",
+        "definition":  "A document used to record an agreement between a service provider and a customer. It describes the services to be provided, documents service-level targets, and specifies the roles and responsibilities of the service provider(s) and the customer(s).",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  "SLA",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "session border controller",
+        "slug":  "session-border-controller-sbc",
+        "definition":  "A device used in VoIP networks to control the signaling and media streams involved in setting up, conducting, and tearing down calls. The SBC enforces security, QoS, and admission control over VoIP sessions.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  "SBC",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "shear force",
+        "slug":  "shear-force",
+        "definition":  "The force exerted on an object in the direction of the object’s cross section. In the case of a wall-mounting bolt, the shear force across the bolt caused by the gravitational load of the object it is supporting.",
+        "categories":  [
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "shield or screen",
+        "slug":  "shield-or-screen",
+        "definition":  "A grounded conductive partition placed between two regions of space to control the propagation of electric and magnetic fields between them. The screen or shield acts as a Faraday cage. It can be the chassis (metallic box) that houses an electronic device or the conductive enclosure (aluminum foil, conductive polymer, or copper braid) that surrounds a screened/shielded wire or cable.",
+        "categories":  [
+                           "Electrical",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "shielded twisted-pair cable",
+        "slug":  "shielded-twisted-pair-cable",
+        "definition":  "A cable that contains one or more twisted-pairs of conductors inside an overall shield. Known variously as STP, or FTP when the shield is constructed of foil.",
+        "categories":  [
+                           "Electrical",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "shotgun microphone",
+        "slug":  "shotgun-microphone",
+        "definition":  "A long, cylindrical, highly sensitive microphone with a very narrow pickup pattern.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "sightline",
+        "slug":  "sightline",
+        "definition":  "The line of sight between a viewer and an object that needs to be seen.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "signal flow",
+        "slug":  "signal-flow",
+        "definition":  "The traceable path of signals through a system.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "signal generator",
+        "slug":  "signal-generator",
+        "definition":  "A test instrument that produces calibrated electronic signals for the testing or alignment of electronic circuits or systems.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "signal ground",
+        "slug":  "signal-ground",
+        "definition":  "1. A 0V (zero volt) point of no potential that serves as the circuit reference. 2. A low-impedance path for the current to return to the source.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "single-pair Ethernet",
+        "slug":  "single-pair-ethernet-spe",
+        "definition":  "An Ethernet variant based on a single 100Ω twisted-pair cable rather than the more-common four-pair configuration. Originally developed for automotive and industrial control applications, it has been adopted for Internet of Things (IOT) and other remotely-located devices. Capable of full-duplex data transmission speeds of up to 1Gbps over 15m (50ft), and extending to up to 1km (3,280ft) at 10Mbps. Most commonly used connectors used are the IEC 63171-1 (Type 1) “LC” style and the IEC 63171-6 industrial style. Used in conjunction with a PoE (Power over Ethernet)/PoDL (Power over Data Line) feed of up to 50w, remote Ethernet devices such as video cameras can be powered and operated over a single-pair cable.",
+        "categories":  [
+                           "Video",
+                           "Networking",
+                           "Cabling",
+                           "Systems \u0026 Control"
+                       ],
+        "abbreviation":  "SPE",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "single-phase power",
+        "slug":  "single-phase-power",
+        "definition":  "Alternating-current electrical power supplied by two current-carrying conductors. This type of supply is used for residential and many light-commercial applications.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "single-point ground",
+        "slug":  "single-point-ground-spg",
+        "definition":  "In the context of IEEE Standard 1100, refers to implementation of an isolated equipment grounding configuration for the purposes of minimizing problems caused by circulating current in ground loops.",
+        "categories":  [
+                           "Electrical",
+                           "Standards"
+                       ],
+        "abbreviation":  "SPG",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "signal-to-noise (S/N) ratio",
+        "slug":  "signal-to-noise-sn-ratio",
+        "definition":  "The ratio, usually measured in decibels, between an information signal and the accompanying noninformation noise. The higher this ratio, the cleaner the signal.",
+        "categories":  [
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Simple Network Management Protocol",
+        "slug":  "simple-network-management-protocol-snmp",
+        "definition":  "A set of Internet Engineering Task Force (IETF) standards for network management.",
+        "categories":  [
+                           "Networking",
+                           "Standards"
+                       ],
+        "abbreviation":  "SNMP",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "socket",
+        "slug":  "socket",
+        "definition":  "In a TCP/IP network, the combined port number, Transport-layer (layer 4) protocol identifier, and IP addresses of communicating end systems. A socket uniquely identifies a session of a given transport protocol.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "software patch",
+        "slug":  "software-patch",
+        "definition":  "A piece of computer code used to update an AV or IT program with the intention of fixing or improving it. The update may address known security vulnerabilities to limit their exploitation by intruders.",
+        "categories":  [
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "sound pressure level",
+        "slug":  "sound-pressure-level-spl",
+        "definition":  "The effective pressure level of a sound, usually stated in relation to a reference pressure such as 20µPa (the threshold of human hearing). In the context of AVIXA Standard A102.01:2017, expressed in unweighted decibels.",
+        "categories":  [
+                           "Acoustics",
+                           "Standards"
+                       ],
+        "abbreviation":  "SPL",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "sound reinforcement system",
+        "slug":  "sound-reinforcement-system",
+        "definition":  "The combination of microphones, audio mixers, signal processors, power amplifiers, and loudspeakers that is used to electronically amplify and distribute sound.",
+        "categories":  [
+                           "Acoustics",
+                           "Audio",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "source-specific multicast",
+        "slug":  "source-specific-multicast-ssm",
+        "definition":  "In data streaming SSM allows clients to specify the sources from which they will accept content. This has the dual benefits of reducing demands on the network while improving network security.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  "SSM",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "specification",
+        "slug":  "specification",
+        "definition":  "A written, precise description of the design criteria for a device or a piece of work. Specifications define the level of qualitative and/or quantitative parameters to be met and the criteria for their acceptance. All specifications must be formulated in terms that are specific, measurable, verifiable, and unambiguous.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "specular reflection",
+        "slug":  "specular-reflection",
+        "definition":  "The mirror-like reflection of electromagnetic radiation, in which most of the radiation is reflected in a single direction.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "speech privacy system",
+        "slug":  "speech-privacy-system",
+        "definition":  "A sound system that adds background noise to an environment to raise the hearing threshold and thus make it more difficult to hear low-level sounds such as traffic noise, machinery, and distant human speech. Used to assist with speech privacy in open environments.",
+        "categories":  [
+                           "Acoustics",
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "speech-reinforcement system",
+        "slug":  "speech-reinforcement-system",
+        "definition":  "An audio system that reinforces or amplifies a presenter’s voice.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "splitter",
+        "slug":  "splitter",
+        "definition":  "An electronic device that splits a signal to route it to different devices.",
+        "categories":  [
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "spot photometer",
+        "slug":  "spot-photometer",
+        "definition":  "Also known as a spot meter. A type of photometer used to measure illuminance over a narrow angle.",
+        "categories":  [
+                           "Video",
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "standing wave",
+        "slug":  "standing-wave",
+        "definition":  "The phenomenon that occurs between parallel reflecting surfaces (e.g., walls in a room or a loudspeaker cabinet) where the distance between those parallel surfaces equals one-half wavelength of a wave (and the harmonics thereof). The wave is thus reflected on itself out of phase, creating an interference pattern with location-specific areas of maximum and minimum amplitude.",
+        "categories":  [
+                           "Acoustics",
+                           "Audio",
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "star topology",
+        "slug":  "star-topology",
+        "definition":  "A network topology where all network devices are connected to a central network device, usually a switch or bridge.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "static IP address",
+        "slug":  "static-ip-address",
+        "definition":  "A permanently assigned IP address.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "stereophonic",
+        "slug":  "stereophonic",
+        "definition":  "An audio reproduction system where multiple outputs are designed to create the illusion of sound perspective.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "streaming video/streaming audio",
+        "slug":  "streaming-videostreaming-audio",
+        "definition":  "Sequence of moving images or sounds sent in a continuous stream over the Internet and displayed by the viewer as they arrive. With streaming video or audio, a web user does not need to wait to download a large file before seeing the video or hearing the sound.",
+        "categories":  [
+                           "Audio",
+                           "Video",
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "subnet",
+        "slug":  "subnet",
+        "definition":  "A logical group of hosts within a local area network (LAN). A LAN may consist of a single subnet, or it may be divided into several subnets. Additional subnets may be created by modifying the subnet mask on the network devices and hosts.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "subnet mask",
+        "slug":  "subnet-mask",
+        "definition":  "A number that identifies which part of an IP address corresponds to the network address and which corresponds to a host address on that network. In CIDR notation the mask is represented by a slash (/), followed by the number of bits as a decimal number (e.g., /24). In dotted-decimal notation the mask is represented by a dotted-decimal representation of the bit pattern for network and host address bits, where bits equal to 1 indicate that the corresponding bits in the IP address identify the network address, and bits equal to 0 identify the host address (e.g., 255.255.255.0, which is equivalent to /24). IP addresses with the same network identifier bits are on the same subnet.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "subwoofer",
+        "slug":  "subwoofer",
+        "definition":  "A loudspeaker that reproduces lower frequencies, typically 20Hz to 100Hz.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "supercardioid polar pattern",
+        "slug":  "supercardioid-polar-pattern",
+        "definition":  "The exaggerated heart shape of the area where a highly directional microphone is most sensitive to sound.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "surface-mount microphone",
+        "slug":  "surface-mount-microphone",
+        "definition":  "Also called a boundary microphone or pressure zone microphone. A microphone designed to be mounted directly against a hard boundary or surface, such as a conference table, a stage floor, or a wall, to pick up sound.",
+        "categories":  [
+                           "Audio",
+                           "Systems \u0026 Control"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "surround-sound system",
+        "slug":  "surround-sound-system",
+        "definition":  "An audio system that uses multiple channels to produce an acoustic experience where the sound appears to surround listeners.",
+        "categories":  [
+                           "Acoustics",
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "switcher",
+        "slug":  "switcher",
+        "definition":  "A device used to select one of several available signals.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "switch-mode power supply",
+        "slug":  "switch-mode-power-supply",
+        "definition":  "A type of DC power supply that uses a switching regulator to control the output voltage.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "sync",
+        "slug":  "sync",
+        "definition":  "Synchronization. The timing information used to coordinate signals and events.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "system",
+        "slug":  "system",
+        "definition":  "In the AV industry, a compilation of multiple individual AV components and subsystems interconnected to achieve a communication goal.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "system black",
+        "slug":  "system-black",
+        "definition":  "The lowest level of luminance a video system is capable of producing for its operating conditions.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "system ground",
+        "slug":  "system-ground",
+        "definition":  "The point at which the safety earth/ground for an electrical system is connected to the earth, usually through a highly conductive earthing/grounding spike driven into the ground (planet Earth).",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    }
+]

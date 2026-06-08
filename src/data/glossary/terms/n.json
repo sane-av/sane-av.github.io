@@ -1,0 +1,298 @@
+[
+    {
+        "term":  "native resolution",
+        "slug":  "native-resolution",
+        "definition":  "The number of rows of horizontal and vertical pixels that form the picture. The native resolution describes the actual resolution of the imaging device and not the resolution of the delivery signal.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "near-field",
+        "slug":  "near-field",
+        "definition":  "The zone close to the sound source that has not been colored by room reflections. This is also known as direct sound.",
+        "categories":  [
+                           "Systems \u0026 Control"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "needed acoustic gain",
+        "slug":  "needed-acoustic-gain-nag",
+        "definition":  "The gain the sound system requires to achieve an equivalent acoustic level at the farthest listener equal to the level at the Equivalent Acoustic Distance (EAD).",
+        "categories":  [
+                           "Acoustics",
+                           "Audio"
+                       ],
+        "abbreviation":  "NAG",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "needs analysis",
+        "slug":  "needs-analysis",
+        "definition":  "A needs analysis identifies the activities that the end users need to perform, then develops the functional descriptions of the systems that support those needs.",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "network address translation",
+        "slug":  "network-address-translation-nat",
+        "definition":  "Any method of altering IP address information in IP packet headers as the packet traverses a routing device. NAT is typically implemented as part of a firewall strategy. The most common form of NAT is port address translation (PAT).",
+        "categories":  [
+                           "Networking",
+                           "Security"
+                       ],
+        "abbreviation":  "NAT",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "network bridge",
+        "slug":  "network-bridge",
+        "definition":  "A network device that connects between two networks. It may translate between different protocols on the bridged networks.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "network interface card",
+        "slug":  "network-interface-card-nic",
+        "definition":  "An interface that allows a device to be connected to a network.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  "NIC",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "network segment",
+        "slug":  "network-segment",
+        "definition":  "A network segment is any single section of a network that is physically separated from the rest of the network by a networking device such as a switch or router. A segment may contain one or more hosts.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "network switch",
+        "slug":  "network-switch",
+        "definition":  "A networking device that connects multiple network segments by storing the data packets sent from the transmitting segment and forwarding them to the receiving segment. Hosts on the segments are identified by their MAC addresses.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "network topology",
+        "slug":  "network-topology",
+        "definition":  "The physical arrangement of the elements connected to a network.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "neutral conductor",
+        "slug":  "neutral-conductor",
+        "definition":  "The conductor in an electrical supply system that is connected to the earth/ground for current return. This is not part of the protective earth/grounding system. See also grounded conductor (for U.S. usage).",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "nibble/nybble",
+        "slug":  "nibblenybble",
+        "definition":  "A group of 4 bits. Half a byte or half an octet. Usually written as a single hexadecimal digit (values 0 to f).",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "nine-pin connector (DB-9)",
+        "slug":  "nine-pin-connector-db-9",
+        "definition":  "The DB-9 is the most common type of connector used in RS-232 control systems.",
+        "categories":  [
+                           "Cabling",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "nit",
+        "slug":  "nit",
+        "definition":  "The nonstandard, and now-deprecated, name for the candela per square meter (cd/m2), the unit of luminance. Formerly used to describe screen or surface brightness.",
+        "categories":  [
+                           "Video",
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "noise",
+        "slug":  "noise",
+        "definition":  "Any signal present in a system other than the desired signal.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "noise criterion",
+        "slug":  "noise-criterion-nc",
+        "definition":  "A rating system used primarily in the United States to establish satisfactory conditions for speech intelligibility and general living environments. Measurements are taken at eight center octave frequencies from 63Hz to 8kHz and plotted against a standardized curve. Very similar to the noise rating (NR) system. Also abbreviated NC.",
+        "categories":  [
+                           "Acoustics"
+                       ],
+        "abbreviation":  "NC",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "noise rating",
+        "slug":  "noise-rating-nr",
+        "definition":  "A rating system developed to establish satisfactory conditions for speech intelligibility and general living environments. Measurements are taken at eight center octave frequencies from 63Hz to 8kHz and plotted against a standardized curve. Very similar to the noise criterion (NC) rating system used in the United States.",
+        "categories":  [
+                           "Acoustics"
+                       ],
+        "abbreviation":  "NR",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "noise-masking system",
+        "slug":  "noise-masking-system",
+        "definition":  "Also known as a sound-masking or speech privacy system. A sound system that deliberately introduces background noise into a space to raise the threshold of hearing and thus increase privacy between occupants in a shared space.",
+        "categories":  [
+                           "Acoustics",
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "noisy ground",
+        "slug":  "noisy-ground",
+        "definition":  "An electrical connection to a ground point that produces or injects spurious voltages into a system through the connection to ground (IEEE Std. 142-1991).",
+        "categories":  [
+                           "Electrical",
+                           "Standards"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "nominal impedance",
+        "slug":  "nominal-impedance",
+        "definition":  "An approximation of the typical impedance of a device or system.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "nonvolatile memory",
+        "slug":  "nonvolatile-memory",
+        "definition":  "Computer memory that retains its data when not powered up. Includes flash memory; read-only memory (ROM); erasable programmable ROM (EPROM); electrically erasable programmable ROM (EEPROM); optical disks; and magnetic storage such as floppy disks, hard disks, and magnetic tape.",
+        "categories":  [
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "notch filter",
+        "slug":  "notch-filter",
+        "definition":  "A filter that notches out, or eliminates, a specific band of frequencies.",
+        "categories":  [
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "number of open microphones",
+        "slug":  "number-of-open-microphones-nom",
+        "definition":  "A measure that takes into account the increased possibility of feedback by adding more live microphones in a space. Each time the number of open microphones is doubled, you lose 3dB of gain before feedback.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  "NOM",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Nyquist-Shannon sampling theorem",
+        "slug":  "nyquist-shannon-sampling-theorem",
+        "definition":  "States that an analog signal can be reconstructed if it is encoded using a sampling rate that is greater than twice the highest frequency sampled. For example, since the range of human hearing extends to 20kHz, the minimum sampling rate for digital audio should be greater than 40kHz. The higher the sampling rate above this minimum, the more accurate the digital sample.",
+        "categories":  [
+                           "Audio",
+                           "Signal Processing",
+                           "Standards"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    }
+]

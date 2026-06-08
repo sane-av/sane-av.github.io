@@ -1,0 +1,421 @@
+[
+    {
+        "term":  "acceptable viewing area",
+        "slug":  "acceptable-viewing-area",
+        "definition":  "The viewing range for a screen, suggested as a 60-degree arc off the far vertical edge of the screen being viewed.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "access point",
+        "slug":  "access-point",
+        "definition":  "A network device that allows other devices to connect to a data network.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "acoustic echo canceller",
+        "slug":  "acoustic-echo-canceller",
+        "definition":  "An echo cancelling device used in conferencing systems that attempts to remove environmental echoes that are created at the far site from sound reflected off hard surfaces and returned to conferencing microphones.",
+        "categories":  [
+                           "Acoustics",
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "acoustics",
+        "slug":  "acoustics",
+        "definition":  "The properties or qualities of a room or building that determine how sound is transmitted and reflected. The study of the properties of sound.",
+        "categories":  [
+                           "Acoustics"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "alternating current",
+        "slug":  "alternating-current-ac",
+        "definition":  "An electric current that reverses its direction periodically.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  "AC",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "ambient light",
+        "slug":  "ambient-light",
+        "definition":  "The sum of all lighting in an area.",
+        "categories":  [
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "ambient noise",
+        "slug":  "ambient-noise",
+        "definition":  "The sum of all sounds in an area.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "amperage",
+        "slug":  "amperage",
+        "definition":  "The amount of electric current flowing in a circuit. Current is measured in amperes (amps), abbreviated as A. The preferred term is “current.”",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "amplifier",
+        "slug":  "amplifier",
+        "definition":  "A device for increasing the strength of signals.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "amplitude",
+        "slug":  "amplitude",
+        "definition":  "The height of the waveform of a signal.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "analog",
+        "slug":  "analog-analogue",
+        "definition":  "A continuously variable signal.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "analog-to-digital/digital-to-analog (AD/DA or A to D/D to A) converters",
+        "slug":  "ad-da-converter",
+        "definition":  "Devices that convert signals from analog to digital or from digital to analog.",
+        "categories":  [
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "angularly reflective screen",
+        "slug":  "angularly-reflective-screen",
+        "definition":  "A screen that reflects light at the same angle at which it arrived.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "anthropometrics",
+        "slug":  "anthropometrics",
+        "definition":  "Results of the study of the measurements and proportions of the human body.",
+        "categories":  [
+                           "Systems \u0026 Control"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "aperture",
+        "slug":  "aperture",
+        "definition":  "The opening in an optical train that controls the amount of light passing through.",
+        "categories":  [
+                           "Video",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "arc-fault circuit interrupter",
+        "slug":  "arc-fault-circuit-interrupter-afci",
+        "definition":  "Also known as an arc-fault detection device (AFDD), a type of circuit breaker that triggers on detecting an electrical-arc fault in its load circuit.",
+        "categories":  [
+                           "Video",
+                           "Electrical"
+                       ],
+        "abbreviation":  "AFCI",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "arrayed loudspeaker system",
+        "slug":  "arrayed-loudspeaker-system",
+        "definition":  "A loudspeaker arrangement that delivers sound from a single point in space.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "artifact",
+        "slug":  "artifact",
+        "definition":  "An element introduced into a signal during processing.",
+        "categories":  [
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "aspect ratio",
+        "slug":  "aspect-ratio",
+        "definition":  "The ratio of image width to image height.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "attack time",
+        "slug":  "attack-time",
+        "definition":  "The time taken for an action to complete its effect once triggered.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "attenuate",
+        "slug":  "attenuate",
+        "definition":  "To reduce the amplitude of a signal.",
+        "categories":  [
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Audio Coverage Uniformity measurement locations",
+        "slug":  "audio-coverage-uniformity-measurement-locations-acumls",
+        "definition":  "The test points within a venue that have been determined to carry out the measurements for the AVIXA Audio Coverage Uniformity test.",
+        "categories":  [
+                           "Audio",
+                           "Standards"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Audio Coverage Uniformity Plan",
+        "slug":  "audio-coverage-uniformity-plan-acup",
+        "definition":  "A stand-alone document that identifies the Audio Coverage Uniformity measurement locations for a particular venue, using the AVIXA indication symbol.",
+        "categories":  [
+                           "Audio",
+                           "Standards"
+                       ],
+        "abbreviation":  "ACUP",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "audio processor",
+        "slug":  "audio-processor",
+        "definition":  "A device used to manipulate audio signals.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Audio Return Channel",
+        "slug":  "audio-return-channel-arc",
+        "definition":  "Introduced to the HDMI standard with version 1.4. ARC allows a display to send audio data upstream to a receiver or surround-sound controller, eliminating the need for a separate audio connection.",
+        "categories":  [
+                           "Audio",
+                           "Video"
+                       ],
+        "abbreviation":  "ARC",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "audio signal",
+        "slug":  "audio-signal",
+        "definition":  "An electrical representation of sound.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "audio transduction",
+        "slug":  "audio-transduction",
+        "definition":  "The process of converting acoustical energy into electrical energy or electrical energy back into acoustical energy.",
+        "categories":  [
+                           "Acoustics",
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Audio Video Bridging",
+        "slug":  "audio-video-bridging-avb",
+        "definition":  "A standards-based audiovisual Data Link-layer (layer 2) protocol defined under IEEE 802.1-AVB. It runs across a standard Ethernet network but requires AVB-enabled switches and network components that handle QoS prioritization of data. AVB has been renamed Time-Sensitive Networking to reflect the standard’s applicability to communication among different types of devices, such as network sensors.",
+        "categories":  [
+                           "Audio",
+                           "Video",
+                           "Networking",
+                           "Standards"
+                       ],
+        "abbreviation":  "AVB",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "audiovisual infrastructure",
+        "slug":  "audiovisual-infrastructure",
+        "definition":  "The physical building components that make up the pathways, supports, and architectural elements required for audiovisual technical equipment installations.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "audiovisual rack",
+        "slug":  "audiovisual-rack",
+        "definition":  "A housing unit for electronic equipment. The inside of a typical AV industry rack is 19in. (482.6mm) wide. Many of the technical specifications for a rack, including size and equipment height, are determined by standards that have been established by numerous standards-setting organizations. The outside width of the rack varies from approximately 530mm to 630mm (21in. to 25in.).",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "authentication",
+        "slug":  "authentication",
+        "definition":  "The ability or process of verifying the identity of an entity, such as a user, process, or device, for providing access to resources such as AV systems.",
+        "categories":  [
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "authority having jurisdiction",
+        "slug":  "authority-having-jurisdiction-ahj",
+        "definition":  "An organization, office, or individual responsible for enforcing the requirements of a code or standard or for approving equipment, materials, installation, or procedures. In some places the authority having jurisdiction may be known as the regional regulatory authority.",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  "AHJ",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "authorization",
+        "slug":  "authorization",
+        "definition":  "The process used to determine whether a user is granted access to a specific resource by evaluating relevant access control information.",
+        "categories":  [
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "automatic gain control",
+        "slug":  "automatic-gain-control-agc",
+        "definition":  "A circuit or process that maintains a constant output gain in response to input variables such as signal strength or ambient noise level.",
+        "categories":  [
+                           "Audio",
+                           "Electrical"
+                       ],
+        "abbreviation":  "AGC",
+        "relatedTerms":  [
+
+                         ]
+    }
+]

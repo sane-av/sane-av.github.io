@@ -1,0 +1,148 @@
+[
+    {
+        "term":  "watt",
+        "slug":  "watt",
+        "definition":  "The international unit of power. It is represented by the symbol W.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "waveform monitor",
+        "slug":  "waveform-monitor",
+        "definition":  "An oscilloscope-type monitor used to display the waveforms of signals. A video waveform monitor is a specialized monitor used to display and analyze a video signal’s sync, luminance, and chroma. Some waveform monitors include a vectorscope mode.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "wavelength",
+        "slug":  "wavelength",
+        "definition":  "The distance between the corresponding points on two consecutive cycles of a wave. Measured in meters.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "wayfinding",
+        "slug":  "wayfinding",
+        "definition":  "The use of audiovisual guides or signage to assist with navigation to a destination.",
+        "categories":  [
+                           "Systems \u0026 Control"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "webcasting",
+        "slug":  "webcasting",
+        "definition":  "The broadcasting of digital media such as audio or video over the World Wide Web, which audience members can stream live or access on demand.",
+        "categories":  [
+                           "Audio",
+                           "Video",
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "white noise",
+        "slug":  "white-noise",
+        "definition":  "A signal with a broad spectrum of random frequencies at the same energy level.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "wide area network",
+        "slug":  "wide-area-network-wan",
+        "definition":  "A data communications network that links local area networks (LANs) that are distributed over large geographic areas, such as cities, states, countries, regions, and continents.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  "WAN",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "wire",
+        "slug":  "wire",
+        "definition":  "A single conductive element intended to carry a current.",
+        "categories":  [
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "wireless access point",
+        "slug":  "wireless-access-point",
+        "definition":  "A network device that allows other devices to access a wireless network.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "wireless local area network",
+        "slug":  "wireless-local-area-network-wlan",
+        "definition":  "A network that shares information by radio frequency (RF) wireless transmission.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  "WLAN",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "woofer",
+        "slug":  "woofer",
+        "definition":  "A loudspeaker that produces low frequencies, typically 20Hz to 200Hz.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "work breakdown structure",
+        "slug":  "work-breakdown-structure-wbs",
+        "definition":  "A deliverable-oriented grouping of project elements that will ultimately organize and define the total scope of the project. Each descending level represents an increasingly detailed definition of a project component.",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  "WBS",
+        "relatedTerms":  [
+
+                         ]
+    }
+]

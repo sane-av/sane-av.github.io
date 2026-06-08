@@ -1,0 +1,357 @@
+[
+    {
+        "term":  "gain",
+        "slug":  "gain",
+        "definition":  "The change in the amplitude of a signal.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "gain control",
+        "slug":  "gain-control",
+        "definition":  "A gain control is an electronic adjustment through which the amplitude of a signal can be increased or decreased.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "gain-sharing automatic mixers",
+        "slug":  "gain-sharing-automatic-mixers",
+        "definition":  "A gain-sharing automatic mixer is an audio mixer that automatically increases the gain for microphone channels that are in use and attenuates the microphone channels that are not in use.",
+        "categories":  [
+                           "Audio",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "gate",
+        "slug":  "gate",
+        "definition":  "An audio processor that allows signals to pass only above a certain setting or threshold.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "gated automatic mixer",
+        "slug":  "gated-automatic-mixer",
+        "definition":  "An audio mixer that turns microphone channels either “on” or “off” automatically, based on the amplitude of their signal.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "gateway",
+        "slug":  "gateway",
+        "definition":  "A router device that connects a local network to an external network. All outgoing network traffic must travel through it. A gateway will pass incoming traffic to the routers below. The routers below look to the gateway to resolve DNS addresses not found on the local network.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "gauge",
+        "slug":  "gauge",
+        "definition":  "The thickness or diameter of a wire or plate.",
+        "categories":  [
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "genlock",
+        "slug":  "genlock",
+        "definition":  "To lock the synchronization signals of multiple devices to a single synchronization source.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "graphic equalizer",
+        "slug":  "graphic-equalizer",
+        "definition":  "An audio equalizer with an interface that has a graph comparing amplitude on the vertical axis with frequency on the horizontal axis.",
+        "categories":  [
+                           "Audio",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "graphical user interface",
+        "slug":  "graphical-user-interface-gui",
+        "definition":  "Often pronounced “gooey,” provides a graphical (image-based) interface for a user to view a system’s elements and functions.",
+        "categories":  [
+                           "Video",
+                           "Systems \u0026 Control"
+                       ],
+        "abbreviation":  "GUI",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "graphics adapter",
+        "slug":  "graphics-adapter",
+        "definition":  "Commonly referred to as a video card, a device that generates and outputs video signals from a computer.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "graphics processing unit",
+        "slug":  "graphics-processing-unit-gpu",
+        "definition":  "A specialized circuit designed for processing display functions. The processor is optimized to render and manipulate images in a video frame buffer.",
+        "categories":  [
+                           "Video",
+                           "Electrical"
+                       ],
+        "abbreviation":  "GPU",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "grayscale",
+        "slug":  "grayscale",
+        "definition":  "The luminance (brightness and darkness) of a color. It is sometimes called value. It is one of the three attributes of color; the other two are hue and chroma.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "grayscale test pattern",
+        "slug":  "grayscale-test-pattern",
+        "definition":  "A test pattern that displays a range of known gray values between black and white.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "ground",
+        "slug":  "ground",
+        "definition":  "1. The earth. 2. In the context of an electrical circuit, the earth or some conductive body that extends the ground (earth) connection. 3. In the context of electronics, the 0V (zero volt) circuit reference point. This electronic circuit reference point may or may not have a connection to the earth.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "ground fault",
+        "slug":  "ground-fault",
+        "definition":  "An unintentional electrical connection between any ungrounded conductor of the electrical system and any noncurrent-carrying metal object.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "ground loop",
+        "slug":  "ground-loop",
+        "definition":  "An electrically conductive loop that has two or more ground reference connections. The loop can be detrimental when the reference connections are at different potentials, which causes current flow within the loop.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "ground plane",
+        "slug":  "ground-plane",
+        "definition":  "A continuous conductive area. The fundamental property of a ground plane is that every point on its surface is at the same potential (low impedance) at all frequencies of concern.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "ground potential",
+        "slug":  "ground-potential",
+        "definition":  "A point in a circuit that is at the same potential as the earth/ground.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "ground reference",
+        "slug":  "ground-reference",
+        "definition":  "The 0V (zero volt) reference point for a circuit.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "grounded conductor",
+        "slug":  "grounded-conductor",
+        "definition":  "A system or circuit conductor that is connected to the earth/ground.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "ground-fault circuit interrupter",
+        "slug":  "ground-fault-circuit-interrupter-gfci",
+        "definition":  "A safety device that de-energizes a circuit within an established period of time when a current to ground exceeds a specified level. Triggered by an imbalance between the supply and return currents. Similar in function to an earth leakage circuit breaker (ELCB), a residual current device (RCD), or a core balance relay (CBR).",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  "GFCI",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "ground-fault current path",
+        "slug":  "ground-fault-current-path",
+        "definition":  "An electrically conductive path from the point of a ground fault on a wiring system through normally noncurrent-carrying conductors, equipment, or earth to the electrical supply source.",
+        "categories":  [
+                           "Electrical",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "grounding",
+        "slug":  "grounding",
+        "definition":  "Connecting to ground or to a conductive body that extends the ground connection. The connection is referred to as grounded.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "grounding conductor",
+        "slug":  "grounding-conductor",
+        "definition":  "A conductor used to connect equipment or the grounding circuit of a wiring system to a grounding/ earth electrode or electrodes.",
+        "categories":  [
+                           "Electrical",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "grounding electrode",
+        "slug":  "grounding-electrode",
+        "definition":  "A conducting object through which a direct connection to earth (planet Earth) is established.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "grounding electrode conductor",
+        "slug":  "grounding-electrode-conductor",
+        "definition":  "The conductor used to connect the system grounded conductor or the equipment to a grounding electrode or to a point on the grounding electrode system.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Group Management Protocol",
+        "slug":  "group-management-protocol-gmp",
+        "definition":  "A protocol that allows a host to inform its neighboring routers of its desire to start or stop receiving multicast transmissions.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  "GMP",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "group of pictures",
+        "slug":  "group-of-pictures-gop",
+        "definition":  "A set of successive frames that are required to display a complete series in a digital video signal. It includes the visible picture, timing/sync information, and compression frames.",
+        "categories":  [
+                           "Video",
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    }
+]

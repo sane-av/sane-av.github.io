@@ -1,0 +1,649 @@
+[
+    {
+        "term":  "raceway",
+        "slug":  "raceway",
+        "definition":  "An enclosed channel of metal or nonmetallic materials designed for carrying wires, cables, or busbars.",
+        "categories":  [
+                           "Electrical",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "rack",
+        "slug":  "rack",
+        "definition":  "An equipment housing unit that protects and organizes electronic equipment. Also known as an equipment rack.",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "rack elevation diagram",
+        "slug":  "rack-elevation-diagram",
+        "definition":  "A rack elevation diagram is a pictorial representation of the front of a rack and the location of each piece of equipment within that rack, typically labeling the number of RUs used for each piece of equipment.",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "rack unit",
+        "slug":  "rack-unit-ru",
+        "definition":  "A unit of measure of the vertical space in a rack. One RU equals 1.75 inches (44.5mm).",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  "RU",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "radio frequency",
+        "slug":  "radio-frequency-rf",
+        "definition":  "The portion of the electromagnetic spectrum that is suitable for radio communications. Generally, this is considered to be from 10kHz up to 300MHz. This range extends to 300GHz if the microwave portion of the spectrum is included.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  "RF",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "radio frequency interference",
+        "slug":  "radio-frequency-interference-rfi",
+        "definition":  "Radiated electromagnetic energy that interferes with or disturbs an electrical circuit.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  "RFI",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "rarefaction",
+        "slug":  "rarefaction",
+        "definition":  "A decrease of density and pressure in a compressible medium such as air.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "ratio",
+        "slug":  "ratio",
+        "definition":  "A mathematical expression that represents the relationship between the quantities of numbers of the same kind. A ratio is typically written as X:Y or X/Y.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "RCA connector",
+        "slug":  "rca-connector",
+        "definition":  "The North American name for the phono connector, a coaxial connector most often used with line-level audio signals and consumer composite video signals.",
+        "categories":  [
+                           "Audio",
+                           "Video",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "RCBO",
+        "slug":  "rcbo",
+        "definition":  "Residual current breaker with overcurrent protection. An electrical protection device that combines the functionality of a miniature circuit breaker (MCB) and a residual current detector/residual current circuit breaker (RCD/RCCB).",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "RCD",
+        "slug":  "rcd",
+        "definition":  "A safety device that de-energizes a circuit (or a portion of that circuit) within an established period of time when a current to ground exceeds a specified level. Also known as a residual current circuit breaker (RCCB). Similar in function to an earth leakage circuit breaker (ELCB), a ground-fault circuit interrupter (GFCI), or a core balance relay (CBR). Abbreviation for residual current device.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "reactance",
+        "slug":  "reactance",
+        "definition":  "Opposition to current flow in a circuit resulting from the reaction of the capacitance and inductance in the circuit. Measured in ohms (Ω). The symbol for reactance is X.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "rear-screen projection",
+        "slug":  "rear-screen-projection",
+        "definition":  "A system in which the image is projected toward the audience through a translucent screen material for viewing from the opposite side.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "reference level",
+        "slug":  "reference-level",
+        "definition":  "In the context of decibel measurements, the reference level is the established starting point represented by 0dB. The reference level varies according to unit and application.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "reference point",
+        "slug":  "reference-point",
+        "definition":  "The point of zero potential used as the voltage reference for a circuit.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "reflected ceiling plan",
+        "slug":  "reflected-ceiling-plan-rcp",
+        "definition":  "A plan used to illustrate elements in the ceiling with respect to the floor. It should be interpreted as though the floor is a mirrored surface, reflecting the features within the ceiling.",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  "RCP",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "reflecting server",
+        "slug":  "reflecting-server",
+        "definition":  "A caching server in a content delivery network (CDN). Ingests a unicast stream and broadcasts a multicast stream.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "reflection",
+        "slug":  "reflection",
+        "definition":  "Electromagnetic energy (light, radio waves, etc.) or sound energy that has been redirected by a surface.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "reflective technology",
+        "slug":  "reflective-technology",
+        "definition":  "A display device that reflects light to create an image.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "refraction",
+        "slug":  "refraction",
+        "definition":  "The bending or changing of the direction of a light ray when passing between transparent mediums such as air, water, glass, or a vacuum. The refractive index of a material is a measure of the speed that light travels through the medium in comparison to its speed through a vacuum.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "refresh rate",
+        "slug":  "refresh-rate",
+        "definition":  "The number of times per second a display device will update the display of a received image.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "release time",
+        "slug":  "release-time",
+        "definition":  "The release time of an audio compressor determines how quickly the volume increases when an audio signal returns below the threshold.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "relocatable power tap",
+        "slug":  "relocatable-power-tap",
+        "definition":  "The North American term for a cord-connected product rated 250V AC or less and 20A or less with multiple receptacles. This tap is intended only for indoor use and plugged directly into a branch circuit. It is not intended to be connected to another relocatable power tap. See power strip.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "reserve DHCP",
+        "slug":  "reserve-dhcp",
+        "definition":  "A hybrid approach to IP address allocation. Using reserve DHCP, a block of addresses is reserved for devices requiring a static IP address. The remaining IP addresses in the subnet pool are assigned dynamically using DHCP.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "residual current device",
+        "slug":  "residual-current-device-rcd",
+        "definition":  "A safety device that de-energizes a circuit (or a portion of that circuit) within an established period of time when a current to ground exceeds a specified level. Also known as a residual current circuit breaker (RCCB). Similar in function to an earth leakage circuit breaker (ELCB), a ground-fault circuit interrupter (GFCI), or a core balance relay (CBR).",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  "RCD",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "resistance",
+        "slug":  "resistance",
+        "definition":  "The property of a material to impede the flow of electrical current. Measured in ohms (Ω). The symbol for resistance is R.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "resistor",
+        "slug":  "resistor",
+        "definition":  "A passive electrical device that produces opposition to current flow. Current passes through a resistor in direct proportion to voltage, independent of frequency. The relationship between voltage across and current through a resistor is defined in Ohm’s law.",
+        "categories":  [
+                           "Electrical",
+                           "Standards"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "resolution",
+        "slug":  "resolution",
+        "definition":  "1. The amount of detail in an image. 2. The number of picture elements (pixels) in a display.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "reverberant sound",
+        "slug":  "reverberant-sound",
+        "definition":  "Sound waves that bounce off multiple surfaces before reaching the listener but arrive at the listener’s ears later than early reflected sound.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "reverberation",
+        "slug":  "reverberation",
+        "definition":  "Numerous persistent reflections of sound energy.",
+        "categories":  [
+                           "Acoustics"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "reverse phase-control dimming",
+        "slug":  "reverse-phase-control-dimming",
+        "definition":  "A method of electronic dimming that progressively removes the trailing edge of each half-cycle of the AC power.",
+        "categories":  [
+                           "Electrical",
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "RF",
+        "slug":  "rf",
+        "definition":  "The portion of the electromagnetic spectrum that is suitable for radio communications. Generally considered to be from 10kHz up to 300MHz, extending to 300GHz if the microwave portion of the spectrum is included. Abbreviation for radio frequency.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "RF control",
+        "slug":  "rf-control",
+        "definition":  "A method of control employing RF wireless signaling. RF control systems vary in complexity from simple one-way on/off signals to high-bandwidth, multichannel, bi-directional systems with complex user interfaces and rich feedback. Wireless control may use many formats, including Wi-Fi, DECT, ISM, Bluetooth, Zigbee, UWB, or LTE frequencies and signaling protocols.",
+        "categories":  [
+                           "Audio",
+                           "Networking",
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "RF distribution system",
+        "slug":  "rf-distribution-system",
+        "definition":  "A closed-circuit television distribution system with each of the composite video and audio program signals modulated onto a radio frequency carrier signal for distribution via RF cables. Receiving devices must have a demodulator capable of extracting the separate program channels.",
+        "categories":  [
+                           "Audio",
+                           "Video",
+                           "Networking",
+                           "Electrical",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "RGBHV signal",
+        "slug":  "rgbhv-signal",
+        "definition":  "A high-bandwidth video signal with separate conductors for the red signal, green signal, blue signal, horizontal sync, and vertical sync.",
+        "categories":  [
+                           "Video",
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "RGBS signal",
+        "slug":  "rgbs-signal",
+        "definition":  "A four-component video signal composed of a red signal, a green signal, a blue signal, and a composite sync signal.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "rigid metal conduit",
+        "slug":  "rigid-metal-conduit",
+        "definition":  "A rigid metal conduit, called just rigid in North America, is the heaviest electrical conduit and offers the best physical and EMI protection.",
+        "categories":  [
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "rigid nonmetallic tubing",
+        "slug":  "rigid-nonmetallic-tubing",
+        "definition":  "Rigid nonmetallic tubing is very stiff with a thick wall but lightweight. It is similar to plumbing tubing. Because it is not flexible, it is available in preformed pieces at various angles.",
+        "categories":  [
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "ring",
+        "slug":  "ring",
+        "definition":  "A network topology that connects terminals, computers, or nodes in a continuous loop.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "risk",
+        "slug":  "risk",
+        "definition":  "The potential for an unwanted or adverse impact on organizational operations resulting from an occurrence involving AV and information systems, given the potential impact of a specific threat and the likelihood of that threat taking place.",
+        "categories":  [
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "risk analysis",
+        "slug":  "risk-analysis",
+        "definition":  "The process of collecting information regarding the risks of an AV system and assigning values to each of those risks.",
+        "categories":  [
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "risk mitigation plan",
+        "slug":  "risk-mitigation-plan",
+        "definition":  "The set of steps an organization takes to evaluate and prioritize its risks and implement countermeasures intended to reduce the likelihood of a risk occurring or its impact.",
+        "categories":  [
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "risk register",
+        "slug":  "risk-register",
+        "definition":  "A document created to record the risks an organization faces to its AV and information systems. This information includes a detailed description of each risk, including its probability, severity and impact, and steps to mitigate it.",
+        "categories":  [
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "room criteria rating",
+        "slug":  "room-criteria-rc-rating",
+        "definition":  "A single number rating that quantifies the tonal characteristics of background noise, including the characteristics of ventilation noise, such as rumble or hiss.",
+        "categories":  [
+                           "Audio",
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "room mode",
+        "slug":  "room-mode",
+        "definition":  "An acoustic wave-interference phenomenon that occurs between the parallel surfaces of an enclosure where the dimension between those parallel surfaces equals one-half wavelength (and the harmonics thereof) of a frequency. The wave is thus reflected on itself out of phase, creating location-specific areas of maximum and minimum pressure.",
+        "categories":  [
+                           "Acoustics",
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "router",
+        "slug":  "router",
+        "definition":  "A network device that forwards data packets between computer networks. It operates on the OSI Network layer (layer 3).",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "RS-232",
+        "slug":  "rs-232",
+        "definition":  "A point-to-point serial data protocol. The interface between data terminal equipment and data circuitterminating equipment employing serial binary data interchange. It supports a half-duplex mode of operation with one driver and one receiver. At a cable length of 15m (50ft), RS-232 supports a data rate of up to 19.2kbps. At its maximum cable length of 900m (3,000ft), it supports a data rate of 2.4kbps.",
+        "categories":  [
+                           "Audio",
+                           "Networking",
+                           "Electrical",
+                           "Cabling",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "RS-422",
+        "slug":  "rs-422",
+        "definition":  "A multidrop serial data protocol. Provides the electrical characteristics of balanced-voltage digital interface circuits. It is a balanced signal with one driver and up to 10 receivers with multidrop capability. The maximum cable length for RS-422 is 1,220m (4,000ft) with a data rate of 10Mbps.",
+        "categories":  [
+                           "Audio",
+                           "Electrical",
+                           "Cabling",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "RS-485",
+        "slug":  "rs-485",
+        "definition":  "A transmission line serial data protocol. Supports a differential mode of operation with 32 tri-state drivers and 32 tri-state receivers and multidrop capability. The maximum cable length for RS-485 is 1.2km (4,000ft) with a data rate of 10Mbps.",
+        "categories":  [
+                           "Cabling",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "RsGsBs",
+        "slug":  "rsgsbs",
+        "definition":  "A video transmission system using red, green, and blue signals with composite sync added to each color channel. This requires three cables to carry the entire signal. It is often referred to as RGB sync on all three.",
+        "categories":  [
+                           "Video",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "RT60",
+        "slug":  "rt60",
+        "definition":  "The time taken for the energy in an initially steady reverberant sound field to decay by 60dB after the source of the sound ceases.",
+        "categories":  [
+                           "Acoustics"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "RU",
+        "slug":  "ru",
+        "definition":  "1. See rack unit (RU). 2. A CTS renewal unit. The completion of renewal unit–accredited training is required by CTS, CTS-I, and CTS-D certification holders to maintain the currency of their certification.",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    }
+]

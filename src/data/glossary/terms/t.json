@@ -1,0 +1,314 @@
+[
+    {
+        "term":  "tap",
+        "slug":  "tap",
+        "definition":  "A connection to a transformer winding that allows you to select a different voltage from the transformer.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "task lighting",
+        "slug":  "task-lighting",
+        "definition":  "Lighting directed to a specific surface or area that provides illumination for visual tasks.",
+        "categories":  [
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "tensile strength",
+        "slug":  "tensile-strength",
+        "definition":  "The maximum stress that a material can withstand before deforming or stretching while being pulled.",
+        "categories":  [
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "threat",
+        "slug":  "threat",
+        "definition":  "An individual, group, circumstance, or event that may exploit vulnerabilities in AV or information systems to adversely affect them.",
+        "categories":  [
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "threat/vulnerability model",
+        "slug":  "threatvulnerability-model",
+        "definition":  "A listing of AV services and devices that may contain vulnerabilities and therefore could be threatened with exploitation. The assessment should also account for threat agents who may attempt to compromise these systems.",
+        "categories":  [
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "three-phase power",
+        "slug":  "three-phase-power",
+        "definition":  "Alternating-current electrical power supplied by three current-carrying conductors, each carrying an AC voltage with a phase offset of 120 degrees from one another. A fourth conductor, a neutral, is used as the return conductor. This type of supply is used for commercial and industrial applications.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "threshold",
+        "slug":  "threshold",
+        "definition":  "The point at which a function or effect becomes active.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "throw distance",
+        "slug":  "throw-distance",
+        "definition":  "The distance between a light source, such as a projector or luminaire, and a focusing surface, such as a stage or a screen.",
+        "categories":  [
+                           "Video",
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Thunderbolt",
+        "slug":  "thunderbolt",
+        "definition":  "Interface technology that transfers audio, video, power, and data over one cable in two directions. Thunderbolt versions 1 and 2 use the same connector as Mini DisplayPort (MDP), while Thunderbolt versions 3 and 4 use USB Type-C.",
+        "categories":  [
+                           "Audio",
+                           "Video",
+                           "Networking",
+                           "Cabling",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "time code",
+        "slug":  "time-code",
+        "definition":  "A sequence of numeric codes generated at fixed intervals to provide a time synchronization signal. The Society of Motion Picture and Television Engineers (SMPTE) time code used throughout the AV and production industries uses an eight-digit data scheme, representing the hour, minute, second, and frame number for each frame of a video sequence. The SMPTE time code is encoded in a wide variety of formats, including being embedded in audio, video, and data streams.",
+        "categories":  [
+                           "Audio",
+                           "Video",
+                           "Signal Processing",
+                           "Standards"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "time domain",
+        "slug":  "time-domain",
+        "definition":  "A view of a signal as amplitude versus time. The display on a time-based oscilloscope shows the input signal in the time domain.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Time-Sensitive Networking",
+        "slug":  "time-sensitive-networking-tsn",
+        "definition":  "The IEEE working group overseeing the Audio Video Bridging standard has been renamed Time-Sensitive Networking to reflect the standard’s applicability to communication among different types of devices, such as network sensors. Also known as Audio Video Bridging (AVB).",
+        "categories":  [
+                           "Audio",
+                           "Video",
+                           "Standards"
+                       ],
+        "abbreviation":  "TSN",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "transduction",
+        "slug":  "transduction",
+        "definition":  "The process by which one form of energy is changed into another.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "transformer",
+        "slug":  "transformer",
+        "definition":  "A passive electrical device that electromagnetically transfers energy between two AC circuits. Commonly constructed of at least two electrically isolated induction coils sharing a common core.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "transient disturbance",
+        "slug":  "transient-disturbance",
+        "definition":  "A momentary variation in a signal, such as a surge, spike, sag, dropout, or spurious noise.",
+        "categories":  [
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "transition-minimized differential signaling",
+        "slug":  "transition-minimized-differential-signaling-tmds",
+        "definition":  "A technology for transmitting high-speed serial data. The signaling method used in the HDMI and DVI interfaces.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  "TMDS",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "transmission",
+        "slug":  "transmission",
+        "definition":  "The passage of a wave through a medium. Examples include the transmission of soundwaves through air and the transmission of electromagnetic waves through space.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Transmission Control Protocol",
+        "slug":  "transmission-control-protocol-tcp",
+        "definition":  "A connection-oriented, reliable Transport-layer (layer 4) protocol. TCP transport uses two-way communication to provide guaranteed delivery of information to a remote host. It is connection-oriented, meaning it creates and verifies a connection with the remote host before sending it any data. It is reliable because it tracks each packet and ensures that it arrives intact. TCP is the most common transport protocol for sending data across the Internet.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  "TCP",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "transmission loss",
+        "slug":  "transmission-loss",
+        "definition":  "The attenuation that occurs as a signal moves through a medium. Usually expressed in decibels.",
+        "categories":  [
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "transmissive technology",
+        "slug":  "transmissive-technology",
+        "definition":  "Any display device that creates images by controlling the passage of light.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "triac",
+        "slug":  "triac",
+        "definition":  "A bi-directional semiconductor device from the thyristor power-switching family that can switch both half-cycles of an AC current. The equivalent of a pair of SCRs in inverse parallel. The switching device used in many commercial phase-control dimmers.",
+        "categories":  [
+                           "Electrical",
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "tweeter",
+        "slug":  "tweeter",
+        "definition":  "A loudspeaker that is specifically designed to reproduce frequencies above 3kHz.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "twisted-pair",
+        "slug":  "twisted-pair",
+        "definition":  "A pair of wires that are twisted around each other to facilitate common-mode noise rejection.",
+        "categories":  [
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "two-factor authentication",
+        "slug":  "two-factor-authentication",
+        "definition":  "An authentication method that combines two different validation methods to address a single authentication request.",
+        "categories":  [
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "two-way/three-way loudspeaker",
+        "slug":  "two-waythree-way-loudspeaker",
+        "definition":  "A loudspeaker enclosure containing two or three separate loudspeakers, each designed to optimally reproduce a portion of the audio spectrum. The multispeaker enclosure is intended to cover the entire spectrum from a single cabinet. Each loudspeaker may be fed from a separate amplifier (bi-amplification or tri-amplification), or the entire enclosure may be fed from a single amplifier with an internal crossover filter network used to send the optimal frequency band to each of the loudspeakers.",
+        "categories":  [
+                           "Audio",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    }
+]

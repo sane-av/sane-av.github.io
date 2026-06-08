@@ -1,0 +1,39 @@
+[
+    {
+        "term":  "Q factor",
+        "slug":  "q-factor",
+        "definition":  "The quality factor of an audio filter is the ratio of the height of the center frequency of the filter to the bandwidth of the filter at the 3dB point.",
+        "categories":  [
+                           "Audio",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "quality of service",
+        "slug":  "quality-of-service-qos",
+        "definition":  "Any method of managing network data traffic to preserve system functionality and provide the required bandwidth for critical applications. Typically, QoS involves some combination of bandwidth allocation and data prioritization.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "quiet ground",
+        "slug":  "quiet-ground",
+        "definition":  "A point on a ground system that does not inject spurious voltages into the electronic system. There are no standards to measure how quiet a quiet ground is.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    }
+]

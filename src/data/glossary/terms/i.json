@@ -1,0 +1,443 @@
+[
+    {
+        "term":  "IEEE",
+        "slug":  "ieee",
+        "definition":  "The Institute of Electrical and Electronics Engineers.",
+        "categories":  [
+                           "Standards"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "illuminance",
+        "slug":  "illuminance",
+        "definition":  "The amount of light falling on a surface, measured in lux (lx) or foot-candle (fc). 1 foot-candle = 10.76 lux.",
+        "categories":  [
+                           "Video",
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "IGBT",
+        "slug":  "igbt",
+        "definition":  "The insulated-gate bipolar transistor (IGBT) is a high-power, three-terminal semiconductor device similar in structure to a thyristor. It is primarily used for high-speed switching applications such as inverters for variable-speed motor control, switch mode power supplies, and reverse phase-control dimming.",
+        "categories":  [
+                           "Electrical",
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "image constraint token",
+        "slug":  "image-constraint-token-ict",
+        "definition":  "A digital flag signal incorporated into some high-definition digital video streams. If present, the video stream can be decoded at full resolution only on HDCP-enabled devices.",
+        "categories":  [
+                           "Video",
+                           "Security"
+                       ],
+        "abbreviation":  "ICT",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "image resolution",
+        "slug":  "image-resolution",
+        "definition":  "The total number of pixels in the image. It is normally expressed as the number of horizontal pixels multiplied by the number of vertical pixels, e.g., 1920×1080.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "imager",
+        "slug":  "imager",
+        "definition":  "A light-sensitive electronic device behind a camera’s lens, usually made up of thousands of sensors that convert the light input into an electrical output.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "impedance",
+        "slug":  "impedance",
+        "definition":  "The total opposition that a circuit presents to an alternating current. It includes resistance (R), inductive reactance (XL), and capacitive reactance (XC ). Impedance is measured in ohms (Ω). Its symbol is Z. Formula:",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "impedance matching",
+        "slug":  "impedance-matching",
+        "definition":  "Having impedance values on an input and output that facilitate the most efficient transfer of a signal. It does not necessarily mean having comparable impedances on an input and an output.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "impedance meter",
+        "slug":  "impedance-meter",
+        "definition":  "Device used to measure the impedance of an electrical circuit.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "incident",
+        "slug":  "incident-security",
+        "definition":  "An event that threatens or adversely affects AV and information systems or the data that resides on them.",
+        "categories":  [
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "inductance",
+        "slug":  "inductance",
+        "definition":  "The magnetic property of a circuit that opposes any change in current, represented by the symbol L and measured in henrys (H).",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "induction",
+        "slug":  "induction",
+        "definition":  "The influence exerted on a conductor by a changing magnetic field.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "inductive reactance (X L)",
+        "slug":  "inductive-reactance-x-l",
+        "definition":  "Opposition to the current flow offered by the inductance of a circuit. Inductive reactance is measured in ohms (Ω). Its symbol is XL. The inductive reactance in a circuit is directly proportional to the frequency of the current.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "InfoFrames",
+        "slug":  "infoframes",
+        "definition":  "Structured packets of data that carry information regarding aspects of audio and video transmission, as defined by the EIA/CEA-861 standard. Using this structure, a frame-by-frame summary is sent to the display, permitting selection of appropriate display modes automatically. InfoFrames typically include auxiliary video information, generic vendor-specific source product description, MPEG, and audio information.",
+        "categories":  [
+                           "Audio",
+                           "Video",
+                           "Networking",
+                           "Standards"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "infrared",
+        "slug":  "infrared-ir",
+        "definition":  "The range of nonvisible light frequencies below the red end of the visible spectrum. IR signal transmission requires an uninterrupted signal path between transmitter and receiver.",
+        "categories":  [
+                           "Lighting"
+                       ],
+        "abbreviation":  "IR",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "input",
+        "slug":  "input",
+        "definition":  "A connection point that receives information from another piece of equipment.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "insider threat",
+        "slug":  "insider-threat",
+        "definition":  "A vector of risk to an organization’s AV or information systems that comes from within the organization, such as employees, contractors, or other associates. These parties generally have increased access to systems and a greater knowledge of their defenses.",
+        "categories":  [
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "insulation",
+        "slug":  "insulation",
+        "definition":  "A material of high dielectric strength used to isolate the flow of electric current between conductors.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Integrated Services Digital Network",
+        "slug":  "integrated-services-digital-network-isdn",
+        "definition":  "A communications standard for transmitting data over digital telephone lines.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  "ISDN",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "intellectual property",
+        "slug":  "intellectual-property-ip",
+        "definition":  "A type of property that includes the creations of the human intellect. It includes ideas; written material such as books, articles, poems, and essays; designs including plans, specifications, diagrams, sketches, and program code; images such as photographs, graphic arts, and other artworks; music and songs; and movie and video . Intellectual property rights are usually asserted through the use of patents, trademarks, copyrights, and trade secrets. All IP used in the design, execution, and operation of an AV installation must be correctly licensed from each of the owners of that IP.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  "IP",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "intelligibility",
+        "slug":  "intelligibility",
+        "definition":  "A sound installation’s ability to produce an accurate reproduction of sound, allowing listeners to identify words and sentence structure.",
+        "categories":  [
+                           "Acoustics"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Internet Corporation for Assigned Names and Numbers",
+        "slug":  "internet-corporation-for-assigned-names-and-numbers-icann",
+        "definition":  "An organization chartered to oversee several Internet-related tasks. ICANN manages Domain Name System (DNS) policy, including the top-level domain space for the Internet.",
+        "categories":  [
+                           "Networking",
+                           "Standards"
+                       ],
+        "abbreviation":  "ICANN",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Internet Group Management Protocol",
+        "slug":  "internet-group-management-protocol-igmp",
+        "definition":  "The group management protocol for IPv4. IGMPv1 allowed individual clients to subscribe to a multicast channel. IGMPv2 and IGMPv3 added the ability to unsubscribe from a multicast channel.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  "IGMP",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "interlaced scanning",
+        "slug":  "interlaced-scanning",
+        "definition":  "The scanning process that alternately displays the odd and even lines of a video frame to construct a full frame of video signal.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "internal configuration",
+        "slug":  "internal-configuration",
+        "definition":  "Refers to the local setup and customization of management or control of a device.",
+        "categories":  [
+                           "Systems \u0026 Control"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Internet of Things",
+        "slug":  "internet-of-things-iot",
+        "definition":  "Refers to a situation where network connectivity and computing capability have been extended to include objects, sensors, and other devices, allowing these devices to exchange data.",
+        "categories":  [
+                           "Systems \u0026 Control"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Internet Protocol",
+        "slug":  "internet-protocol-ip",
+        "definition":  "A TCP/IP protocol defined in the IETF standard RFC 791. IP defines rules for addressing, packaging, fragmenting, and routing data sent across an IP network. IP falls under the Internet layer of the TCP/ IP protocol stack and the Network layer (layer 3) of the OSI Model.",
+        "categories":  [
+                           "Networking",
+                           "Standards"
+                       ],
+        "abbreviation":  "IP",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Internet Protocol Television",
+        "slug":  "internet-protocol-television-iptv",
+        "definition":  "A system that delivers television services over an IP network such as a LAN or the Internet.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  "IPTV",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "inverse square law",
+        "slug":  "inverse-square-law",
+        "definition":  "The law of physics stating that a physical quantity or strength is inversely proportional to the square of the distance from the source of that physical quantity.",
+        "categories":  [
+                           "Standards"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "I/O port",
+        "slug":  "io-port",
+        "definition":  "Input and/or output port. A connection port on a device for handling input and/or output signals.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "IoT",
+        "slug":  "iot",
+        "definition":  "Refers to a situation where network connectivity and computing capability have been extended to include objects, sensors, and other devices, allowing these devices to exchange data. Abbreviation for Internet of Things.",
+        "categories":  [
+                           "Systems \u0026 Control"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "IP",
+        "slug":  "ip",
+        "definition":  "Abbreviation for two distinct terms used in AV contexts. (1) Internet Protocol: a TCP/IP protocol defined in IETF RFC 791 that defines rules for addressing, packaging, fragmenting, and routing data across a network; it falls under the Internet layer of the TCP/IP stack and layer 3 of the OSI Model. (2) Intellectual property: a type of property covering the creations of the human intellect, including written material, designs, images, music, and software. IP rights are typically asserted through patents, trademarks, copyrights, and trade secrets. Context determines which meaning applies.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "IR",
+        "slug":  "ir",
+        "definition":  "The range of nonvisible light frequencies below the red end of the visible spectrum. IR signal transmission requires an uninterrupted signal path between transmitter and receiver. Abbreviation for infrared.",
+        "categories":  [
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "isolated ground",
+        "slug":  "isolated-ground-ig",
+        "definition":  "An equipment grounding method permitted by the North American NEC for reducing electrical noise (electromagnetic interference) on the grounding circuit. The isolation between IG receptacles and circuits and the normal equipment grounding is maintained up to the point of the service entrance (or a separately derived system) where the grounded (neutral) conductor, equipment grounding, and isolated equipment grounding conductor are bonded together and to earth/ground (planet Earth).",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  "IG",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "isolated grounding circuit",
+        "slug":  "isolated-grounding-circuit",
+        "definition":  "A circuit that allows an equipment enclosure to be isolated from the raceway containing circuits. The equipment on the circuit is grounded via an insulated earthing/grounding conductor.",
+        "categories":  [
+                           "Electrical",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "isolated receptacle",
+        "slug":  "isolated-receptacle",
+        "definition":  "A power receptacle or mains power outlet in which the grounding terminal is purposely insulated from the receptacle-mounting means. In North America isolated receptacles are identified by a triangle engraved on the face. The receptacle (and so the equipment plugged into the receptacle) is grounded via an insulated earthing/grounding conductor.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    }
+]

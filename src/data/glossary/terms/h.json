@@ -1,0 +1,380 @@
+[
+    {
+        "term":  "half-duplex communication",
+        "slug":  "half-duplex-communication",
+        "definition":  "A form of bi-directional data transmission in which messages can only travel in one direction at any time.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "harmonic distortion",
+        "slug":  "harmonic-distortion",
+        "definition":  "Signal distortion that arises when harmonics of an input signal are generated during processing and appear in the output together with the processed input signal.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "harmonics",
+        "slug":  "harmonics",
+        "definition":  "Higher frequencies that are a multiple of the fundamental frequency.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "HD-15 connector",
+        "slug":  "hd-15-connector",
+        "definition":  "Sometimes called a VGA connector, is a video connector that is typically associated with the output of an analog computer graphics card. It has three rows of five pins, which carry analog red, green, blue, and sync signals along with display data channel information. Not to be confused with two-row DB-15 connector.",
+        "categories":  [
+                           "Video",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "HDBaseT",
+        "slug":  "hdbaset",
+        "definition":  "A connectivity standard for the transmission of high-definition video, audio, DC power, Ethernet, and serial signaling, including USB and other protocols, over standard twisted-pair data cables such as Cat 5e and above.",
+        "categories":  [
+                           "Audio",
+                           "Video",
+                           "Networking",
+                           "Cabling",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "HDCP",
+        "slug":  "hdcp",
+        "definition":  "High-bandwidth digital content protection.",
+        "categories":  [
+                           "Video",
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "HDCP key",
+        "slug":  "hdcp-key",
+        "definition":  "A number that a program uses to verify authenticity and encode/decode content. HDCP processes use multiple types of keys. These keys are strongly protected by Digital Content Protection, LLC.",
+        "categories":  [
+                           "Video",
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "HDCP receiver/sink",
+        "slug":  "hdcp-receiversink",
+        "definition":  "A device that can receive and decode HDCP signals. A television is an example of a receiver.",
+        "categories":  [
+                           "Video",
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "HDCP repeater",
+        "slug":  "hdcp-repeater",
+        "definition":  "A device that can receive HDCP signals and transmit them to another device, such as a switcher or distribution amplifier.",
+        "categories":  [
+                           "Audio",
+                           "Video",
+                           "Signal Processing",
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "HDCP transmitter/source",
+        "slug":  "hdcp-transmittersource",
+        "definition":  "A device that can send HDCP-encoded signals and content. A Blu-ray Disc player is an example of an HDCP transmitter.",
+        "categories":  [
+                           "Video",
+                           "Signal Processing",
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "HDMI Ethernet Audio Control",
+        "slug":  "hdmi-ethernet-audio-control-heac",
+        "definition":  "In HDMI, the combining of HDMI Ethernet Channel (HEC) and Audio Return Channel (ARC) into one port or cable. See HDMI Ethernet Channel (HEC) and Audio Return Channel (ARC).",
+        "categories":  [
+                           "Audio",
+                           "Video",
+                           "Networking",
+                           "Cabling"
+                       ],
+        "abbreviation":  "HEAC",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "HDMI Ethernet Channel",
+        "slug":  "hdmi-ethernet-channel-hec",
+        "definition":  "Consolidates video, audio, and data streams into a single HDMI cable. A dedicated data channel enables high-speed, bi-directional networking to support future IP solutions and allow multiple devices to share an Internet connection.",
+        "categories":  [
+                           "Audio",
+                           "Video",
+                           "Networking",
+                           "Cabling"
+                       ],
+        "abbreviation":  "HEC",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "HDTV",
+        "slug":  "hdtv",
+        "definition":  "High-definition television. Generally includes image resolutions above 1280×720.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "headend",
+        "slug":  "headend",
+        "definition":  "The equipment located at the start of a cable television distribution system where the signals are processed and combined prior to distribution.",
+        "categories":  [
+                           "Networking",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "headroom",
+        "slug":  "headroom",
+        "definition":  "The difference between the average performance level of a system and the maximum level it can produce. Usually measured in dB.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "heat load",
+        "slug":  "heat-load",
+        "definition":  "Heat load is the heat released by a device during operation. It is measured in joules (or British thermal units).",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "heat sink",
+        "slug":  "heat-sink",
+        "definition":  "A device that absorbs and dissipates the heat produced by an object or process.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "hemispheric polar pattern",
+        "slug":  "hemispheric-polar-pattern",
+        "definition":  "The dome shape of the region where some microphones will be most sensitive to sound. This is the pattern of boundary/pressure zone microphones.",
+        "categories":  [
+                           "Audio",
+                           "Systems \u0026 Control"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "hertz",
+        "slug":  "hertz-hz",
+        "definition":  "The unit of frequency. 1Hz = 1 cycle per second.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "hextet",
+        "slug":  "hextet",
+        "definition":  "A group of 16 bits, usually written as four lowercase hexadecimal digits (e.g., 0fe8). The 128-bit addresses used in IPv6 are written as eight hextets separated by colons (e.g., 2006:0fe8:85a3:0000:0002:8a2e:0a77:c082).",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "High-Bandwidth Digital Content Protection",
+        "slug":  "high-bandwidth-digital-content-protection-hdcp",
+        "definition":  "A form of encryption developed by Intel to control digital audio and video content as it travels across Digital Video Interface (DVI), DisplayPort (DP), or High-Definition Multimedia Interface (HDMI) connections. It prevents transmission or interception of unencrypted HD content. Does not work across Serial Digital Interface (SDI) streams.",
+        "categories":  [
+                           "Audio",
+                           "Video",
+                           "Signal Processing",
+                           "Security"
+                       ],
+        "abbreviation":  "HDCP",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "High Definition Multimedia Interface",
+        "slug":  "high-definition-multimedia-interface-hdmi",
+        "definition":  "A point-to-point connection protocol between video devices for digital video and audio. HDMI signals include audio, control, Ethernet, and digital asset rights management information.",
+        "categories":  [
+                           "Audio",
+                           "Video",
+                           "Networking"
+                       ],
+        "abbreviation":  "HDMI",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "high dynamic range",
+        "slug":  "high-dynamic-range-hdr",
+        "definition":  "Digital images having a bit depth of at least 10 bits (1,024 levels) per channel. Standard dynamic range images have a bit depth of 8 bits (256 levels) per channel.",
+        "categories":  [
+                           "Audio",
+                           "Video"
+                       ],
+        "abbreviation":  "HDR",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "high-pass filter",
+        "slug":  "high-pass-filter",
+        "definition":  "A circuit that allows signals above a specified frequency to pass unaltered while simultaneously attenuating frequencies below the specified limit.",
+        "categories":  [
+                           "Electrical",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "hiss",
+        "slug":  "hiss",
+        "definition":  "Broadband higher-frequency noise generated by random electron movement in the amplification stages of a system. In audio systems it is typically associated with poor system gain structure.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "horn",
+        "slug":  "horn",
+        "definition":  "A flared-shape loudspeaker that reproduces mid to high frequencies.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "hot plug",
+        "slug":  "hot-plug",
+        "definition":  "1. A low-level signal sent by an EDID source that indicates whether a sink or display is connected. 2. A system that can detect and respond to devices being connected or disconnected during normal operations (e.g., USB). 3. Plugging or unplugging equipment while it is still powered up.",
+        "categories":  [
+                           "Video",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "hue",
+        "slug":  "hue",
+        "definition":  "The attribute of a color that represents its position in a defined color space or on the visible spectrum. Hue is usually described with a color name such as “red,” “blue,” “yellow,” or “purple.” It is one of the three attributes that define color; the other two are luminance and chroma.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "hum",
+        "slug":  "hum",
+        "definition":  "Undesirable (usually 50 to 60Hz-plus harmonics) noise emanating from an audio device or evidenced by a rolling hum bar on a display.",
+        "categories":  [
+                           "Audio",
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    }
+]

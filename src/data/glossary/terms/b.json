@@ -1,0 +1,388 @@
+[
+    {
+        "term":  "balanced circuit",
+        "slug":  "balanced-circuit",
+        "definition":  "A two-conductor circuit in which both conductors and all circuits connected to them have the same impedance with respect to ground.",
+        "categories":  [
+                           "Electrical",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "balun",
+        "slug":  "balun",
+        "definition":  "A contraction of balanced-to-unbalanced. A device used to connect a balanced circuit to an unbalanced circuit. For example, a transformer used to connect a 300-ohm television antenna cable (balanced) to a 75-ohm antenna cable (unbalanced).",
+        "categories":  [
+                           "Electrical",
+                           "Cabling",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "band",
+        "slug":  "band",
+        "definition":  "A grouping or range of frequencies.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "bandwidth",
+        "slug":  "bandwidth",
+        "definition":  "1. A range of frequencies. 2. A measure of the amount of data or signal that can pass through a system during a given time interval.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "bandwidth limiting",
+        "slug":  "bandwidth-limiting",
+        "definition":  "The process of limiting the bandwidth of a signal, usually to allow the signal to be transmitted over a lower-bandwidth path.",
+        "categories":  [
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "bandwidth",
+        "slug":  "bandwidth-networking",
+        "definition":  "The available or consumed data communication resources of a communication path, measured in bits per second (bps). It is also called data throughput or bit rate.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "baseband",
+        "slug":  "baseband",
+        "definition":  "A signal that has not been modulated onto a higher-frequency carrier.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "bass trap",
+        "slug":  "bass-trap",
+        "definition":  "An acoustic energy absorber designed to dampen low-frequency sound energy.",
+        "categories":  [
+                           "Acoustics"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "benchmarking",
+        "slug":  "benchmarking",
+        "definition":  "The process of examining methods, techniques, and principles to establish a standard to which comparisons can be made.",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "bend radius",
+        "slug":  "bend-radius",
+        "definition":  "The radial measure of a curve in a cable, conductor, waveguide, or interconnect that defines the physical limit beyond which further bending has a measurable effect on the signal being transported.",
+        "categories":  [
+                           "Electrical",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "bi-directional polar pattern",
+        "slug":  "bi-directional-polar-pattern",
+        "definition":  "The shape of the region where some microphones will be most sensitive to sound from the front and rear, while rejecting sound from the top, bottom, and sides.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "bill of materials",
+        "slug":  "bill-of-materials-bom",
+        "definition":  "A complete equipment list of components that must be procured in order to build the system as specified. The BOM also lists the costs associated with each aspect of designing and implementing the system.",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  "BOM",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "bit",
+        "slug":  "bit",
+        "definition":  "A contraction of the words binary digit. The smallest unit of binary digital information. May have the value 1 or 0.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "bit depth",
+        "slug":  "bit-depth",
+        "definition":  "The number of bits used to specify a parameter.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "bit error rate",
+        "slug":  "bit-error-rate-ber",
+        "definition":  "The number of error bits present in a signal stream per unit of time.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  "BER",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "bit rate",
+        "slug":  "bit-rate",
+        "definition":  "The measurement of the quantity of data transmitted over a digital signal stream. It is measured in bits per second (bps).",
+        "categories":  [
+                           "Networking",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "block diagram",
+        "slug":  "block-diagram",
+        "definition":  "A diagram of a system or device in which the principal parts are represented by suitably annotated geometrical figures to show both the functions of the parts and their functional relationships.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Bluetooth",
+        "slug":  "bluetooth",
+        "definition":  "A wireless technology for low-cost, short-range radio links between devices. It operates in the 2.402GHz to 2.480GHz industrial, scientific, and medical (ISM) frequency band.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "BNC connector",
+        "slug":  "bnc-connector",
+        "definition":  "A type of connector featuring a two-pin bayonet-type lock. Available in 75Ω and 50Ω impedances. The most common professional coaxial cable connector because of its reliability and ruggedness. It is used to terminate cables transporting signals such as SDI, RF, video, and time code. Originally named Bayonet Neill-Concelman after its inventors Paul Neill and Carl Concelman.",
+        "categories":  [
+                           "Video",
+                           "Electrical",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "bonding",
+        "slug":  "bonding",
+        "definition":  "Joining conductive material by a low-impedance connection, thus ensuring that they are at the same electrical potential.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "boundary microphone",
+        "slug":  "boundary-microphone",
+        "definition":  "A microphone design where the diaphragm is placed close to a sonic “boundary” such as a wall, ceiling, or other flat surface. This arrangement prevents the acoustic reflections from the surface from mixing with the direct waveform and causing phase distortions. It is used in conference and telepresence systems. Also known as a pressure zone microphone (PZM).",
+        "categories":  [
+                           "Acoustics",
+                           "Audio",
+                           "Electrical",
+                           "Systems \u0026 Control"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "branch circuit",
+        "slug":  "branch-circuit",
+        "definition":  "The circuit conductors between the final overcurrent device protecting the circuit and the load connection.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "breaker box",
+        "slug":  "breaker-box",
+        "definition":  "Another name for an electrical load distribution panel. See panelboard.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "bring-your-own-device",
+        "slug":  "bring-your-own-device-byod",
+        "definition":  "An approach that allows users to access resources such as a network with personal devices.",
+        "categories":  [
+                           "Systems \u0026 Control"
+                       ],
+        "abbreviation":  "BYOD",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "broadcast domain",
+        "slug":  "broadcast-domain",
+        "definition":  "A set of devices that can send Data Link-layer (layer 2) frames to each other directly, without passing through a Network-layer (layer 3) device. Broadcast traffic sent by one device in a broadcast domain is received by all devices in the domain.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "buffer amplifier",
+        "slug":  "buffer-amplifier",
+        "definition":  "An electronic device that provides isolation and some load independence between circuit components.",
+        "categories":  [
+                           "Audio",
+                           "Electrical",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "building information modeling",
+        "slug":  "building-information-modeling-bim",
+        "definition":  "A data repository for building design, construction, and maintenance data shared by multiple disciplines on a single project.",
+        "categories":  [
+                           "Systems \u0026 Control",
+                           "Project Management"
+                       ],
+        "abbreviation":  "BIM",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "bus",
+        "slug":  "bus",
+        "definition":  "A wiring system that links multiple devices.",
+        "categories":  [
+                           "Electrical",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "busbar",
+        "slug":  "busbar",
+        "definition":  "An electrically conductive path that serves as a common connection for two or more circuits.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "buzz",
+        "slug":  "buzz",
+        "definition":  "A noise generated by the higher-order harmonics of the hum (50Hz or 60Hz) generated by the electrical mains.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "byte",
+        "slug":  "byte",
+        "definition":  "A data word containing 8 bits, also known as an octet. The symbol for byte is B.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    }
+]

@@ -1,0 +1,310 @@
+[
+    {
+        "term":  "Faraday cage",
+        "slug":  "faraday-cage",
+        "definition":  "A conductive solid or mesh enclosure used to block electromagnetic fields. Also known as a Faraday shield. Named after its inventor Michael Faraday.",
+        "categories":  [
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "far field",
+        "slug":  "far-field",
+        "definition":  "The sound field distant enough from the sound source that the SPL decreases by 6dB for each doubling of the distance from the source.",
+        "categories":  [
+                           "Acoustics"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "farthest viewer",
+        "slug":  "farthest-viewer",
+        "definition":  "The viewer positioned at the farthest distance from the screen as defined by the viewing area.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "feedback",
+        "slug":  "feedback",
+        "definition":  "1. In audio, unwanted noise caused by the loop of an audio system’s output back to its input. 2. In a control system, data supplied to give an indication of system performance or status.",
+        "categories":  [
+                           "Audio",
+                           "Systems \u0026 Control"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "feedback stability margin",
+        "slug":  "feedback-stability-margin-fsm",
+        "definition":  "The extra margin added (usually 6dB) into the needed acoustic gain (NAG) formula that represents extra gain that a sound system may have available before the onset of feedback.",
+        "categories":  [
+                           "Acoustics",
+                           "Audio"
+                       ],
+        "abbreviation":  "FSM",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "fiber-optic",
+        "slug":  "fiber-optic",
+        "definition":  "A technology that uses total internal reflection of light along a transparent fiber to transmit information.",
+        "categories":  [
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "field",
+        "slug":  "field",
+        "definition":  "In interlaced video, one-half of a video frame containing every other line of information. Each interlaced video frame contains two fields.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "filter",
+        "slug":  "filter",
+        "definition":  "A device or process that blocks or passes certain elements of a signal.",
+        "categories":  [
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "firewall",
+        "slug":  "firewall",
+        "definition":  "Any technology, hardware, or software that regulates the traffic permitted to enter or exit a network. Firewalls control access across network boundaries.",
+        "categories":  [
+                           "Networking",
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "firewall traversal",
+        "slug":  "firewall-traversal",
+        "definition":  "Any firewall or Application-layer gateway (ALG) is expected to provide mechanisms that allows traffic to traverse through the firewall/ALG to reach an intended destination. Firewall traversal is provided in multiple ways, including NAT traversal, IPSec tunnels, IP ACLs (access control lists), or port-based ACLs.",
+        "categories":  [
+                           "Networking",
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "firmware",
+        "slug":  "firmware",
+        "definition":  "A type of software that is stored in nonvolatile memory in a piece of hardware.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "fixture",
+        "slug":  "fixture",
+        "definition":  "A luminaire that is mounted or fixed in place.",
+        "categories":  [
+                           "Cabling",
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "flex life",
+        "slug":  "flex-life",
+        "definition":  "The number of times a cable can be bent before it breaks. A wire with more strands or twists per meter will have a greater flex life than one with a lower number of strands or fewer twists per meter.",
+        "categories":  [
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "focal length",
+        "slug":  "focal-length",
+        "definition":  "The distance between the center of a lens and the point where the image comes into focus. The shorter the focal length, the wider the angle of the image will be.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "foot-candle",
+        "slug":  "foot-candle",
+        "definition":  "The U.S. customary unit of illuminance. The incident light measured when 1 lumen of light is spread over an area of 1 square foot. Its symbol is fc. 1 foot-candle = 10.76 lux.",
+        "categories":  [
+                           "Video",
+                           "Lighting",
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "footlambert",
+        "slug":  "footlambert",
+        "definition":  "The footlambert is the U.S. customary unit for luminance. It is equal to 1/π candela per square foot. Its symbol is fl. 1 footlambert = 3.43 candela per square meter.",
+        "categories":  [
+                           "Video",
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "frame rate",
+        "slug":  "frame-rate",
+        "definition":  "The number of frames per second sent from a source.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "frequency",
+        "slug":  "frequency",
+        "definition":  "The number of complete cycles in a specified period of time. It is measured in hertz (Hz). 1Hz = 1 cycle per second.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "frequency domain",
+        "slug":  "frequency-domain",
+        "definition":  "A signal viewed as frequency versus amplitude is in the frequency domain. This allows you to view the amount of energy present at different frequencies.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "frequency response",
+        "slug":  "frequency-response",
+        "definition":  "The amplitude response versus frequency for a given device.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Fresnel lens",
+        "slug":  "fresnel-lens",
+        "definition":  "A flat lens in which the curvature of a normal lens surface has been collapsed in such a way that concentric circles are impressed on the lens surface. A Fresnel lens is often used for the condenser lens in overhead projectors, in rear-screen projection systems, and in Fresnel spotlights.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "front-screen projection",
+        "slug":  "front-screen-projection",
+        "definition":  "An image projection system where the image is projected from a source on the viewer’s side of the screen.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "full-duplex communication",
+        "slug":  "full-duplex-communication",
+        "definition":  "A form of bi-directional data transmission in which messages may simultaneously travel in both directions.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "full HD",
+        "slug":  "full-hd",
+        "definition":  "A high-definition video mode with a resolution of 1920×1080 pixels.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "fundamental frequency",
+        "slug":  "fundamental-frequency",
+        "definition":  "Known as pure tone, the lowest frequency in a harmonic series.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    }
+]

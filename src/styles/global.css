@@ -564,8 +564,15 @@ a.tag:hover, button.tag:hover {
 .footnotes {
   font-size: .8rem;
   color: var(--color-muted);
-  margin-top: 3rem;
-  padding-top: 1.5rem;
+  margin-top: 1rem;
+}
+.footnotes::before {
+  content: "References";
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: .75rem;
 }
 .footnotes ol { padding-left: 1.25rem; }
 .footnotes li + li { margin-top: .35rem; }

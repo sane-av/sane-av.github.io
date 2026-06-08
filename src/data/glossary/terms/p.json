@@ -1,0 +1,682 @@
+[
+    {
+        "term":  "packet filtering",
+        "slug":  "packet-filtering",
+        "definition":  "A network data filtering process that uses rules to determine whether a data packet will be allowed to pass through a router or gateway. The filtering rules are based on the of each packet.",
+        "categories":  [
+                           "Networking",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "panelboard",
+        "slug":  "panelboard",
+        "definition":  "Another name for an electrical load-distribution board.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "parallel circuit",
+        "slug":  "parallel-circuit",
+        "definition":  "A circuit in which the voltage is the same across each load, but the current divides and takes all the available paths and returns to the source.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "parametric equalizer",
+        "slug":  "parametric-equalizer",
+        "definition":  "An equalizer that allows discrete selection of a center frequency and adjustment of the width of the frequency range that will be affected. This can allow for precise manipulation with minimal impact of adjacent frequencies.",
+        "categories":  [
+                           "Audio",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "password",
+        "slug":  "password",
+        "definition":  "A technique used to authenticate the identity of a user by requiring the input of a predetermined set of characters, such as letters, numbers, or other symbols.",
+        "categories":  [
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "peak",
+        "slug":  "peak",
+        "definition":  "The highest level of signal amplitude, determined by the height of the signal’s waveform.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "peaking",
+        "slug":  "peaking",
+        "definition":  "An adjustment method that allows compensation for high-frequency loss in cables.",
+        "categories":  [
+                           "Cabling",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "peaking control",
+        "slug":  "peaking-control",
+        "definition":  "Electronic adjustments within a video component that can be used to compensate for system losses.",
+        "categories":  [
+                           "Video",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "penetration testing",
+        "slug":  "penetration-testing",
+        "definition":  "A method of assessing the security posture of an organization’s security systems by searching for vulnerabilities that an attacker could exploit.",
+        "categories":  [
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "permissible area",
+        "slug":  "permissible-area",
+        "definition":  "The maximum amount of space that cables should occupy inside an electrical conduit.",
+        "categories":  [
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "personal area network",
+        "slug":  "personal-area-network-pan",
+        "definition":  "A limited-range, usually wireless, network that serves a single person or small workgroup.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  "PAN",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "phantom power",
+        "slug":  "phantom-power",
+        "definition":  "A DC power supply delivered as an “invisible” overlay on the signal wires of a system. In audio phantom power systems, a voltage is overlaid on microphone signal lines to enable the remote powering of devices such as condenser microphones and active direct input boxes. In power over Ethernet (PoE) systems, the voltage is overlaid across both wires in a twisted-pair.",
+        "categories":  [
+                           "Audio",
+                           "Networking",
+                           "Electrical",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "phase",
+        "slug":  "phase",
+        "definition":  "A particular value of time for any periodic function. For a point on a sine wave, it is a measure of that point’s distance from the most recent positive-going zero crossing of the waveform. It is measured in degrees; 0 to 360 degrees is a complete cycle.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "phase-control dimming",
+        "slug":  "phase-control-dimming",
+        "definition":  "A method of electronic dimming that progressively removes the leading edge of each half-cycle of the AC power to a lamp.",
+        "categories":  [
+                           "Electrical",
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "phishing",
+        "slug":  "phishing",
+        "definition":  "The fraudulent practice of sending messages purporting to be from a known or reputable sender in order to induce individuals to reveal confidential information.",
+        "categories":  [
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "phono connector",
+        "slug":  "phono-connector",
+        "definition":  "The international name for the type of coaxial connector known as RCA in North America.",
+        "categories":  [
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "phosphor",
+        "slug":  "phosphor",
+        "definition":  "A substance that produces light when stimulated by radiation. Phosphors are used to produce some colors of visible light in fluorescent lamps, LED sources, some laser light sources, and CRT and plasma displays.",
+        "categories":  [
+                           "Video",
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "physical security",
+        "slug":  "physical-security",
+        "definition":  "The practice of protecting AV and information systems from material threats such as actions and events that could damage them or compromise their data.",
+        "categories":  [
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "ping",
+        "slug":  "ping",
+        "definition":  "A computer network software utility that measures the round-trip time of test messages between hosts on a computer network. Implemented on IP networks using the Internet Control Message Protocol (ICMP). The name derives from the use of sonic “pings” in sonar for underwater ranging.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "pink noise",
+        "slug":  "pink-noise",
+        "definition":  "A signal with a broad spectrum of random frequencies that has equal energy in each octave band.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "pink noise generator",
+        "slug":  "pink-noise-generator-png",
+        "definition":  "A device to generate pink noise. An audio PNG is commonly used in conjunction with an audio spectrum analyzer to evaluate and align a sound system in an environment.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  "PNG",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "pixel",
+        "slug":  "pixel",
+        "definition":  "A contraction of the words picture and element. The smallest element used to build an image.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "plan view",
+        "slug":  "plan-view",
+        "definition":  "A drawing of a space from the “top view” taken directly from above. Examples include a floor plan and site plan.",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "plane of screen",
+        "slug":  "plane-of-screen",
+        "definition":  "Identification of image position on a plan or drawing relative to other plotted locations. It is a notional plane whether in plan view or elevation, that aligns with the front surface of the screen (that is, image position) used as a datum to define viewers’ relative positions.",
+        "categories":  [
+                           "Video",
+                           "Project Management"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "plasma display panel",
+        "slug":  "plasma-display-panel-pdp",
+        "definition":  "A direct-view display technology consisting of an array of pixels, which are composed of three subpixels, corresponding to the colors red, green, and blue. Gas in the plasma state is used to react with phosphors in each subpixel to produce colored light (red, green, or blue) from a phosphor in each subpixel.",
+        "categories":  [
+                           "Video",
+                           "Lighting"
+                       ],
+        "abbreviation":  "PDP",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "playback system",
+        "slug":  "playback-system",
+        "definition":  "A system designed specifically to replay recorded material.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "plenum space",
+        "slug":  "plenum-space",
+        "definition":  "The plenum space is also called environmental air space. It is an area connected to air ducts that forms part of the air distribution system.",
+        "categories":  [
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "PoDL",
+        "slug":  "podl",
+        "definition":  "Power over data line. See Power over Ethernet.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "PoE",
+        "slug":  "poe",
+        "definition":  "DC power supply delivered as an \"invisible\" overlay on the data lines of an Ethernet network system. The voltage is overlaid in common mode across both wires in a twisted-pair to eliminate any effect on the data. Also known as power over data line (PoDL). PoE is used to power a wide range of Ethernet-connected devices. Abbreviation for power over Ethernet.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "point source",
+        "slug":  "point-source",
+        "definition":  "A sound system that has an apparent central location for the loudspeakers. This type of sound system is typically used in a performance venue or a large house of worship.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "point-to-point",
+        "slug":  "point-to-point",
+        "definition":  "Conferencing where sites are directly linked.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "polar pattern",
+        "slug":  "polar-pattern",
+        "definition":  "Also known as pickup pattern or transmission pattern. The shape of the pattern covered by the pickup or transmission device.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "polar plot",
+        "slug":  "polar-plot",
+        "definition":  "A polar plot is a graphical representation of the relationship between a device’s directionality and its input or output.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "port",
+        "slug":  "port",
+        "definition":  "1. An input and/or output socket on an electronic device. 2. In a TCP/IP network, a 16-bit number included in the TCP or UDP Transport-layer (layer 4) header. The port number typically indicates the Application-layer (layer 7) protocol that generated a data packet. A port may also be called by its associated service (e.g., port 80 may be called HTTP, or port 23 may be called Telnet). 3. To relocate an application or function to a new platform.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "port address translation",
+        "slug":  "port-address-translation-pat",
+        "definition":  "A method of network address translation (NAT) whereby devices with private, unregistered IP addresses can access the Internet through a device with a registered IP address. Unregistered clients send datagrams to a NAT server with a globally routable address (typically a firewall, a gateway, or a router). The NAT server forwards the data to its destination and relays responses to the original client.",
+        "categories":  [
+                           "Networking",
+                           "Security"
+                       ],
+        "abbreviation":  "PAT",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "post tension type construction",
+        "slug":  "post-tension-type-construction",
+        "definition":  "A type of structure that uses metal cables embedded within a concrete slab to support a structure. The cables act as a suspension support system that allows for wider spacing of support structures within a building.",
+        "categories":  [
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "potential acoustic gain",
+        "slug":  "potential-acoustic-gain-pag",
+        "definition":  "The potential gain that can be delivered by the sound system without ringing and before feedback occurs. It is based upon the number of open microphones and the distances between sources (like a presenter) and microphones, microphones and loudspeakers, and listeners and loudspeakers.",
+        "categories":  [
+                           "Acoustics",
+                           "Audio"
+                       ],
+        "abbreviation":  "PAG",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "power",
+        "slug":  "power",
+        "definition":  "The rate at which work is done. Measured in watts (W); 1 watt = 1 joule/second. The symbol for power is P.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "power amplifier",
+        "slug":  "power-amplifier",
+        "definition":  "Amplifies an audio signal to a level sufficient to drive loudspeakers.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "power conditioner",
+        "slug":  "power-conditioner",
+        "definition":  "Also known as a line conditioner or power line conditioner. A device that conditions the quality of power being fed to equipment by regulating the voltage and eliminating line noise.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "power distribution unit",
+        "slug":  "power-distribution-unit-pdu",
+        "definition":  "An electrical device that distributes mains power to multiple electrical devices. A PDU may contain switches, overcurrent protection, voltage and/or current monitoring, remote circuit-controllers, and power receptacles. See also power strip.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  "PDU",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "power over Ethernet",
+        "slug":  "power-over-ethernet-poe",
+        "definition":  "Also known as power over data line (PoDL), PoE is DC power supply delivered as an “invisible” overlay on the data lines of an Ethernet network system. The voltage is overlaid in common mode across both wires in a twisted-pair to eliminate any effect on the data. PoE is used to power a wide range of Ethernet-connected devices.",
+        "categories":  [
+                           "Networking",
+                           "Electrical",
+                           "Cabling",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "power sequencing",
+        "slug":  "power-sequencing",
+        "definition":  "The act of powering on and off equipment that requires a progressive startup or shutdown sequence for safe or convenient operations. Sequencing may help prevent tripping circuit breakers by limiting surge or inrush currents when devices are powered up.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "power sourcing equipment",
+        "slug":  "power-sourcing-equipment",
+        "definition":  "Power sourcing equipment (PSE) are devices that provide power into a PoE system.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "power strip",
+        "slug":  "power-strip",
+        "definition":  "A block of electrical outlets attached to a power lead, designed to enable multiple devices to be powered from a single electrical outlet. Power strips may incorporate power indicators, individual switches, overload protection, and surge protection.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "powered device",
+        "slug":  "powered-device",
+        "definition":  "A powered device (PD) is a device powered by PoE.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "preamplifier",
+        "slug":  "preamplifier",
+        "definition":  "An amplifier that boosts a low-level electronic signal before it is sent to other processing equipment.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "preset",
+        "slug":  "preset",
+        "definition":  "1. A recallable state of settings and/or levels. 2. In lighting, a recallable state of lighting levels for one or more zones.",
+        "categories":  [
+                           "Systems \u0026 Control"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "pressure zone microphone",
+        "slug":  "pressure-zone-microphone-pzm",
+        "definition":  "An alternative name for a boundary microphone.",
+        "categories":  [
+                           "Audio",
+                           "Systems \u0026 Control"
+                       ],
+        "abbreviation":  "PZM",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "primary optic",
+        "slug":  "primary-optic",
+        "definition":  "Also known as the primary lens. The major lens in an optical system. In a projector, the primary lens usually controls the focus of the image on a screen.",
+        "categories":  [
+                           "Video",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "program report",
+        "slug":  "program-report",
+        "definition":  "A document that describes the client’s specific needs, the system purpose and functionality, and the designer’s best estimate of probable cost in a nontechnical format for review and approval by the owner. Also known as the AV narrative, the discovery phase report, the return brief, or the concept design report.",
+        "categories":  [
+                           "Electrical",
+                           "Project Management"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "progressive scanning",
+        "slug":  "progressive-scanning",
+        "definition":  "Scanning that traces the image’s scan lines sequentially.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Protocol Independent Multicast",
+        "slug":  "protocol-independent-multicast-pim",
+        "definition":  "Allows multicast routing over LANs, WANs, or the open Internet. Rather than routing information on their own, PIM protocols use the routing information supplied by whatever routing protocol the network is already using.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  "PIM",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "pulling tension",
+        "slug":  "pulling-tension",
+        "definition":  "The maximum amount of tension that can be applied to a cable or conductor before it is damaged.",
+        "categories":  [
+                           "Electrical",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "pure tone",
+        "slug":  "pure-tone",
+        "definition":  "The lowest frequency in a harmonic series. A single-frequency sound with no harmonics or overtones. Also known as fundamental frequency.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    }
+]

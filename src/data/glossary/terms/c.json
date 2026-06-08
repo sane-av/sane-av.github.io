@@ -1,0 +1,904 @@
+[
+    {
+        "term":  "cable",
+        "slug":  "cable",
+        "definition":  "An assembly of more than one signal carrier (wire or optical fiber).",
+        "categories":  [
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "cable tray",
+        "slug":  "cable-tray",
+        "definition":  "A structure to provide rigid continuous support for cables.",
+        "categories":  [
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "campus area network",
+        "slug":  "campus-area-network-can",
+        "definition":  "A type of network linking multiple LANs in a limited geographical area such as a university campus or a cluster of buildings.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  "CAN",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "candela",
+        "slug":  "candela",
+        "definition":  "The unit of luminous intensity. A candela is the luminous intensity emitted by a reference point light source in a given direction. The symbol for candela is cd. By sheer “coincidence,” the luminous intensity of a common wax candle is approximately 1 candela.",
+        "categories":  [
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "cannon connector",
+        "slug":  "cannon-connector",
+        "definition":  "An alternative name for the XLR family of latching, low-voltage connectors used in professional audiovisual systems. The three-pin version is the standard audio signal cable for the production and AV in dustries. The four-pin version is widely used for communication headsets, and the five-pin version is the standard connector for the DMX512 digital lighting protocol.",
+        "categories":  [
+                           "Audio",
+                           "Electrical",
+                           "Cabling",
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "capacitance",
+        "slug":  "capacitance",
+        "definition":  "The ability of a material to store an electrical charge. Capacitance is measured in farads (F). The symbol for capacitance is C.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "capacitive reactance",
+        "slug":  "capacitive-reactance-xc",
+        "definition":  "The opposition a capacitive device offers to alternating current flow. It is measured in ohms (Ω). The symbol for capacitive reactance is XC . Capacitive reactance is inversely proportional to the frequency of the current in a circuit.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  "XC",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "capacitor",
+        "slug":  "capacitor",
+        "definition":  "A passive electrical component used to store electric charge. Constructed from electrodes of conductive material separated by a dielectric.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "captive screw connector",
+        "slug":  "captive-screw-connector",
+        "definition":  "Also known as a Euroblock or Phoenix connector. A termination method where a stripped wire is inserted into the connector and secured by a set screw that pushes down a gate to form the electrical bond and clamp the wire in place.",
+        "categories":  [
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "cardioid polar pattern",
+        "slug":  "cardioid-polar-pattern",
+        "definition":  "A heart-shaped region where some microphones will be most sensitive to sound predominately from the front of the microphone diaphragm and reject sound coming from the sides and rear.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "carrier",
+        "slug":  "carrier",
+        "definition":  "Modulated frequency that carries a communication signal.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Category 5 (Cat 5)",
+        "slug":  "category-5-cat-5",
+        "definition":  "The designation for 100Ω unshielded twisted-pair (UTP) cables and associated connecting hardware whose characteristics are specified for data transmission up to 100Mbps (part of the EIA/TIA 568A standard).",
+        "categories":  [
+                           "Cabling",
+                           "Standards"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Category 5e (Cat 5e)",
+        "slug":  "category-5e-cat-5e",
+        "definition":  "An enhanced version of the Cat 5 UTP cable standard that adds specifications to reduce far-end crosstalk for data transmission up to 1Gbps (part of the EIA/TIA 568A standard).",
+        "categories":  [
+                           "Cabling",
+                           "Signal Processing",
+                           "Standards"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Category 6 (Cat 6)",
+        "slug":  "category-6-cat-6",
+        "definition":  "A UTP cable standard for Gigabit Ethernet and other interconnections that is backward-compatible with Cat 5, Cat 5e, and Cat 3 cable (part of the EIA/TIA 568A standard). Cat 6 features more stringent specifications for crosstalk and system noise.",
+        "categories":  [
+                           "Networking",
+                           "Cabling",
+                           "Signal Processing",
+                           "Standards"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Category 6A (Cat 6A)",
+        "slug":  "category-6a-cat-6a",
+        "definition":  "A twisted-pair cable standard for 10 Gigabit Ethernet and other interconnections that is backward-compatible with Cat 5, Cat 5e, and Cat 6 cable. Constructed using a mechanism to physically separate the twisted-pairs, Cat 6A features more stringent specifications for alien and near-end crosstalk.",
+        "categories":  [
+                           "Networking",
+                           "Cabling",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Category 7 (Cat 7)",
+        "slug":  "category-7-cat-7",
+        "definition":  "A twisted-pair cable standard for 10 Gigabit Ethernet and other interconnections that is backward-compatible with Cat 5e and Cat 6A cable. To further reduce crosstalk, in Cat 7 cables, each twisted-pair is shielded and the entire cable is shielded.",
+        "categories":  [
+                           "Networking",
+                           "Cabling",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Category 8 (Cat 8)",
+        "slug":  "category-8-cat-8",
+        "definition":  "A twisted-pair cable standard for 40 Gigabit Ethernet and other interconnections that is backward-compatible with Cat 5e, Cat 6, and Cat 6A cable (part of the EIA/TIA 568A standard). Cat 8 features a shield around each twisted-pair and a further shield enclosing all twisted-pairs. It is only specified at 40Gbps for runs up to 30m (100ft).",
+        "categories":  [
+                           "Networking",
+                           "Cabling",
+                           "Standards"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "cathode ray tube",
+        "slug":  "cathode-ray-tube-crt",
+        "definition":  "A high-vacuum glass tube containing an electron gun to produce the images seen on the phosphorcoated face of the tube. This video display technology was used in early-generation video monitors, television receivers, radar displays, and oscilloscopes.",
+        "categories":  [
+                           "Video",
+                           "Lighting"
+                       ],
+        "abbreviation":  "CRT",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "CATV",
+        "slug":  "catv",
+        "definition":  "Community antenna television. A system where broadcast television signals are received by a single central antenna and distributed to multiple end users.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "center tap",
+        "slug":  "center-tap",
+        "definition":  "A connection point located halfway along the track or winding of an electronic device such as an inductor or resistor.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "central cluster",
+        "slug":  "central-cluster",
+        "definition":  "A single-source configuration of loudspeakers. In a central cluster, the sound is perceived as coming from one point in the room. The central cluster is normally located directly above (on the proscenium) and slightly in front of the primary microphone location.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "central processing unit",
+        "slug":  "central-processing-unit-cpu",
+        "definition":  "The portion of a computer system that reads and executes commands.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  "CPU",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "charged-coupled device",
+        "slug":  "charged-coupled-device-ccd",
+        "definition":  "A light-sensitive semiconductor device, commonly used in video and digital cameras, that converts optical images into electronic signals.",
+        "categories":  [
+                           "Video",
+                           "Electrical",
+                           "Cabling"
+                       ],
+        "abbreviation":  "CCD",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "chassis",
+        "slug":  "chassis",
+        "definition":  "Also called a cabinet or frame, an enclosure that houses electronic equipment and is frequently electrically conductive (metal). The conductive enclosure acts as a Faraday cage/shield and is connected to the safety-grounding conductor of the AC power supply to provide protection against electric shock.",
+        "categories":  [
+                           "Electrical",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "chassis ground",
+        "slug":  "chassis-ground",
+        "definition":  "A 0V (zero volt) connection point of any electrically conductive chassis or enclosure surrounding an electronic device. This connection point may be extended to the earth/ground.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "chroma",
+        "slug":  "chroma",
+        "definition":  "The saturation, or intensity, of a specific color. It is one of the three attributes that define a color; the other two are hue and value or luminance.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "chrominance",
+        "slug":  "chrominance",
+        "definition":  "The color component of a composite or S-video signal.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Classless Inter-Domain Routing notation",
+        "slug":  "classless-inter-domain-routing-cidr-notation",
+        "definition":  "A compact representation of an IP address and its subnet mask using a slash and a decimal number to indicate how many leading 1 bits are in the network mask, with the remaining bits being the network host identifiers (e.g., 192.168.220.16/24). The subnet mask of 255.255.255.0 (24 mask bits) is represented as /24 in CIDR notation. CIDR replaces the class designations (A, B, and C) for IP address ranges.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "cliff effect",
+        "slug":  "cliff-effect",
+        "definition":  "The sudden loss of digital signal reception. When a digital signal is attenuated to the point where signal for a digital 1 is indistinguishable from the signal for a digital 0.",
+        "categories":  [
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "clipping",
+        "slug":  "clipping",
+        "definition":  "The distortion of a signal when a device’s peak amplitude is exceeded.",
+        "categories":  [
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "clock adjustment",
+        "slug":  "clock-adjustment",
+        "definition":  "The process used to align the timing of digital signals between devices.",
+        "categories":  [
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "CMOS",
+        "slug":  "cmos",
+        "definition":  "Complementary metal oxide semiconductor is a semiconductor fabrication process that uses symmetrical pairs of complementary p-type and n-type field effect transistors (FETs) for logic functions. CMOS devices have high noise immunity and draw low current in a static state. This technology is extensively used in the production of digital electronic devices, including camera pickup chips.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "coaxial cable",
+        "slug":  "coaxial-coax-cable",
+        "definition":  "A cable consisting of a center conductor surrounded by insulating material, concentric outer conductor, and optional protective covering, all of circular cross section.",
+        "categories":  [
+                           "Electrical",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "CobraNet",
+        "slug":  "cobranet",
+        "definition":  "CobraNet is a proprietary digital audio Data Link-layer (layer 2) protocol designed by Cirrus Logic. It uses standard Fast Ethernet cabling, switches, and other components. CobraNet signals are nonroutable.",
+        "categories":  [
+                           "Audio",
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "codec",
+        "slug":  "codec",
+        "definition":  "A contraction of the term coder/decoder. An electronic device or software process that encodes or decodes a data stream for transmission and reception over a communications medium.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "collision domain",
+        "slug":  "collision-domain",
+        "definition":  "A set of devices on a carrier-sense multiple access (CSMA) local area network whose packets may collide with one another if they transmit data at the same time. Only found in nonswitched Ethernet networks.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "color difference signal",
+        "slug":  "color-difference-signal",
+        "definition":  "A signal that conveys color information such as hue and saturation in a composite format. Two such signals are needed. These color difference signals are R-Y and B-Y. Sometimes referred to as Pr and Pb or Cr and Cb.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "color rendering index",
+        "slug":  "color-rendering-index-cri",
+        "definition":  "The effect a light source has on the perceived color of objects indexed against an incandescent source (CRI 100) of the same correlated color temperature.",
+        "categories":  [
+                           "Video",
+                           "Lighting"
+                       ],
+        "abbreviation":  "CRI",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "color space",
+        "slug":  "color-space",
+        "definition":  "A color space is the range of spectral colors that can be interpreted or displayed by a device. The range is usually identified by being mapped against an area on the CIE chromaticity diagram. A range of wellknown color spaces is used in imaging and display.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "color temperature",
+        "slug":  "color-temperature",
+        "definition":  "The quantification of the color of “white” light in reference to the light emitted by a standardized object at a specified temperature on the Kelvin scale. Measured in kelvins (K). Low color temperature light (~2,000K) has a warm (reddish) look, while light with a high color temperature (\u003e4,000K) has a colder (bluish) appearance.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "combiner",
+        "slug":  "combiner",
+        "definition":  "A device or process that combines signals of different frequencies together in a single medium. Used to combine multiple RF television signals into one cable for use in broadband cable television distribution.",
+        "categories":  [
+                           "Cabling",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "common mode",
+        "slug":  "common-mode",
+        "definition":  "1. Voltage fed in phase to both inputs of a differential amplifier. 2. The signal voltage that appears equally and in phase from each current carrying conductor to ground.",
+        "categories":  [
+                           "Audio",
+                           "Electrical",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "common-mode rejection ratio",
+        "slug":  "common-mode-rejection-ratio-cmrr",
+        "definition":  "The ratio of the differential voltage gain to the common-mode voltage gain; expressed in decibels.",
+        "categories":  [
+                           "Audio",
+                           "Electrical",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  "CMRR",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "compander",
+        "slug":  "compander",
+        "definition":  "An audio processing device that combines compression and expansion.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "component video",
+        "slug":  "component-video",
+        "definition":  "Color video in which the brightness (luminance), color hue, and saturation (chrominance) are handled independently. The red, green, and blue signals - or, more commonly, the Y, R-Y, and B-Y signals - are encoded onto three wires.",
+        "categories":  [
+                           "Video",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "composite video signal",
+        "slug":  "composite-video-signal",
+        "definition":  "A single video signal that carries the complete color picture information and all synchronization signals.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "compression",
+        "slug":  "compression",
+        "definition":  "1. An increase in density and pressure in a compressible medium such as air. 2. A process that reduces data size.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "compression ratio",
+        "slug":  "compression-ratio",
+        "definition":  "1. How much the volume on an audio compressor reduces depending on how far above the threshold the signal is. 2. The ratio in size between the original signal and its compressed form.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "compressor",
+        "slug":  "compressor-audio",
+        "definition":  "A device that controls the overall amplitude of a signal by reducing the part of the signal that exceeds an adjustable threshold level set by the user. When the signal exceeds the threshold level, the overall amplitude is reduced by a ratio, also usually adjustable by the user.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "compressor threshold",
+        "slug":  "compressor-threshold",
+        "definition":  "Sets the point at which the automatic volume reduction kicks in. When the input goes above the threshold, an audio compressor automatically reduces the volume to keep the signal from getting too loud.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "condenser microphone",
+        "slug":  "condenser-microphone",
+        "definition":  "Also called a capacitor microphone, a microphone that transduces sound into an electric current using capacitive principles.",
+        "categories":  [
+                           "Audio",
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "conductor",
+        "slug":  "conductor",
+        "definition":  "In electronics, a material that easily conducts an electric current because some electrons in the material are easy to move.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "conduit",
+        "slug":  "conduit",
+        "definition":  "A circular tube that houses cable.",
+        "categories":  [
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "cone",
+        "slug":  "cone",
+        "definition":  "A lightweight, semi-rigid, conical diaphragm structure attached to the voice coil of a loudspeaker.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "constant voltage distribution",
+        "slug":  "constant-voltage-distribution",
+        "definition":  "25V, 70V, 100V; a method of distributing signals to loudspeakers over a large area with lower losses than typical direct-coupled connections. Also known as a high-impedance distribution system.",
+        "categories":  [
+                           "Audio",
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Consumer Electronic Control",
+        "slug":  "consumer-electronic-control-cec",
+        "definition":  "A single-wire, bi-directional serial bus that uses AV link protocols to perform remote-control functions. It is an optional feature of the HDMI specification that allows for system-level automation when all devices in an AV system support it.",
+        "categories":  [
+                           "Video",
+                           "Electrical",
+                           "Cabling",
+                           "Systems \u0026 Control"
+                       ],
+        "abbreviation":  "CEC",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "contact closure",
+        "slug":  "contact-closure",
+        "definition":  "A simple signaling system based on whether a contact or switch is open or closed. The conventional protocol is to interpret a closed contact (on) as a binary 1 and an open contact (off) as a binary 0.",
+        "categories":  [
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "contactor",
+        "slug":  "contactor",
+        "definition":  "An electrically controlled switch used for switching a power circuit, similar to a relay, but with higher switched-current ratings. May be single-pole or multipole.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "content delivery network",
+        "slug":  "content-delivery-network-cdn",
+        "definition":  "A distributed network of caching servers that can provide hosted unicast distribution of media for an organization. They are most often utilized by organizations whose content is in high demand.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  "CDN",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "contrast",
+        "slug":  "contrast",
+        "definition":  "The difference in luminance between dark and light elements of an image.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "contrast ratio",
+        "slug":  "contrast-ratio",
+        "definition":  "Describes the dynamic video range of a display device as a numeric relationship between the brightest color (typically white) and the darkest color (typically black) that the system is capable of producing. Two methods are used to specify contrast ratio; the full on/full off method describes the dynamic contrast ratio, and the ANSI method measures the static contrast ratio.",
+        "categories":  [
+                           "Video",
+                           "Standards"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "control system",
+        "slug":  "control-system",
+        "definition":  "A system that controls subsystems such as audio, video, winches, drapes, mechanical devices, lighting, and atmospheric effects.",
+        "categories":  [
+                           "Audio",
+                           "Video",
+                           "Systems \u0026 Control"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "correlated color temperature",
+        "slug":  "correlated-color-temperature-cct",
+        "definition":  "The color appearance of a light source as compared with a standardized object heated to a temperature measured on the Kelvin scale. CCT is measured kelvins (K).",
+        "categories":  [
+                           "Video",
+                           "Lighting"
+                       ],
+        "abbreviation":  "CCT",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "coverage pattern",
+        "slug":  "coverage-pattern",
+        "definition":  "The pattern of sound energy that a loudspeaker emits. The coverage pattern is dependent on the frequency of the sounds and the dimensions of the loudspeaker.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "critical distance (d c)",
+        "slug":  "critical-distance-d-c",
+        "definition":  "The point where the sound pressure level of the direct and reverberant sound fields is equal.",
+        "categories":  [
+                           "Acoustics"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "critical path schedule",
+        "slug":  "critical-path-schedule",
+        "definition":  "A scheduling methodology that reveals the interdependence of activities and assesses resource and time requirements and trade-offs. It also determines the project’s completion date and provides the capability to evaluate activity performance.",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "crossover",
+        "slug":  "crossover",
+        "definition":  "An electronic device that separates the frequency bands of an audio signal so that each driver in a multidriver loudspeaker system is sent only those frequencies that it will transduce accurately.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "crosspoint",
+        "slug":  "crosspoint",
+        "definition":  "A matrix-based switching device with multiple inputs and outputs wherein any input may be connected to any, many, or all outputs.",
+        "categories":  [
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "crosstalk",
+        "slug":  "crosstalk",
+        "definition":  "Any phenomenon by which a signal transmitted on one circuit or channel of a transmission system creates an undesired effect in another circuit or channel.",
+        "categories":  [
+                           "Electrical",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "current",
+        "slug":  "current",
+        "definition":  "The quantity of electrical charge flowing in a circuit, measured in amperes (A). The symbol for current is I.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "curvature of field",
+        "slug":  "curvature-of-field",
+        "definition":  "A blurry appearance around the edge of an otherwise in-focus object (or the reverse) when the angle incidence of light passing through the edges of a lens is different from the angle of incidence at the center of the surface. Curvature of field is due to the shape of the lens.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "cybersecurity",
+        "slug":  "cybersecurity",
+        "definition":  "A process or capability intended to protect information and communications systems against unauthorized use or modification, as well as against damage and exploitation. This includes policies, strategies, and standards regarding the security and operations of these systems.",
+        "categories":  [
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    }
+]

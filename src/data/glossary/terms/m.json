@@ -1,0 +1,418 @@
+[
+    {
+        "term":  "MAC address",
+        "slug":  "mac-address",
+        "definition":  "The unique 48-bit hardware address of the media access controller on a network device. Usually written as six groups of two hexadecimal numbers, separated by a hyphen or colon (e.g., 01-23-45-67-89-ab or 01:23:45:67:89:ab).",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "mains buzz",
+        "slug":  "mains-buzz",
+        "definition":  "A mixture of higher-order harmonics of the 50Hz or 60Hz noise (hum) originating from the AC mains power system and audible in a sound system.",
+        "categories":  [
+                           "Audio",
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "malware",
+        "slug":  "malware",
+        "definition":  "Software that threatens the operation of an AV or information system by performing an unauthorized function.",
+        "categories":  [
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "matrix decoder",
+        "slug":  "matrix-decoder",
+        "definition":  "A video decoder that extracts red, green, and blue signals from either composite or Y, R-Y, and B-Y signals.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "matrix switcher",
+        "slug":  "matrix-switcher",
+        "definition":  "An electronic switching device with multiple inputs and outputs. The matrix allows any input to be connected to any one or more of the outputs.",
+        "categories":  [
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "matte-white screen",
+        "slug":  "matte-white-screen",
+        "definition":  "A screen that uniformly disperses light, both horizontally and vertically, creating a wide viewing cone and wide viewing angle.",
+        "categories":  [
+                           "Audio",
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "maximum transmission unit",
+        "slug":  "maximum-transmission-unit-mtu",
+        "definition":  "The size in bytes of the largest frame that can pass over a Data Link-layer (layer 2) connection. Header information must be included within the MTU.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  "MTU",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "MCB",
+        "slug":  "mcb",
+        "definition":  "Miniature circuit breaker. Small-format circuit breakers used to protect branch loads in electrical distribution panels.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "mechanical switcher",
+        "slug":  "mechanical-switcher",
+        "definition":  "A switch that mechanically opens and closes to connect circuit elements. It functions like a wall switch, meaning there is a mechanical connection or disconnection.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "MEMS",
+        "slug":  "mems",
+        "definition":  "Mechanical devices built directly onto silicon chips using the same fabrication processes as microprocessors and memory systems. Best known as the digital micromirror devices (DMD) used for light switching in DLP projectors. Abbreviation for microelectromechanical systems.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "MEMS microphone",
+        "slug":  "mems-microphone",
+        "definition":  "A microphone built using MEMS technology. Generally, MEMS implementations of either condenser or piezo-electric microphones.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "mesh topology",
+        "slug":  "mesh-topology",
+        "definition":  "A network where each node is connected via bridges, switches, or routers to at least one other node.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "metropolitan area network",
+        "slug":  "metropolitan-area-network-man",
+        "definition":  "A communications network that covers a single geographic area, such as a suburb or city.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  "MAN",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "mic level",
+        "slug":  "mic-level",
+        "definition":  "The very low-level signal from a microphone. Typically only a few millivolts.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "microphone sensitivity",
+        "slug":  "microphone-sensitivity",
+        "definition":  "A specification that indicates the electrical output of a microphone when it is subjected to a known sound pressure level. Usually measured in dBV/Pa.",
+        "categories":  [
+                           "Acoustics",
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "microelectromechanical systems",
+        "slug":  "microelectromechanical-systems-mems",
+        "definition":  "Mechanical devices built directly onto silicon chips using the same fabrication processes as microprocessors and memory systems. Best known as the digital micromirror devices (DMD) used for light switching in DLP projectors.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  "MEMS",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "middleware",
+        "slug":  "middleware",
+        "definition":  "Software that provides services to applications that aren’t available from the operating system. In a streaming system, for example, middleware may perform transcoding, compression, or remote access authentication.",
+        "categories":  [
+                           "Networking",
+                           "Systems \u0026 Control",
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "midrange",
+        "slug":  "midrange",
+        "definition":  "A loudspeaker that reproduces midrange frequencies, typically 300Hz to 8kHz.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "milestone",
+        "slug":  "milestone",
+        "definition":  "A significant or key event in a project, usually the completion of a major deliverable or the occurrence of an important event. It can often be associated with payment milestones and client approvals.",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "millwork",
+        "slug":  "millwork",
+        "definition":  "Carpentry work produced in a mill or factory. Usually refers to finished woodwork such as doors, molding, trim, flooring, cupboards, and wall paneling.",
+        "categories":  [
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "mitigation",
+        "slug":  "mitigation",
+        "definition":  "The process of applying measures that diminish the likelihood of an undesirable occurrence or reduce the impact if it occurs.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "mixer",
+        "slug":  "mixer",
+        "definition":  "A device for blending multiple signal sources.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "mix-minus system",
+        "slug":  "mix-minus-system",
+        "definition":  "An audio mix with some channels omitted. Also known as a clean feed mix. Used in speech reinforcement, interruptible foldback (IFB), and conferencing systems to allow multiple participants to be heard without echoes or feedback. Each participant is provided with a submix which includes all signals except the closest microphone.",
+        "categories":  [
+                           "Acoustics",
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Mobile High-Definition Link",
+        "slug":  "mobile-high-definition-link-mhl",
+        "definition":  "A standard audio/video interface for connecting mobile electronics to high-definition televisions and audio receivers. SuperMHL is capable of 36Gbps with HDR and WCG video up to 8K at 120fps.",
+        "categories":  [
+                           "Audio",
+                           "Video"
+                       ],
+        "abbreviation":  "MHL",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "modular connector",
+        "slug":  "modular-connector",
+        "definition":  "A latching electrical connector with four, six, or eight pins. Common modular connectors are RJ11(6P6C) and RJ-45 (8P8C).",
+        "categories":  [
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "modulator",
+        "slug":  "modulator",
+        "definition":  "A device that varies one or more properties of a carrier signal (frequency, amplitude, phase) with information from another signal.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "MOSFET",
+        "slug":  "mosfet",
+        "definition":  "Metal oxide semiconductor field-effect transistor. A semiconductor device with an insulated gate capable of significantly changing its load current with a small change in gate voltage. The power MOSFET is used for controlling and switching large currents. Also known as an insulated-gate field-effect transistor (IGFET).",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Multicast Listener Discovery",
+        "slug":  "multicast-listener-discovery-mld",
+        "definition":  "The IPv6 group management protocol. Multicast is natively supported by IPv6; any IPv6 router will support MLD. MLDv1 performs roughly the same functions as IGMPv2, and MLDv2 supports roughly the same functions as IGMPv3.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  "MLD",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "multicast streaming",
+        "slug":  "multicast-streaming",
+        "definition":  "A one-to-many transmission, meaning one server sends out a single stream that can then be accessed by multiple clients. In IPv4, the IP address range (224.0.0.0 to 239.255.255.255) is reserved for multicast transmissions. In IPv6, multicast addresses have the prefix ff00::/8.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "multimeter",
+        "slug":  "multimeter",
+        "definition":  "A test instrument with multiple ranges for measuring current, voltage, and resistance. Many instruments also include a simple continuity test capability.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "multiplexing",
+        "slug":  "multiplexing",
+        "definition":  "The sharing of a single communications channel for multiple signals.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "multipoint",
+        "slug":  "multipoint",
+        "definition":  "Also called continuous presence, videoconferencing that links many sites to a common gateway service, allowing all sites to see, hear, and interact at the same time. Multipoint requires a bridge or bridging service.",
+        "categories":  [
+                           "Video",
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Multi-Protocol Label Switching",
+        "slug":  "multi-protocol-label-switching-mpls",
+        "definition":  "A networking protocol that allows any combination of Data Link-layer (layer 2) protocols to be transported over any type of Network layer (layer 3). MPLS routes data by examining each packet’s MPLS label without examining packet . Implementing MPLS improves interoperability and routing speed.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  "MPLS",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Murphy’s law",
+        "slug":  "murphys-law",
+        "definition":  "Also known as Sod’s law. If anything can go wrong, it will go wrong. A reminder that no assumptions should ever be made about the cause of a fault in a system. If you saw the identical fault last week, it will almost certainly have an entirely different cause this week.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    }
+]

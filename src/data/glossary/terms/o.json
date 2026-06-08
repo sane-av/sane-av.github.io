@@ -1,0 +1,139 @@
+[
+    {
+        "term":  "octave",
+        "slug":  "octave",
+        "definition":  "A band, or group, of frequencies in which the highest frequency in the band is double the lowest frequency. For example, 200Hz to 400Hz is an octave, 6kHz to 12kHz is an octave, and so on.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "octet",
+        "slug":  "octet",
+        "definition":  "A group of eight binary digits (bits), often called a byte.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Ohm’s law",
+        "slug":  "ohms-law",
+        "definition":  "A law that defines the relationship between current, voltage, and resistance in an electrical circuit. The current is proportional to the applied voltage and inversely proportional to the resistance, giving the formula I = V ÷ R, where I is the current (in amps), V is the voltage (in volts), and R is the resistance (in ohms).",
+        "categories":  [
+                           "Electrical",
+                           "Standards"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "omnidirectional",
+        "slug":  "omnidirectional",
+        "definition":  "Receiving signals from or transmitting in all directions. Used to describe the sensitivity or radiation pattern for devices that operate equally in nearly all directions.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "on-axis",
+        "slug":  "on-axis",
+        "definition":  "Along the axis of a symmetrical pattern. In projection, the center line of a screen, perpendicular to the viewing area for a displayed image. In audio, along the central axis of a microphone’s pick-up pattern or along the central axis of a loudspeaker’s dispersion pattern.",
+        "categories":  [
+                           "Audio",
+                           "Video",
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "open port",
+        "slug":  "open-port",
+        "definition":  "A sub-address in Transmission Control Protocol or User Datagram Protocol that is configured to accept packets of data in network traffic.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "organic light-emitting diode",
+        "slug":  "organic-light-emitting-diode-oled",
+        "definition":  "A semiconductor light-emitting diode constructed from organic compounds. Displays built from OLEDs generally use separate layers for emitting the red, green, and blue components of an image.",
+        "categories":  [
+                           "Video",
+                           "Electrical"
+                       ],
+        "abbreviation":  "OLED",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "oscilloscope",
+        "slug":  "oscilloscope",
+        "definition":  "A device that allows the viewing and measurement of electronic signals on a visual display.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "OSI Model",
+        "slug":  "osi-model",
+        "definition":  "Open Systems Interconnection Model. This is a reference model developed by ISO in 1984 as a conceptual framework of standards for communication in the data network across different equipment and applications by different vendors. Under this model network communication protocols are divided into seven categories, or layers.",
+        "categories":  [
+                           "Networking",
+                           "Standards"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "overcurrent",
+        "slug":  "overcurrent",
+        "definition":  "Any current in excess of the rated current for equipment or a conductor. It may result from overload, a short circuit, or a ground fault.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "overcurrent protection device",
+        "slug":  "overcurrent-protection-device",
+        "definition":  "A safety device designed to disconnect a circuit if the current exceeds a predetermined value. Examples are circuit breakers and fuses.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    }
+]

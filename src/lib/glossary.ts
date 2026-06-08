@@ -1,5 +1,7 @@
 import { getCollection } from 'astro:content';
-import avixaTerms from '../data/glossary/avixa-terms.json';
+
+const termFiles = import.meta.glob<{ default: JsonTerm[] }>('../data/glossary/terms/*.json', { eager: true });
+const avixaTerms: JsonTerm[] = Object.values(termFiles).flatMap((f) => f.default);
 
 export interface GlossaryTerm {
   term: string;

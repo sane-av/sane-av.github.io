@@ -1,0 +1,308 @@
+[
+    {
+        "term":  "early reflected sound",
+        "slug":  "early-reflected-sound",
+        "definition":  "The sound waves that arrive at the listener’s ear closely following (\u003c30ms) the direct sound wave. These are the sound waves that are reflected off surfaces between the source and the listener.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "earthing conductor",
+        "slug":  "earthing-conductor",
+        "definition":  "A conductor used to connect equipment or the grounded circuit of a wiring system to a grounding/ earthing electrode (planet Earth).",
+        "categories":  [
+                           "Electrical",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "echo",
+        "slug":  "echo",
+        "definition":  "A reflected or duplicated version of a signal that arrives at the listener with sufficient delay and separation from the original signal to allow the delayed signal to be perceived distinctly and later in time from the original signal.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "echo cancellation",
+        "slug":  "echo-cancellation",
+        "definition":  "A means of eliminating echo from a signal path.",
+        "categories":  [
+                           "Acoustics"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "eggcrate",
+        "slug":  "eggcrate",
+        "definition":  "A light baffle with rectangular cells that direct, block, and diffuse light.",
+        "categories":  [
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "electret microphone",
+        "slug":  "electret-microphone",
+        "definition":  "A type of condenser microphone using a prepolarized material, called an electret, which is applied to the microphone’s diaphragm or backplate.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "electrical service",
+        "slug":  "electrical-service",
+        "definition":  "The conductors and equipment for delivering energy from the electricity supply system to the wiring system of the site served.",
+        "categories":  [
+                           "Electrical",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "electromagnetic interference",
+        "slug":  "electromagnetic-interference-emi",
+        "definition":  "Interference signals produced by electromagnetic fields.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  "EMI",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "elevation drawing",
+        "slug":  "elevation-drawing",
+        "definition":  "A side view of an object or surface taken in the vertical plane from outside the object or surface.",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "emissive technology",
+        "slug":  "emissive-technology",
+        "definition":  "Any display technology that emits light to create an image.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "encoded",
+        "slug":  "encoded",
+        "definition":  "A signal that has been converted into another format.",
+        "categories":  [
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "encryption",
+        "slug":  "encryption",
+        "definition":  "The process of transforming communications or data into a form that cannot easily be understood by recipients who have not been granted access to it.",
+        "categories":  [
+                           "Signal Processing",
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "energy management plan",
+        "slug":  "energy-management-plan-emp",
+        "definition":  "A document that details a systematic approach to implementing the most effective power consumption methods and procedures to achieve and maintain optimum energy usage.",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  "EMP",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "equalizer",
+        "slug":  "equalizer",
+        "definition":  "Electronic equipment that modifies the frequency characteristics of a signal.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "equipment grounding",
+        "slug":  "equipment-grounding",
+        "definition":  "The connection to ground (planet Earth) from the conductive, user-accessible parts of equipment.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "equipment grounding conductor",
+        "slug":  "equipment-grounding-conductor-egc",
+        "definition":  "North American term for the safety earth, the conductive path installed to connect normally noncurrent-carrying conductive parts of equipment to the grounding/earthing electrode (planet Earth).",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  "EGC",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "equipment rack",
+        "slug":  "equipment-rack",
+        "definition":  "An equipment housing unit that protects and organizes electronic equipment.",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "equivalent acoustic distance",
+        "slug":  "equivalent-acoustic-distance-ead",
+        "definition":  "The farthest distance one can go from the source without the need for sound amplification or reinforcement to maintain good speech intelligibility. The distance is dependent on the level of the presenter and the noise level in the room.",
+        "categories":  [
+                           "Acoustics"
+                       ],
+        "abbreviation":  "EAD",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "ergonomics",
+        "slug":  "ergonomics",
+        "definition":  "Also known as human factors or human factors engineering. This is the scientific study of the way people interact with a system. It focuses on effectiveness, efficiency, reducing errors, increasing productivity, improving safety, reducing fatigue and stress, increasing comfort, increasing user acceptance, increasing job satisfaction, and improving quality of life.",
+        "categories":  [
+                           "Systems \u0026 Control"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Ethernet",
+        "slug":  "ethernet",
+        "definition":  "A set of network cabling, signaling, and network access protocol standards. Before the introduction of switch-based networks, Ethernet was based on carrier-sense multiple access technology with collision detection (CSMA/CD).",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "EtherSound",
+        "slug":  "ethersound",
+        "definition":  "A proprietary digital audio Data Link-layer (layer 2) protocol designed by Digigram. It uses standard 100Mbps or 1Gbps Ethernet cabling, switches, and other components. It requires a separate network with dedicated bandwidth. EtherSound signals are nonroutable.",
+        "categories":  [
+                           "Audio",
+                           "Networking"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "expander",
+        "slug":  "expander",
+        "definition":  "An audio processor that increases the dynamic range of an audio signal. It comes in two types: a downward expander and as part of a compander.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "exploit",
+        "slug":  "exploit",
+        "definition":  "An attack technique intended to take advantage of a vulnerability to breach the security of a network or gain information.",
+        "categories":  [
+                           "Audio",
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "extended display identification data",
+        "slug":  "extended-display-identification-data-edid",
+        "definition":  "A data structure within a video sink device that is used to describe the sink’s characteristics to a video source. The characteristics described include the sink’s native resolution, color space information, and audio type (mono or stereo).",
+        "categories":  [
+                           "Audio",
+                           "Video"
+                       ],
+        "abbreviation":  "EDID",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "external configuration",
+        "slug":  "external-configuration",
+        "definition":  "Refers to the ability of one device to configure other devices and subsystems.",
+        "categories":  [
+                           "Systems \u0026 Control"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    }
+]

@@ -1,0 +1,15 @@
+{
+    "term":  "XLR connector",
+    "slug":  "xlr-connector",
+    "definition":  "A latching, low-voltage connector used in professional audiovisual systems. The three-pin version is the standard audio signal cable for the production and AV industries. The four-pin version is widely used for communication headsets, and the five-pin version is the standard connector for the DMX512 digital lighting protocol. Also known as a cannon connector.",
+    "categories":  [
+                       "Audio",
+                       "Electrical",
+                       "Cabling",
+                       "Lighting"
+                   ],
+    "abbreviation":  null,
+    "relatedTerms":  [
+
+                     ]
+}

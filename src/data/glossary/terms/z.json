@@ -1,0 +1,16 @@
+{
+    "term":  "zone",
+    "slug":  "zone",
+    "definition":  "1. A defined area within a system. 2. In lighting, a zone is a grouping of luminaires (lighting fixtures) that are focused on the same area. 3. In digital signage, a zone is an area where specific content may be placed. 4. In audio, a zone is an area where the same program is delivered.",
+    "categories":  [
+                       "Audio",
+                       "Video",
+                       "Cabling",
+                       "Lighting",
+                       "Systems \u0026 Control"
+                   ],
+    "abbreviation":  null,
+    "relatedTerms":  [
+
+                     ]
+}

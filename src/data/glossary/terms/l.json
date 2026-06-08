@@ -1,0 +1,403 @@
+[
+    {
+        "term":  "lamp",
+        "slug":  "lamp",
+        "definition":  "The light source in some luminaires and projectors.",
+        "categories":  [
+                           "Video",
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "latency",
+        "slug":  "latency",
+        "definition":  "Response time of a system. The delay between an input being received by a system and the corresponding output being generated. Measured in seconds.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "lavalier",
+        "slug":  "lavalier",
+        "definition":  "A small microphone usually worn either around the neck or attached to apparel. Derived from the name of an item of jewelry worn as a pendant.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "law of conservation of energy",
+        "slug":  "law-of-conservation-of-energy",
+        "definition":  "States that energy cannot be created or destroyed. Energy can be transformed from one form to another and transferred from one body to another, but the total amount of energy remains constant.",
+        "categories":  [
+                           "Standards"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "lenticular screen",
+        "slug":  "lenticular-screen",
+        "definition":  "A screen surface characterized by embossing designed to transmit or reflect maximum light over wide horizontal, but narrow vertical, angles.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "lighting fixture",
+        "slug":  "lighting-fixture",
+        "definition":  "A lighting instrument or luminaire. Sometimes called a fixture.",
+        "categories":  [
+                           "Cabling",
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "Li-Fi",
+        "slug":  "li-fi",
+        "definition":  "A wireless communication technology that carries data using modulated light, often using high-frequency modulation of the luminaires illuminating a space.",
+        "categories":  [
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "limiter",
+        "slug":  "limiter",
+        "definition":  "1. A signal processor that limits the amplitude of a signal to a preset level. 2. An audio signal processor that functions like a compressor except that signals exceeding the threshold level are reduced at ratios of 10:1 or greater.",
+        "categories":  [
+                           "Audio",
+                           "Signal Processing",
+                           "Systems \u0026 Control"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "limiter ratio",
+        "slug":  "limiter-ratio",
+        "definition":  "Defines how much an audio limiter will compress signals that exceed its threshold. The limiter compresses only the portion of the signal that exceeds its threshold.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "limiter threshold",
+        "slug":  "limiter-threshold",
+        "definition":  "Defines which portions of a signal the limiter will affect. All signals at levels below or equal to the threshold will pass through the limiter unchanged. All signals above the threshold will be compressed.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "line conditioner",
+        "slug":  "line-conditioner",
+        "definition":  "A device that conditions the quality of power being fed to equipment by regulating the voltage and eliminating line noise. Also known as a power conditioner or power line conditioner.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "line driver",
+        "slug":  "line-driver",
+        "definition":  "An amplifier used to compensate for signal attenuation created by cable impedance.",
+        "categories":  [
+                           "Audio",
+                           "Electrical",
+                           "Cabling",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "line level",
+        "slug":  "line-level",
+        "definition":  "The specified strength of an audio signal used to transmit analog audio between the elements of an audio system. This is generally considered to be approximately 1V at 1kHz into a 600Ω impedance.",
+        "categories":  [
+                           "Audio",
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "liquid crystal display",
+        "slug":  "liquid-crystal-display-lcd",
+        "definition":  "A video display technology that uses light transmission through polarizing liquid crystals to display an image.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  "LCD",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "liquid crystal on silicon",
+        "slug":  "liquid-crystal-on-silicon-lcos",
+        "definition":  "A reflective liquid crystal imaging technology. A liquid crystal layer is applied to a reflective complementary metal oxide semiconductor (CMOS) mirror substrate. The embedded CMOS circuitry controls the reflectivity of the liquid crystal pixels.",
+        "categories":  [
+                           "Video",
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "listed",
+        "slug":  "listed",
+        "definition":  "Equipment, materials, or services included in a list published by a recognized testing laboratory. The term is usually applied to products or processes tested by the U.S. Underwriters Laboratories (UL).",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "load center",
+        "slug":  "load-center",
+        "definition":  "An electrical industry term used to identify a lighting and appliance electrical distribution board in residential and light-commercial applications.",
+        "categories":  [
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "local area network",
+        "slug":  "local-area-network-lan",
+        "definition":  "1. A computer network connecting devices within a confined geographical area, such as a building. 2. A Data Link-layer (layer 2) network.",
+        "categories":  [
+                           "Networking"
+                       ],
+        "abbreviation":  "LAN",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "local monitor",
+        "slug":  "local-monitor",
+        "definition":  "A local device used to monitor the signal from a system.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "logarithm",
+        "slug":  "logarithm",
+        "definition":  "The exponent of 10 that equals the value of a number.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "logic network diagram",
+        "slug":  "logic-network-diagram",
+        "definition":  "A project management tool that aids in sequencing and ultimately scheduling a project’s activities and milestones. It represents a project’s critical path as well as the scope for the project.",
+        "categories":  [
+                           "Project Management"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "lossless compression",
+        "slug":  "lossless-compression",
+        "definition":  "A process that compresses data without losing any information.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "lossy compression",
+        "slug":  "lossy-compression",
+        "definition":  "A form of compression that produces an approximation of the original data by eliminating noncritical or redundant information.",
+        "categories":  [
+                           "General"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "loudspeaker",
+        "slug":  "loudspeaker",
+        "definition":  "A transducer that converts electrical energy into acoustical energy.",
+        "categories":  [
+                           "Acoustics",
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "loudspeaker circuit",
+        "slug":  "loudspeaker-circuit",
+        "definition":  "A group of wired loudspeakers.",
+        "categories":  [
+                           "Audio",
+                           "Electrical"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "low-pass filter",
+        "slug":  "low-pass-filter",
+        "definition":  "A circuit that allows signals below a specified frequency to pass unaltered while simultaneously attenuating frequencies above the one specified.",
+        "categories":  [
+                           "Electrical",
+                           "Signal Processing"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "low smoke zero halogen cable",
+        "slug":  "low-smoke-zero-halogen-lszh-cable",
+        "definition":  "A type of cable with insulation and sheathing that produces only low levels of smoke and no halogen products on combustion. Suitable for use in ventilation plenum spaces.",
+        "categories":  [
+                           "Electrical",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "low voltage",
+        "slug":  "low-voltage",
+        "definition":  "An ambiguous term. It may mean less than 70V AC to an AV technician, while an electrician may use the same term to describe circuits less than 600V or 1kV AC. The meaning of the term may also be determined by the authority having jurisdiction (AHJ).",
+        "categories":  [
+                           "Electrical",
+                           "Project Management"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "lumen",
+        "slug":  "lumen",
+        "definition":  "The unit of luminous flux. A measure of the total quantity of visible light emitted from light source per unit of time. Its symbol is lm.",
+        "categories":  [
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "luminaire",
+        "slug":  "luminaire",
+        "definition":  "A lighting instrument. Consists of a light source, optical system, housing, and mounting mechanism.",
+        "categories":  [
+                           "Cabling",
+                           "Lighting"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "luminance",
+        "slug":  "luminance-y",
+        "definition":  "Also called luma, the brightness component of a combined video signal that includes synchronization, color, and brightness information. Its symbol is Y.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  "Y",
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "lux",
+        "slug":  "lux",
+        "definition":  "The international unit of illuminance. The incident light measured when 1 lumen of light is spread over an area of 1 square meter. Its symbol is lx. 10.76 lux = 1 foot-candle.",
+        "categories":  [
+                           "Video",
+                           "Lighting",
+                           "Security"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    }
+]

@@ -1,0 +1,128 @@
+[
+    {
+        "term":  "1/3 octave equalizer",
+        "slug":  "13-octave-equalizer",
+        "definition":  "An audio equalizer that provides 30 or 31 slider adjustments corresponding to specific fixed frequencies with fixed bandwidths, with the frequencies centered at every one-third of an octave. The adjustment points shape the overall frequency response of the system.",
+        "categories":  [
+                           "Audio"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "1/4-inch phone connector",
+        "slug":  "14-inch-phone-connector",
+        "definition":  "A connector typically used to transport unbalanced line-level audio signals from musical instruments and between processing devices. Also known as 6.35mm phone connector.",
+        "categories":  [
+                           "Audio",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "1/8-inch phone connector",
+        "slug":  "18-inch-phone-connector",
+        "definition":  "A connector typically used to transport unbalanced line-level audio signals from portable devices and computers. Also known as 3.5mm phone connector.",
+        "categories":  [
+                           "Audio",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "3.5mm phone connector",
+        "slug":  "35mm-phone-connector",
+        "definition":  "A connector typically used to transport unbalanced line-level audio signals from portable devices and computers. Also known as a 1/8-inch phone connector.",
+        "categories":  [
+                           "Audio",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "4K",
+        "slug":  "4k",
+        "definition":  "An ultra-high-resolution video format with a minimum resolution of 3840×2160 pixels in a 16:9 (1.77:1) aspect ratio, approximately four times that of full HD (1920×1080 pixels). 4K formats include 3840×2160 pixels (UHDTV-1) and 4096×2160 pixels (digital cinema, DCI).",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "4K ecosystem",
+        "slug":  "4k-ecosystem",
+        "definition":  "The video cameras, recorders, editors, processors, servers, distribution networks, and display technologies used for the production, distribution, and display of 4K ultra-high-resolution video.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "6.35mm phone connector",
+        "slug":  "635mm-phone-connector",
+        "definition":  "A connector typically used to transport unbalanced line-level audio signals from musical instruments and between processing devices. Also known as a 1/4-inch phone connector.",
+        "categories":  [
+                           "Audio",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "8K",
+        "slug":  "8k",
+        "definition":  "An ultra-high-resolution video format with a minimum resolution of 7680×4320 pixels, which is 16 times the resolution of full HD (1920×1080 pixels). The related consumer television format is known as 7680p, 8K Ultra HD, and UHDTV-2.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "8K ecosystem",
+        "slug":  "8k-ecosystem",
+        "definition":  "The video cameras, recorders, editors, processors, servers, distribution networks, and display technologies used for the production, distribution, and display of 8K ultra-high-resolution video.",
+        "categories":  [
+                           "Video"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    },
+    {
+        "term":  "8P8C connector",
+        "slug":  "8p8c-connector",
+        "definition":  "An eight-pin (eight position, eight conductor) modular connector typically used for the termination of multipair cables. Often used in Ethernet data networks. It is commonly incorrectly referred to as an RJ45 connector, which is actually an 8P2C telephone connector.",
+        "categories":  [
+                           "Networking",
+                           "Electrical",
+                           "Cabling"
+                       ],
+        "abbreviation":  null,
+        "relatedTerms":  [
+
+                         ]
+    }
+]
