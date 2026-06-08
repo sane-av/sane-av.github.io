@@ -488,7 +488,21 @@ a.tag:hover, button.tag:hover {
   display: flex;
   gap: .4rem;
   flex-wrap: wrap;
+  align-items: center;
   margin-bottom: .75rem;
+}
+.tag-clear {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-muted);
+  cursor: pointer;
+  font-size: .72rem;
+  padding: .15em .55em;
+  text-decoration: underline;
+}
+.tag-clear.visible {
+  display: inline-block;
 }
 
 .tag-link {
@@ -650,7 +664,17 @@ a.tag:hover, button.tag:hover {
   color: var(--color-text);
 }
 
+.equipment-filter select {
+  padding: .5rem .85rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: .9rem;
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+}
 .equipment-filter input:focus,
+.equipment-filter select:focus,
 .tool-card input[type="number"]:focus {
   outline: 2px solid var(--color-teal);
   outline-offset: 2px;

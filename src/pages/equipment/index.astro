@@ -48,9 +48,11 @@ const allTags = [...new Set(allEquipment.flatMap((e) => e.tags))].sort();
 
       {allTags.length > 0 && (
         <div class="tag-bar mb-1" id="tag-bar">
+          <span class="label-heading">Categories:</span>
           {allTags.map((tag) => (
             <button type="button" class="tag filter-tag" data-tag={tag}>{tag}</button>
           ))}
+          <button class="tag-clear" id="tag-clear">Clear all</button>
         </div>
       )}
 
@@ -100,6 +102,7 @@ const allTags = [...new Set(allEquipment.flatMap((e) => e.tags))].sort();
   const tagButtons = document.querySelectorAll<HTMLButtonElement>('.filter-tag');
   const rows = document.querySelectorAll<HTMLTableRowElement>('#eq-table tbody tr');
   const countEl = document.getElementById('eq-count')!;
+  const clearBtn = document.getElementById('tag-clear')!;
 
   let activeTag = '';
 
@@ -120,6 +123,7 @@ const allTags = [...new Set(allEquipment.flatMap((e) => e.tags))].sort();
       if (show) visible++;
     });
     countEl.textContent = `${visible} entries`;
+    clearBtn.classList.toggle('visible', !!activeTag);
   }
 
   search.addEventListener('input', filter);
@@ -131,6 +135,11 @@ const allTags = [...new Set(allEquipment.flatMap((e) => e.tags))].sort();
       activeTag = activeTag === tag ? '' : tag;
       filter();
     });
+  });
+
+  clearBtn.addEventListener('click', () => {
+    activeTag = '';
+    filter();
   });
 
   const params = new URLSearchParams(window.location.search);

@@ -36,9 +36,11 @@ const orderedStatuses = (['published', 'review', 'draft', 'deprecated'] as const
     <div class="container">
       {allTags.length > 0 && (
         <div class="tag-bar" id="tag-bar">
+          <span class="label-heading">Categories:</span>
           {allTags.map((tag) => (
             <button type="button" class="tag filter-tag" data-tag={tag}>{tag}</button>
           ))}
+          <button class="tag-clear" id="tag-clear">Clear all</button>
         </div>
       )}
 
@@ -91,6 +93,7 @@ const orderedStatuses = (['published', 'review', 'draft', 'deprecated'] as const
   const cards = document.querySelectorAll<HTMLDivElement>('.card[data-tags]');
   const statusGroups = document.querySelectorAll<HTMLDivElement>('.status-group');
   const countEl = document.getElementById('std-count')!;
+  const clearBtn = document.getElementById('tag-clear')!;
   const totalCount = cards.length;
 
   let activeTag = '';
@@ -115,6 +118,7 @@ const orderedStatuses = (['published', 'review', 'draft', 'deprecated'] as const
     countEl.textContent = filtering
       ? `${visible} of ${totalCount} standard${totalCount !== 1 ? 's' : ''}`
       : `${totalCount} standard${totalCount !== 1 ? 's' : ''}`;
+    clearBtn.classList.toggle('visible', filtering);
   }
 
   tagButtons.forEach((btn) => {
@@ -123,6 +127,11 @@ const orderedStatuses = (['published', 'review', 'draft', 'deprecated'] as const
       activeTag = activeTag === tag ? '' : tag;
       applyFilters();
     });
+  });
+
+  clearBtn.addEventListener('click', () => {
+    activeTag = '';
+    applyFilters();
   });
 
   const params = new URLSearchParams(window.location.search);

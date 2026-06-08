@@ -33,9 +33,11 @@ const allTags = [...new Set(tools.flatMap((t) => t.tags))].sort();
     <div class="container">
       {allTags.length > 0 && (
         <div class="tag-bar" id="tag-bar">
+          <span class="label-heading">Categories:</span>
           {allTags.map((tag) => (
             <button type="button" class="tag filter-tag" data-tag={tag}>{tag}</button>
           ))}
+          <button class="tag-clear" id="tag-clear">Clear all</button>
         </div>
       )}
 
@@ -74,6 +76,7 @@ const allTags = [...new Set(tools.flatMap((t) => t.tags))].sort();
   const tagButtons = document.querySelectorAll<HTMLButtonElement>('.filter-tag');
   const cards = document.querySelectorAll<HTMLDivElement>('#card-grid [data-tags]');
   const countEl = document.getElementById('tool-count')!;
+  const clearBtn = document.getElementById('tag-clear')!;
   const totalCount = cards.length;
 
   let activeTag = '';
@@ -93,6 +96,7 @@ const allTags = [...new Set(tools.flatMap((t) => t.tags))].sort();
     countEl.textContent = filtering
       ? `${visible} of ${totalCount} tool${totalCount !== 1 ? 's' : ''}`
       : `${totalCount} tool${totalCount !== 1 ? 's' : ''}`;
+    clearBtn.classList.toggle('visible', filtering);
   }
 
   tagButtons.forEach((btn) => {
@@ -101,6 +105,11 @@ const allTags = [...new Set(tools.flatMap((t) => t.tags))].sort();
       activeTag = activeTag === tag ? '' : tag;
       applyFilters();
     });
+  });
+
+  clearBtn.addEventListener('click', () => {
+    activeTag = '';
+    applyFilters();
   });
 
   const params = new URLSearchParams(window.location.search);

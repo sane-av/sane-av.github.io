@@ -37,12 +37,13 @@ const pageCount = merged.filter((e) => e.hasPage).length;
 
       {categories.length > 0 && (
         <div class="glossary-categories" id="glossary-categories">
-          <span class="text-small label-heading">Category:</span>
+          <span class="text-small label-heading">Categories:</span>
           {categories.map((cat) => (
             <button type="button" class="tag tag-orange filter-tag" data-category={cat}>
               {cat}
             </button>
           ))}
+          <button class="tag-clear" id="tag-clear">Clear all</button>
         </div>
       )}
 
@@ -125,6 +126,7 @@ const pageCount = merged.filter((e) => e.hasPage).length;
   const letterHeadings = document.querySelectorAll<HTMLLIElement>('.glossary-letter');
   const countEl = document.getElementById('glossary-count')!;
   const noResults = document.getElementById('glossary-no-results')!;
+  const clearBtn = document.getElementById('tag-clear')!;
   const totalItems = items.length;
 
   let activeCategory = '';
@@ -135,6 +137,11 @@ const pageCount = merged.filter((e) => e.hasPage).length;
       activeCategory = activeCategory === category ? '' : category;
       applyFilters();
     });
+  });
+
+  clearBtn.addEventListener('click', () => {
+    activeCategory = '';
+    applyFilters();
   });
 
   jumpButtons.forEach((btn) => {
@@ -185,5 +192,6 @@ const pageCount = merged.filter((e) => e.hasPage).length;
     const filtering = query || activeCategory;
     countEl.textContent = filtering ? `${visibleCount} of ${totalItems} terms` : `${totalItems} terms`;
     noResults.classList.toggle('hidden', !(filtering && visibleCount === 0));
+    clearBtn.classList.toggle('visible', !!activeCategory);
   }
 </script>
