@@ -37,6 +37,7 @@ const glossary = defineCollection({
     abbreviation: z.string().optional(),
     category: z.string(),
     relatedTerms: z.array(z.string()).default([]),
+    redirectTo: z.string().optional(), // slug of canonical entry, e.g. "635mm-phone-connector"
   }),
 });
 

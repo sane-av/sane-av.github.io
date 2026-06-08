@@ -186,10 +186,34 @@ The glossary uses a **hybrid storage system**:
 ```
 
 **Content collection .md frontmatter** (for expanded pages):
-- Required: `term`, `category`. Optional: `abbreviation`, `relatedTerms`.
+- Required: `term`, `category`. Optional: `abbreviation`, `relatedTerms`, `redirectTo`.
 - Filename must be kebab-case matching the term slug (e.g. `audio-video-bridging-avb.md`).
 - Body is full Markdown (tables, headings, cross-references to standards).
 - The `.md` entry's `term` and `category` override the JSON values on the detail page.
+- `redirectTo: "target-slug"` makes the page a 301 redirect stub with no body needed. Use for aliases and alternate names that share one canonical article.
+
+**Expanded definition article standard (mini Wikipedia):**
+
+Every expanded definition article MUST:
+1. **Open with a lead paragraph** - plain definition usable without reading further.
+2. **Have a History section** - origin, key dates, inventors/standards bodies, evolution to present day.
+3. **Have inline citations** using Markdown footnotes (`[^1]` in text, `[^1]: ...` at the bottom). Citations must link to primary or authoritative sources: standards documents (ISO, IEC, ANSI, ITU, AES), USPTO patents, publisher-archived web pages, or peer-reviewed papers. Wikipedia may be used as a secondary cross-reference for context but is not itself a citation.
+4. **Have at least 3 verifiable citations** - preferably more.
+5. **Use comparison tables** where the term is commonly confused with or compared to related terms.
+6. **Cross-reference SANE standards** where applicable (e.g. `[SANE-001](/standards/SANE-001-audio-levels)`).
+7. **Use ` - ` (space-hyphen-space)** instead of em-dashes per repo punctuation rules.
+
+**Citation format** (place at end of article, after a `---` divider):
+```
+[^1]: Author, First (Year). ["Title"](https://url). Publisher. Retrieved YYYY-MM-DD.
+[^2]: Standard body. [Standard Number:Year - Title](https://url).
+[^3]: U.S. Patent NNNNNN - Inventor, Name, "Title", issued YYYY-MM-DD. [View at Google Patents](https://patents.google.com/patent/USNNNNNN).
+```
+
+**Workflow for writing a new article:**
+1. Fetch the Wikipedia article for the term (if one exists) to identify sourced facts and harvest citations.
+2. Check the cited primary sources directly before including facts.
+3. Write the article, then verify the build passes (`npm run build`).
 
 **Auto-categorization:**
 - JSON terms are auto-categorized by a PowerShell script at `working_files/convert_to_json.ps1`.

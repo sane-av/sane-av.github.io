@@ -9,6 +9,7 @@ export interface GlossaryTerm {
   abbreviation: string | null;
   relatedTerms: string[];
   hasPage: boolean;
+  redirectTo?: string;
 }
 
 interface JsonTerm {

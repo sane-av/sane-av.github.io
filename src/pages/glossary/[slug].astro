@@ -30,7 +30,7 @@ export async function getStaticPaths() {
         jsonTerm: null as GlossaryTerm | null,
       },
     })),
-    ...jsonOnlyTerms.map((t: GlossaryTerm) => ({
+    ...jsonOnlyTerms.map((t: JsonTerm) => ({
       params: { slug: t.slug },
       props: { 
         source: 'json' as const,
@@ -44,6 +44,11 @@ export async function getStaticPaths() {
 }
 
 const { source, entry, jsonTerm } = Astro.props;
+
+// Redirect alias stubs to their canonical entry
+if (source === 'md' && entry?.data.redirectTo) {
+  return Astro.redirect(`/glossary/${entry.data.redirectTo}`, 301);
+}
 
 let Content: any = null;
 let termName: string;
@@ -62,7 +67,7 @@ if (source === 'md' && entry) {
   definition = '';
 } else if (jsonTerm) {
   termName = jsonTerm.term;
-  categories = jsonTerm.categories ?? [jsonTerm.category ?? 'General'];
+  categories = jsonTerm.categories ?? ['General'];
   abbreviation = jsonTerm.abbreviation;
   relatedTerms = jsonTerm.relatedTerms ?? [];
   definition = jsonTerm.definition;
