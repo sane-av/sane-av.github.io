@@ -560,6 +560,7 @@ a.tag:hover, button.tag:hover {
 .meta-label { color: var(--color-muted); font-size: .75rem; text-transform: uppercase; letter-spacing: .07em; display: block; margin-bottom: .2rem; }
 
 /* --- Glossary Footnotes --- */
+#footnote-label { display: none; }
 .footnotes {
   font-size: .8rem;
   color: var(--color-muted);
