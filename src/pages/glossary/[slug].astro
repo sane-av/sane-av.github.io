@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
+import { getGlossaryTerms } from '../../lib/glossary';
 
 export async function getStaticPaths() {
   const mdEntries = await getCollection('glossary');
@@ -24,7 +25,10 @@ const { Content } = await render(entry);
 const termName = entry.data.term;
 const categories = [entry.data.category];
 const abbreviation = entry.data.abbreviation ?? null;
-const relatedTerms = entry.data.relatedTerms ?? [];
+
+const allTerms = await getGlossaryTerms();
+const termEntry = allTerms.find((t) => t.slug === entry.id);
+const relatedTerms = termEntry?.relatedTerms ?? [];
 
 const description = `Definition of ${termName} in professional AV.`;
 ---
