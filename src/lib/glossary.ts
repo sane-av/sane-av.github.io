@@ -72,6 +72,23 @@ export async function getGlossaryTerms(): Promise<GlossaryTerm[]> {
   }
 
   merged.sort((a, b) => a.term.localeCompare(b.term));
+
+  // Auto-generate related terms from shared categories
+  for (const term of merged) {
+    if (term.hasPage && term.relatedTerms.length === 0) {
+      const scored = merged
+        .filter((t) => t.slug !== term.slug)
+        .map((t) => ({
+          term: t.term,
+          shared: t.categories.filter((c) => term.categories.includes(c)).length,
+        }))
+        .filter((t) => t.shared > 0)
+        .sort((a, b) => b.shared - a.shared || a.term.localeCompare(b.term))
+        .slice(0, 5);
+      term.relatedTerms = scored.map((t) => t.term);
+    }
+  }
+
   return merged;
 }
 
