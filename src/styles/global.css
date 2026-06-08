@@ -729,6 +729,10 @@ a.tag:hover, button.tag:hover {
   border-color: var(--color-teal);
   color: var(--color-teal);
 }
+.sponsor-logos { display: flex; gap: 2rem; flex-wrap: wrap; align-items: center; margin-bottom: 1.5rem; }
+.sponsor-logos img { height: auto; opacity: .9; transition: opacity .15s; }
+.sponsor-logos img:hover { opacity: 1; }
+
 .glossary-jump-btn.dim {
   opacity: .3;
   pointer-events: none;
