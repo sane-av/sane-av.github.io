@@ -166,11 +166,14 @@ The glossary uses a **hybrid storage system**:
 | Source | Purpose | Count |
 |---|---|---|
 | `src/data/glossary/avixa-terms.json` | Primary glossary: 680 AVIXA CTS-D reference terms with short definitions, auto-categorized | 680 |
-| `src/content/glossary/*.md` | Expanded-definition pages that override a JSON entry | 3 |
+| `src/content/glossary/*.md` | Expanded-definition pages that override a JSON entry | 20+ |
 
 **How it works:**
-- The glossary index page (`src/pages/glossary/index.astro`) loads both sources and merges them. JSON terms show their definition inline. Terms with a matching `.md` file show an "Expanded definition →" link instead.
-- The detail page (`src/pages/glossary/[slug].astro`) generates static pages for ALL terms (JSON + .md). If a `.md` file exists, it renders the rich Markdown body. If only a JSON entry exists, it shows the short definition with an AVIXA attribution.
+- The glossary index page (`src/pages/glossary/index.astro`) loads both sources and merges them via `src/lib/glossary.ts`.
+- Terms without a `.md` file show their definition inline as bold text (no link, no detail page).
+- Terms with a matching `.md` file are linked to their expanded-definition detail page.
+- The detail page (`src/pages/glossary/[slug].astro`) only generates pages for `.md` content entries (not JSON-only terms).
+- Redirect stubs (`.md` with `redirectTo: "target-slug"`) generate 301 redirect pages; the index links these directly to the canonical URL.
 - To create an expanded definition, add a `.md` file in `src/content/glossary/` whose filename slug matches the JSON `slug` field. The system auto-detects it.
 
 **JSON entry structure** (in `avixa-terms.json`):
@@ -204,6 +207,10 @@ Every expanded definition article MUST:
 7. **Use ` - ` (space-hyphen-space)** instead of em-dashes per repo punctuation rules.
 
 **Citation format** (place at end of article, after a `---` divider):
+- Markdown `[^N]:` footnote syntax is used. The renderer auto-generates the footnote section - do NOT add a `## References` or `## Footnotes` heading, as it will duplicate the auto-generated section.
+- The auto-generated footnotes section is styled with `.footnotes` CSS (smaller font, muted color, top border).
+- Every `[^N]` reference in the body MUST have a matching `[^N]:` definition at the bottom. Orphaned footnotes (defined but never referenced) are a bug.
+- The `---` divider before footnotes separates article body from citations visually.
 ```
 [^1]: Author, First (Year). ["Title"](https://url). Publisher. Retrieved YYYY-MM-DD.
 [^2]: Standard body. [Standard Number:Year - Title](https://url).
@@ -266,6 +273,8 @@ Commit messages are imperative, lowercase after the type, no trailing period.
 | Substring keyword matching in auto-categorizer | Short tokens match mid-word (e.g., `IR` in `thIRd`) | Use `\b` word-boundary regex for keywords ≤4 chars in `convert_to_json.ps1` |
 | Inline `style=` attributes | Breaks CSP, harder to maintain | Use `.hidden` utility class instead of `style="display:none"` |
 | Duplicated glossary merge logic | Two files independently implement the JSON+MD merge | Shared logic lives in `src/lib/glossary.ts`; both `glossary/index.astro` and `glossary/[slug].astro` import from there |
+| Adding `## References` heading to glossary articles | Duplicate section renders (auto-generated + manual) | Markdown `[^N]:` syntax auto-generates footnotes; use `---` divider only, no heading |
+| Orphaned glossary footnotes | `[^N]:` defined but no `[^N]` reference in body | Verify every footnote definition has a matching body reference before committing |
 | Broken favicon references | 404s in dev tools | Only `favicon.svg` exists; do not reference `.ico` or `.png` variants |
 | Missing `.gitattributes` | CRLF/LF noise in cross-platform diffs | `.gitattributes` sets `* text=auto` and `*.astro text eol=lf` |
 
@@ -280,6 +289,8 @@ Before `git add`:
 5. No `github.com/sane-av/sane-av/` (missing `.github.io`).
 6. If you edited a CRLF file with multi-line replacements, you verified the change with `grep`.
 7. No inline `style=` attributes introduced; use `.hidden` class instead.
+8. No `## References` or `## Footnotes` headings in glossary .md files (auto-generated).
+9. Every `[^N]` in glossary body has a matching `[^N]:` definition (no orphaned footnotes).
 
 ## 10. What NOT to do
 
@@ -292,3 +303,4 @@ Before `git add`:
 ---
 
 *Last updated: June 2026. If something here is outdated, fix it in the same PR as the change that outdated it.*
+*Glossary lessons: June 2026 - detail pages only for .md entries, footnote auto-generation, redirect stub canonical linking.*
