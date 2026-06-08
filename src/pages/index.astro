@@ -49,13 +49,29 @@ const standards = (await getCollection('standards', ({ data }) => data.status ==
     <div class="container">
       <div class="value-grid">
         {[
-          { icon: '📖', heading: 'Free & Open', body: 'Every standard, document, and dataset is freely available under CC BY-NC 4.0. No paywalls, ever.' },
-          { icon: '🤝', heading: 'Community Driven', body: 'Standards are proposed and refined through an open RFC process. Anyone can contribute.' },
-          { icon: '🛠️', heading: 'Practical First', body: 'Built by working AV professionals for real-world deployment. Theory informed by practice.' },
-          { icon: '🔄', heading: 'Version Controlled', body: 'Every change is tracked in Git. Audit the full history of any standard or data entry.' },
+          { 
+            heading: 'Free & Open', 
+            body: 'Every standard, document, and dataset is freely available under CC BY-NC 4.0. No paywalls, ever.',
+            icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M8 7h6"/><path d="M8 11h8"/><path d="M8 15h5"/></svg>`
+          },
+          { 
+            heading: 'Community Driven', 
+            body: 'Standards are proposed and refined through an open RFC process. Anyone can contribute.',
+            icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="15" cy="7" r="3"/><path d="M6 13.5V14a3 3 0 003 3v0a3 3 0 003-3v-.5"/><path d="M12 14a3 3 0 013-3v0a3 3 0 013 3v.5"/><path d="M9 17v0a3 3 0 006 0v0"/><path d="M6 21h12"/></svg>`
+          },
+          { 
+            heading: 'Practical First', 
+            body: 'Built by working AV professionals for real-world deployment. Theory informed by practice.',
+            icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>`
+          },
+          { 
+            heading: 'Version Controlled', 
+            body: 'Every change is tracked in Git. Audit the full history of any standard or data entry.',
+            icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M6 8v8"/><path d="M18 16v-2a4 4 0 00-4-4h-4"/><path d="M9 8L6 5 9 2"/></svg>`
+          },
         ].map(({ icon, heading, body }) => (
           <div class="card">
-            <div class="emoji-lg">{icon}</div>
+            <span class="value-icon" set:html={icon} />
               <h3>{heading}</h3>
             <p>{body}</p>
           </div>

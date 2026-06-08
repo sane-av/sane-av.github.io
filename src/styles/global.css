@@ -759,7 +759,11 @@ th { background: var(--color-navy-mid); font-weight: 600; color: var(--color-tex
   font-family: var(--font-mono);
 }
 .emoji-xl { font-size: 2.5rem; }
-.emoji-lg { font-size: 2rem; }
+.value-icon { 
+  color: var(--color-teal);
+  margin-bottom: .5rem;
+  display: flex;
+}
 .btn-small { font-size: .875rem; padding: .5rem 1rem; }
 .table-wrapper { overflow-x: auto; }
 .glossary-letter { list-style: none; padding: .5rem 0; font-size: 1.5rem; font-weight: 800; color: var(--color-teal); border-bottom: 2px solid var(--color-border); margin-bottom: .75rem; }
