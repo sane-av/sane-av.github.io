@@ -66,8 +66,6 @@ See also: [gain structure](/glossary/gain-structure). An amplifier's input sensi
 
 ---
 
-## References
-
 [^1]: Self, Douglas (2013). [*Audio Power Amplifier Design*](https://www.worldcat.org/isbn/9780240526133), 6th ed. Focal Press / Routledge. ISBN 978-0-240-52613-3. (Chapter 17: Class D amplifiers; clarifies the "D does not mean digital" point.)
 [^2]: U.S. Patent 841,387 - de Forest, Lee, "Device for amplifying feeble electrical currents", issued 1907-01-15. [View at Google Patents](https://patents.google.com/patent/US841387).
 [^3]: Engineering and Technology History Wiki. ["Milestones: Public Address System, 1915"](https://ethw.org/Milestones:Public_Address_System,_1915). IEEE History Center. (IEEE Milestone designation for the first practical public address system developed by AT&T engineers; first public demonstration 1916.)

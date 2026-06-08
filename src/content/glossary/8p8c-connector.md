@@ -56,8 +56,6 @@ The same 8P8C connector carries both data and DC power in PoE-enabled installati
 
 ---
 
-## References
-
 [^1]: U.S. Federal Communications Commission. [47 CFR Part 68, Subpart F - Standard Plug and Jack Arrangements](https://www.ecfr.gov/current/title-47/chapter-I/subchapter-A/part-68/subpart-F). *Code of Federal Regulations*. (Defines RJ45 as an 8P2C keyed connector for single-line telephone use.)
 [^2]: Horowitz, Paul; Hill, Winfield (2015). [*The Art of Electronics*](https://www.worldcat.org/isbn/9780521809269), 3rd ed. Cambridge University Press. p. 898. ISBN 978-0-521-80926-9. (Notes the ubiquitous misnomer.)
 [^3]: FCC. [Registration Program for Telephone Equipment](https://transition.fcc.gov/cgb/consumerfacts/registrationprog.pdf) (PDF). *Consumer Facts*. (Background on the RJ registration program and Part 68.)
