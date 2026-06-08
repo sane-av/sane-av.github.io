@@ -404,6 +404,7 @@ th { background: var(--color-navy-mid); font-weight: 600; color: var(--color-tex
 
 /* --- Section --- */
 .section { padding: 3rem 0; }
+.section-centered { text-align: center; }
 .section-title {
   font-size: 1.5rem;
   margin-bottom: .4rem;
@@ -729,7 +730,7 @@ a.tag:hover, button.tag:hover {
   border-color: var(--color-teal);
   color: var(--color-teal);
 }
-.sponsor-logos { display: flex; gap: 2rem; flex-wrap: wrap; align-items: center; margin-bottom: 1.5rem; }
+.sponsor-logos { display: flex; gap: 2rem; flex-wrap: wrap; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
 .sponsor-logos img { height: auto; opacity: .9; transition: opacity .15s; }
 .sponsor-logos img:hover { opacity: 1; }
 
