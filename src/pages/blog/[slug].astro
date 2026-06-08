@@ -31,7 +31,7 @@ const updatedStr = post.data.updatedDate ? formatDateLong(post.data.updatedDate)
 
   {post.data.tags.length > 0 && (
     <div class="card-tags mb-2">
-      {post.data.tags.map((tag) => <a href={`/blog/?tag=${tag}`} class="tag tag-link">{tag}</a>)}
+      {post.data.tags.map((tag) => <a href={`/blog/?tag=${tag}`} class="tag">{tag}</a>)}
     </div>
   )}
 

@@ -506,13 +506,6 @@ a.tag:hover, button.tag:hover {
   display: inline-block;
 }
 
-.tag-link {
-  cursor: pointer;
-  text-decoration: none;
-}
-.tag-link:hover {
-  border-color: rgba(241,161,13,.5);
-}
 
 .tag-orange { background: rgba(241,161,13,.15); border-color: var(--color-teal); color: var(--color-teal); }
 
@@ -707,7 +700,6 @@ a.tag:hover, button.tag:hover {
   align-items: center;
   margin-bottom: 1rem;
 }
-.glossary-tag { }
 .glossary-jump {
   display: flex;
   gap: .3rem;
@@ -730,7 +722,7 @@ a.tag:hover, button.tag:hover {
   border-color: var(--color-teal);
   color: var(--color-teal);
 }
-.sponsor-logos { display: flex; gap: 2rem; flex-wrap: wrap; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+.sponsor-logos { display: flex; gap: 2rem; flex-wrap: wrap; align-items: center; justify-content: center; margin: 2rem 0; }
 .sponsor-logos img { height: auto; opacity: .9; transition: opacity .15s; }
 .sponsor-logos img:hover { opacity: 1; }
 

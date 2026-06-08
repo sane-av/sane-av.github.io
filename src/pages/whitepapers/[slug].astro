@@ -28,7 +28,7 @@ const dateStr = formatDateLong(paper.data.pubDate);
   </div>
   {paper.data.tags.length > 0 && (
     <div class="card-tags mb-2">
-      {paper.data.tags.map((tag) => <a href={`/whitepapers/?tag=${tag}`} class="tag tag-link">{tag}</a>)}
+      {paper.data.tags.map((tag) => <a href={`/whitepapers/?tag=${tag}`} class="tag">{tag}</a>)}
     </div>
   )}
   <Content />

@@ -70,7 +70,7 @@ const updatedStr = std.data.updatedDate ? formatDateLong(std.data.updatedDate) :
 
       {std.data.tags.length > 0 && (
         <div class="card-tags mb-2">
-          {std.data.tags.map((tag) => <a href={`/standards/?tag=${tag}`} class="tag tag-link">{tag}</a>)}
+          {std.data.tags.map((tag) => <a href={`/standards/?tag=${tag}`} class="tag">{tag}</a>)}
         </div>
       )}
 
