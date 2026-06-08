@@ -22,7 +22,7 @@ creates free, open, and transparent standards for professional AV systems. We op
 IETF or W3C: all our work happens in the open, all our documents are freely accessible, and
 anyone can contribute.
 
-Our standards are published under [Creative Commons CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+Our standards are published under [Creative Commons CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
 That means you can read them, implement them, share them, and build on them - for free, forever,
 with attribution.
 

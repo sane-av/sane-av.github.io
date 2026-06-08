@@ -3,7 +3,7 @@
 > Open source AV standards, data, and tools for the professional audiovisual industry.
 
 [![License: MIT](https://img.shields.io/badge/Code-MIT-blue.svg)](LICENSE)
-[![License: CC BY 4.0](https://img.shields.io/badge/Content-CC%20BY%204.0-lightgrey.svg)](CONTENT-LICENSE.md)
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/Content-CC%20BY--NC%204.0-lightgrey.svg)](CONTENT-LICENSE.md)
 
 **Website:** https://sane-av.github.io
 
@@ -64,5 +64,5 @@ See [sane-av.github.io/rfc](https://sane-av.github.io/rfc) for full details.
 ## License
 
 - **Code** (site, tools, components): [MIT](LICENSE)
-- **Content** (standards, blog, glossary, whitepapers, data): [CC BY 4.0](CONTENT-LICENSE.md)
+- **Content** (standards, blog, glossary, whitepapers, data): [CC BY-NC 4.0](CONTENT-LICENSE.md)
 

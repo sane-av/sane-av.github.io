@@ -46,5 +46,5 @@ body:
       options:
         - label: This content is original or properly attributed
           required: true
-        - label: I agree to license this contribution under CC BY 4.0
+        - label: I agree to license this contribution under CC BY-NC 4.0
           required: true

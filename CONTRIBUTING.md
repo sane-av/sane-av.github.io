@@ -100,7 +100,7 @@ Your PR will fail CI if the frontmatter is invalid.
 ### Attribution
 
 If you are adapting or quoting existing work, include attribution inline and in the PR
-description. All content must be compatible with CC BY 4.0.
+description. All content must be compatible with CC BY-NC 4.0.
 
 ## Equipment Database
 
@@ -131,4 +131,4 @@ Data should be accurate and complete regardless of brand.
 By contributing to this repository, you agree that:
 - Your **code contributions** are licensed under [MIT](LICENSE)
 - Your **content contributions** (standards, blog posts, glossary, whitepapers, data) are
-  licensed under [CC BY 4.0](CONTENT-LICENSE.md)
+  licensed under [CC BY-NC 4.0](CONTENT-LICENSE.md)

@@ -88,5 +88,5 @@ body:
           required: true
         - label: I am willing to participate in the review discussion
           required: true
-        - label: I agree to license my contribution under CC BY 4.0
+        - label: I agree to license my contribution under CC BY-NC 4.0
           required: true

@@ -21,7 +21,7 @@ Closes #
 ## Checklist
 
 - [ ] Content is original or properly attributed
-- [ ] I agree to license my contribution under the project license (CC BY 4.0 for content, MIT for code)
+- [ ] I agree to license my contribution under the project license (CC BY-NC 4.0 for content, MIT for code)
 - [ ] For standards: an RFC issue has been open for at least 14 days with no blocking objections
 - [ ] For equipment data: specs are sourced from official manufacturer documentation (link in notes field)
 - [ ] Spelling and grammar reviewed

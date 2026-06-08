@@ -107,5 +107,5 @@ the will to use it. We believe it does.
 
 ---
 
-*This paper is published under CC BY 4.0. To suggest additions or corrections, open an issue
+*This paper is published under CC BY-NC 4.0. To suggest additions or corrections, open an issue
 on [GitHub](https://github.com/sane-av/sane-av.github.io).*
