@@ -61,7 +61,7 @@ src/
   styles/global.css              # SINGLE stylesheet (~605 lines) - all theme + components
 working_files/                   # gitignored - dev scripts, raw glossary sources
 LICENSE                          # MIT (code)
-CONTENT-LICENSE.md               # CC BY 4.0 (content) - DO NOT rename to LICENSE-*
+CONTENT-LICENSE.md               # CC BY-NC 4.0 (content) - DO NOT rename to LICENSE-*
                                  # (GitHub's license scanner will flag it)
 ```
 
