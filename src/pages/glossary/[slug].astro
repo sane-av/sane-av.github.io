@@ -1,83 +1,30 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ContentLayout from '../../layouts/ContentLayout.astro';
 import { getCollection, render } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
-import avixaTerms from '../../data/glossary/avixa-terms.json';
-import type { GlossaryTerm } from '../../lib/glossary';
-
-interface JsonTerm {
-  term: string;
-  slug: string;
-  definition: string;
-  categories?: string[];
-  category?: string;
-  abbreviation: string | null;
-  relatedTerms?: string[];
-}
 
 export async function getStaticPaths() {
   const mdEntries = await getCollection('glossary');
-  const mdSlugs = new Set(mdEntries.map((e) => e.id));
-  const jsonOnlyTerms = (avixaTerms as JsonTerm[]).filter((t) => !mdSlugs.has(t.slug));
   
-  const paths = [
-    ...mdEntries.map((entry) => ({
-      params: { slug: entry.id },
-      props: { 
-        source: 'md' as const,
-        entry,
-        jsonTerm: null as GlossaryTerm | null,
-      },
-    })),
-    ...jsonOnlyTerms.map((t: JsonTerm) => ({
-      params: { slug: t.slug },
-      props: { 
-        source: 'json' as const,
-        entry: null as CollectionEntry<'glossary'> | null,
-        jsonTerm: t,
-      },
-    })),
-  ];
+  const paths = mdEntries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
   
   return paths;
 }
 
-const { source, entry, jsonTerm } = Astro.props;
+const { entry } = Astro.props;
 
-// Redirect alias stubs to their canonical entry
-if (source === 'md' && entry?.data.redirectTo) {
+if (entry.data.redirectTo) {
   return Astro.redirect(`/glossary/${entry.data.redirectTo}`, 301);
 }
 
-let Content: any = null;
-let termName: string;
-let categories: string[];
-let abbreviation: string | null;
-let relatedTerms: string[];
-let definition: string;
+const { Content } = await render(entry);
 
-if (source === 'md' && entry) {
-  const rendered = await render(entry);
-  Content = rendered.Content;
-  termName = entry.data.term;
-  categories = [entry.data.category];
-  abbreviation = entry.data.abbreviation ?? null;
-  relatedTerms = entry.data.relatedTerms ?? [];
-  definition = '';
-} else if (jsonTerm) {
-  termName = jsonTerm.term;
-  categories = jsonTerm.categories ?? ['General'];
-  abbreviation = jsonTerm.abbreviation;
-  relatedTerms = jsonTerm.relatedTerms ?? [];
-  definition = jsonTerm.definition;
-} else {
-  termName = 'Unknown';
-  categories = ['General'];
-  abbreviation = null;
-  relatedTerms = [];
-  definition = '';
-}
+const termName = entry.data.term;
+const categories = [entry.data.category];
+const abbreviation = entry.data.abbreviation ?? null;
+const relatedTerms = entry.data.relatedTerms ?? [];
 
 const description = `Definition of ${termName} in professional AV.`;
 ---
@@ -101,23 +48,9 @@ const description = `Definition of ${termName} in professional AV.`;
 
   <section class="section">
     <div class="container content-width">
-      {source === 'md' && Content ? (
-        <article class="prose">
-          <Content />
-        </article>
-      ) : (
-        <article class="prose">
-          <p>{definition}</p>
-          <div class="mt-3">
-            <p class="text-muted text-small">
-              This definition is from the AVIXA CTS-D Exam Guide glossary.
-              <a href={`https://github.com/sane-av/sane-av.github.io/issues/new?template=content_submission.yml&title=${encodeURIComponent('Glossary: ' + termName)}`} target="_blank" rel="noopener">
-                Submit an expanded definition
-              </a>.
-            </p>
-          </div>
-        </article>
-      )}
+      <article class="prose">
+        <Content />
+      </article>
 
       {relatedTerms.length > 0 && (
         <div class="related-terms mt-3">

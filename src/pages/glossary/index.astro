@@ -83,9 +83,15 @@ const pageCount = merged.filter((e) => e.hasPage).length;
                   data-letter={letter}
                 >
                   <div class="glossary-term">
-                    <a href={`/glossary/${entry.slug}`}>
-                      {entry.abbreviation ? `${entry.abbreviation} (${entry.term})` : entry.term}
-                    </a>
+                    {entry.hasPage ? (
+                      <a href={`/glossary/${entry.redirectTo ?? entry.slug}`}>
+                        {entry.abbreviation ? `${entry.abbreviation} (${entry.term})` : entry.term}
+                      </a>
+                    ) : (
+                      <strong>
+                        {entry.abbreviation ? `${entry.abbreviation} (${entry.term})` : entry.term}
+                      </strong>
+                    )}
                     <span class="glossary-tags-inline">
                       {entry.categories.map((cat) => (
                         <span class="tag ml-1">{cat}</span>
@@ -95,11 +101,6 @@ const pageCount = merged.filter((e) => e.hasPage).length;
                   <div class="glossary-definition text-muted">
                     {entry.definition}
                   </div>
-                  {entry.hasPage && (
-                    <div class="mt-1">
-                      <a href={`/glossary/${entry.slug}`} class="text-small">Expanded definition &rarr;</a>
-                    </div>
-                  )}
                   {entry.relatedTerms.length > 0 && (
                     <div class="text-small mt-1">
                       Related: {entry.relatedTerms.join(', ')}

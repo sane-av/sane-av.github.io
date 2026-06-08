@@ -50,6 +50,7 @@ export async function getGlossaryTerms(): Promise<GlossaryTerm[]> {
       abbreviation: t.abbreviation,
       relatedTerms: t.relatedTerms ?? [],
       hasPage: !!mdEntry,
+      redirectTo: mdEntry?.data.redirectTo,
     });
   }
 
@@ -63,6 +64,7 @@ export async function getGlossaryTerms(): Promise<GlossaryTerm[]> {
         abbreviation: e.data.abbreviation ?? null,
         relatedTerms: e.data.relatedTerms ?? [],
         hasPage: true,
+        redirectTo: e.data.redirectTo,
       });
     }
   }
