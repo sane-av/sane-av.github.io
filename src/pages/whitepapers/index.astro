@@ -5,6 +5,8 @@ import { formatDateShort } from '../../lib/date';
 
 const papers = (await getCollection('whitepapers', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const allTags = [...new Set(papers.flatMap((p) => p.data.tags))].sort();
 ---
 
 <BaseLayout title="Whitepapers" description="Technical white papers on AV system design and engineering from the SANE community.">
@@ -17,15 +19,25 @@ const papers = (await getCollection('whitepapers', ({ data }) => !data.draft))
 
   <section class="section">
     <div class="container">
+      {allTags.length > 0 && (
+        <div class="tag-bar" id="tag-bar">
+          {allTags.map((tag) => (
+            <button type="button" class="tag filter-tag" data-tag={tag}>{tag}</button>
+          ))}
+        </div>
+      )}
+
+      <p id="paper-count" class="text-muted mb-1">{papers.length} paper{papers.length !== 1 ? 's' : ''}</p>
+
       {papers.length === 0 ? (
         <p class="text-muted">
           No whitepapers yet.
           <a href="https://github.com/sane-av/sane-av.github.io">Submit the first →</a>
         </p>
       ) : (
-        <div class="card-grid">
+        <div class="card-grid" id="card-grid">
           {papers.map((paper) => (
-            <div class="card">
+            <div class="card" data-tags={paper.data.tags.join(',')}>
               <div class="card-meta">
                 <time datetime={paper.data.pubDate.toISOString()}>
                   {formatDateShort(paper.data.pubDate)}
@@ -35,7 +47,7 @@ const papers = (await getCollection('whitepapers', ({ data }) => !data.draft))
               <h3><a href={`/whitepapers/${paper.id}`}>{paper.data.title}</a></h3>
               <p>{paper.data.description}</p>
               <div class="card-tags">
-                {paper.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+                {paper.data.tags.map((tag) => <button type="button" class="tag filter-tag" data-tag={tag}>{tag}</button>)}
               </div>
             </div>
           ))}
@@ -44,3 +56,44 @@ const papers = (await getCollection('whitepapers', ({ data }) => !data.draft))
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  const tagButtons = document.querySelectorAll<HTMLButtonElement>('.filter-tag');
+  const cards = document.querySelectorAll<HTMLDivElement>('#card-grid .card');
+  const countEl = document.getElementById('paper-count')!;
+  const totalCount = cards.length;
+
+  let activeTag = '';
+
+  function applyFilters() {
+    let visible = 0;
+    tagButtons.forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.tag === activeTag);
+    });
+    cards.forEach((card) => {
+      const cardTags = (card.dataset.tags || '').split(',');
+      const match = !activeTag || cardTags.includes(activeTag);
+      (card as HTMLElement).style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+    const filtering = !!activeTag;
+    countEl.textContent = filtering
+      ? `${visible} of ${totalCount} paper${totalCount !== 1 ? 's' : ''}`
+      : `${totalCount} paper${totalCount !== 1 ? 's' : ''}`;
+  }
+
+  tagButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const tag = btn.dataset.tag!;
+      activeTag = activeTag === tag ? '' : tag;
+      applyFilters();
+    });
+  });
+
+  const params = new URLSearchParams(window.location.search);
+  const urlTag = params.get('tag');
+  if (urlTag) {
+    activeTag = urlTag;
+    applyFilters();
+  }
+</script>

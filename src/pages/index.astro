@@ -84,7 +84,7 @@ const standards = (await getCollection('standards', ({ data }) => data.status ==
               <p>{std.data.description}</p>
               <div class="card-tags">
                 {std.data.tags.slice(0, 3).map((tag) => (
-                  <span class="tag">{tag}</span>
+                  <a href={`/standards/?tag=${tag}`} class="tag tag-link">{tag}</a>
                 ))}
               </div>
             </div>
@@ -114,7 +114,7 @@ const standards = (await getCollection('standards', ({ data }) => data.status ==
               <p>{post.data.description}</p>
               <div class="card-tags">
                 {post.data.tags.slice(0, 3).map((tag) => (
-                  <span class="tag">{tag}</span>
+                  <a href={`/blog/?tag=${tag}`} class="tag tag-link">{tag}</a>
                 ))}
               </div>
             </div>

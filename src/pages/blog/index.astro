@@ -20,20 +20,21 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
   <section class="section">
     <div class="container">
       {allTags.length > 0 && (
-        <div class="flex-wrap mb-2">
-          <span class="text-small font-semibold">Tags:</span>
+        <div class="tag-bar" id="tag-bar">
           {allTags.map((tag) => (
-            <span class="tag">{tag}</span>
+            <button type="button" class="tag filter-tag" data-tag={tag}>{tag}</button>
           ))}
         </div>
       )}
 
+      <p id="post-count" class="text-muted mb-1">{posts.length} post{posts.length !== 1 ? 's' : ''}</p>
+
       {posts.length === 0 ? (
         <p class="text-muted">No posts yet. <a href="https://github.com/sane-av/sane-av.github.io">Be the first to contribute!</a></p>
       ) : (
-        <div class="card-grid">
+        <div class="card-grid" id="card-grid">
           {posts.map((post) => (
-            <div class="card">
+            <div class="card" data-tags={post.data.tags.join(',')}>
               <div class="card-meta">
                 <time datetime={post.data.pubDate.toISOString()}>
                   {formatDateShort(post.data.pubDate)}
@@ -43,7 +44,7 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
               <h3><a href={`/blog/${post.id}`}>{post.data.title}</a></h3>
               <p>{post.data.description}</p>
               <div class="card-tags">
-                {post.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+                {post.data.tags.map((tag) => <button type="button" class="tag filter-tag" data-tag={tag}>{tag}</button>)}
               </div>
             </div>
           ))}
@@ -52,3 +53,44 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  const tagButtons = document.querySelectorAll<HTMLButtonElement>('.filter-tag');
+  const cards = document.querySelectorAll<HTMLDivElement>('#card-grid .card');
+  const countEl = document.getElementById('post-count')!;
+  const totalCount = cards.length;
+
+  let activeTag = '';
+
+  function applyFilters() {
+    let visible = 0;
+    tagButtons.forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.tag === activeTag);
+    });
+    cards.forEach((card) => {
+      const cardTags = (card.dataset.tags || '').split(',');
+      const match = !activeTag || cardTags.includes(activeTag);
+      (card as HTMLElement).style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+    const filtering = !!activeTag;
+    countEl.textContent = filtering
+      ? `${visible} of ${totalCount} post${totalCount !== 1 ? 's' : ''}`
+      : `${totalCount} post${totalCount !== 1 ? 's' : ''}`;
+  }
+
+  tagButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const tag = btn.dataset.tag!;
+      activeTag = activeTag === tag ? '' : tag;
+      applyFilters();
+    });
+  });
+
+  const params = new URLSearchParams(window.location.search);
+  const urlTag = params.get('tag');
+  if (urlTag) {
+    activeTag = urlTag;
+    applyFilters();
+  }
+</script>

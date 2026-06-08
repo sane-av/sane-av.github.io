@@ -6,6 +6,8 @@ import { formatDateMonthYear } from '../../lib/date';
 const standards = (await getCollection('standards'))
   .sort((a, b) => a.data.saneId.localeCompare(b.data.saneId));
 
+const allTags = [...new Set(standards.flatMap((s) => s.data.tags))].sort();
+
 const grouped = standards.reduce<Record<string, typeof standards>>((groups, standard) => {
   const status = standard.data.status;
   if (!groups[status]) groups[status] = [];
@@ -32,6 +34,16 @@ const orderedStatuses = (['published', 'review', 'draft', 'deprecated'] as const
 
   <section class="section">
     <div class="container">
+      {allTags.length > 0 && (
+        <div class="tag-bar" id="tag-bar">
+          {allTags.map((tag) => (
+            <button type="button" class="tag filter-tag" data-tag={tag}>{tag}</button>
+          ))}
+        </div>
+      )}
+
+      <p id="std-count" class="text-muted mb-1">{standards.length} standard{standards.length !== 1 ? 's' : ''}</p>
+
       {standards.length === 0 ? (
         <div class="rfc-box">
           <h3>No standards published yet</h3>
@@ -42,7 +54,7 @@ const orderedStatuses = (['published', 'review', 'draft', 'deprecated'] as const
         </div>
       ) : (
         orderedStatuses.map((status) => (
-          <div class="mb-3">
+          <div class="mb-3 status-group">
             <h2 class="section-heading">
               <span class={`status-badge status-${status}`}>{status}</span>
               <span class="text-muted font-normal">
@@ -51,7 +63,7 @@ const orderedStatuses = (['published', 'review', 'draft', 'deprecated'] as const
             </h2>
             <div class="card-grid">
               {grouped[status].map((standard) => (
-                <div class="card">
+                <div class="card" data-tags={standard.data.tags.join(',')}>
                   <div class="card-meta">
                     <span class="sane-id">{standard.data.saneId}</span>
                     <span>v{standard.data.version}</span>
@@ -62,7 +74,7 @@ const orderedStatuses = (['published', 'review', 'draft', 'deprecated'] as const
                   <h3><a href={`/standards/${standard.id}`}>{standard.data.title}</a></h3>
                   <p>{standard.data.description}</p>
                   <div class="card-tags">
-                    {standard.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+                    {standard.data.tags.map((tag) => <button type="button" class="tag filter-tag" data-tag={tag}>{tag}</button>)}
                   </div>
                 </div>
               ))}
@@ -73,3 +85,50 @@ const orderedStatuses = (['published', 'review', 'draft', 'deprecated'] as const
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  const tagButtons = document.querySelectorAll<HTMLButtonElement>('.filter-tag');
+  const cards = document.querySelectorAll<HTMLDivElement>('.card[data-tags]');
+  const statusGroups = document.querySelectorAll<HTMLDivElement>('.status-group');
+  const countEl = document.getElementById('std-count')!;
+  const totalCount = cards.length;
+
+  let activeTag = '';
+
+  function applyFilters() {
+    let visible = 0;
+    tagButtons.forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.tag === activeTag);
+    });
+    cards.forEach((card) => {
+      const cardTags = (card.dataset.tags || '').split(',');
+      const match = !activeTag || cardTags.includes(activeTag);
+      (card as HTMLElement).style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+    statusGroups.forEach((group) => {
+      const visibleCards = group.querySelectorAll<HTMLElement>('.card[data-tags]');
+      const hasVisible = Array.from(visibleCards).some((c) => c.style.display !== 'none');
+      group.style.display = hasVisible ? '' : 'none';
+    });
+    const filtering = !!activeTag;
+    countEl.textContent = filtering
+      ? `${visible} of ${totalCount} standard${totalCount !== 1 ? 's' : ''}`
+      : `${totalCount} standard${totalCount !== 1 ? 's' : ''}`;
+  }
+
+  tagButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const tag = btn.dataset.tag!;
+      activeTag = activeTag === tag ? '' : tag;
+      applyFilters();
+    });
+  });
+
+  const params = new URLSearchParams(window.location.search);
+  const urlTag = params.get('tag');
+  if (urlTag) {
+    activeTag = urlTag;
+    applyFilters();
+  }
+</script>

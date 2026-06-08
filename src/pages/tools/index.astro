@@ -17,6 +17,8 @@ const tools = [
     tags: ['video', 'projection'],
   },
 ];
+
+const allTags = [...new Set(tools.flatMap((t) => t.tags))].sort();
 ---
 
 <BaseLayout title="Tools" description="Free open source AV engineering calculators and tools.">
@@ -29,9 +31,19 @@ const tools = [
 
   <section class="section">
     <div class="container">
-      <div class="card-grid">
+      {allTags.length > 0 && (
+        <div class="tag-bar" id="tag-bar">
+          {allTags.map((tag) => (
+            <button type="button" class="tag filter-tag" data-tag={tag}>{tag}</button>
+          ))}
+        </div>
+      )}
+
+      <p id="tool-count" class="text-muted mb-1">{tools.length} tool{tools.length !== 1 ? 's' : ''}</p>
+
+      <div class="card-grid" id="card-grid">
         {tools.map((tool) => (
-          <a href={tool.href} class="card tool-card-link">
+          <a href={tool.href} class="card tool-card-link" data-tags={tool.tags.join(',')}>
             <div class="emoji-xl">{tool.icon}</div>
             <h3 class="mt-1">{tool.title}</h3>
             <p>{tool.description}</p>
@@ -57,3 +69,44 @@ const tools = [
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  const tagButtons = document.querySelectorAll<HTMLButtonElement>('.filter-tag');
+  const cards = document.querySelectorAll<HTMLDivElement>('#card-grid [data-tags]');
+  const countEl = document.getElementById('tool-count')!;
+  const totalCount = cards.length;
+
+  let activeTag = '';
+
+  function applyFilters() {
+    let visible = 0;
+    tagButtons.forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.tag === activeTag);
+    });
+    cards.forEach((card) => {
+      const cardTags = (card.dataset.tags || '').split(',');
+      const match = !activeTag || cardTags.includes(activeTag);
+      (card as HTMLElement).style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+    const filtering = !!activeTag;
+    countEl.textContent = filtering
+      ? `${visible} of ${totalCount} tool${totalCount !== 1 ? 's' : ''}`
+      : `${totalCount} tool${totalCount !== 1 ? 's' : ''}`;
+  }
+
+  tagButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const tag = btn.dataset.tag!;
+      activeTag = activeTag === tag ? '' : tag;
+      applyFilters();
+    });
+  });
+
+  const params = new URLSearchParams(window.location.search);
+  const urlTag = params.get('tag');
+  if (urlTag) {
+    activeTag = urlTag;
+    applyFilters();
+  }
+</script>

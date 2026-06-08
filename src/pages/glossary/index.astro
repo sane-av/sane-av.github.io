@@ -39,7 +39,7 @@ const pageCount = merged.filter((e) => e.hasPage).length;
         <div class="glossary-categories" id="glossary-categories">
           <span class="text-small label-heading">Category:</span>
           {categories.map((cat) => (
-            <button type="button" class="tag tag-orange glossary-tag" data-category={cat}>
+            <button type="button" class="tag tag-orange filter-tag" data-category={cat}>
               {cat}
             </button>
           ))}
@@ -119,7 +119,7 @@ const pageCount = merged.filter((e) => e.hasPage).length;
 
 <script>
   const searchInput = document.getElementById('glossary-search') as HTMLInputElement;
-  const tagButtons = document.querySelectorAll<HTMLButtonElement>('.glossary-tag');
+  const tagButtons = document.querySelectorAll<HTMLButtonElement>('.filter-tag');
   const jumpButtons = document.querySelectorAll<HTMLButtonElement>('.glossary-jump-btn');
   const items = document.querySelectorAll<HTMLLIElement>('.glossary-item');
   const letterHeadings = document.querySelectorAll<HTMLLIElement>('.glossary-letter');

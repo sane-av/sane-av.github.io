@@ -17,6 +17,7 @@ const allEquipment: EquipmentEntry[] = Object.entries(files)
   .flatMap(([, f]) => Array.isArray(f.default) ? f.default : []);
 
 const categories = [...new Set(allEquipment.map((e) => e.category))].sort();
+const allTags = [...new Set(allEquipment.flatMap((e) => e.tags))].sort();
 ---
 
 <BaseLayout title="Equipment Database" description="Open community database of AV equipment specifications.">
@@ -45,6 +46,14 @@ const categories = [...new Set(allEquipment.map((e) => e.category))].sort();
         </select>
       </div>
 
+      {allTags.length > 0 && (
+        <div class="tag-bar mb-1" id="tag-bar">
+          {allTags.map((tag) => (
+            <button type="button" class="tag filter-tag" data-tag={tag}>{tag}</button>
+          ))}
+        </div>
+      )}
+
       <p id="eq-count" class="text-muted mb-1">
         {allEquipment.length} entries
       </p>
@@ -62,7 +71,7 @@ const categories = [...new Set(allEquipment.map((e) => e.category))].sort();
           </thead>
           <tbody>
             {allEquipment.map((item) => (
-              <tr data-cat={item.category} data-search={`${item.manufacturer} ${item.model} ${item.tags.join(' ')} ${Object.values(item.specs).join(' ')}`.toLowerCase()}>
+              <tr data-cat={item.category} data-search={`${item.manufacturer} ${item.model} ${item.tags.join(' ')} ${Object.values(item.specs).join(' ')}`.toLowerCase()} data-tags={item.tags.join(',')}>
                 <td><strong>{item.manufacturer}</strong></td>
                 <td>{item.model}</td>
                 <td><span class="tag">{item.category}</span></td>
@@ -73,7 +82,7 @@ const categories = [...new Set(allEquipment.map((e) => e.category))].sort();
                 </td>
                 <td>
                   <div class="card-tags">
-                    {item.tags.map((t) => <span class="tag tag-orange">{t}</span>)}
+                    {item.tags.map((t) => <button type="button" class="tag filter-tag" data-tag={t}>{t}</button>)}
                   </div>
                 </td>
               </tr>
@@ -88,17 +97,25 @@ const categories = [...new Set(allEquipment.map((e) => e.category))].sort();
 <script>
   const search = document.getElementById('eq-search') as HTMLInputElement;
   const catSelect = document.getElementById('eq-cat') as HTMLSelectElement;
+  const tagButtons = document.querySelectorAll<HTMLButtonElement>('.filter-tag');
   const rows = document.querySelectorAll<HTMLTableRowElement>('#eq-table tbody tr');
   const countEl = document.getElementById('eq-count')!;
+
+  let activeTag = '';
 
   function filter() {
     const query = search.value.toLowerCase();
     const category = catSelect.value;
     let visible = 0;
+    tagButtons.forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.tag === activeTag);
+    });
     rows.forEach((row) => {
       const matchSearch = !query || row.dataset.search?.includes(query);
       const matchCategory = !category || row.dataset.cat === category;
-      const show = matchSearch && matchCategory;
+      const rowTags = (row.dataset.tags || '').split(',');
+      const matchTag = !activeTag || rowTags.includes(activeTag);
+      const show = matchSearch && matchCategory && matchTag;
       row.style.display = show ? '' : 'none';
       if (show) visible++;
     });
@@ -107,4 +124,19 @@ const categories = [...new Set(allEquipment.map((e) => e.category))].sort();
 
   search.addEventListener('input', filter);
   catSelect.addEventListener('change', filter);
+
+  tagButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const tag = btn.dataset.tag!;
+      activeTag = activeTag === tag ? '' : tag;
+      filter();
+    });
+  });
+
+  const params = new URLSearchParams(window.location.search);
+  const urlTag = params.get('tag');
+  if (urlTag) {
+    activeTag = urlTag;
+    filter();
+  }
 </script>
