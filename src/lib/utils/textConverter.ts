@@ -12,6 +12,7 @@ export const markdownify = (content: string, div?: boolean) => {
 };
 
 // humanize
+const acronyms = new Set(["rfc", "rfcs", "rss", "api", "css", "html", "js", "json", "xml", "svg", "url", "uri", "ip", "av", "db", "id", "hdmi", "sdi", "spi", "usb", "lan", "wan", "dsp", "thd", "bnc", "arc", "avb", "agc", "dbu"]);
 export const humanize = (content: string) => {
   return content
     .replace(/^[\s_]+|[\s_]+$/g, "")
@@ -19,7 +20,10 @@ export const humanize = (content: string) => {
     .replace(/[-\s]+/g, " ")
     .replace(/^[a-z]/, function (m) {
       return m.toUpperCase();
-    });
+    })
+    .split(" ")
+    .map((word) => acronyms.has(word.toLowerCase()) ? word.toUpperCase() : word)
+    .join(" ");
 };
 
 // titleify
