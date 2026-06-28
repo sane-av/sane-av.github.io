@@ -1,6 +1,9 @@
 ---
 import Base from "@/layouts/Base.astro";
 import PageHeader from "@/partials/PageHeader.astro";
+import { statusColors, statusDescriptions } from "@/lib/statusColors";
+
+const statuses = ["draft", "under-review", "published", "deprecated"] as const;
 ---
 
 <Base title="RFC Process" description="How to propose and advance new SANE standards through the RFC process.">
@@ -40,12 +43,14 @@ import PageHeader from "@/partials/PageHeader.astro";
           <div class="mb-8 overflow-x-auto">
             <table class="w-full text-left text-sm">
               <thead><tr class="border-b border-border dark:border-darkmode-border"><th class="px-4 py-3">Status</th><th class="px-4 py-3">Meaning</th></tr></thead>
-              <tbody>
-                <tr class="border-b border-border dark:border-darkmode-border"><td class="px-4 py-3"><span class="rounded-full bg-yellow-100 px-2 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-300">draft</span></td><td class="px-4 py-3 text-text-light dark:text-darkmode-text-light">Work in progress, not ready for review</td></tr>
-                <tr class="border-b border-border dark:border-darkmode-border"><td class="px-4 py-3"><span class="rounded-full bg-blue-100 px-2 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900/40 dark:text-blue-300">review</span></td><td class="px-4 py-3 text-text-light dark:text-darkmode-text-light">In the 60-day public review period</td></tr>
-                <tr class="border-b border-border dark:border-darkmode-border"><td class="px-4 py-3"><span class="rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800 dark:bg-green-900/40 dark:text-green-300">published</span></td><td class="px-4 py-3 text-text-light dark:text-darkmode-text-light">Ratified and recommended for implementation</td></tr>
-                <tr><td class="px-4 py-3"><span class="rounded-full bg-red-100 px-2 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900/40 dark:text-red-300">deprecated</span></td><td class="px-4 py-3 text-text-light dark:text-darkmode-text-light">Superseded by a newer standard</td></tr>
-              </tbody>
+               <tbody>
+                 {statuses.map((s) => (
+                   <tr class="border-b border-border dark:border-darkmode-border">
+                     <td class="px-4 py-3"><span class={`rounded-full px-2 py-0.5 text-xs font-medium ${statusColors[s]}`}>{s}</span></td>
+                     <td class="px-4 py-3 text-text-light dark:text-darkmode-text-light">{statusDescriptions[s]}</td>
+                   </tr>
+                 ))}
+               </tbody>
             </table>
           </div>
 
