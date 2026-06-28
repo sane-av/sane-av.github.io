@@ -1,0 +1,135 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getCollection, render } from "astro:content";
+import dateFormat from "@/lib/utils/dateFormat";
+import { statusColors } from "@/lib/statusColors";
+
+export async function getStaticPaths() {
+  const standards = await getCollection("standards");
+  return standards.map((std) => ({
+    params: { slug: std.id },
+    props: { std },
+  }));
+}
+
+const { std } = Astro.props;
+const { Content } = await render(std);
+
+const pubDate = std.data.pubDate;
+const updatedDate = std.data.updatedDate;
+const standardUrl = `https://sane-av.github.io/standards/${std.id}/`;
+const citationPlain = `SANE. (${pubDate.getFullYear()}). ${std.data.saneId}: ${std.data.title}. ${standardUrl}`;
+const citationBibtex = `@misc{sane${std.data.saneId.toLowerCase().replace(/[^a-z0-9]/g, "")},
+  title = {${std.data.saneId}: ${std.data.title}},
+  author = {${std.data.authors.join(" and ")}},
+  year = {${pubDate.getFullYear()}},
+  url = {${standardUrl}},
+  note = {Version ${std.data.version}}
+}`;
+---
+
+<Base title={`${std.data.saneId}: ${std.data.title}`} description={std.data.description}>
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+
+          <!-- Header -->
+          <div class="mb-8">
+            <div class="mb-3 flex flex-wrap items-center gap-3">
+              <span class={`rounded-full px-3 py-1 text-sm font-medium ${statusColors[std.data.status] || ""}`}>{std.data.status}</span>
+              <span class="font-mono font-bold text-text-dark dark:text-darkmode-text-dark">{std.data.saneId}</span>
+              <span class="text-text-light dark:text-darkmode-text-light">Version {std.data.version}</span>
+            </div>
+            <h1 class="mb-2">{std.data.title}</h1>
+            <p class="text-text-light dark:text-darkmode-text-light">{std.data.description}</p>
+          </div>
+
+          <!-- Metadata -->
+          <div class="mb-8 row rounded-lg border border-border p-6 dark:border-darkmode-border">
+            <div class="md:col-6 lg:col-3 mb-4">
+              <span class="block text-sm text-text-light dark:text-darkmode-text-light">Standard ID</span>
+              <strong class="font-mono text-text-dark dark:text-darkmode-text-dark">{std.data.saneId}</strong>
+            </div>
+            <div class="md:col-6 lg:col-3 mb-4">
+              <span class="block text-sm text-text-light dark:text-darkmode-text-light">Version</span>
+              <strong class="text-text-dark dark:text-darkmode-text-dark">{std.data.version}</strong>
+            </div>
+            <div class="md:col-6 lg:col-3 mb-4">
+              <span class="block text-sm text-text-light dark:text-darkmode-text-light">Status</span>
+              <span class={`rounded-full px-2 py-0.5 text-xs font-medium ${statusColors[std.data.status] || ""}`}>{std.data.status}</span>
+            </div>
+            <div class="md:col-6 lg:col-3 mb-4">
+              <span class="block text-sm text-text-light dark:text-darkmode-text-light">Published</span>
+              <span class="text-text-dark dark:text-darkmode-text-dark">{dateFormat(pubDate, "MMMM d, yyyy")}</span>
+            </div>
+            {updatedDate && (
+              <div>
+                <span class="block text-sm text-text-light dark:text-darkmode-text-light">Last Updated</span>
+                <span class="text-text-dark dark:text-darkmode-text-dark">{dateFormat(updatedDate, "MMMM d, yyyy")}</span>
+              </div>
+            )}
+            <div>
+              <span class="block text-sm text-text-light dark:text-darkmode-text-light">Authors</span>
+              <span class="text-text-dark dark:text-darkmode-text-dark">{std.data.authors.join(", ")}</span>
+            </div>
+          </div>
+
+          <!-- Tags -->
+          {std.data.tags.length > 0 && (
+            <div class="mb-6 flex flex-wrap gap-2">
+              {std.data.tags.map((tag: string) => (
+                <a href={`/standards/?tag=${tag}`} class="rounded bg-light px-3 py-1 text-sm hover:bg-primary hover:text-white dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark">{tag}</a>
+              ))}
+            </div>
+          )}
+
+          <!-- Related Standards -->
+          {std.data.relatedStandards.length > 0 && (
+            <div class="mb-8 rounded-lg border border-border p-6 dark:border-darkmode-border">
+              <h3 class="mb-3">Related Standards</h3>
+              <p class="text-text-light dark:text-darkmode-text-light">{std.data.relatedStandards.join(" · ")}</p>
+            </div>
+          )}
+
+          <!-- Content -->
+          <div class="content mb-10">
+            <Content />
+          </div>
+
+          <!-- Citation -->
+          <div class="mb-8 rounded-lg border border-border p-6 dark:border-darkmode-border">
+            <h3 class="mb-3">How to cite this standard</h3>
+            <p class="mb-3 text-sm text-text-light dark:text-darkmode-text-light">Copy the plain-text or BibTeX citation below.</p>
+            <pre class="mb-2 overflow-x-auto rounded bg-light p-3 text-sm dark:bg-darkmode-body">{citationPlain}</pre>
+            <pre class="mb-3 overflow-x-auto rounded bg-light p-3 text-sm dark:bg-darkmode-body">{citationBibtex}</pre>
+            <div class="flex gap-2">
+              <button class="copy-btn btn btn-outline-primary btn-sm" data-citation={citationPlain}>Copy plain text</button>
+              <button class="copy-btn btn btn-outline-primary btn-sm" data-citation={citationBibtex}>Copy BibTeX</button>
+            </div>
+          </div>
+
+          <!-- License -->
+          <hr class="mb-6 border-border dark:border-darkmode-border" />
+          <p class="text-sm text-text-light dark:text-darkmode-text-light">
+            This standard is published under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" class="underline hover:text-primary dark:hover:text-darkmode-primary">CC BY-SA 4.0</a>.
+            Found an error or want to suggest changes? <a href={`https://github.com/sane-av/sane-av.github.io/issues/new?template=rfc.yml&title=[Amendment+${std.data.saneId}]`} target="_blank" rel="noopener" class="underline hover:text-primary dark:hover:text-darkmode-primary">Open an issue on GitHub</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  document.querySelectorAll(".copy-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const text = btn.getAttribute("data-citation")!;
+      navigator.clipboard.writeText(text).then(() => {
+        const original = btn.textContent;
+        btn.textContent = "Copied!";
+        setTimeout(() => { btn.textContent = original; }, 1500);
+      });
+    });
+  });
+</script>

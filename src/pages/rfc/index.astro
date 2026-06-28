@@ -1,0 +1,64 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+---
+
+<Base title="RFC Process" description="How to propose and advance new SANE standards through the RFC process.">
+  <PageHeader title="RFC - Request for Comments" />
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <p class="mb-8 text-text-light dark:text-darkmode-text-light">The open process for proposing, discussing, and ratifying SANE standards.</p>
+
+          <div class="mb-10 rounded-lg bg-gradient p-6 text-center">
+            <h3 class="mb-2">Ready to propose a standard?</h3>
+            <p class="mb-4 text-text-light dark:text-darkmode-text-light">Open a GitHub issue using the RFC template. Anyone can propose; the community discusses; consensus drives ratification.</p>
+            <a href="https://github.com/sane-av/sane-av.github.io/issues/new?template=rfc.yml" target="_blank" rel="noopener" class="btn btn-primary">Open an RFC Issue &rarr;</a>
+          </div>
+
+          <h2 class="mb-4">How the Process Works</h2>
+          {[
+            { step: "1", title: "Proposal", body: "Open a GitHub issue using the RFC template. Describe the problem, proposed solution, and affected AV domains." },
+            { step: "2", title: "Discussion", body: "The community reviews the RFC. Comments, concerns, and proposed amendments are discussed openly on the issue." },
+            { step: "3", title: "Draft PR", body: "Once rough consensus is reached, open a Pull Request with the draft standard document in Markdown format." },
+            { step: "4", title: "Review Period", body: "The PR enters a minimum 60-day public review. Major changes restart the clock." },
+            { step: "5", title: "Ratification", body: "After review with no blocking objections, the PR is merged. The standard is published with status: published." },
+          ].map(({ step, title, body }) => (
+            <div class="mb-6 flex gap-4">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-white dark:bg-darkmode-primary dark:text-dark"> {step} </div>
+              <div>
+                <h3 class="mb-1 text-h5">{title}</h3>
+                <p class="text-text-light dark:text-darkmode-text-light">{body}</p>
+              </div>
+            </div>
+          ))}
+
+          <h2 class="mb-3 mt-10">RFC Statuses</h2>
+          <p class="mb-4 text-text-light dark:text-darkmode-text-light">See the <a href="/rfc/status" class="text-primary hover:underline dark:text-darkmode-primary">RFC Status Dashboard</a> for the current state of every standard.</p>
+          <div class="mb-8 overflow-x-auto">
+            <table class="w-full text-left text-sm">
+              <thead><tr class="border-b border-border dark:border-darkmode-border"><th class="px-4 py-3">Status</th><th class="px-4 py-3">Meaning</th></tr></thead>
+              <tbody>
+                <tr class="border-b border-border dark:border-darkmode-border"><td class="px-4 py-3"><span class="rounded-full bg-yellow-100 px-2 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-300">draft</span></td><td class="px-4 py-3 text-text-light dark:text-darkmode-text-light">Work in progress, not ready for review</td></tr>
+                <tr class="border-b border-border dark:border-darkmode-border"><td class="px-4 py-3"><span class="rounded-full bg-blue-100 px-2 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900/40 dark:text-blue-300">review</span></td><td class="px-4 py-3 text-text-light dark:text-darkmode-text-light">In the 60-day public review period</td></tr>
+                <tr class="border-b border-border dark:border-darkmode-border"><td class="px-4 py-3"><span class="rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800 dark:bg-green-900/40 dark:text-green-300">published</span></td><td class="px-4 py-3 text-text-light dark:text-darkmode-text-light">Ratified and recommended for implementation</td></tr>
+                <tr><td class="px-4 py-3"><span class="rounded-full bg-red-100 px-2 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900/40 dark:text-red-300">deprecated</span></td><td class="px-4 py-3 text-text-light dark:text-darkmode-text-light">Superseded by a newer standard</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 class="mb-3">Principles</h2>
+          <ul class="mb-8 space-y-2 text-text-light dark:text-darkmode-text-light">
+            <li><strong>Rough consensus, not unanimity.</strong> We seek broad agreement, not perfection.</li>
+            <li><strong>Technical merit first.</strong> Arguments backed by evidence and real-world data carry more weight.</li>
+            <li><strong>No IP encumbrances.</strong> All standards must be implementable freely without patent licensing fees.</li>
+            <li><strong>Plain English.</strong> Write for the working AV professional, not just academics.</li>
+            <li><strong>Versioned and auditable.</strong> Every change is in Git. Nothing is ever quietly altered.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

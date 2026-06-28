@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "term": {
+      "type": "string"
+    },
+    "abbreviation": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "relatedTerms": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "redirectTo": {
+      "type": "string"
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "term",
+    "category"
+  ]
+}

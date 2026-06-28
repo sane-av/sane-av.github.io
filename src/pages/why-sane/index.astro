@@ -1,0 +1,79 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+
+const rows = [
+  { topic: "Access to standards", proprietary: "Paywalled or membership-required", sane: "Free, open web access with no login" },
+  { topic: "Cost to participate", proprietary: "Membership dues, conference fees, certification costs", sane: "No fees to propose, review, or use standards" },
+  { topic: "Governance", proprietary: "Closed committees and vendor boards", sane: "Public RFC process with 60-day review" },
+  { topic: "Decision transparency", proprietary: "Votes and minutes often private", sane: "Every discussion and change is in Git" },
+  { topic: "Influence", proprietary: "Weighted toward large manufacturers", sane: "One voice per contributor, rough consensus" },
+  { topic: "Licensing", proprietary: "Restricted or pay-to-use documents", sane: "Open content license (CC BY-SA 4.0)" },
+  { topic: "Version control", proprietary: "Static PDFs, hard to track changes", sane: "Versioned in Git; diffs for every amendment" },
+  { topic: "Scope", proprietary: "Broad industry coverage, slower updates", sane: "Focused, practical standards written by implementers" },
+  { topic: "Machine-readable data", proprietary: "Limited or proprietary formats", sane: "JSON feeds for standards and equipment" },
+  { topic: "Certification", proprietary: "Expensive exams and renewal fees", sane: "Future program aimed at accessible, transparent certification" },
+];
+---
+
+<Base title="Why?" description="The professional AV industry deserves standards that are open, transparent, and built by the people who use them.">
+  <PageHeader title="Why SANE?" />
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <h2 class="mb-3">The problem</h2>
+          <p class="mb-6 text-text-light dark:text-darkmode-text-light">Most AV "standards" are locked behind paywalls, controlled by private organizations, or written by vendors to favor their own products. The people who design, install, and maintain AV systems every day - integrators, consultants, engineers, educators - often cannot afford access, cannot influence the content, and cannot see why decisions were made.</p>
+          <p class="mb-8 text-text-light dark:text-darkmode-text-light">This leads to inconsistent installations, expensive rework, and an industry where tribal knowledge matters more than documented best practice.</p>
+
+          <h2 class="mb-3">The SANE approach</h2>
+          <ul class="mb-8 space-y-2 text-text-light dark:text-darkmode-text-light">
+            <li><strong>Open by default.</strong> Every standard, whitepaper, glossary entry, and dataset is published under an open license.</li>
+            <li><strong>Transparent process.</strong> Proposals are discussed in public. Every change is tracked in Git. Nothing is decided in a back room.</li>
+            <li><strong>No gatekeeping.</strong> You do not need to pay dues, join a committee, or work for the right company to contribute.</li>
+            <li><strong>Practical and implementable.</strong> SANE standards are written for working AV professionals, not just standards lawyers.</li>
+            <li><strong>Community-funded.</strong> SANE is supported by donations and sponsorships, not by selling access to documents.</li>
+          </ul>
+
+          <h2 class="mb-3">At a glance</h2>
+          <div class="mb-8 overflow-x-auto">
+            <table class="w-full border-collapse text-left text-sm">
+              <thead><tr class="border-b border-border dark:border-darkmode-border"><th class="px-4 py-3">Topic</th><th class="px-4 py-3">Proprietary / Vendor specs</th><th class="px-4 py-3">SANE</th></tr></thead>
+              <tbody>
+                {rows.map((row) => (
+                  <tr class="border-b border-border dark:border-darkmode-border">
+                    <td class="px-4 py-3 font-semibold">{row.topic}</td>
+                    <td class="px-4 py-3 text-text-light dark:text-darkmode-text-light">{row.proprietary}</td>
+                    <td class="px-4 py-3">{row.sane}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <h2 class="mb-3">When to use existing bodies</h2>
+          <p class="mb-6 text-text-light dark:text-darkmode-text-light">SANE respects the work of organizations like InfoComm, CEDIA, SMPTE, AES, and ITU. Existing standards remain essential for regulated environments, broadcast, life-safety systems, and areas where formal accreditation is required.</p>
+
+          <h2 class="mb-3">When to use SANE</h2>
+          <ul class="mb-8 space-y-2 text-text-light dark:text-darkmode-text-light">
+            <li>You need a practical, implementable guideline that is free to read and share.</li>
+            <li>You want to influence a standard without paying membership fees.</li>
+            <li>You need a living document that can be updated as technology changes.</li>
+            <li>You want machine-readable data and open tools alongside the standard.</li>
+            <li>You want to cite a standard in a proposal, report, or product manual without licensing concerns.</li>
+          </ul>
+
+          <h2 class="mb-3">What we are building</h2>
+          <p class="mb-3 text-text-light dark:text-darkmode-text-light">SANE is more than a website. It is an open standards body for AV: a place where signal levels, connector conventions, network requirements, and system design practices can be documented once and used everywhere.</p>
+          <p class="mb-8 text-text-light dark:text-darkmode-text-light">We are also building open data and tools: an equipment database, calculators, reference implementations, and eventually certification programs that validate real-world understanding of the standards.</p>
+
+          <div class="flex gap-3">
+            <a href="/standards" class="btn btn-primary">Browse standards</a>
+            <a href="/contributing" class="btn btn-outline-primary">Start contributing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

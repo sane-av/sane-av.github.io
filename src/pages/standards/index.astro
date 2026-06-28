@@ -1,0 +1,132 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import PostSidebar from "@/partials/PostSidebar.astro";
+import StandardCard from "@/layouts/components/StandardCard.astro";
+import Pagination from "@/components/Pagination.astro";
+import config from "@/config/config.json";
+import { getCollection } from "astro:content";
+import { statusColors } from "@/lib/statusColors";
+
+const STANDARDS_SECTION = "standards";
+const PAGE_SIZE = config.settings.pagination;
+
+const allStandards = (await getCollection("standards"))
+  .sort((a, b) => a.data.saneId.localeCompare(b.data.saneId));
+
+const allTags = [...new Set(allStandards.flatMap((s) => s.data.tags))].sort((a, b) => a.localeCompare(b));
+
+const totalPages = Math.ceil(allStandards.length / PAGE_SIZE);
+const pageStandards = allStandards.slice(0, PAGE_SIZE);
+
+const grouped = pageStandards.reduce<Record<string, typeof pageStandards>>((groups, standard) => {
+  const status = standard.data.status;
+  if (!groups[status]) groups[status] = [];
+  groups[status].push(standard);
+  return groups;
+}, {});
+
+const orderedStatuses = (["published", "under-review", "draft", "deprecated"] as const)
+  .filter((status) => grouped[status]?.length);
+---
+
+<Base title="Standards" description="Free, open AV standards from the SANE community.">
+  <PageHeader title="Standards" />
+
+  <section class="pt-6 pb-4">
+    <div class="container text-center">
+      <div class="rounded-2xl bg-gradient px-8 py-4">
+        <p class="mb-4 text-text-light dark:text-darkmode-text-light">
+          We want your ideas! If you have a proposal for a new standard, please open an RFC on GitHub. Once it has been reviewed and accepted, it will be published here.
+        </p>
+        <div class="flex flex-wrap justify-center gap-2">
+          <a href="/rfc" class="btn btn-primary btn-sm">Propose a Standard via RFC &rarr;</a>
+          <a href="/standards.json" class="btn btn-outline-primary btn-sm">JSON Feed</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pt-8 pb-24 xl:pt-10 xl:pb-28">
+    <div class="container">
+      <div class="row gx-5">
+        <div class="lg:col-8">
+          {allStandards.length === 0 ? (
+            <div class="rounded-lg border border-border p-8 text-center dark:border-darkmode-border">
+              <h3 class="mb-2">No standards published yet</h3>
+              <p class="mb-4 text-text-light dark:text-darkmode-text-light">Be the first to contribute! Open an RFC on GitHub to propose the first SANE standard.</p>
+              <a href="/rfc" class="btn btn-primary btn-sm">Open an RFC &rarr;</a>
+            </div>
+          ) : (
+            <>
+              {orderedStatuses.map((status) => (
+                <div class="status-group mb-10">
+                  <h2 class="mb-4 flex items-center gap-3">
+                    <span class={`rounded-full px-3 py-1 text-sm font-medium ${statusColors[status] || "bg-gray-100 text-gray-800 dark:bg-gray-900/40 dark:text-gray-300"}`}>{status}</span>
+                    <span class="text-text-light dark:text-darkmode-text-light text-base font-normal">
+                      {grouped[status].length} standard{grouped[status].length !== 1 ? "s" : ""}
+                    </span>
+                  </h2>
+                  <div class="row">
+                    {grouped[status].map((std) => (
+                      <div class="mb-8 md:col-6">
+                        <StandardCard data={std} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+              <Pagination section={STANDARDS_SECTION} currentPage={1} totalPages={totalPages} />
+            </>
+          )}
+        </div>
+        <PostSidebar
+          tags={allTags}
+        />
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const tagButtons = document.querySelectorAll<HTMLButtonElement>(".filter-tag");
+  const cards = document.querySelectorAll<HTMLElement>('[data-tags]');
+  const countEl = document.getElementById("count")!;
+  const statusGroups = document.querySelectorAll<HTMLElement>(".status-group");
+  const totalCount = cards.length;
+  let activeTag = "";
+
+  function apply() {
+    let visible = 0;
+    tagButtons.forEach((btn) => {
+      btn.classList.toggle("!bg-primary !text-white", btn.dataset.tag === activeTag);
+      btn.classList.toggle("dark:!bg-darkmode-primary dark:!text-text-dark", btn.dataset.tag === activeTag);
+    });
+    cards.forEach((card) => {
+      const cardTags = (card.dataset.tags || "").split(",");
+      const match = !activeTag || cardTags.includes(activeTag);
+      card.classList.toggle("hidden", !match);
+      if (match) visible++;
+    });
+    statusGroups.forEach((group) => {
+      const hasVisible = Array.from(group.querySelectorAll<HTMLElement>('[data-tags]'))
+        .some((c) => !c.classList.contains("hidden"));
+      group.classList.toggle("hidden", !hasVisible);
+    });
+    countEl.textContent = activeTag
+      ? `${visible} of ${totalCount} standard${totalCount !== 1 ? "s" : ""}`
+      : `${totalCount} standard${totalCount !== 1 ? "s" : ""}`;
+  }
+
+  tagButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const tag = btn.dataset.tag!;
+      activeTag = activeTag === tag ? "" : tag;
+      apply();
+    });
+  });
+
+  const params = new URLSearchParams(window.location.search);
+  const urlTag = params.get("tag");
+  if (urlTag) { activeTag = urlTag; apply(); }
+</script>

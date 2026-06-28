@@ -1,0 +1,44 @@
+name: RFC Proposal
+description: Propose a new SANE standard or a major change to an existing one
+title: "[RFC] "
+labels: ["rfc", "proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing a SANE standard! RFCs follow the [SANE RFC process](https://sane-av.github.io/rfc).
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      description: Short, descriptive title for the standard
+      placeholder: "e.g., Audio Signal Levels for Professional AV Systems"
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: A brief overview of what this standard would define
+      placeholder: "This standard defines..."
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: Why is this standard needed? What problem does it solve?
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What is in scope and out of scope for this standard?
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Agreement
+      options:
+        - label: I understand that accepted standards will be licensed under CC BY-SA 4.0
+          required: true

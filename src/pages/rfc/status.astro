@@ -1,0 +1,64 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import { getCollection } from "astro:content";
+import dateFormat from "@/lib/utils/dateFormat";
+import { statusColors, statusDescriptions } from "@/lib/statusColors";
+
+const standards = await getCollection("standards");
+const byStatus = {
+  "under-review": standards.filter((s) => s.data.status === "under-review").sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()),
+  draft: standards.filter((s) => s.data.status === "draft").sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()),
+  published: standards.filter((s) => s.data.status === "published").sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()),
+  deprecated: standards.filter((s) => s.data.status === "deprecated").sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()),
+};
+const statusOrder = ["under-review", "draft", "published", "deprecated"] as const;
+---
+
+<Base title="RFC Status Dashboard" description="Current status of all SANE standards and RFCs.">
+  <PageHeader title="RFC Status Dashboard" />
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <p class="mb-6 text-text-light dark:text-darkmode-text-light">Current status of every SANE standard and open RFC.</p>
+
+          <div class="mb-8 flex flex-wrap gap-2">
+            <a href="https://github.com/sane-av/sane-av.github.io/issues/new?template=rfc.yml" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Open a new RFC &rarr;</a>
+            <a href="/rfc" class="btn btn-outline-primary btn-sm">How the RFC process works</a>
+          </div>
+
+          {statusOrder.map((status) => (
+            <div class="mb-10">
+              <h2 class="mb-3 flex items-center gap-3">
+                <span class={`rounded-full px-3 py-1 text-sm font-medium ${statusColors[status] || ""}`}>{status}</span>
+                <span class="text-text-light dark:text-darkmode-text-light text-base font-normal">{statusDescriptions[status]}</span>
+              </h2>
+
+              {byStatus[status].length === 0 ? (
+                <p class="text-text-light dark:text-darkmode-text-light">No standards in this status.</p>
+              ) : (
+                <div class="overflow-x-auto">
+                  <table class="w-full text-left text-sm">
+                    <thead><tr class="border-b border-border dark:border-darkmode-border"><th class="px-4 py-3">ID</th><th class="px-4 py-3">Title</th><th class="px-4 py-3">Version</th><th class="px-4 py-3">Date</th></tr></thead>
+                    <tbody>
+                      {byStatus[status].map((std) => (
+                        <tr class="border-b border-border dark:border-darkmode-border hover:bg-light dark:hover:bg-darkmode-light">
+                          <td class="px-4 py-3 font-mono"><a href={`/standards/${std.id}`} class="text-primary hover:underline dark:text-darkmode-primary">{std.data.saneId}</a></td>
+                          <td class="px-4 py-3"><a href={`/standards/${std.id}`} class="hover:text-primary dark:hover:text-darkmode-primary">{std.data.title}</a></td>
+                          <td class="px-4 py-3">{std.data.version}</td>
+                          <td class="px-4 py-3 text-text-light dark:text-darkmode-text-light">{dateFormat(std.data.pubDate, "MMM d, yyyy")}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

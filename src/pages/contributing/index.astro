@@ -1,0 +1,43 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+---
+
+<Base title="Contributing to SANE">
+  <PageHeader title="Contributing to SANE" />
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <p class="mb-8 text-text-light dark:text-darkmode-text-light">SANE is fully open source. Everything - standards, data, tools, and this website - lives in a public GitHub repository. All contributions are welcome.</p>
+
+          <h2 class="mb-3">Ways to Contribute</h2>
+          <ul class="mb-8 space-y-3 text-text-light dark:text-darkmode-text-light">
+            <li><strong>Propose a Standard</strong> - Start with the <a href="/rfc" class="text-primary hover:underline dark:text-darkmode-primary">RFC process</a></li>
+            <li><strong>Content</strong> - Blog posts, glossary terms, documentation</li>
+            <li><strong>Equipment Data</strong> - Add or correct specs in <code class="rounded bg-light px-1 text-sm dark:bg-darkmode-light">src/data/equipment/</code></li>
+            <li><strong>Tools</strong> - Build a calculator in <code class="rounded bg-light px-1 text-sm dark:bg-darkmode-light">src/pages/tools/</code></li>
+            <li><strong>Site</strong> - Fix bugs, improve accessibility, add features</li>
+          </ul>
+
+          <h2 class="mb-3">Support SANE</h2>
+          <p class="mb-8 text-text-light dark:text-darkmode-text-light">
+            If you or your company benefit from SANE standards, data, or tools, consider
+            <a href="https://github.com/sponsors/sane-av" target="_blank" rel="noopener" class="text-primary hover:underline dark:text-darkmode-primary">sponsoring the project on GitHub Sponsors</a>.
+            Donations help cover infrastructure, legal review, and maintainer time.
+          </p>
+
+          <h2 class="mb-3">Getting Started</h2>
+          <pre class="mb-4 overflow-x-auto rounded bg-light p-4 text-sm dark:bg-darkmode-body"><code>git clone https://github.com/sane-av/sane-av.github.io
+cd sane-av
+npm install
+npm run dev</code></pre>
+          <p class="text-text-light dark:text-darkmode-text-light">
+            See <a href="https://github.com/sane-av/sane-av.github.io/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener" class="text-primary hover:underline dark:text-darkmode-primary">CONTRIBUTING.md</a> for the full guide including frontmatter requirements, equipment ID formats, commit conventions, and the complete RFC workflow.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,46 @@
+---
+import config from "@/config/config.json";
+import dateFormat from "@/lib/utils/dateFormat";
+import { plainify, slugify } from "@/lib/utils/textConverter";
+import { FaRegUserCircle } from "react-icons/fa";
+import ImageMod from "./ImageMod.astro";
+
+const { summary_length, blog_folder } = config.settings;
+const { data } = Astro.props;
+const entry = data.data;
+
+const title = entry.title;
+const image = entry.image;
+const pubDate = entry.pubDate ?? entry.date;
+const author = entry.authors?.[0] ?? entry.author ?? "SANE";
+const tags = entry.tags ?? [];
+---
+
+<div class="h-full flex flex-col rounded-lg border border-border p-6 dark:border-darkmode-border bg-body dark:bg-darkmode-body">
+  {image && (
+    <ImageMod class="mb-6 w-full rounded" src={image} alt={title} width={445} height={230} format="webp" />
+  )}
+  <h4 class="mb-3">
+    <a href={`/${blog_folder}/${data.id}`}>{title}</a>
+  </h4>
+  <ul class="mb-4">
+    <li class="mr-4 inline-block">
+      <a href={`/authors/${slugify(author)}`}>
+        <FaRegUserCircle className={"mr-2 -mt-1 inline-block"} />
+        {author}
+      </a>
+    </li>
+    {pubDate && <li class="inline-block text-text-light dark:text-darkmode-text-light">{dateFormat(pubDate)}</li>}
+  </ul>
+  <p class="grow mb-6 line-clamp-4 overflow-hidden">{plainify(data.body?.slice(0, Number(summary_length)) || entry.description?.slice(0, Number(summary_length)) || "")}</p>
+  {tags.length > 0 && (
+    <div class="mb-6 flex flex-wrap gap-1">
+      {tags.sort((a, b) => a.localeCompare(b)).map((tag: string) => (
+        <a href={`/blog/?tag=${tag}`} class="rounded bg-light px-2 py-0.5 text-xs underline decoration-text-light/50 underline-offset-2 hover:bg-primary hover:text-white dark:bg-darkmode-body dark:decoration-darkmode-primary/40 dark:hover:bg-darkmode-primary dark:hover:text-dark">
+          #{tag}
+        </a>
+      ))}
+    </div>
+  )}
+  <a class="btn btn-outline-primary btn-sm mt-auto" href={`/${blog_folder}/${data.id}`}>Read More</a>
+</div>

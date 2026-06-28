@@ -1,0 +1,42 @@
+---
+import BlogCard from "@/components/BlogCard.astro";
+import Pagination from "@/components/Pagination.astro";
+import config from "@/config/config.json";
+import Base from "@/layouts/Base.astro";
+import { getCollection } from "astro:content";
+import PageHeader from "@/partials/PageHeader.astro";
+import PostSidebar from "@/partials/PostSidebar.astro";
+
+const BLOG_FOLDER = "blog";
+const posts = await getCollection("blog", ({ data }) => !data.draft);
+const sortedPosts = posts.sort(
+  (a, b) => (b.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0),
+);
+const totalPages = Math.ceil(posts.length / config.settings.pagination);
+const currentPosts = sortedPosts.slice(0, config.settings.pagination);
+
+const allTags: string[] = posts.flatMap((p) => p.data.tags).sort((a, b) => a.localeCompare(b));
+---
+
+<Base title="Blog" description="Perspectives, announcements, and deep dives from the SANE community.">
+  <PageHeader title="Blog" />
+  <section class="section">
+    <div class="container">
+      <div class="row gx-5">
+        <div class="lg:col-8">
+          <div class="row">
+            {currentPosts.map((post) => (
+              <div class="mb-14 md:col-6">
+                <BlogCard data={post} />
+              </div>
+            ))}
+          </div>
+          <Pagination section={BLOG_FOLDER} currentPage={1} totalPages={totalPages} />
+        </div>
+        <PostSidebar
+          tags={[...new Set(allTags)]}
+        />
+      </div>
+    </div>
+  </section>
+</Base>
