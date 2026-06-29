@@ -1,72 +1,36 @@
 ---
 import Base from "@/layouts/Base.astro";
 import PageHeader from "@/partials/PageHeader.astro";
-
-const rows = [
-  { topic: "Access to standards", proprietary: "Paywalled or membership-required", sane: "Free, open web access with no login" },
-  { topic: "Cost to participate", proprietary: "Membership dues, conference fees, certification costs", sane: "No fees to propose, review, or use standards" },
-  { topic: "Governance", proprietary: "Closed committees and vendor boards", sane: "Public RFC process with 60-day review" },
-  { topic: "Decision transparency", proprietary: "Votes and minutes often private", sane: "Every discussion and change is in Git" },
-  { topic: "Influence", proprietary: "Weighted toward large manufacturers", sane: "One voice per contributor, rough consensus" },
-  { topic: "Licensing", proprietary: "Restricted or pay-to-use documents", sane: "Open content license (CC BY-SA 4.0)" },
-  { topic: "Version control", proprietary: "Static PDFs, hard to track changes", sane: "Versioned in Git; diffs for every amendment" },
-  { topic: "Scope", proprietary: "Broad industry coverage, slower updates", sane: "Focused, practical standards written by implementers" },
-  { topic: "Machine-readable data", proprietary: "Limited or proprietary formats", sane: "JSON feeds for standards and equipment" },
-  { topic: "Certification", proprietary: "Expensive exams and renewal fees", sane: "Future program aimed at accessible, transparent certification" },
-];
 ---
 
-<Base title="Why?" description="The professional AV industry deserves standards that are open, transparent, and built by the people who use them.">
+<Base title="Why SANE?" description="The professional AV industry deserves open, practical standards that are free to read, easy to cite, and open to improve.">
   <PageHeader title="Why SANE?" />
 
   <section class="section-sm">
     <div class="container">
       <div class="row justify-center">
         <div class="lg:col-10">
-          <h2 class="mb-3">The problem</h2>
-          <p class="mb-6 text-text-light dark:text-darkmode-text-light">Most AV "standards" are locked behind paywalls, controlled by private organizations, or written by vendors to favor their own products. The people who design, install, and maintain AV systems every day - integrators, consultants, engineers, educators - often cannot afford access, cannot influence the content, and cannot see why decisions were made.</p>
-          <p class="mb-8 text-text-light dark:text-darkmode-text-light">This leads to inconsistent installations, expensive rework, and an industry where tribal knowledge matters more than documented best practice.</p>
+          <p class="mb-6 text-text-light dark:text-darkmode-text-light">AV has a knowledge problem.</p>
 
-          <h2 class="mb-3">The SANE approach</h2>
-          <ul class="mb-8 space-y-2 text-text-light dark:text-darkmode-text-light">
-            <li><strong>Open by default.</strong> Every standard, whitepaper, glossary entry, and dataset is published under an open license.</li>
-            <li><strong>Transparent process.</strong> Proposals are discussed in public. Every change is tracked in Git. Nothing is decided in a back room.</li>
-            <li><strong>No gatekeeping.</strong> You do not need to pay dues, join a committee, or work for the right company to contribute.</li>
-            <li><strong>Practical and implementable.</strong> SANE standards are written for working AV professionals, not just standards lawyers.</li>
-            <li><strong>Community-funded.</strong> SANE is supported by donations and sponsorships, not by selling access to documents.</li>
-          </ul>
+          <p class="mb-6 text-text-light dark:text-darkmode-text-light">Not because people in AV are dumb. Quite the opposite actually!</p>
 
-          <h2 class="mb-3">At a glance</h2>
-          <div class="mb-8 overflow-x-auto">
-            <table class="w-full border-collapse text-left text-sm">
-              <thead><tr class="border-b border-border dark:border-darkmode-border"><th class="px-4 py-3">Topic</th><th class="px-4 py-3">Proprietary / Vendor specs</th><th class="px-4 py-3">SANE</th></tr></thead>
-              <tbody>
-                {rows.map((row) => (
-                  <tr class="border-b border-border dark:border-darkmode-border">
-                    <td class="px-4 py-3 font-semibold">{row.topic}</td>
-                    <td class="px-4 py-3 text-text-light dark:text-darkmode-text-light">{row.proprietary}</td>
-                    <td class="px-4 py-3">{row.sane}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <p class="mb-6 text-text-light dark:text-darkmode-text-light">This industry is full of people who can walk into a weird room, inherit a pile of mixed hardware, and somehow make it all behave before the client arrives.</p>
 
-          <h2 class="mb-3">When to use existing bodies</h2>
-          <p class="mb-6 text-text-light dark:text-darkmode-text-light">SANE respects the work of organizations like InfoComm, CEDIA, SMPTE, AES, and ITU. Existing standards remain essential for regulated environments, broadcast, life-safety systems, and areas where formal accreditation is required.</p>
+          <p class="mb-6 text-text-light dark:text-darkmode-text-light">The problem is where the knowledge lives.</p>
 
-          <h2 class="mb-3">When to use SANE</h2>
-          <ul class="mb-8 space-y-2 text-text-light dark:text-darkmode-text-light">
-            <li>You need a practical, implementable guideline that is free to read and share.</li>
-            <li>You want to influence a standard without paying membership fees.</li>
-            <li>You need a living document that can be updated as technology changes.</li>
-            <li>You want machine-readable data and open tools alongside the standard.</li>
-            <li>You want to cite a standard in a proposal, report, or product manual without licensing concerns.</li>
-          </ul>
+          <p class="mb-6 text-text-light dark:text-darkmode-text-light">Some of it is in paid documents. Some of it is buried in vendor guides. Some of it is locked inside company standards. A worrying amount of it is in the head of one person who "usually handles that."</p>
 
-          <h2 class="mb-3">What we are building</h2>
-          <p class="mb-3 text-text-light dark:text-darkmode-text-light">SANE is more than a website. It is an open standards body for AV: a place where signal levels, connector conventions, network requirements, and system design practices can be documented once and used everywhere.</p>
-          <p class="mb-8 text-text-light dark:text-darkmode-text-light">We are also building open data and tools: an equipment database, calculators, reference implementations, and eventually certification programs that validate real-world understanding of the standards.</p>
+          <p class="mb-8 text-text-light dark:text-darkmode-text-light">That works fine until they leave, get busy, switch jobs, or take a vacation. Then suddenly nobody knows why the displays are named that way, what half the cable labels mean, whether the room was actually commissioned, or where the final documentation went.</p>
+
+          <h2 class="mb-3">What SANE is doing about it</h2>
+
+          <p class="mb-6 text-text-light dark:text-darkmode-text-light">SANE exists because this stuff should be easier to find, easier to use, and easier to improve.</p>
+
+          <p class="mb-6 text-text-light dark:text-darkmode-text-light">We are building open, practical AV standards for the everyday parts of the work: naming devices, labeling cables, drawing systems, documenting networks, commissioning rooms, and handing projects over to the people who have to live with them.</p>
+
+          <p class="mb-6 text-text-light dark:text-darkmode-text-light">The goal is not to make standards sound important. The goal is to make them useful.</p>
+
+          <p class="mb-8 text-text-light dark:text-darkmode-text-light">Free to read. Public to discuss. Easy to cite. Open to improve. AV is already complicated enough. The standards should not be the hard part.</p>
 
           <div class="flex gap-3">
             <a href="/standards" class="btn btn-primary">Browse standards</a>
