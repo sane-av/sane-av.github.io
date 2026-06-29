@@ -1,5 +1,5 @@
 .header {
-  @apply bg-body dark:bg-darkmode-body py-3;
+  @apply bg-body dark:bg-darkmode-light py-3;
 }
 
 /* navbar items */
@@ -31,15 +31,15 @@
 }
 
 .nav-dropdown-list {
-  @apply bg-body dark:bg-darkmode-body z-10 min-w-[180px] rounded p-4 shadow-sm;
+  @apply bg-body dark:bg-darkmode-body z-10 min-w-[180px] rounded border border-border p-4 shadow-sm dark:border-darkmode-border;
 }
 
 .nav-dropdown-item {
-  @apply [&:not(:last-child)]:mb-2;
+  @apply [&:not(:last-child)]:border-b border-border dark:border-darkmode-border [&:not(:last-child)]:pb-2 [&:not(:last-child)]:mb-2;
 }
 
 .nav-dropdown-link {
-  @apply text-text-dark hover:text-primary dark:text-darkmode-text dark:hover:text-darkmode-primary block py-1 font-semibold transition;
+  @apply text-text-dark hover:text-primary dark:text-darkmode-text dark:hover:text-darkmode-primary block py-1 px-1 rounded font-semibold transition hover:bg-light dark:hover:bg-darkmode-light/50;
 }
 
 /* theme-switcher */
