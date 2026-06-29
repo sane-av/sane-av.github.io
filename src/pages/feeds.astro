@@ -1,0 +1,39 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+
+const feeds = [
+  { name: "Standards (JSON)", url: "/standards.json", description: "All published standards in machine-readable JSON format" },
+  { name: "Equipment Database (JSON)", url: "/equipment.json", description: "Complete equipment database as JSON" },
+  { name: "RSS Feed", url: "/rss.xml", description: "Latest blog posts and updates via RSS" },
+  { name: "Search Index (JSON)", url: "/search-index.json", description: "Full-text search index for the site" },
+];
+---
+
+<Base title="Feeds" description="Machine-readable data feeds for SANE content.">
+  <PageHeader title="Feeds" />
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-8">
+          <p class="mb-8 text-text-light dark:text-darkmode-text-light">Machine-readable feeds for integrating SANE data into tools, reports, and automations. All feeds are freely available under CC BY-SA 4.0.</p>
+
+          <div class="space-y-4">
+            {feeds.map((feed) => (
+              <div class="rounded-lg border border-border p-6 dark:border-darkmode-border">
+                <div class="flex flex-wrap items-baseline justify-between gap-2">
+                  <div>
+                    <h3 class="mb-1">{feed.name}</h3>
+                    <p class="text-text-light dark:text-darkmode-text-light">{feed.description}</p>
+                  </div>
+                  <a href={feed.url} class="btn btn-outline-primary btn-sm">{feed.url.replace("/", "")} &rarr;</a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

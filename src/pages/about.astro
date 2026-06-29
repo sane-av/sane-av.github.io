@@ -21,14 +21,24 @@ const people = [
 <Base title="Who?" description="The people behind SANE - open source AV standards for the professional audiovisual industry.">
   <PageHeader title="Who is SANE?" />
 
+  <section class="pt-6 pb-4">
+    <div class="container text-center">
+      <div class="rounded-2xl bg-gradient px-8 py-4">
+        <p class="mb-4 text-text-light dark:text-darkmode-text-light">
+          SANE is built by AV professionals who believe standards should be open, free, and community-driven.
+        </p>
+        <div class="flex flex-wrap justify-center gap-2">
+          <a href="/contributing" class="btn btn-primary btn-sm">Contribute &rarr;</a>
+          <a href="/feeds" class="btn btn-outline-primary btn-sm">Feeds</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section-sm">
     <div class="container">
       <div class="row justify-center">
         <div class="lg:col-10">
-          <p class="mb-10 text-text-light dark:text-darkmode-text-light">
-            SANE is built by AV professionals who believe standards should be open, free, and community-driven.
-          </p>
-
           {people.map((person) => (
             <div class="mb-8 flex items-start gap-6 rounded-lg border border-border p-6 dark:border-darkmode-border">
               <svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label={`${person.name} initials`} class="shrink-0">

@@ -20,7 +20,22 @@ const allTags: string[] = posts.flatMap((p) => p.data.tags).sort((a, b) => a.loc
 
 <Base title="Blog" description="Perspectives, announcements, and deep dives from the SANE community.">
   <PageHeader title="Blog" />
-  <section class="section">
+
+  <section class="pt-6 pb-4">
+    <div class="container text-center">
+      <div class="rounded-2xl bg-gradient px-8 py-4">
+        <p class="mb-4 text-text-light dark:text-darkmode-text-light">
+          Perspectives, announcements, and deep dives from the SANE community.
+        </p>
+        <div class="flex flex-wrap justify-center gap-2">
+          <a href="/contributing" class="btn btn-primary btn-sm">Contribute &rarr;</a>
+          <a href="/feeds" class="btn btn-outline-primary btn-sm">Feeds</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pt-8 pb-24 xl:pt-10 xl:pb-28">
     <div class="container">
       <div class="row gx-5">
         <div class="lg:col-8">
