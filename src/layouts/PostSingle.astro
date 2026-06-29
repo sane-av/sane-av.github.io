@@ -20,11 +20,18 @@ const similarPosts = (await getCollection("blog", ({ data }) => !data.draft))
   .slice(0, 3);
 ---
 
+<section class="pt-6 pb-4">
+  <div class="container text-center">
+    <div class="rounded-2xl bg-gradient px-8 py-4">
+      <Breadcrumbs />
+    </div>
+  </div>
+</section>
+
 <section class="section-sm">
   <div class="container">
     <div class="row justify-center">
       <article class="lg:col-10">
-        <Breadcrumbs className="mb-6" />
         {image && (
           <div class="mb-10">
             <ImageMod src={image} height={500} width={1200} alt={title} class="w-full rounded" format="webp" />

@@ -30,12 +30,18 @@ const citationBibtex = `@misc{sane${std.data.saneId.toLowerCase().replace(/[^a-z
 ---
 
 <Base title={`${std.data.saneId}: ${std.data.title}`} description={std.data.description}>
+  <section class="pt-6 pb-4">
+    <div class="container text-center">
+      <div class="rounded-2xl bg-gradient px-8 py-4">
+        <Breadcrumbs />
+      </div>
+    </div>
+  </section>
+
   <section class="section-sm">
     <div class="container">
       <div class="row justify-center">
         <div class="lg:col-10">
-
-          <Breadcrumbs className="mb-6" />
 
           <!-- Header -->
           <div class="mb-8">
