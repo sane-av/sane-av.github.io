@@ -47,11 +47,6 @@
     "link": "https://github.com/sane-av/sane-av.github.io"
   },
 
-  "google_tag_manager": {
-    "enable": false,
-    "gtm_id": "GTM-XXXXXX"
-  },
-
   "metadata": {
     "meta_author": "SANE Contributors",
     "meta_image": "/images/sanebrain.png",

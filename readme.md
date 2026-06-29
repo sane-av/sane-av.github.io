@@ -83,7 +83,7 @@ SANE standards follow an RFC process inspired by the IETF:
 4. **60-day review** — Public review period
 5. **Ratification** — Merge on consensus
 
-See [sane-av.github.io/rfc](https://sane-av.github.io/rfc) for full details.
+See [sane-av.github.io/contributing](https://sane-av.github.io/contributing) for the full RFC process.
 
 ## Support SANE
 

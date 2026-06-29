@@ -163,27 +163,11 @@ declare module 'astro:content' {
   rendered?: RenderedContent;
   filePath?: string;
 }>;
-"ctaSection": Record<string, {
-  id: string;
-  body?: string;
-  collection: "ctaSection";
-  data: InferEntrySchema<"ctaSection">;
-  rendered?: RenderedContent;
-  filePath?: string;
-}>;
 "glossary": Record<string, {
   id: string;
   body?: string;
   collection: "glossary";
   data: InferEntrySchema<"glossary">;
-  rendered?: RenderedContent;
-  filePath?: string;
-}>;
-"homepage": Record<string, {
-  id: string;
-  body?: string;
-  collection: "homepage";
-  data: InferEntrySchema<"homepage">;
   rendered?: RenderedContent;
   filePath?: string;
 }>;
@@ -200,14 +184,6 @@ declare module 'astro:content' {
   body?: string;
   collection: "standards";
   data: InferEntrySchema<"standards">;
-  rendered?: RenderedContent;
-  filePath?: string;
-}>;
-"testimonialSection": Record<string, {
-  id: string;
-  body?: string;
-  collection: "testimonialSection";
-  data: InferEntrySchema<"testimonialSection">;
   rendered?: RenderedContent;
   filePath?: string;
 }>;
