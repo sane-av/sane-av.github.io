@@ -56,17 +56,76 @@ C:\dev\
   sane-av-glossary\        ← glossary content
   sane-av-equipment-list\  ← equipment data
 ```
-All four repos should be cloned as siblings for convenient editing.
+All five repos should be cloned as siblings for convenient editing.
+
+## Page Conventions
+
+### Intro boxes
+Content list pages (standards, whitepapers, blog, why-sane, about) use a unified intro box pattern below the PageHeader:
+```astro
+<section class="pt-6 pb-4">
+  <div class="container text-center">
+    <div class="rounded-2xl bg-gradient px-8 py-4">
+      <p>Page description</p>
+      <a href="/contributing" class="btn btn-primary btn-sm">Contribute →</a>
+      <a href="/feeds" class="btn btn-outline-primary btn-sm">Feeds</a>
+    </div>
+  </div>
+</section>
+```
+
+### Breadcrumbs
+Single-post pages (blog, whitepapers, standards) use the same gradient box for breadcrumbs:
+```astro
+<section class="pt-6 pb-4">
+  <div class="container text-center">
+    <div class="rounded-2xl bg-gradient px-8 py-4">
+      <Breadcrumbs />
+    </div>
+  </div>
+</section>
+```
+
+### Card components
+All card types (BlogCard, StandardCard, WhitepaperCard) follow the same pattern:
+- `h-full flex flex-col rounded-lg border border-border p-6` wrapper
+- `grow line-clamp-4 overflow-hidden` on description text
+- `mt-auto` on the "Read More" button to pin it to the bottom
+- Tag pills: `underline decoration-text-light/50 underline-offset-2` (light mode) + `dark:decoration-darkmode-primary/40` (dark mode)
+
+### Homepage sections
+- Use `section-sm py-10 xl:py-14` for reduced vertical padding
+- Alternating backgrounds: black → `bg-gradient` → black → `bg-gradient` → etc.
+
+## Routing
+- `/rfc` no longer exists. The RFC process and contribution guide are consolidated at `/contributing`
+- `/rfc/status` is the standalone standards status dashboard
+- `/feeds` lists all machine-readable data feeds (JSON, RSS)
+- All "contribute" / "propose" / "open an RFC" buttons route to `/contributing`
+
+## License
+- **Code** (site, tools, components): Apache 2.0
+- **Content** (standards, blog, whitepapers, glossary, data): CC BY-SA 4.0
+- **Trademarks** (SANE name, logo, certification marks): See NOTICE — not open-licensed
 
 ## Configuration
 - Site URL: `src/config/config.json` → `site.base_url` (set to `https://sane-av.github.io`)
 - Astro config: `astro.config.mjs` (reads from `config.json` and `theme.json`)
+- Content repo URLs: `src/config/config.json` → `settings.content_repos`
+- Content folder names: `config.json` → `settings.blog_folder`, `settings.whitepapers_folder`
 
 ## Deployment
 - Triggered on push to `main` via `.github/workflows/deploy-to-github-pages.yml`
+- Also runs daily at midnight UTC via cron schedule to pick up content repo changes
 - Uses `actions/configure-pages`, `actions/upload-pages-artifact`, and `actions/deploy-pages`
 - Build output: `dist/`
 - **IMPORTANT:** GitHub Pages must be set to "GitHub Actions" source in repo Settings > Pages
+
+## Build Scripts
+- `scripts/contentSync.js` — clones/pulls content repos before build
+- `scripts/themeGenerator.js` — generates CSS variables from `theme.json`
+- `scripts/jsonGenerator.js` — generates JSON feeds for search
+- `scripts/llmsGenerator.js` — generates `llms.txt` and `llms-full.txt` for AI discoverability
 
 ## Git
 - Branch: `main` (not `master`)
