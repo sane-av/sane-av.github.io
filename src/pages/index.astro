@@ -100,109 +100,136 @@ const recentWhitepapers = (await getCollection("whitepapers", ({ data }) => !dat
   </section>
 
   <!-- Latest Standards -->
-  {recentStandards.length > 0 && (
-    <section class="section-sm py-10 xl:py-14 bg-gradient">
-      <div class="container">
-        <h2 class="mb-2 text-center">Latest Standards</h2>
-        <p class="mb-10 text-center text-text-light dark:text-darkmode-text-light">Published SANE standards, free to use and implement.</p>
-        <div class="row justify-center">
-          {recentStandards.map((std) => (
-            <div class="md:col-6 lg:col-4 mb-8">
-              <div class="h-full flex flex-col rounded-lg border border-border p-6 dark:border-darkmode-border">
-                <div class="mb-3 flex gap-2 text-sm">
-                  <span class={`rounded-full px-2 py-0.5 text-xs font-medium ${statusColors[std.data.status] || ""}`}>
-                    {std.data.status}
-                  </span>
-                  <span class="text-text-light dark:text-darkmode-text-light">{std.data.saneId}</span>
-                  <span class="text-text-light dark:text-darkmode-text-light">v{std.data.version}</span>
-                </div>
-                <h3 class="mb-2 h5"><a href={`/standards/${std.id}`}>{std.data.title}</a></h3>
-                <p class="grow mb-4 line-clamp-4 overflow-hidden text-text-light dark:text-darkmode-text-light">{std.data.description}</p>
-                <div class="flex flex-wrap gap-1 mt-auto">
-                  {std.data.tags.slice(0, 3).map((tag: string) => (
-                    <a href={`/standards/?tag=${tag}`} class="rounded bg-light px-2 py-0.5 text-xs underline decoration-text-light/50 underline-offset-2 hover:bg-primary hover:text-white dark:bg-darkmode-body dark:decoration-darkmode-primary/40 dark:hover:bg-darkmode-primary dark:hover:text-dark">
-                      #{tag}
-                    </a>
-                  ))}
+  <section class="section-sm py-10 xl:py-14 bg-gradient">
+    <div class="container">
+      <h2 class="mb-2 text-center">Latest Standards</h2>
+      <p class="mb-10 text-center text-text-light dark:text-darkmode-text-light">Published SANE standards, free to use and implement.</p>
+      {recentStandards.length > 0 ? (
+        <>
+          <div class="row justify-center">
+            {recentStandards.map((std) => (
+              <div class="md:col-6 lg:col-4 mb-8">
+                <div class="h-full flex flex-col rounded-lg border border-border p-6 dark:border-darkmode-border">
+                  <div class="mb-3 flex gap-2 text-sm">
+                    <span class={`rounded-full px-2 py-0.5 text-xs font-medium ${statusColors[std.data.status] || ""}`}>
+                      {std.data.status}
+                    </span>
+                    <span class="text-text-light dark:text-darkmode-text-light">{std.data.saneId}</span>
+                    <span class="text-text-light dark:text-darkmode-text-light">v{std.data.version}</span>
+                  </div>
+                  <h3 class="mb-2 h5"><a href={`/standards/${std.id}`}>{std.data.title}</a></h3>
+                  <p class="grow mb-4 line-clamp-4 overflow-hidden text-text-light dark:text-darkmode-text-light">{std.data.description}</p>
+                  <div class="flex flex-wrap gap-1 mt-auto">
+                    {std.data.tags.slice(0, 3).map((tag: string) => (
+                      <a href={`/standards/?tag=${tag}`} class="rounded bg-light px-2 py-0.5 text-xs underline decoration-text-light/50 underline-offset-2 hover:bg-primary hover:text-white dark:bg-darkmode-body dark:decoration-darkmode-primary/40 dark:hover:bg-darkmode-primary dark:hover:text-dark">
+                        #{tag}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          <p class="text-center">
+            <a href="/standards" class="btn btn-outline-primary">All Standards &rarr;</a>
+          </p>
+        </>
+      ) : (
+        <div class="rounded-lg border border-dashed border-border p-8 text-center dark:border-darkmode-border">
+          <h3 class="mb-2">No published standards yet</h3>
+          <p class="mb-4 text-text-light dark:text-darkmode-text-light">The first standards are currently in draft. Want to shape them?</p>
+          <div class="flex flex-wrap justify-center gap-2">
+            <a href="/standards" class="btn btn-primary btn-sm">View Drafts &rarr;</a>
+            <a href="/contributing" class="btn btn-outline-primary btn-sm">Propose a Standard</a>
+          </div>
         </div>
-        <p class="text-center">
-          <a href="/standards" class="btn btn-outline-primary">All Standards &rarr;</a>
-        </p>
-      </div>
-    </section>
-  )}
+      )}
+    </div>
+  </section>
 
   <!-- Latest Whitepapers -->
-  {recentWhitepapers.length > 0 && (
-    <section class="section-sm py-10 xl:py-14">
-      <div class="container">
-        <h2 class="mb-2 text-center">Latest Whitepapers</h2>
-        <p class="mb-10 text-center text-text-light dark:text-darkmode-text-light">Technical deep dives and analysis by SANE editors.</p>
-        <div class="row justify-center">
-          {recentWhitepapers.map((wp) => (
-            <div class="md:col-6 lg:col-4 mb-8">
-              <div class="h-full flex flex-col rounded-lg border border-border p-6 dark:border-darkmode-border">
-                <div class="mb-3 flex gap-2 text-sm text-text-light dark:text-darkmode-text-light">
-                  <time datetime={wp.data.pubDate.toISOString()}>{dateFormat(wp.data.pubDate)}</time>
-                  <span>{(wp.data.authors ?? [wp.data.author]).join(", ")}</span>
-                </div>
-                <h3 class="mb-2 h5"><a href={`/whitepapers/${wp.id}`}>{wp.data.title}</a></h3>
-                <p class="grow mb-4 line-clamp-4 overflow-hidden text-text-light dark:text-darkmode-text-light">{wp.data.description}</p>
-                <div class="flex flex-wrap gap-1 mt-auto">
-                  {wp.data.tags.slice(0, 3).map((tag: string) => (
-                    <a href={`/whitepapers/?tag=${tag}`} class="rounded bg-light px-2 py-0.5 text-xs underline decoration-text-light/50 underline-offset-2 hover:bg-primary hover:text-white dark:bg-darkmode-body dark:decoration-darkmode-primary/40 dark:hover:bg-darkmode-primary dark:hover:text-dark">
-                      #{tag}
-                    </a>
-                  ))}
+  <section class="section-sm py-10 xl:py-14">
+    <div class="container">
+      <h2 class="mb-2 text-center">Latest Whitepapers</h2>
+      <p class="mb-10 text-center text-text-light dark:text-darkmode-text-light">Technical deep dives and analysis by SANE editors.</p>
+      {recentWhitepapers.length > 0 ? (
+        <>
+          <div class="row justify-center">
+            {recentWhitepapers.map((wp) => (
+              <div class="md:col-6 lg:col-4 mb-8">
+                <div class="h-full flex flex-col rounded-lg border border-border p-6 dark:border-darkmode-border">
+                  <div class="mb-3 flex gap-2 text-sm text-text-light dark:text-darkmode-text-light">
+                    <time datetime={wp.data.pubDate.toISOString()}>{dateFormat(wp.data.pubDate)}</time>
+                    <span>{(wp.data.authors ?? [wp.data.author]).join(", ")}</span>
+                  </div>
+                  <h3 class="mb-2 h5"><a href={`/whitepapers/${wp.id}`}>{wp.data.title}</a></h3>
+                  <p class="grow mb-4 line-clamp-4 overflow-hidden text-text-light dark:text-darkmode-text-light">{wp.data.description}</p>
+                  <div class="flex flex-wrap gap-1 mt-auto">
+                    {wp.data.tags.slice(0, 3).map((tag: string) => (
+                      <a href={`/whitepapers/?tag=${tag}`} class="rounded bg-light px-2 py-0.5 text-xs underline decoration-text-light/50 underline-offset-2 hover:bg-primary hover:text-white dark:bg-darkmode-body dark:decoration-darkmode-primary/40 dark:hover:bg-darkmode-primary dark:hover:text-dark">
+                        #{tag}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          <p class="text-center">
+            <a href="/whitepapers" class="btn btn-outline-primary">All Whitepapers &rarr;</a>
+          </p>
+        </>
+      ) : (
+        <div class="rounded-lg border border-dashed border-border p-8 text-center dark:border-darkmode-border">
+          <h3 class="mb-2">No whitepapers yet</h3>
+          <p class="mb-4 text-text-light dark:text-darkmode-text-light">Be the first to publish a technical deep dive or industry analysis.</p>
+          <a href="/contributing" class="btn btn-primary btn-sm">Contribute a Whitepaper &rarr;</a>
         </div>
-        <p class="text-center">
-          <a href="/whitepapers" class="btn btn-outline-primary">All Whitepapers &rarr;</a>
-        </p>
-      </div>
-    </section>
-  )}
+      )}
+    </div>
+  </section>
 
   <!-- Latest Blog Posts -->
-  {recentPosts.length > 0 && (
-    <section class="section-sm py-10 xl:py-14 bg-gradient">
-      <div class="container">
-        <h2 class="mb-2 text-center">From the Blog</h2>
-        <p class="mb-10 text-center text-text-light dark:text-darkmode-text-light">Perspectives, announcements, and deep dives from the SANE community.</p>
-        <div class="row justify-center">
-          {recentPosts.map((post) => (
-            <div class="md:col-6 lg:col-4 mb-8">
-              <div class="h-full flex flex-col rounded-lg border border-border p-6 dark:border-darkmode-border">
-                <div class="mb-3 flex gap-2 text-sm text-text-light dark:text-darkmode-text-light">
-                  <time datetime={post.data.pubDate.toISOString()}>{dateFormat(post.data.pubDate)}</time>
-                  <span>{(post.data.authors ?? [post.data.author]).join(", ")}</span>
-                </div>
-                <h3 class="mb-2 h5"><a href={`/blog/${post.id}`}>{post.data.title}</a></h3>
-                <p class="grow mb-4 line-clamp-4 overflow-hidden text-text-light dark:text-darkmode-text-light">{post.data.description}</p>
-                <div class="flex flex-wrap gap-1 mt-auto">
-                  {post.data.tags.slice(0, 3).map((tag: string) => (
-                    <a href={`/blog/?tag=${tag}`} class="rounded bg-light px-2 py-0.5 text-xs underline decoration-text-light/50 underline-offset-2 hover:bg-primary hover:text-white dark:bg-darkmode-body dark:decoration-darkmode-primary/40 dark:hover:bg-darkmode-primary dark:hover:text-dark">
-                      #{tag}
-                    </a>
-                  ))}
+  <section class="section-sm py-10 xl:py-14 bg-gradient">
+    <div class="container">
+      <h2 class="mb-2 text-center">From the Blog</h2>
+      <p class="mb-10 text-center text-text-light dark:text-darkmode-text-light">Perspectives, announcements, and deep dives from the SANE community.</p>
+      {recentPosts.length > 0 ? (
+        <>
+          <div class="row justify-center">
+            {recentPosts.map((post) => (
+              <div class="md:col-6 lg:col-4 mb-8">
+                <div class="h-full flex flex-col rounded-lg border border-border p-6 dark:border-darkmode-border">
+                  <div class="mb-3 flex gap-2 text-sm text-text-light dark:text-darkmode-text-light">
+                    <time datetime={post.data.pubDate.toISOString()}>{dateFormat(post.data.pubDate)}</time>
+                    <span>{(post.data.authors ?? [post.data.author]).join(", ")}</span>
+                  </div>
+                  <h3 class="mb-2 h5"><a href={`/blog/${post.id}`}>{post.data.title}</a></h3>
+                  <p class="grow mb-4 line-clamp-4 overflow-hidden text-text-light dark:text-darkmode-text-light">{post.data.description}</p>
+                  <div class="flex flex-wrap gap-1 mt-auto">
+                    {post.data.tags.slice(0, 3).map((tag: string) => (
+                      <a href={`/blog/?tag=${tag}`} class="rounded bg-light px-2 py-0.5 text-xs underline decoration-text-light/50 underline-offset-2 hover:bg-primary hover:text-white dark:bg-darkmode-body dark:decoration-darkmode-primary/40 dark:hover:bg-darkmode-primary dark:hover:text-dark">
+                        #{tag}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          <p class="text-center">
+            <a href="/blog" class="btn btn-outline-primary">All Posts &rarr;</a>
+          </p>
+        </>
+      ) : (
+        <div class="rounded-lg border border-dashed border-border p-8 text-center dark:border-darkmode-border">
+          <h3 class="mb-2">No blog posts yet</h3>
+          <p class="mb-4 text-text-light dark:text-darkmode-text-light">The blog launches with the site. Check back soon for articles, tutorials, and project updates.</p>
+          <a href="/feeds" class="btn btn-outline-primary btn-sm">Subscribe via RSS</a>
         </div>
-        <p class="text-center">
-          <a href="/blog" class="btn btn-outline-primary">All Posts &rarr;</a>
-        </p>
-      </div>
-    </section>
-  )}
+      )}
+    </div>
+  </section>
 
 
   <!-- Sponsors -->
