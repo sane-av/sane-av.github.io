@@ -82,6 +82,18 @@ const citationBibtex = `@misc{sane${std.data.saneId.toLowerCase().replace(/[^a-z
               <span class="block text-sm text-text-light dark:text-darkmode-text-light">Authors</span>
               <span class="text-text-dark dark:text-darkmode-text-dark">{std.data.authors.join(", ")}</span>
             </div>
+            {std.data.category && (
+              <div>
+                <span class="block text-sm text-text-light dark:text-darkmode-text-light">Category</span>
+                <span class="text-text-dark dark:text-darkmode-text-dark">{std.data.category}</span>
+              </div>
+            )}
+            {std.data.maintainer && (
+              <div>
+                <span class="block text-sm text-text-light dark:text-darkmode-text-light">Maintainer</span>
+                <span class="text-text-dark dark:text-darkmode-text-dark">{std.data.maintainer}</span>
+              </div>
+            )}
           </div>
 
           <!-- Tags -->

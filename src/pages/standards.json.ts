@@ -19,6 +19,8 @@ export async function GET(context: APIContext) {
       authors: entry.data.authors,
       tags: entry.data.tags,
       relatedStandards: entry.data.relatedStandards,
+      category: entry.data.category,
+      maintainer: entry.data.maintainer,
     }));
 
   return new Response(JSON.stringify({ standards: entries }, null, 2), {

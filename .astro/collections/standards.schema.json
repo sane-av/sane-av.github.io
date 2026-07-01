@@ -51,6 +51,12 @@
         "type": "string"
       }
     },
+    "category": {
+      "type": "string"
+    },
+    "maintainer": {
+      "type": "string"
+    },
     "$schema": {
       "type": "string"
     }

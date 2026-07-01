@@ -44,6 +44,8 @@ const standardsCollection = defineCollection({
     authors: z.array(z.string()),
     tags: z.array(z.string()).default(() => []),
     relatedStandards: z.array(z.string()).default(() => []),
+    category: z.string().optional(),
+    maintainer: z.string().optional(),
   }),
 });
 
