@@ -54,7 +54,7 @@ jobs:
 
       - name: Build
         if: steps.sync.outputs.changed != '0' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
-        run: node scripts/themeGenerator.js && node scripts/jsonGenerator.js && astro build && node scripts/llmsGenerator.js
+        run: node scripts/themeGenerator.js && node scripts/jsonGenerator.js && npx astro build && node scripts/llmsGenerator.js
 
       - name: Upload artifact
         if: steps.sync.outputs.changed != '0' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
