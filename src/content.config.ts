@@ -32,7 +32,7 @@ const blogCollection = defineCollection({
 
 // === Standards ===
 const standardsCollection = defineCollection({
-  loader: glob({ pattern: "**/!(README|CONTRIBUTING).md", base: "src/content/standards" }),
+  loader: glob({ pattern: "**/!(README|CONTRIBUTING).md", base: "src/content/standards/specs" }),
   schema: z.object({
     saneId: z.string(),
     title: z.string(),
