@@ -1,0 +1,62 @@
+---
+import Base from "@/layouts/Base.astro";
+---
+
+<Base title="Throw Ratio Calculator" description="Calculate projector throw distance, screen width, or throw ratio.">
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-8">
+          <h1 class="mb-2">Throw Ratio Calculator</h1>
+          <p class="mb-8 text-text-light dark:text-darkmode-text-light">Solve for throw distance, screen width, or throw ratio &ndash; enter any two values.</p>
+
+          <div class="mb-8 rounded-lg border border-border p-6 dark:border-darkmode-border">
+            <p class="mb-4 text-sm text-text-light dark:text-darkmode-text-light">
+              <strong>Formula:</strong> Throw Ratio = Throw Distance ÷ Screen Width &nbsp;|&nbsp;
+              Leave one field blank to solve for it.
+            </p>
+            <div class="mb-4">
+              <label for="tr-ratio" class="form-label">Throw Ratio (TR)</label>
+              <input id="tr-ratio" type="number" step="0.01" placeholder="e.g. 1.5" min="0" class="form-input w-full" />
+            </div>
+            <div class="mb-4">
+              <label for="tr-dist" class="form-label">Throw Distance (m)</label>
+              <input id="tr-dist" type="number" step="0.01" placeholder="e.g. 4.5" min="0" class="form-input w-full" />
+            </div>
+            <div class="mb-4">
+              <label for="tr-width" class="form-label">Screen Width (m)</label>
+              <input id="tr-width" type="number" step="0.01" placeholder="e.g. 3.0" min="0" class="form-input w-full" />
+            </div>
+            <button id="tr-calc" class="btn btn-primary w-full">Calculate</button>
+
+            <div id="tr-result" class="mt-4 hidden rounded-lg bg-primary/10 p-4 dark:bg-darkmode-primary/20">
+              <span class="text-sm text-text-light dark:text-darkmode-text-light">Result</span>
+              <div id="tr-result-value" class="mt-1 text-lg font-semibold text-text-dark dark:text-darkmode-text-dark"></div>
+              <div id="tr-result-sub" class="mt-1 text-sm text-text-light dark:text-darkmode-text-light"></div>
+            </div>
+            <div id="tr-error" class="mt-4 hidden rounded-lg bg-red-100 p-4 text-red-800 dark:bg-red-900/40 dark:text-red-300"></div>
+          </div>
+
+          <div class="overflow-x-auto rounded-lg border border-border p-6 dark:border-darkmode-border">
+            <h2 class="h5 mb-4">Common Throw Ratios</h2>
+            <table class="w-full text-left text-sm">
+              <thead><tr class="border-b border-border dark:border-darkmode-border"><th class="px-2 py-2">Lens Type</th><th class="px-2 py-2">Typical TR Range</th><th class="px-2 py-2">Notes</th></tr></thead>
+              <tbody>
+                <tr class="border-b border-border dark:border-darkmode-border"><td class="px-2 py-2">Ultra-short throw (UST)</td><td class="px-2 py-2">0.1 – 0.4</td><td class="px-2 py-2">Mounted very close or on the screen</td></tr>
+                <tr class="border-b border-border dark:border-darkmode-border"><td class="px-2 py-2">Short throw</td><td class="px-2 py-2">0.4 – 1.0</td><td class="px-2 py-2">Common in classrooms</td></tr>
+                <tr class="border-b border-border dark:border-darkmode-border"><td class="px-2 py-2">Standard</td><td class="px-2 py-2">1.0 – 2.5</td><td class="px-2 py-2">General purpose, flexible placement</td></tr>
+                <tr><td class="px-2 py-2">Long throw</td><td class="px-2 py-2">2.5 – 8.0+</td><td class="px-2 py-2">Large venues, rear projection</td></tr>
+              </tbody>
+            </table>
+            <p class="mt-3 text-sm text-text-light dark:text-darkmode-text-light">Always verify throw ratio specs from the manufacturer's datasheet for your specific lens.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  import { initThrowRatioCalculator } from "../../lib/tools/throw-ratio";
+  initThrowRatioCalculator();
+</script>

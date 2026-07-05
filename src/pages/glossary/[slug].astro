@@ -1,0 +1,73 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getCollection, render } from "astro:content";
+import { getRelatedTerms } from "@/lib/glossary";
+
+export async function getStaticPaths() {
+  const mdEntries = await getCollection("glossary");
+  return mdEntries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+
+if (entry.data.redirectTo) {
+  return Astro.redirect(`/glossary/${entry.data.redirectTo}`, 301);
+}
+
+const { Content } = await render(entry);
+
+const termName = entry.data.term;
+const category = entry.data.category;
+const abbreviation = entry.data.abbreviation ?? null;
+const relatedTerms = getRelatedTerms(entry.id, [category]);
+const description = `Definition of ${termName} in professional AV.`;
+---
+
+<Base title={abbreviation ? `${abbreviation} (${termName})` : termName} description={description}>
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+
+          <!-- Header -->
+          <div class="mb-8">
+            <h1 class="mb-3">
+              {abbreviation ? `${abbreviation} (${termName})` : termName}
+            </h1>
+            <span class="rounded bg-light px-3 py-1 text-sm dark:bg-darkmode-light">{category}</span>
+          </div>
+
+          <!-- Content -->
+          <div class="content mb-10">
+            <Content />
+          </div>
+
+          <!-- Related Terms -->
+          {relatedTerms.length > 0 && (
+            <div class="mb-8 rounded-lg border border-border p-6 dark:border-darkmode-border">
+              <h3 class="mb-3">Related Terms</h3>
+              <div class="flex flex-wrap gap-2">
+                {relatedTerms.map((t: string) => (
+                  <span class="rounded bg-light px-3 py-1 text-sm dark:bg-darkmode-light">{t}</span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <!-- Contribute -->
+          <hr class="mb-6 border-border dark:border-darkmode-border" />
+          <p class="text-sm text-text-light dark:text-darkmode-text-light">
+            Want to improve this definition?
+            <a href={`https://github.com/sane-av/sane-av.github.io/issues/new?template=content_submission.yml&title=${encodeURIComponent("Glossary: " + termName)}`} target="_blank" rel="noopener" class="underline hover:text-primary dark:hover:text-darkmode-primary">
+              Submit a suggestion on GitHub
+            </a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

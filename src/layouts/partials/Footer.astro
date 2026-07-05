@@ -1,0 +1,62 @@
+---
+import config from "@/config/config.json";
+import { markdownify } from "@/lib/utils/textConverter";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-light dark:bg-darkmode-light">
+  <div class="container">
+    <div class="row justify-between py-12">
+      <div class="mb-8 md:col-3 lg:col-2 lg:mb-0">
+        <h4 class="mb-4 text-h6 font-secondary">SANE</h4>
+        <ul class="space-y-2">
+          <li><a href="/why-sane" class="text-text-light dark:text-darkmode-text-light hover:text-primary dark:hover:text-darkmode-primary">Why?</a></li>
+          <li><a href="/about" class="text-text-light dark:text-darkmode-text-light hover:text-primary dark:hover:text-darkmode-primary">Who?</a></li>
+        </ul>
+      </div>
+      <div class="mb-8 md:col-3 lg:col-2 lg:mb-0">
+        <h4 class="mb-4 text-h6 font-secondary">Standards</h4>
+        <ul class="space-y-2">
+          <li><a href="/standards" class="text-text-light dark:text-darkmode-text-light hover:text-primary dark:hover:text-darkmode-primary">All Standards</a></li>
+          <li><a href="/contributing" class="text-text-light dark:text-darkmode-text-light hover:text-primary dark:hover:text-darkmode-primary">Propose (RFC)</a></li>
+        </ul>
+      </div>
+      <div class="mb-8 md:col-3 lg:col-2 lg:mb-0">
+        <h4 class="mb-4 text-h6 font-secondary">Resources</h4>
+        <ul class="space-y-2">
+          <li><a href="/blog" class="text-text-light dark:text-darkmode-text-light hover:text-primary dark:hover:text-darkmode-primary">Blog</a></li>
+          <li><a href="/glossary" class="text-text-light dark:text-darkmode-text-light hover:text-primary dark:hover:text-darkmode-primary">Glossary</a></li>
+          <li><a href="/equipment" class="text-text-light dark:text-darkmode-text-light hover:text-primary dark:hover:text-darkmode-primary">Equipment DB</a></li>
+          <li><a href="/tools" class="text-text-light dark:text-darkmode-text-light hover:text-primary dark:hover:text-darkmode-primary">Tools</a></li>
+        </ul>
+      </div>
+      <div class="mb-8 md:col-3 lg:col-2 lg:mb-0">
+        <h4 class="mb-4 text-h6 font-secondary">Community</h4>
+        <ul class="space-y-2">
+          <li><a href="https://github.com/sane-av" target="_blank" rel="noopener" class="text-text-light dark:text-darkmode-text-light hover:text-primary dark:hover:text-darkmode-primary">GitHub</a></li>
+          <li><a href="https://github.com/sane-av/sane-av.github.io/discussions" target="_blank" rel="noopener" class="text-text-light dark:text-darkmode-text-light hover:text-primary dark:hover:text-darkmode-primary">Discussions</a></li>
+          <li><a href="https://github.com/sane-av/sane-av.github.io/issues" target="_blank" rel="noopener" class="text-text-light dark:text-darkmode-text-light hover:text-primary dark:hover:text-darkmode-primary">Issues / RFCs</a></li>
+          <li><a href="/contributing" class="text-text-light dark:text-darkmode-text-light hover:text-primary dark:hover:text-darkmode-primary">Contributing</a></li>
+        </ul>
+      </div>
+      <div class="mb-8 md:col-3 lg:col-2 lg:mb-0">
+        <h4 class="mb-4 text-h6 font-secondary">Project</h4>
+        <ul class="space-y-2">
+          <li><a href="/rss.xml" class="text-text-light dark:text-darkmode-text-light hover:text-primary dark:hover:text-darkmode-primary">RSS Feed</a></li>
+          <li><a href="/#newsletter" class="text-text-light dark:text-darkmode-text-light hover:text-primary dark:hover:text-darkmode-primary">Newsletter</a></li>
+          <li><a href="/governance" class="text-text-light dark:text-darkmode-text-light hover:text-primary dark:hover:text-darkmode-primary">Governance</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-border py-7 dark:border-darkmode-border">
+    <div class="container text-center text-text-light text-sm dark:text-darkmode-text-light">
+      <p set:html={markdownify(`&copy; ${year} ${config.params.copyright}`)} />
+      <p class="mt-2">
+        <a href="https://github.com/sponsors/sane-av" target="_blank" rel="noopener" class="hover:text-primary dark:hover:text-darkmode-primary">Sponsor</a> &bull;
+        <a href="https://github.com/sane-av/sane-av.github.io" target="_blank" rel="noopener" class="hover:text-primary dark:hover:text-darkmode-primary">View on GitHub</a>
+      </p>
+    </div>
+  </div>
+</footer>

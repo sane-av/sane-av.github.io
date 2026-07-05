@@ -1,0 +1,76 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.sync.outputs.changed }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Sync content and check for changes
+        id: sync
+        run: |
+          node scripts/contentSync.js 2>&1 | tee /tmp/sync.log
+          CHANGED=$(grep -cE 'Updating|Cloning' /tmp/sync.log || echo 0)
+          echo "changed=$CHANGED" >> "$GITHUB_OUTPUT"
+
+      - name: Build
+        if: steps.sync.outputs.changed != '0' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: node scripts/themeGenerator.js && node scripts/jsonGenerator.js && npx astro build && node scripts/llmsGenerator.js
+
+      - name: Upload artifact
+        if: steps.sync.outputs.changed != '0' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    if: github.event_name != 'pull_request' && (needs.build.outputs.changed != '0' || github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

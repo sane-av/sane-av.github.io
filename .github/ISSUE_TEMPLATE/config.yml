@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Submit a Whitepaper
+    url: https://github.com/sane-av/sane-av-whitepapers/issues/new?template=new-whitepaper.yml
+    about: Propose a technical whitepaper
+  - name: Add or Edit a Glossary Term
+    url: https://github.com/sane-av/sane-av-glossary/issues
+    about: Open a new term or edit term issue
+  - name: Submit Equipment Data
+    url: https://github.com/sane-av/sane-av-equipment-list/issues/new?template=new-equipment.yml
+    about: Add a new equipment entry to the database

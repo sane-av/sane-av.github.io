@@ -1,0 +1,89 @@
+---
+import BlogCard from "@/components/BlogCard.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import Share from "@/components/Share.astro";
+import { getCollection } from "astro:content";
+import dateFormat from "@/lib/utils/dateFormat";
+import { render } from "astro:content";
+import ImageMod from "./components/ImageMod.astro";
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { title, description, pubDate, authors, tags, image } = post.data;
+const displayAuthors = authors ?? [post.data.author ?? "SANE"];
+const displayDate = pubDate ?? post.data.date;
+const displayTags = tags ?? post.data.categories ?? [];
+
+const similarPosts = (await getCollection("blog", ({ data }) => !data.draft))
+  .filter((p) => p.id !== post.id)
+  .sort((a, b) => (b.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0))
+  .slice(0, 3);
+---
+
+<section class="pt-6 pb-4">
+  <div class="container text-center">
+    <div class="rounded-2xl bg-gradient px-8 py-4">
+      <Breadcrumbs />
+    </div>
+  </div>
+</section>
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row justify-center">
+      <article class="lg:col-10">
+        {image && (
+          <div class="mb-10">
+            <ImageMod src={image} height={500} width={1200} alt={title} class="w-full rounded" format="webp" />
+          </div>
+        )}
+        <h1 class="h2 mb-4">{title}</h1>
+        <ul class="mb-6 flex flex-wrap gap-4 text-sm text-text-light dark:text-darkmode-text-light">
+          <li>{displayAuthors.join(", ")}</li>
+          {displayDate && <li>{dateFormat(displayDate)}</li>}
+        </ul>
+        <div class="content mb-10">
+          <Content />
+        </div>
+        <div class="rounded-lg border border-border p-6 dark:border-darkmode-border">
+          <div class="flex flex-wrap items-start justify-between gap-4">
+            {displayTags.length > 0 && (
+              <div class="flex items-center">
+                <h5 class="mr-3 shrink-0">Tags:</h5>
+                <ul>
+                  {displayTags.map((tag: string) => (
+                    <li class="inline-block">
+                      <a
+                        class="m-1 block rounded bg-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark"
+                        href={`/tags/${tag}`}
+                      >
+                        {tag}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            <div class="flex items-center">
+              <h5 class="mr-3">Share:</h5>
+              <Share className="social-icons" title={title} description={description} slug={post.id} />
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    {similarPosts.length > 0 && (
+      <div class="mt-16">
+        <h2 class="h3 mb-12 text-center">Related Posts</h2>
+        <div class="row justify-center">
+          {similarPosts.map((p) => (
+            <div class="lg:col-4 md:col-6 mb-14">
+              <BlogCard data={p} />
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+</section>

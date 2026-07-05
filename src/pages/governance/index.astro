@@ -1,0 +1,35 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+---
+
+<Base title="Governance" description="How SANE is governed: roles, decision making, RFC process, and code of conduct.">
+  <PageHeader title="Governance" />
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <p class="mb-8 text-text-light dark:text-darkmode-text-light">SANE is an open community. These documents describe how the project is run, how decisions are made, and how you can participate.</p>
+
+          <ul class="mb-8 space-y-3">
+            {[
+              { href: "GOVERNANCE.md", desc: "Roles, decision making, RFC process, and standards lifecycle." },
+              { href: "MAINTAINERS.md", desc: "Current maintainers and their responsibilities." },
+              { href: "CODE_OF_CONDUCT.md", desc: "Expected behavior and how to report issues." },
+              { href: "TRADEMARK.md", desc: "Rules for using the SANE name, logo, and certification mark." },
+              { href: "TRANSLATIONS.md", desc: "Strategy for translating standards and content." },
+            ].map(({ href, desc }) => (
+              <li class="rounded-lg border border-border p-4 transition-colors hover:bg-light dark:border-darkmode-border dark:hover:bg-darkmode-light">
+                <a href={`https://github.com/sane-av/sane-av.github.io/blob/main/${href}`} target="_blank" rel="noopener" class="font-semibold text-primary hover:underline dark:text-darkmode-primary">{href}</a>
+                <span class="ml-2 text-text-light dark:text-darkmode-text-light">- {desc}</span>
+              </li>
+            ))}
+          </ul>
+
+          <p class="text-text-light dark:text-darkmode-text-light">The canonical versions of these documents live in the GitHub repository. If you see something that needs updating, open an issue or pull request.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,136 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import type { EquipmentEntry } from "@/lib/equipment";
+
+const files = import.meta.glob<{ default: unknown[] }>("../../data/equipment/*.json", { eager: true });
+const allEquipment: EquipmentEntry[] = Object.entries(files)
+  .filter(([path]) => !path.endsWith("schema.json"))
+  .flatMap(([, f]) => (Array.isArray(f.default) ? f.default : []));
+
+const categories = [...new Set(allEquipment.map((e) => e.category))].sort();
+const allTags = [...new Set(allEquipment.flatMap((e) => e.tags))].sort();
+---
+
+<Base title="Equipment Database" description="Open community database of AV equipment specifications.">
+  <PageHeader title="Equipment Database" />
+
+  <section class="section-sm">
+    <div class="container">
+      <p class="mb-4 text-text-light dark:text-darkmode-text-light">
+        An open, community-maintained database of AV equipment specs. All data is CC BY-SA 4.0 &ndash; use it in your tools, reports, and designs.
+      </p>
+      <div class="mb-8 flex flex-wrap gap-2">
+        <a href="https://github.com/sane-av/sane-av.github.io/issues/new?template=content_submission.yml&title=[Equipment]+New+entry" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+          Submit Equipment Data &rarr;
+        </a>
+        <a href="/equipment.json" class="btn btn-outline-primary btn-sm">JSON Feed</a>
+      </div>
+
+      <!-- Filters -->
+      <div class="mb-6 flex flex-col gap-3 sm:flex-row">
+        <input type="search" id="eq-search" class="form-input flex-1" placeholder="Search manufacturer, model, or spec&hellip;" aria-label="Search equipment" />
+        <select id="eq-cat" class="form-input w-full sm:w-48" aria-label="Filter by category">
+          <option value="">All categories</option>
+          {categories.map((c) => <option value={c}>{c}</option>)}
+        </select>
+      </div>
+
+      {allTags.length > 0 && (
+        <div class="mb-4 flex flex-wrap items-center gap-2">
+          <span class="mr-2 text-sm font-semibold">Tags:</span>
+          {allTags.map((tag) => (
+            <button type="button" class="filter-tag rounded bg-light px-3 py-1 text-sm hover:bg-primary hover:text-white dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark" data-tag={tag}>{tag}</button>
+          ))}
+          <button id="tag-clear" class="ml-2 hidden text-sm text-text-light underline hover:text-primary dark:text-darkmode-text-light dark:hover:text-darkmode-primary">Clear</button>
+        </div>
+      )}
+
+      <p id="eq-count" class="mb-6 text-text-light dark:text-darkmode-text-light">
+        {allEquipment.length} entries
+      </p>
+
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse text-left text-sm" id="eq-table">
+          <thead>
+            <tr class="border-b border-border dark:border-darkmode-border">
+              <th class="px-4 py-3 font-secondary text-text-dark dark:text-darkmode-text-dark">Manufacturer</th>
+              <th class="px-4 py-3 font-secondary text-text-dark dark:text-darkmode-text-dark">Model</th>
+              <th class="px-4 py-3 font-secondary text-text-dark dark:text-darkmode-text-dark">Category</th>
+              <th class="px-4 py-3 font-secondary text-text-dark dark:text-darkmode-text-dark">Key Specs</th>
+              <th class="px-4 py-3 font-secondary text-text-dark dark:text-darkmode-text-dark">Tags</th>
+            </tr>
+          </thead>
+          <tbody>
+            {allEquipment.map((item) => (
+              <tr class="border-b border-border dark:border-darkmode-border hover:bg-light dark:hover:bg-darkmode-light" data-cat={item.category} data-search={`${item.manufacturer} ${item.model} ${item.tags.join(" ")} ${Object.values(item.specs).join(" ")}`.toLowerCase()} data-tags={item.tags.join(",")}>
+                <td class="px-4 py-3 font-semibold text-text-dark dark:text-darkmode-text-dark">{item.manufacturer}</td>
+                <td class="px-4 py-3">{item.model}</td>
+                <td class="px-4 py-3"><span class="rounded bg-light px-2 py-0.5 text-xs dark:bg-darkmode-light">{item.category}</span></td>
+                <td class="px-4 py-3">
+                  {Object.entries(item.specs).slice(0, 3).map(([k, v]) => (
+                    <div class="text-xs"><span class="text-text-light dark:text-darkmode-text-light">{k}:</span> {v}</div>
+                  ))}
+                </td>
+                <td class="px-4 py-3">
+                  <div class="flex flex-wrap gap-1">
+                    {item.tags.map((t: string) => (
+                      <button type="button" class="filter-tag rounded bg-light px-2 py-0.5 text-xs hover:bg-primary hover:text-white dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark" data-tag={t}>{t}</button>
+                    ))}
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const search = document.getElementById("eq-search") as HTMLInputElement;
+  const catSelect = document.getElementById("eq-cat") as HTMLSelectElement;
+  const tagButtons = document.querySelectorAll<HTMLButtonElement>(".filter-tag");
+  const rows = document.querySelectorAll<HTMLTableRowElement>("#eq-table tbody tr");
+  const countEl = document.getElementById("eq-count")!;
+  const clearBtn = document.getElementById("tag-clear")!;
+  let activeTag = "";
+
+  function filter() {
+    const query = search.value.toLowerCase();
+    const category = catSelect.value;
+    let visible = 0;
+    tagButtons.forEach((btn) => {
+      const match = btn.dataset.tag === activeTag;
+      btn.classList.toggle("!bg-primary !text-white", match);
+      btn.classList.toggle("dark:!bg-darkmode-primary dark:!text-text-dark", match);
+    });
+    rows.forEach((row) => {
+      const matchSearch = !query || row.dataset.search?.includes(query);
+      const matchCategory = !category || row.dataset.cat === category;
+      const rowTags = (row.dataset.tags || "").split(",");
+      const matchTag = !activeTag || rowTags.includes(activeTag);
+      const show = matchSearch && matchCategory && matchTag;
+      row.classList.toggle("hidden", !show);
+      if (show) visible++;
+    });
+    countEl.textContent = `${visible} entries`;
+    clearBtn.classList.toggle("!inline-block", !!activeTag);
+  }
+
+  search.addEventListener("input", filter);
+  catSelect.addEventListener("change", filter);
+  tagButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const tag = btn.dataset.tag!;
+      activeTag = activeTag === tag ? "" : tag;
+      filter();
+    });
+  });
+  clearBtn.addEventListener("click", () => { activeTag = ""; filter(); });
+
+  const params = new URLSearchParams(window.location.search);
+  const urlTag = params.get("tag");
+  if (urlTag) { activeTag = urlTag; filter(); }
+</script>

@@ -1,0 +1,95 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+
+const tools = [
+  { href: "/tools/spl-calculator", icon: "🔊", title: "SPL / dB Calculator", description: "Convert between dBu, dBV, dBFS, and acoustic SPL. Calculate voltage and power ratios.", tags: ["audio", "signal levels"] },
+  { href: "/tools/throw-ratio", icon: "📽️", title: "Throw Ratio Calculator", description: "Calculate projector throw distance, screen width, or throw ratio from any two known values.", tags: ["video", "projection"] },
+  { href: "/tools/cable-loss", icon: "🔌", title: "Cable Loss Calculator", description: "Estimate signal attenuation in coax and twisted-pair AV cables by length and frequency.", tags: ["audio", "video", "signal", "cabling"] },
+];
+const allTags = [...new Set(tools.flatMap((t) => t.tags))].sort();
+---
+
+<Base title="Tools" description="Free open source AV engineering calculators and tools.">
+  <PageHeader title="AV Engineering Tools" />
+
+  <section class="section-sm">
+    <div class="container">
+      <p class="mb-6 text-text-light dark:text-darkmode-text-light">
+        Free, open source calculators for AV system design and engineering.
+      </p>
+
+      {allTags.length > 0 && (
+        <div class="mb-4 flex flex-wrap items-center gap-2">
+          <span class="mr-2 text-sm font-semibold">Categories:</span>
+          {allTags.map((tag) => (
+            <button type="button" class="filter-tag rounded bg-light px-3 py-1 text-sm hover:bg-primary hover:text-white dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark" data-tag={tag}>{tag}</button>
+          ))}
+          <button id="tag-clear" class="ml-2 hidden text-sm text-text-light underline hover:text-primary dark:text-darkmode-text-light dark:hover:text-darkmode-primary">Clear</button>
+        </div>
+      )}
+
+      <p id="tool-count" class="mb-6 text-text-light dark:text-darkmode-text-light">
+        {tools.length} tool{tools.length !== 1 ? "s" : ""}
+      </p>
+
+      <div class="row" id="card-grid">
+        {tools.map((tool) => (
+          <div class="md:col-6 lg:col-4 mb-8" data-tags={tool.tags.join(",")}>
+            <a href={tool.href} class="block rounded-lg border border-border p-6 transition-shadow hover:shadow-lg dark:border-darkmode-border">
+              <div class="mb-3 text-4xl">{tool.icon}</div>
+              <h3 class="mb-2 h5">{tool.title}</h3>
+              <p class="mb-4 text-text-light dark:text-darkmode-text-light">{tool.description}</p>
+              <div class="flex flex-wrap gap-1">
+                {tool.tags.map((t: string) => <span class="rounded bg-light px-2 py-0.5 text-xs text-text-light dark:bg-darkmode-light dark:text-darkmode-text-light">{t}</span>)}
+              </div>
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10 rounded-lg border border-border p-8 dark:border-darkmode-border">
+        <h3 class="mb-2">Missing a tool?</h3>
+        <p class="mb-4 text-text-light dark:text-darkmode-text-light">
+          Open an issue on GitHub to request a calculator, or submit a PR with your own.
+          All tools are client-side JavaScript &ndash; no server required.
+        </p>
+        <a href="https://github.com/sane-av/sane-av.github.io/issues/new" target="_blank" rel="noopener" class="btn btn-outline-primary btn-sm">Request a Tool &rarr;</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const tagButtons = document.querySelectorAll<HTMLButtonElement>(".filter-tag");
+  const cards = document.querySelectorAll<HTMLElement>('[data-tags]');
+  const countEl = document.getElementById("tool-count")!;
+  const clearBtn = document.getElementById("tag-clear")!;
+  const total = cards.length;
+  let activeTag = "";
+
+  function apply() {
+    let visible = 0;
+    tagButtons.forEach((btn) => {
+      const match = btn.dataset.tag === activeTag;
+      btn.classList.toggle("!bg-primary !text-white", match);
+      btn.classList.toggle("dark:!bg-darkmode-primary dark:!text-text-dark", match);
+    });
+    cards.forEach((card) => {
+      const tags = (card.dataset.tags || "").split(",");
+      const show = !activeTag || tags.includes(activeTag);
+      card.classList.toggle("hidden", !show);
+      if (show) visible++;
+    });
+    countEl.textContent = activeTag ? `${visible} of ${total} tool${total !== 1 ? "s" : ""}` : `${total} tool${total !== 1 ? "s" : ""}`;
+    clearBtn.classList.toggle("!inline-block", !!activeTag);
+  }
+
+  tagButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      activeTag = activeTag === btn.dataset.tag! ? "" : btn.dataset.tag!;
+      apply();
+    });
+  });
+  clearBtn.addEventListener("click", () => { activeTag = ""; apply(); });
+</script>

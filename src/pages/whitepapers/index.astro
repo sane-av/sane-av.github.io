@@ -1,0 +1,59 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import PostSidebar from "@/partials/PostSidebar.astro";
+import WhitepaperCard from "@/layouts/components/WhitepaperCard.astro";
+import Pagination from "@/components/Pagination.astro";
+import config from "@/config/config.json";
+import { getCollection } from "astro:content";
+
+const SECTION = "whitepapers";
+const PAGE_SIZE = config.settings.pagination;
+
+const posts = await getCollection(SECTION, ({ data }) => !data.draft);
+const sortedPosts = posts.sort(
+  (a, b) => (b.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0),
+);
+const totalPages = Math.ceil(posts.length / PAGE_SIZE);
+const currentPosts = sortedPosts.slice(0, PAGE_SIZE);
+
+const allTags: string[] = posts.flatMap((p) => p.data.tags).sort((a, b) => a.localeCompare(b));
+---
+
+<Base title="Whitepapers" description="Technical writeups and deep dives by SANE editors.">
+  <PageHeader title="Whitepapers" />
+
+  <section class="pt-6 pb-4">
+    <div class="container text-center">
+      <div class="rounded-2xl bg-gradient px-8 py-4">
+        <p class="mb-4 text-text-light dark:text-darkmode-text-light">
+          Formal technical publications by SANE editors. In-depth analysis and guidance for professional AV practitioners.
+        </p>
+        <div class="flex flex-wrap justify-center gap-2">
+          <a href="/contributing" class="btn btn-primary btn-sm">Contribute &rarr;</a>
+          <a href="/feeds" class="btn btn-outline-primary btn-sm">Feeds</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pt-8 pb-24 xl:pt-10 xl:pb-28">
+    <div class="container">
+      <div class="row gx-5">
+        <div class="lg:col-8">
+          <div class="row">
+            {currentPosts.map((post) => (
+              <div class="mb-14 md:col-6">
+                <WhitepaperCard data={post} />
+              </div>
+            ))}
+          </div>
+          <Pagination section={SECTION} currentPage={1} totalPages={totalPages} />
+        </div>
+        <PostSidebar
+          tags={[...new Set(allTags)]}
+        />
+      </div>
+    </div>
+  </section>
+</Base>

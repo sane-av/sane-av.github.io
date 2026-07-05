@@ -1,0 +1,165 @@
+---
+import TwSizeIndicator from "@/components/TwSizeIndicator.astro";
+import config from "@/config/config.json";
+import theme from "@/config/theme.json";
+import { plainify } from "@/lib/utils/textConverter";
+import Footer from "@/partials/Footer.astro";
+import Header from "@/partials/Header.astro";
+import "@/styles/main.css";
+import { Font } from "astro:assets";
+import { ClientRouter } from "astro:transitions";
+import Announcement from "./helpers/Announcement";
+import SearchModal from "./helpers/SearchModal";
+
+// font families - extract font names for Font component (filter out type keys)
+const fontEntries = Object.entries(theme.fonts.font_family).filter(
+  ([key]) => !key.includes("_type"),
+);
+
+// types for frontmatters
+export interface Props {
+  title?: string;
+  meta_title?: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+  canonical?: string;
+}
+
+// destructure frontmatter
+const { title, meta_title, description, image, noindex, canonical } =
+  Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <style is:inline>
+      html.dark { background: #0a0a0c; color-scheme: dark; }
+      body { background: #0a0a0c; color: #ededf0; }
+      .header, footer { background: #111116; }
+      #nav-menu { display: none; }
+      @media (min-width: 64rem) { #nav-menu { display: flex; } }
+      .nav-link { color: #ededf0; }
+      .btn-primary { background: #f1a10d; color: #0a0a0c; border-color: #f1a10d; }
+      .dark .btn-primary:hover { opacity: 0.9; }
+      .btn-outline-primary { border-color: #f1a10d; color: #f1a10d; }
+      .dark .btn-outline-primary:hover { background: rgba(241, 161, 13, 0.2); color: #f1a10d; border-color: #f1a10d; }
+    </style>
+    <!-- favicon -->
+    <link rel="shortcut icon" href={config.site.favicon} />
+    <!-- theme meta -->
+    <meta name="theme-name" content="astroplate" />
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content={theme.colors.default.theme_color.body}
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content={theme.colors.darkmode.theme_color.body}
+    />
+    <meta name="generator" content={Astro.generator} />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <!-- google font css - Astro 6 built-in Font API -->
+    {
+      fontEntries.map(([key]) => {
+        const cssVar = `--font-${key}` as any;
+        return <Font cssVariable={cssVar} />;
+      })
+    }
+
+    <!-- responsive meta -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=5"
+    />
+
+    <!-- title -->
+    <title>
+      {plainify(meta_title ? meta_title : title ? title : config.site.title)}
+    </title>
+
+    <!-- canonical url -->
+    {canonical && <link rel="canonical" href={canonical} itemprop="url" />}
+
+    <!-- noindex robots -->
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
+
+    <!-- meta-description -->
+    <meta
+      name="description"
+      content={plainify(
+        description ? description : config.metadata.meta_description,
+      )}
+    />
+
+    <ClientRouter />
+
+    <!-- author from config.json -->
+    <meta name="author" content={config.metadata.meta_author} />
+
+    <!-- og-title -->
+    <meta
+      property="og:title"
+      content={plainify(
+        meta_title ? meta_title : title ? title : config.site.title,
+      )}
+    />
+
+    <!-- og-description -->
+    <meta
+      property="og:description"
+      content={plainify(
+        description ? description : config.metadata.meta_description,
+      )}
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content={new URL(Astro.url.pathname, config.site.base_url).href}
+    />
+
+    <!-- twitter-title -->
+    <meta
+      name="twitter:title"
+      content={plainify(
+        meta_title ? meta_title : title ? title : config.site.title,
+      )}
+    />
+
+    <!-- twitter-description -->
+    <meta
+      name="twitter:description"
+      content={plainify(
+        description ? description : config.metadata.meta_description,
+      )}
+    />
+
+    <!-- og-image -->
+    <meta
+      property="og:image"
+      content={new URL(image ? image : config.metadata.meta_image, config.site.base_url).href}
+    />
+
+    <!-- twitter-image -->
+    <meta
+      name="twitter:image"
+      content={new URL(image ? image : config.metadata.meta_image, config.site.base_url).href}
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <Announcement client:only="react" />
+    <Header />
+    <SearchModal client:only="react" />
+    <main class="grow" id="main-content">
+      <slot />
+    </main>
+    <Footer />
+    <TwSizeIndicator />
+  </body>
+</html>

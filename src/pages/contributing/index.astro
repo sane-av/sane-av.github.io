@@ -1,0 +1,147 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import { statusColors, statusDescriptions } from "@/lib/statusColors";
+
+const statuses = ["draft", "under-review", "published", "deprecated"] as const;
+---
+
+<Base title="Contribute to SANE">
+  <PageHeader title="Contribute" />
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+
+          <h2 class="mb-4">Ways to Contribute</h2>
+
+          <div class="mb-10 space-y-6">
+            <!-- Standards -->
+            <div class="rounded-lg border border-border p-6 dark:border-darkmode-border">
+              <h3 class="mb-2">Standards</h3>
+              <p class="mb-3 text-text-light dark:text-darkmode-text-light">Propose a new standard or amendment through the RFC (Request for Comments) process. Standards are community-voted and ratified. <a href="#rfc-process" class="text-primary hover:underline dark:text-darkmode-primary">Learn how the process works &darr;</a></p>
+              <div class="flex flex-wrap gap-2">
+                <a href="https://github.com/sane-av/sane-av.github.io/issues/new?template=rfc.yml" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Open an RFC &rarr;</a>
+                <a href="/standards" class="btn btn-outline-primary btn-sm">View All Standards</a>
+              </div>
+            </div>
+
+            <!-- Whitepapers -->
+            <div class="rounded-lg border border-border p-6 dark:border-darkmode-border">
+              <h3 class="mb-2">Whitepapers</h3>
+              <p class="mb-3 text-text-light dark:text-darkmode-text-light">Technical deep dives and analysis by community contributors. Open a proposal issue, then submit a PR with your content.</p>
+              <div class="flex flex-wrap gap-2">
+                <a href="https://github.com/sane-av/sane-av-whitepapers/issues/new?template=new-whitepaper.yml" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Propose a Whitepaper &rarr;</a>
+                <a href="/whitepapers" class="btn btn-outline-primary btn-sm">View All Whitepapers</a>
+              </div>
+            </div>
+
+            <!-- Glossary -->
+            <div class="rounded-lg border border-border p-6 dark:border-darkmode-border">
+              <h3 class="mb-2">Glossary</h3>
+              <p class="mb-3 text-text-light dark:text-darkmode-text-light">Add a new term or improve an existing definition. Open an issue with your contribution.</p>
+              <div class="flex flex-wrap gap-2">
+                <a href="https://github.com/sane-av/sane-av-glossary/issues/new?template=new-term.yml" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Add a Term &rarr;</a>
+                <a href="https://github.com/sane-av/sane-av-glossary/issues/new?template=edit-term.yml" target="_blank" rel="noopener" class="btn btn-outline-primary btn-sm">Edit a Term</a>
+              </div>
+            </div>
+
+            <!-- Equipment -->
+            <div class="rounded-lg border border-border p-6 dark:border-darkmode-border">
+              <h3 class="mb-2">Equipment Database</h3>
+              <p class="mb-3 text-text-light dark:text-darkmode-text-light">Submit specs for AV equipment. Open an issue with manufacturer, model, category, and specifications.</p>
+              <div class="flex flex-wrap gap-2">
+                <a href="https://github.com/sane-av/sane-av-equipment-list/issues/new?template=new-equipment.yml" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Submit Equipment &rarr;</a>
+                <a href="/equipment" class="btn btn-outline-primary btn-sm">Browse Equipment</a>
+              </div>
+            </div>
+
+            <!-- Blog -->
+            <div class="rounded-lg border border-border p-6 dark:border-darkmode-border">
+              <h3 class="mb-2">Blog</h3>
+              <p class="mb-3 text-text-light dark:text-darkmode-text-light">The blog is editor-maintained for project news and updates. If you have an idea for a post, reach out to the maintainers.</p>
+              <a href="/blog" class="btn btn-outline-primary btn-sm">Read the Blog</a>
+            </div>
+
+            <!-- Site & Tools -->
+            <div class="rounded-lg border border-border p-6 dark:border-darkmode-border">
+              <h3 class="mb-2">Site &amp; Tools</h3>
+              <p class="mb-3 text-text-light dark:text-darkmode-text-light">Found a bug? Have an idea for a new calculator or feature? Report it or open a PR.</p>
+              <div class="flex flex-wrap gap-2">
+                <a href="https://github.com/sane-av/sane-av.github.io/issues/new?template=bug.yml" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Report a Bug &rarr;</a>
+                <a href="https://github.com/sane-av/sane-av.github.io" target="_blank" rel="noopener" class="btn btn-outline-primary btn-sm">View Source</a>
+              </div>
+            </div>
+          </div>
+
+          <h2 id="rfc-process" class="mb-4">How the RFC Process Works</h2>
+          <p class="mb-6 text-text-light dark:text-darkmode-text-light">All standards proposals follow the RFC (Request for Comments) process, inspired by the IETF model.</p>
+          {[
+            { step: "1", title: "Proposal", body: "Open a GitHub issue using the RFC template. Describe the problem, proposed solution, and affected AV domains." },
+            { step: "2", title: "Discussion", body: "The community reviews the RFC. Comments, concerns, and proposed amendments are discussed openly on the issue." },
+            { step: "3", title: "Draft PR", body: "Once rough consensus is reached, open a Pull Request with the draft standard document in Markdown format." },
+            { step: "4", title: "Review Period", body: "The PR enters a minimum 60-day public review. Major changes restart the clock." },
+            { step: "5", title: "Ratification", body: "After review with no blocking objections, the PR is merged. The standard is published." },
+          ].map(({ step, title, body }) => (
+            <div class="mb-6 flex gap-4">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-white dark:bg-darkmode-primary dark:text-dark">{step}</div>
+              <div>
+                <h3 class="mb-1 text-h5">{title}</h3>
+                <p class="text-text-light dark:text-darkmode-text-light">{body}</p>
+              </div>
+            </div>
+          ))}
+          <div class="mb-10 mt-4">
+            <a href="https://github.com/sane-av/sane-av.github.io/issues/new?template=rfc.yml" target="_blank" rel="noopener" class="btn btn-primary">Open an RFC Now &rarr;</a>
+          </div>
+
+          <h2 class="mb-4">RFC Statuses</h2>
+          <p class="mb-4 text-text-light dark:text-darkmode-text-light">See the <a href="/rfc/status" class="text-primary hover:underline dark:text-darkmode-primary">RFC Status Dashboard</a> for the current state of every standard.</p>
+          <div class="mb-8 overflow-x-auto">
+            <table class="w-full text-left text-sm">
+              <thead><tr class="border-b border-border dark:border-darkmode-border"><th class="px-4 py-3">Status</th><th class="px-4 py-3">Meaning</th></tr></thead>
+              <tbody>
+                {statuses.map((s) => (
+                  <tr class="border-b border-border dark:border-darkmode-border">
+                    <td class="px-4 py-3"><span class={`rounded-full px-2 py-0.5 text-xs font-medium ${statusColors[s]}`}>{s}</span></td>
+                    <td class="px-4 py-3 text-text-light dark:text-darkmode-text-light">{statusDescriptions[s]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <h2 class="mb-3">Principles</h2>
+          <ul class="mb-8 space-y-2 text-text-light dark:text-darkmode-text-light">
+            <li><strong>Rough consensus, not unanimity.</strong> We seek broad agreement, not perfection.</li>
+            <li><strong>Technical merit first.</strong> Arguments backed by evidence and real-world data carry more weight.</li>
+            <li><strong>No IP encumbrances.</strong> All standards must be implementable freely without patent licensing fees.</li>
+            <li><strong>Plain English.</strong> Write for the working AV professional, not just academics.</li>
+            <li><strong>Versioned and auditable.</strong> Every change is in Git. Nothing is ever quietly altered.</li>
+          </ul>
+
+          <h2 class="mb-3">Quick Start</h2>
+          <pre class="mb-4 overflow-x-auto rounded bg-light p-4 text-sm dark:bg-darkmode-body"><code>git clone https://github.com/sane-av/sane-av.github.io
+cd sane-av.github.io
+pnpm install
+pnpm dev</code></pre>
+          <p class="mb-8 text-text-light dark:text-darkmode-text-light">Content repos are cloned as siblings automatically during <code class="rounded bg-light px-1 text-sm dark:bg-darkmode-light">pnpm build</code>. See <a href="https://github.com/sane-av/sane-av.github.io/blob/main/README.md" target="_blank" rel="noopener" class="text-primary hover:underline dark:text-darkmode-primary">README.md</a> for the full workspace layout.</p>
+
+          <h2 class="mb-3">License</h2>
+          <p class="mb-8 text-text-light dark:text-darkmode-text-light">
+            All contributions are licensed under <strong>CC BY-SA 4.0</strong> (content) or <strong>Apache 2.0</strong> (code).
+            The SANE name, logo, and certification marks are trademarks &mdash; see <a href="https://github.com/sane-av/sane-av.github.io/blob/main/NOTICE" target="_blank" rel="noopener" class="text-primary hover:underline dark:text-darkmode-primary">NOTICE</a>.
+          </p>
+
+          <h2 class="mb-3">Sponsorship</h2>
+          <p class="mb-8 text-text-light dark:text-darkmode-text-light">
+            If your organization benefits from SANE, consider
+            <a href="https://github.com/sponsors/sane-av" target="_blank" rel="noopener" class="text-primary hover:underline dark:text-darkmode-primary">sponsoring the project on GitHub Sponsors</a>.
+            Donations cover infrastructure, legal review, and maintainer time.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

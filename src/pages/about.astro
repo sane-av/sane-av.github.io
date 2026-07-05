@@ -1,0 +1,73 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+
+const people = [
+  {
+    initials: "AF",
+    name: "Andrew F",
+    role: "Founder",
+    bio: "After more than 15 years working on AV systems for corporate offices, schools, government spaces, medical facilities, financial institutions, museums, broadcast environments, and theaters, he kept running into the same frustrating pattern: the industry has plenty of knowledge, but too much of it is paywalled, vendor-shaped, inconsistent, or passed around as tribal wisdom. SANE grew out of that frustration. Andrew drives the project's vision, RFC process, and technical direction, with the goal of making AV standards more open, practical, and useful for the people doing the work.",
+  },
+];
+---
+
+<Base title="Who?" description="The people behind SANE - open source AV standards for the professional audiovisual industry.">
+  <PageHeader title="Who is SANE?" />
+
+  <section class="pt-6 pb-4">
+    <div class="container text-center">
+      <div class="rounded-2xl bg-gradient px-8 py-4">
+        <p class="mb-4 text-text-light dark:text-darkmode-text-light">
+          SANE is built by AV professionals who believe standards should be open, free, and community-driven.
+        </p>
+        <div class="flex flex-wrap justify-center gap-2">
+          <a href="/contributing" class="btn btn-primary btn-sm">Contribute &rarr;</a>
+          <a href="/feeds" class="btn btn-outline-primary btn-sm">Feeds</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          {people.map((person) => (
+            <div class="mb-8 flex items-start gap-6 rounded-lg border border-border p-6 dark:border-darkmode-border">
+              <svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label={`${person.name} initials`} class="shrink-0">
+                <circle cx="60" cy="60" r="58" fill="#f1a10d" stroke="#353540" stroke-width="2" />
+                <text x="60" y="60" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="36" font-weight="700" fill="#0a0a0c">{person.initials}</text>
+              </svg>
+              <div>
+                <div class="mb-1 flex items-baseline gap-3">
+                  <h2 class="text-h4">{person.name}</h2>
+                  <span class="rounded bg-primary/10 px-2 py-0.5 text-sm font-medium text-primary dark:bg-darkmode-primary/20 dark:text-darkmode-primary">{person.role}</span>
+                </div>
+                <p class="text-text-light dark:text-darkmode-text-light">{person.bio}</p>
+              </div>
+            </div>
+          ))}
+
+          <div class="mt-12 rounded-lg border border-border p-8 text-center dark:border-darkmode-border">
+            <h2 class="mb-4">Get involved</h2>
+            <p class="mb-6 text-text-light dark:text-darkmode-text-light">
+              SANE is built by its community. Whether you can contribute a standard, submit data, fix a bug, or just spread the word - every contribution counts.
+            </p>
+            <div class="flex justify-center gap-3">
+              <a href="/contributing" class="btn btn-primary">Contribution guide</a>
+              <a href="https://github.com/sane-av/sane-av.github.io" target="_blank" rel="noopener" class="btn btn-outline-primary">View on GitHub</a>
+            </div>
+            <div class="mt-8 rounded-lg bg-gradient p-6">
+              <h3 class="mb-2">All contributors</h3>
+              <p class="text-text-light dark:text-darkmode-text-light">
+                SANE's content, code, and tools are contributed by a growing community. Every person who has opened a pull request, submitted equipment data, filed a bug report, or participated in an RFC discussion is recognized on
+                <a href="https://github.com/sane-av/sane-av.github.io/graphs/contributors" target="_blank" rel="noopener" class="underline hover:text-primary dark:hover:text-darkmode-primary"> our GitHub contributors page</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,18 @@
+@utility bg-gradient {
+  @apply bg-linear-to-b from-[rgba(249,249,249,1)] from-[0.53%] to-white to-[83.28%] dark:from-[#1a1a24] dark:to-[#12121a];
+}
+
+@utility hero-glow {
+  filter: drop-shadow(0 0 18px rgba(241, 161, 13, 0.4));
+  animation: heroReveal 0.5s ease-out;
+}
+@keyframes heroReveal { from { opacity: 0; } to { opacity: 1; } }
+
+/* form style */
+@utility form-input {
+  @apply w-full rounded border-transparent bg-light px-6 py-4 text-text-dark placeholder:text-text-light focus:border-primary dark:focus:border-darkmode-primary focus:ring-transparent dark:border-darkmode-border dark:bg-darkmode-light dark:text-darkmode-text-light;
+}
+
+@utility form-label {
+  @apply mb-4 block font-secondary text-xl font-normal text-text-dark dark:text-darkmode-text-light;
+}
