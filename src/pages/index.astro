@@ -9,7 +9,7 @@ const recentPosts = (await getCollection("blog", ({ data }) => !data.draft))
   .sort((a, b) => (b.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0))
   .slice(0, 3);
 
-const recentStandards = (await getCollection("standards", ({ data }) => data.status === "published"))
+const recentStandards = (await getCollection("standards", ({ data }) => data.status !== "deprecated" && data.status !== "superseded"))
   .sort((a, b) => (b.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0))
   .slice(0, 3);
 

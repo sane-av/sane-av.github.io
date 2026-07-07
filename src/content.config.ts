@@ -37,7 +37,7 @@ const standardsCollection = defineCollection({
     saneId: z.string(),
     title: z.string(),
     description: z.string(),
-    status: z.enum(["draft", "under-review", "published", "deprecated"]),
+    status: z.enum(["draft", "under-review", "published", "deprecated", "superseded"]),
     version: z.string(),
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
@@ -45,7 +45,11 @@ const standardsCollection = defineCollection({
     tags: z.array(z.string()).default(() => []),
     relatedStandards: z.array(z.string()).default(() => []),
     category: z.string().optional(),
+    type: z.enum(["specification", "practice", "terminology", "reference", "informational"]).optional(),
     maintainer: z.string().optional(),
+    updates: z.array(z.string()).default(() => []),
+    obsoletes: z.array(z.string()).default(() => []),
+    supersededBy: z.array(z.string()).default(() => []),
   }),
 });
 

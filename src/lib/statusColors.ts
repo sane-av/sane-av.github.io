@@ -3,6 +3,7 @@ export const statusColors: Record<string, string> = {
   "under-review": "bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300",
   draft: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-300",
   deprecated: "bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300",
+  superseded: "bg-gray-100 text-gray-800 dark:bg-gray-900/40 dark:text-gray-300",
 };
 
 export const statusDescriptions: Record<string, string> = {
@@ -10,4 +11,5 @@ export const statusDescriptions: Record<string, string> = {
   "under-review": "In the 60-day public review period. Comments welcome.",
   draft: "Work in progress. Not yet ready for formal review.",
   deprecated: "Superseded or no longer recommended.",
+  superseded: "Replaced by a newer standard. Refer to superseding document.",
 };
