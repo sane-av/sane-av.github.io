@@ -26,7 +26,7 @@ const passingScore = founderData.passingScore;
       <div class="row justify-center">
         <div class="lg:col-8">
 
-          <div id="quiz-container">
+          <div id="quiz-container" data-quiz={JSON.stringify(founderData)}>
             <!-- Name entry -->
             <div id="name-entry" class="rounded-lg border border-border p-6 dark:border-darkmode-border">
               <h2 class="mb-4 h4">Enter your name to begin</h2>
@@ -81,12 +81,15 @@ const passingScore = founderData.passingScore;
   </section>
 </Base>
 
-<script is:inline define:vars={{ certData: founderData }}>
+<script>
+  var container = document.getElementById("quiz-container");
+  var certData = JSON.parse(container.getAttribute("data-quiz"));
+
   async function sha256(message) {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(message);
-    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    var encoder = new TextEncoder();
+    var data = encoder.encode(message);
+    var hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    var hashArray = Array.from(new Uint8Array(hashBuffer));
     return hashArray.map(function(b) { return b.toString(16).padStart(2, "0"); }).join("");
   }
 
@@ -160,10 +163,12 @@ const passingScore = founderData.passingScore;
         radio.checked = true;
         label.classList.add("border-primary", "dark:border-darkmode-primary");
       }
-      radio.addEventListener("change", function() {
-        answers[currentIndex] = optIdx;
-        renderQuestion();
-      });
+      radio.addEventListener("change", (function(idx) {
+        return function() {
+          answers[currentIndex] = idx;
+          renderQuestion();
+        };
+      })(optIdx));
       var span = document.createElement("span");
       span.className = "select-none";
       span.textContent = opt;
