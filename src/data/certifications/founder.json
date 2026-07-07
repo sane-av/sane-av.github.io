@@ -1,0 +1,118 @@
+{
+  "id": "founder",
+  "title": "SANE Founder Certification",
+  "description": "Demonstrate your knowledge of SANE's mission, core principles, and foundational standards. Pass this certification to prove you understand what SANE is building and why it matters.",
+  "passingScore": 8,
+  "questions": [
+    {
+      "id": "f1",
+      "question": "What does SANE stand for?",
+      "options": [
+        "Society for AV Norms & Engineering",
+        "Standard Audio/Video Network Equipment",
+        "Systems And Network Engineering",
+        "Signal Audio Network Enterprise"
+      ],
+      "answerHash": "c177cdaf6e4089e0bab1383fdcc268415a8d084ca18fe44d843075a519453d1d"
+    },
+    {
+      "id": "f2",
+      "question": "What license are SANE standards published under?",
+      "options": [
+        "MIT License",
+        "GNU GPL v3",
+        "CC BY-SA 4.0",
+        "Apache 2.0"
+      ],
+      "answerHash": "c8664852ec063ec271aef7af170b5932ff936e5e170d4110d0e97332cae40c71"
+    },
+    {
+      "id": "f3",
+      "question": "Where does the SANE standards process begin?",
+      "options": [
+        "A private email to the maintainers",
+        "An RFC issue on GitHub",
+        "A paid membership application",
+        "A vote at an annual conference"
+      ],
+      "answerHash": "187fb86d83744d2cc09af650d8821c7516232b09f7efed907308f183e0547747"
+    },
+    {
+      "id": "f4",
+      "question": "Are SANE standards free to access?",
+      "options": [
+        "Yes, they are freely available to everyone",
+        "Only for students and educators",
+        "Only for paying members",
+        "Only the abstracts are free"
+      ],
+      "answerHash": "a1612b9582eec65c9519b0e265f7fc5abf064d5a730dcdf091878fd13ac3bbf3"
+    },
+    {
+      "id": "f5",
+      "question": "What SANE document defines the style and structure requirements for all SANE standards?",
+      "options": [
+        "SANE-000",
+        "SANE-001",
+        "SANE-010",
+        "SANE-100"
+      ],
+      "answerHash": "a760ce7528b3ba1c68f65aea501fd1cec90bfc513b666a8c7c24bec033e02ea7"
+    },
+    {
+      "id": "f6",
+      "question": "SANE-001 defines the correct abbreviation for which term?",
+      "options": [
+        "audiovisual (AV, no slash)",
+        "audio/visual (A/V)",
+        "audio-visual (A-V)",
+        "AV integration (AVI)"
+      ],
+      "answerHash": "7a928321b95d246678e2690a1a967f4d1d161e3f184a01cd9b0e4df75f2bfb85"
+    },
+    {
+      "id": "f7",
+      "question": "SANE-002 defines the correct written form of which unit?",
+      "options": [
+        "The bel (B)",
+        "The decibel (dB)",
+        "The watt (W)",
+        "The volt (V)"
+      ],
+      "answerHash": "37c5ddac67b5f029ed8a0ca44c8db5a65c5c86e740fc908a616d7cc14075ff21"
+    },
+    {
+      "id": "f8",
+      "question": "What topic does SANE-003 address?",
+      "options": [
+        "AI use in professional AV practice",
+        "Cable labeling standards",
+        "Rack layout specifications",
+        "Project management workflows"
+      ],
+      "answerHash": "b558c02a93de6f657c74cb8bff1cc322feaad1283d718e72218a99164399de1e"
+    },
+    {
+      "id": "f9",
+      "question": "Per SANE-001, which form of the AV abbreviation is prohibited in professional AV documentation?",
+      "options": [
+        "A/V (with forward slash)",
+        "AV (no slash)",
+        "audiovisual (full word)",
+        "av (lowercase in code)"
+      ],
+      "answerHash": "7bf2abefb1010f719e4841682dde8f7e7fc6f076ac59db8ba56cdde9dccc8514"
+    },
+    {
+      "id": "f10",
+      "question": "Per SANE-002, which of these is the correct decibel notation for a formal AV document?",
+      "options": [
+        "dB",
+        "db",
+        "DB",
+        "Db"
+      ],
+      "answerHash": "cd932edce392ab5c11f77260eeb164d6150b1a4c2d77c7d0e63dd1fb861a9314"
+    }
+  ]
+}

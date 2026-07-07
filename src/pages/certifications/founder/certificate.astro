@@ -1,0 +1,58 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import CertificateSVG from "@/components/CertificateSVG.astro";
+
+const url = Astro.url;
+const name = url.searchParams.get("name");
+const date = url.searchParams.get("date");
+const score = url.searchParams.get("score");
+const total = url.searchParams.get("total");
+
+const hasParams = name && date && score && total;
+const scoreNum = parseInt(score || "0");
+const totalNum = parseInt(total || "0");
+---
+
+<Base title="SANE Founder Certificate" description="SANE Founder Certification certificate.">
+  <PageHeader title="Your Certificate" />
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+
+          {hasParams ? (
+            <div class="text-center">
+              <div class="mb-6">
+                <CertificateSVG
+                  name={name}
+                  date={date}
+                  score={scoreNum}
+                  total={totalNum}
+                  certName="SANE Founder Certification"
+                />
+              </div>
+              <p class="mb-4 text-text-light dark:text-darkmode-text-light">
+                Right-click or long-press the certificate to save it as an image.
+              </p>
+              <div class="flex flex-wrap justify-center gap-3">
+                <a href="/certifications/founder" class="btn btn-outline-primary">Retake Quiz</a>
+                <a href="/certifications" class="btn btn-primary">All Certifications</a>
+              </div>
+            </div>
+          ) : (
+            <div class="rounded-lg border border-border p-8 text-center dark:border-darkmode-border">
+              <h2 class="mb-4 h4">No certificate data</h2>
+              <p class="mb-6 text-text-light dark:text-darkmode-text-light">
+                Complete the quiz to earn your certificate.
+              </p>
+              <a href="/certifications/founder" class="btn btn-primary">Take the Quiz</a>
+            </div>
+          )}
+
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

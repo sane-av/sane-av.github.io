@@ -1,0 +1,41 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import founderData from "@/data/certifications/founder.json";
+---
+
+<Base title="Certifications" description="Earn SANE certifications to demonstrate your knowledge of AV standards and practices.">
+  <PageHeader title="Certifications" />
+
+  <section class="pt-6 pb-4">
+    <div class="container text-center">
+      <div class="rounded-2xl bg-gradient px-8 py-4">
+        <p class="text-text-light dark:text-darkmode-text-light">
+          SANE certifications test your knowledge of AV standards and professional practices. Each certification is free, open, and available to anyone.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-8">
+          <div class="row">
+            <div class="mb-8 md:col-6">
+              <div class="h-full flex flex-col rounded-lg border border-border p-6 dark:border-darkmode-border">
+                <h3 class="mb-2 h5">{founderData.title}</h3>
+                <p class="grow mb-4 line-clamp-4 overflow-hidden text-text-light dark:text-darkmode-text-light">{founderData.description}</p>
+                <div class="mt-auto flex flex-wrap items-center gap-3">
+                  <span class="rounded-full bg-light px-3 py-1 text-sm dark:bg-darkmode-light">{founderData.questions.length} questions</span>
+                  <span class="text-text-light dark:text-darkmode-text-light">Pass: {founderData.passingScore}/{founderData.questions.length}</span>
+                </div>
+                <a href="/certifications/founder" class="btn btn-primary mt-4">Start Certification &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

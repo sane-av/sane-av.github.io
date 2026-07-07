@@ -17,7 +17,8 @@
         "draft",
         "under-review",
         "published",
-        "deprecated"
+        "deprecated",
+        "superseded"
       ]
     },
     "version": {
@@ -54,8 +55,39 @@
     "category": {
       "type": "string"
     },
+    "type": {
+      "type": "string",
+      "enum": [
+        "specification",
+        "practice",
+        "terminology",
+        "reference",
+        "informational"
+      ]
+    },
     "maintainer": {
       "type": "string"
+    },
+    "updates": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "obsoletes": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "supersededBy": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     },
     "$schema": {
       "type": "string"

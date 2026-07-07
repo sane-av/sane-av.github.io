@@ -9,6 +9,10 @@
       "url": "/whitepapers"
     },
     {
+      "name": "Certifications",
+      "url": "/certifications"
+    },
+    {
       "name": "Resources",
       "url": "",
       "hasChildren": true,
@@ -56,6 +60,10 @@
     {
       "name": "Whitepapers",
       "url": "/whitepapers"
+    },
+    {
+      "name": "Certifications",
+      "url": "/certifications"
     },
     {
       "name": "Blog",

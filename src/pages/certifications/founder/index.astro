@@ -1,0 +1,241 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import founderData from "@/data/certifications/founder.json";
+
+const total = founderData.questions.length;
+const passingScore = founderData.passingScore;
+
+---
+
+<Base title={founderData.title} description={founderData.description}>
+  <PageHeader title={founderData.title} />
+
+  <section class="pt-6 pb-4">
+    <div class="container text-center">
+      <div class="rounded-2xl bg-gradient px-8 py-4">
+        <p class="text-text-light dark:text-darkmode-text-light">
+          {founderData.description}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-8">
+
+          <div id="quiz-container">
+            <!-- Name entry -->
+            <div id="name-entry" class="rounded-lg border border-border p-6 dark:border-darkmode-border">
+              <h2 class="mb-4 h4">Enter your name to begin</h2>
+              <p class="mb-4 text-text-light dark:text-darkmode-text-light">
+                This is how your name will appear on the certificate. You must score at least {passingScore}/{total} ({Math.round((passingScore / total) * 100)}%) to pass.
+              </p>
+              <div class="mb-4">
+                <input type="text" id="user-name" class="form-input w-full" placeholder="Your name" aria-label="Your name" maxlength="80" />
+              </div>
+              <button id="start-btn" class="btn btn-primary">Start Quiz</button>
+              <p id="name-error" class="mt-2 hidden text-sm text-red-600 dark:text-red-400">Please enter your name to continue.</p>
+            </div>
+
+            <!-- Quiz questions (hidden initially) -->
+            <div id="quiz-area" class="hidden">
+              <div class="mb-6">
+                <div class="mb-2 flex items-center justify-between text-sm text-text-light dark:text-darkmode-text-light">
+                  <span id="question-counter"></span>
+                  <span id="score-tracker"></span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-light dark:bg-darkmode-light">
+                  <div id="progress-bar" class="h-2 rounded-full bg-primary transition-all duration-300" style="width: 0%"></div>
+                </div>
+              </div>
+
+              <div id="question-card" class="rounded-lg border border-border p-6 dark:border-darkmode-border">
+                <h3 id="question-text" class="mb-6 h5"></h3>
+                <div id="options-list" class="space-y-3"></div>
+              </div>
+
+              <div class="mt-4 flex justify-between">
+                <button id="prev-btn" class="btn btn-outline-primary btn-sm hidden">Previous</button>
+                <button id="next-btn" class="btn btn-primary btn-sm ml-auto">Next</button>
+              </div>
+            </div>
+
+            <!-- Results (hidden initially) -->
+            <div id="results-area" class="hidden rounded-lg border border-border p-6 text-center dark:border-darkmode-border">
+              <h2 id="results-heading" class="mb-2 h4"></h2>
+              <p id="results-score" class="mb-2 text-lg"></p>
+              <p id="results-message" class="mb-6 text-text-light dark:text-darkmode-text-light"></p>
+              <div class="flex flex-wrap justify-center gap-3">
+                <a id="certificate-link" class="btn btn-primary hidden" href="#">View Certificate</a>
+                <button id="retry-btn" class="btn btn-outline-primary hidden">Try Again</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script is:inline define:vars={{ certData: founderData }}>
+  async function sha256(message) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(message);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(function(b) { return b.toString(16).padStart(2, "0"); }).join("");
+  }
+
+  async function checkAnswer(questionId, selectedOption, correctHash) {
+    var h = await sha256(questionId + ":" + selectedOption);
+    return h === correctHash;
+  }
+
+  var questions = certData.questions;
+  var total = questions.length;
+  var passingScore = certData.passingScore;
+
+  var userName = "";
+  var currentIndex = 0;
+  var correctCount = 0;
+  var answers = new Array(total).fill(null);
+
+  var nameEntry = document.getElementById("name-entry");
+  var quizArea = document.getElementById("quiz-area");
+  var resultsArea = document.getElementById("results-area");
+  var nameInput = document.getElementById("user-name");
+  var nameError = document.getElementById("name-error");
+  var questionCounter = document.getElementById("question-counter");
+  var scoreTracker = document.getElementById("score-tracker");
+  var progressBar = document.getElementById("progress-bar");
+  var questionText = document.getElementById("question-text");
+  var optionsList = document.getElementById("options-list");
+  var prevBtn = document.getElementById("prev-btn");
+  var nextBtn = document.getElementById("next-btn");
+  var resultsHeading = document.getElementById("results-heading");
+  var resultsScore = document.getElementById("results-score");
+  var resultsMessage = document.getElementById("results-message");
+  var certificateLink = document.getElementById("certificate-link");
+  var retryBtn = document.getElementById("retry-btn");
+
+  document.getElementById("start-btn").addEventListener("click", function() {
+    userName = nameInput.value.trim();
+    if (!userName) {
+      nameError.classList.remove("hidden");
+      return;
+    }
+    nameError.classList.add("hidden");
+    nameEntry.classList.add("hidden");
+    quizArea.classList.remove("hidden");
+    renderQuestion();
+  });
+
+  nameInput.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+      document.getElementById("start-btn").click();
+    }
+  });
+
+  function renderQuestion() {
+    var q = questions[currentIndex];
+    questionCounter.textContent = "Question " + (currentIndex + 1) + " of " + total;
+    scoreTracker.textContent = "Score: " + correctCount + "/" + currentIndex;
+    progressBar.style.width = (currentIndex / total) * 100 + "%";
+    questionText.textContent = q.question;
+
+    optionsList.innerHTML = "";
+    q.options.forEach(function(opt, optIdx) {
+      var label = document.createElement("label");
+      label.className = "flex cursor-pointer items-start gap-3 rounded-lg border border-border p-3 transition-colors hover:border-primary dark:border-darkmode-border dark:hover:border-darkmode-primary";
+      var radio = document.createElement("input");
+      radio.type = "radio";
+      radio.name = "quiz-option";
+      radio.value = optIdx.toString();
+      radio.className = "mt-1";
+      if (answers[currentIndex] === optIdx) {
+        radio.checked = true;
+        label.classList.add("border-primary", "dark:border-darkmode-primary");
+      }
+      radio.addEventListener("change", function() {
+        answers[currentIndex] = optIdx;
+        renderQuestion();
+      });
+      var span = document.createElement("span");
+      span.className = "select-none";
+      span.textContent = opt;
+      label.appendChild(radio);
+      label.appendChild(span);
+      optionsList.appendChild(label);
+    });
+
+    if (currentIndex === 0) {
+      prevBtn.classList.add("hidden");
+    } else {
+      prevBtn.classList.remove("hidden");
+    }
+    nextBtn.textContent = currentIndex === total - 1 ? "Finish" : "Next";
+    nextBtn.disabled = answers[currentIndex] === null;
+  }
+
+  prevBtn.addEventListener("click", function() {
+    if (currentIndex > 0) {
+      currentIndex--;
+      renderQuestion();
+    }
+  });
+
+  nextBtn.addEventListener("click", async function() {
+    if (answers[currentIndex] === null) return;
+
+    if (currentIndex < total - 1) {
+      currentIndex++;
+      renderQuestion();
+    } else {
+      correctCount = 0;
+      for (var i = 0; i < total; i++) {
+        var q = questions[i];
+        var chosen = q.options[answers[i]];
+        var isCorrect = await checkAnswer(q.id, chosen, q.answerHash);
+        if (isCorrect) correctCount++;
+      }
+
+      showResults();
+    }
+  });
+
+  function showResults() {
+    quizArea.classList.add("hidden");
+    resultsArea.classList.remove("hidden");
+
+    var percentage = Math.round((correctCount / total) * 100);
+    var passed = correctCount >= passingScore;
+
+    resultsHeading.textContent = passed ? "Congratulations!" : "Not quite there";
+    resultsScore.textContent = correctCount + " / " + total + " (" + percentage + "%)";
+    resultsMessage.textContent = passed
+      ? "You passed the " + certData.title + "! Download or screenshot your certificate below."
+      : "You need " + passingScore + "/" + total + " correct to pass. Review the standards and try again.";
+
+    if (passed) {
+      var date = new Date().toISOString().split("T")[0];
+      certificateLink.setAttribute("href", "/certifications/founder/certificate?name=" + encodeURIComponent(userName) + "&date=" + date + "&score=" + correctCount + "&total=" + total);
+      certificateLink.classList.remove("hidden");
+      certificateLink.textContent = "View Certificate";
+    }
+
+    retryBtn.classList.remove("hidden");
+  }
+
+  retryBtn.addEventListener("click", function() {
+    currentIndex = 0;
+    correctCount = 0;
+    answers = new Array(total).fill(null);
+    resultsArea.classList.add("hidden");
+    quizArea.classList.remove("hidden");
+    renderQuestion();
+  });
+</script>
