@@ -82,18 +82,18 @@ const passingScore = founderData.passingScore;
 </Base>
 
 <script>
-  var container = document.getElementById("quiz-container");
-  var certData = JSON.parse(container.getAttribute("data-quiz"));
+  var container = document.getElementById("quiz-container")!;
+  var certData = JSON.parse(container.getAttribute("data-quiz")!);
 
-  async function sha256(message) {
+  async function sha256(message: string): Promise<string> {
     var encoder = new TextEncoder();
     var data = encoder.encode(message);
     var hashBuffer = await crypto.subtle.digest("SHA-256", data);
     var hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map(function(b) { return b.toString(16).padStart(2, "0"); }).join("");
+    return hashArray.map(function(b: number) { return b.toString(16).padStart(2, "0"); }).join("");
   }
 
-  async function checkAnswer(questionId, selectedOption, correctHash) {
+  async function checkAnswer(questionId: string, selectedOption: string, correctHash: string): Promise<boolean> {
     var h = await sha256(questionId + ":" + selectedOption);
     return h === correctHash;
   }
@@ -105,27 +105,27 @@ const passingScore = founderData.passingScore;
   var userName = "";
   var currentIndex = 0;
   var correctCount = 0;
-  var answers = new Array(total).fill(null);
+  var answers: (number | null)[] = new Array(total).fill(null);
 
-  var nameEntry = document.getElementById("name-entry");
-  var quizArea = document.getElementById("quiz-area");
-  var resultsArea = document.getElementById("results-area");
-  var nameInput = document.getElementById("user-name");
-  var nameError = document.getElementById("name-error");
-  var questionCounter = document.getElementById("question-counter");
-  var scoreTracker = document.getElementById("score-tracker");
-  var progressBar = document.getElementById("progress-bar");
-  var questionText = document.getElementById("question-text");
-  var optionsList = document.getElementById("options-list");
-  var prevBtn = document.getElementById("prev-btn");
-  var nextBtn = document.getElementById("next-btn");
-  var resultsHeading = document.getElementById("results-heading");
-  var resultsScore = document.getElementById("results-score");
-  var resultsMessage = document.getElementById("results-message");
-  var certificateLink = document.getElementById("certificate-link");
-  var retryBtn = document.getElementById("retry-btn");
+  var nameEntry = document.getElementById("name-entry")!;
+  var quizArea = document.getElementById("quiz-area")!;
+  var resultsArea = document.getElementById("results-area")!;
+  var nameInput = document.getElementById("user-name") as HTMLInputElement;
+  var nameError = document.getElementById("name-error")!;
+  var questionCounter = document.getElementById("question-counter")!;
+  var scoreTracker = document.getElementById("score-tracker")!;
+  var progressBar = document.getElementById("progress-bar")!;
+  var questionText = document.getElementById("question-text")!;
+  var optionsList = document.getElementById("options-list")!;
+  var prevBtn = document.getElementById("prev-btn") as HTMLButtonElement;
+  var nextBtn = document.getElementById("next-btn") as HTMLButtonElement;
+  var resultsHeading = document.getElementById("results-heading")!;
+  var resultsScore = document.getElementById("results-score")!;
+  var resultsMessage = document.getElementById("results-message")!;
+  var certificateLink = document.getElementById("certificate-link")!;
+  var retryBtn = document.getElementById("retry-btn")!;
 
-  document.getElementById("start-btn").addEventListener("click", function() {
+  document.getElementById("start-btn")!.addEventListener("click", function() {
     userName = nameInput.value.trim();
     if (!userName) {
       nameError.classList.remove("hidden");
@@ -137,9 +137,9 @@ const passingScore = founderData.passingScore;
     renderQuestion();
   });
 
-  nameInput.addEventListener("keydown", function(e) {
+  nameInput.addEventListener("keydown", function(e: KeyboardEvent) {
     if (e.key === "Enter") {
-      document.getElementById("start-btn").click();
+      document.getElementById("start-btn")!.click();
     }
   });
 
@@ -151,7 +151,7 @@ const passingScore = founderData.passingScore;
     questionText.textContent = q.question;
 
     optionsList.innerHTML = "";
-    q.options.forEach(function(opt, optIdx) {
+    q.options.forEach(function(opt: string, optIdx: number) {
       var label = document.createElement("label");
       label.className = "flex cursor-pointer items-start gap-3 rounded-lg border border-border p-3 transition-colors hover:border-primary dark:border-darkmode-border dark:hover:border-darkmode-primary";
       var radio = document.createElement("input");
@@ -163,7 +163,7 @@ const passingScore = founderData.passingScore;
         radio.checked = true;
         label.classList.add("border-primary", "dark:border-darkmode-primary");
       }
-      radio.addEventListener("change", (function(idx) {
+      radio.addEventListener("change", (function(idx: number) {
         return function() {
           answers[currentIndex] = idx;
           renderQuestion();
@@ -203,7 +203,7 @@ const passingScore = founderData.passingScore;
       correctCount = 0;
       for (var i = 0; i < total; i++) {
         var q = questions[i];
-        var chosen = q.options[answers[i]];
+        var chosen = q.options[answers[i]!];
         var isCorrect = await checkAnswer(q.id, chosen, q.answerHash);
         if (isCorrect) correctCount++;
       }
