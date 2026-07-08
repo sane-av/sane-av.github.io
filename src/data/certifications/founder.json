@@ -1,7 +1,7 @@
 {
   "id": "founder",
-  "title": "SANE Founder Certification",
-  "description": "Demonstrate your knowledge of SANE's mission, core principles, and foundational standards. Pass this certification to prove you understand what SANE is building and why it matters.",
+  "title": "SANE-F: Founder Certification",
+  "description": "Earn the SANE-F designation by demonstrating your knowledge of SANE's mission, core principles, and foundational standards.",
   "passingScore": 8,
   "questions": [
     {

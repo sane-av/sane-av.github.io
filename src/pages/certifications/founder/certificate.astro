@@ -3,7 +3,7 @@ import Base from "@/layouts/Base.astro";
 import PageHeader from "@/partials/PageHeader.astro";
 ---
 
-<Base title="SANE Founder Certificate" description="SANE Founder Certification certificate.">
+<Base title="SANE-F Founder Certificate" description="SANE-F Founder Certification certificate.">
   <PageHeader title="Your Certificate" />
 
   <section class="section-sm">
@@ -93,7 +93,7 @@ import PageHeader from "@/partials/PageHeader.astro";
     var safeDate = escapeXml(date);
 
     document.getElementById("congrats-heading")!.textContent = "Congratulations, " + name! + "!";
-    document.getElementById("congrats-score")!.textContent = "You earned the SANE Founder Certification with a score of " + percentage + "% (" + scoreNum + "/" + totalNum + "). Your certificate is below, or download the badge for your email signature.";
+    document.getElementById("congrats-score")!.textContent = "You earned the SANE-F Founder Certification with a score of " + percentage + "% (" + scoreNum + "/" + totalNum + "). Your certificate is below, or download the badge for your email signature.";
 
     var certSvg = buildCertSvg(safeName, safeDate, scoreNum, totalNum, percentage, uid);
     document.getElementById("cert-svg-wrapper")!.innerHTML = certSvg;
@@ -118,7 +118,7 @@ import PageHeader from "@/partials/PageHeader.astro";
       '<text x="400" y="280" text-anchor="middle" fill="#f8fafc" font-family="sans-serif" font-size="36" font-weight="bold">' + safeName + '</text>' +
       '<line x1="200" y1="300" x2="600" y2="300" stroke="#334155" stroke-width="1"/>' +
       '<text x="400" y="360" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="16">has successfully completed the</text>' +
-      '<text x="400" y="410" text-anchor="middle" fill="#f8fafc" font-family="sans-serif" font-size="24" font-weight="bold">SANE Founder Certification</text>' +
+      '<text x="400" y="410" text-anchor="middle" fill="#f8fafc" font-family="sans-serif" font-size="24" font-weight="bold">SANE-F Founder Certification</text>' +
       '<text x="400" y="460" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="16">with a score of ' + percentage + '% (' + scoreNum + ' / ' + totalNum + ')</text>' +
       '<text x="400" y="520" text-anchor="middle" fill="#64748b" font-family="sans-serif" font-size="14">Date: ' + safeDate + '</text>' +
       '<text x="400" y="560" text-anchor="middle" fill="#475569" font-family="sans-serif" font-size="11">This certificate is awarded as part of SANE\'s community education program.</text>' +
@@ -136,7 +136,7 @@ import PageHeader from "@/partials/PageHeader.astro";
       '<circle cx="28" cy="30" r="15" fill="#3b82f6" opacity="0.15"/>' +
       '<circle cx="28" cy="30" r="15" fill="none" stroke="#3b82f6" stroke-width="1.5"/>' +
       '<path d="M20 30 L26 36 L36 24" stroke="#60a5fa" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>' +
-      '<text x="52" y="23" fill="#f8fafc" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="12.5" font-weight="700" letter-spacing="0.5">SANE FOUNDER CERTIFIED</text>' +
+      '<text x="52" y="23" fill="#f8fafc" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="12.5" font-weight="700" letter-spacing="0.5">SANE-F CERTIFIED</text>' +
       '<text x="52" y="40" fill="#94a3b8" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="10.5">' + safeName + ' \u2022 Society for AV Norms &amp; Engineering</text>' +
       '</svg>';
   }
