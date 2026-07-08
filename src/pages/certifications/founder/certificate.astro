@@ -19,15 +19,43 @@ import PageHeader from "@/partials/PageHeader.astro";
             <a href="/certifications/founder" class="btn btn-primary">Take the Quiz</a>
           </div>
 
-          <div id="cert-display" class="hidden text-center">
-            <div class="mb-6" id="cert-svg-wrapper"></div>
-            <p class="mb-4 text-text-light dark:text-darkmode-text-light">
-              Right-click or long-press the certificate to save it as an image.
-            </p>
-            <div class="flex flex-wrap justify-center gap-3">
+          <div id="cert-display" class="hidden">
+
+            <!-- Certificate SVG -->
+            <div class="mb-8 text-center">
+              <div id="cert-svg-wrapper"></div>
+            </div>
+
+            <!-- Download buttons -->
+            <div class="mb-8 flex flex-wrap justify-center gap-3">
+              <button id="btn-download-png" class="btn btn-primary">Download PNG</button>
+              <button id="btn-download-pdf" class="btn btn-outline-primary">Download PDF</button>
               <a href="/certifications/founder" class="btn btn-outline-primary">Retake Quiz</a>
               <a href="/certifications" class="btn btn-primary">All Certifications</a>
             </div>
+
+            <!-- Email Badge -->
+            <div class="mb-8 rounded-lg border border-border p-6 dark:border-darkmode-border">
+              <h3 class="mb-4 h5">Email Signature Badge</h3>
+              <p class="mb-4 text-sm text-text-light dark:text-darkmode-text-light">
+                Add this badge to your email signature to show your SANE Founder certification.
+              </p>
+              <div id="badge-svg-wrapper" class="mb-4 flex justify-center"></div>
+              <div class="text-center">
+                <button id="btn-download-badge" class="btn btn-outline-primary btn-sm">Download Badge SVG</button>
+              </div>
+            </div>
+
+            <!-- Email embed code -->
+            <div class="mb-8 rounded-lg border border-border p-6 dark:border-darkmode-border">
+              <h3 class="mb-4 h5">Email Signature Embed</h3>
+              <p class="mb-4 text-sm text-text-light dark:text-darkmode-text-light">
+                Copy the HTML below and paste it into your email client's signature settings.
+              </p>
+              <pre class="mb-3 overflow-x-auto rounded bg-light p-4 text-xs dark:bg-darkmode-body" id="embed-code"></pre>
+              <button id="btn-copy-embed" class="btn btn-outline-primary btn-sm">Copy HTML</button>
+            </div>
+
           </div>
 
         </div>
@@ -36,6 +64,18 @@ import PageHeader from "@/partials/PageHeader.astro";
   </section>
 </Base>
 
+<style>
+  @media print {
+    body * { visibility: hidden; }
+    #cert-svg-wrapper, #cert-svg-wrapper * { visibility: visible; }
+    #cert-svg-wrapper { position: absolute; left: 0; top: 0; width: 100%; }
+    #cert-svg-wrapper svg { max-width: 100%; height: auto; }
+    header, footer, nav, .breadcrumbs, button, a, #cert-no-data,
+    #cert-display > div:not(#cert-svg-wrapper),
+    #cert-display > .flex { display: none !important; }
+  }
+</style>
+
 <script>
   var params = new URLSearchParams(window.location.search);
   var name = params.get("name");
@@ -43,19 +83,31 @@ import PageHeader from "@/partials/PageHeader.astro";
   var score = params.get("score");
   var total = params.get("total");
 
-  var noDataEl = document.getElementById("cert-no-data")!;
-  var displayEl = document.getElementById("cert-display")!;
-  var wrapperEl = document.getElementById("cert-svg-wrapper")!;
-
-  if (name && date && score && total) {
-    noDataEl.classList.add("hidden");
-    displayEl.classList.remove("hidden");
-
+  if (!name || !date || !score || !total) {
+    document.getElementById("cert-no-data")!.classList.remove("hidden");
+  } else {
+    document.getElementById("cert-display")!.classList.remove("hidden");
     var scoreNum = parseInt(score);
     var totalNum = parseInt(total);
     var percentage = Math.round((scoreNum / totalNum) * 100);
+    var safeName = escapeXml(name);
+    var safeDate = escapeXml(date);
 
-    var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="auto" style="max-width:800px;border:1px solid #e5e7eb">' +
+    var certSvg = buildCertSvg(safeName, safeDate, scoreNum, totalNum, percentage);
+    document.getElementById("cert-svg-wrapper")!.innerHTML = certSvg;
+
+    var badgeSvg = buildBadgeSvg(safeName);
+    document.getElementById("badge-svg-wrapper")!.innerHTML = badgeSvg;
+
+    var embedUrl = window.location.origin + "/certifications/founder/certificate?name=" + encodeURIComponent(name) + "&date=" + date + "&score=" + score + "&total=" + total;
+    var embedHtml = '<a href="' + embedUrl + '">' + badgeSvg.replace(/"/g, "&quot;") + '</a>';
+    document.getElementById("embed-code")!.textContent = embedHtml;
+
+    setupButtons(certSvg, badgeSvg, name, embedHtml);
+  }
+
+  function buildCertSvg(safeName: string, safeDate: string, scoreNum: number, totalNum: number, percentage: number): string {
+    return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="auto" style="max-width:800px;border:1px solid #e5e7eb">' +
       '<defs><linearGradient id="certBorder" x1="0%" y1="0%" x2="100%" y2="100%">' +
       '<stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#3b82f6"/>' +
       '</linearGradient></defs>' +
@@ -65,20 +117,100 @@ import PageHeader from "@/partials/PageHeader.astro";
       '<text x="400" y="100" text-anchor="middle" fill="#3b82f6" font-family="monospace" font-size="18" font-weight="bold">SOCIETY FOR AV NORMS &amp; ENGINEERING</text>' +
       '<text x="400" y="160" text-anchor="middle" fill="#e2e8f0" font-family="sans-serif" font-size="28" font-weight="bold">Certificate of Completion</text>' +
       '<text x="400" y="210" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="16">This certifies that</text>' +
-      '<text x="400" y="280" text-anchor="middle" fill="#f8fafc" font-family="sans-serif" font-size="36" font-weight="bold">' + escapeXml(name) + '</text>' +
+      '<text x="400" y="280" text-anchor="middle" fill="#f8fafc" font-family="sans-serif" font-size="36" font-weight="bold">' + safeName + '</text>' +
       '<line x1="200" y1="300" x2="600" y2="300" stroke="#334155" stroke-width="1"/>' +
       '<text x="400" y="360" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="16">has successfully completed the</text>' +
       '<text x="400" y="410" text-anchor="middle" fill="#f8fafc" font-family="sans-serif" font-size="24" font-weight="bold">SANE Founder Certification</text>' +
       '<text x="400" y="460" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="16">with a score of ' + percentage + '% (' + scoreNum + ' / ' + totalNum + ')</text>' +
-      '<text x="400" y="520" text-anchor="middle" fill="#64748b" font-family="sans-serif" font-size="14">Date: ' + escapeXml(date) + '</text>' +
+      '<text x="400" y="520" text-anchor="middle" fill="#64748b" font-family="sans-serif" font-size="14">Date: ' + safeDate + '</text>' +
       '<text x="400" y="560" text-anchor="middle" fill="#475569" font-family="sans-serif" font-size="11">This certificate is awarded as part of SANE\'s community education program.</text>' +
       '<text x="400" y="576" text-anchor="middle" fill="#475569" font-family="sans-serif" font-size="11">sane-av.org/certifications</text>' +
       '</svg>';
+  }
 
-    wrapperEl.innerHTML = svg;
-  } else {
-    noDataEl.classList.remove("hidden");
-    displayEl.classList.add("hidden");
+  function buildBadgeSvg(safeName: string): string {
+    return '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="60" viewBox="0 0 400 60">' +
+      '<defs><linearGradient id="badgeBg" x1="0%" y1="0%" x2="100%" y2="0%">' +
+      '<stop offset="0%" stop-color="#1e293b"/><stop offset="100%" stop-color="#0f172a"/>' +
+      '</linearGradient></defs>' +
+      '<rect width="400" height="60" rx="6" fill="url(#badgeBg)"/>' +
+      '<rect width="400" height="60" rx="6" fill="none" stroke="#3b82f6" stroke-width="1.5" opacity="0.6"/>' +
+      '<circle cx="28" cy="30" r="15" fill="#3b82f6" opacity="0.15"/>' +
+      '<circle cx="28" cy="30" r="15" fill="none" stroke="#3b82f6" stroke-width="1.5"/>' +
+      '<path d="M20 30 L26 36 L36 24" stroke="#60a5fa" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>' +
+      '<text x="52" y="23" fill="#f8fafc" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="12.5" font-weight="700" letter-spacing="0.5">SANE FOUNDER CERTIFIED</text>' +
+      '<text x="52" y="40" fill="#94a3b8" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="10.5">' + safeName + ' &bull; Society for AV Norms &amp; Engineering</text>' +
+      '</svg>';
+  }
+
+  function svgToDataUri(svg: string): string {
+    return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+  }
+
+  function svgToPngBlob(svg: string, width: number, height: number): Promise<Blob> {
+    return new Promise(function(resolve, reject) {
+      var img = new Image();
+      var dataUri = svgToDataUri(svg);
+      img.onload = function() {
+        var canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        var ctx = canvas.getContext("2d")!;
+        ctx.fillStyle = "#0f172a";
+        ctx.fillRect(0, 0, width, height);
+        ctx.drawImage(img, 0, 0, width, height);
+        canvas.toBlob(function(blob) {
+          if (blob) resolve(blob);
+          else reject(new Error("Failed to create PNG"));
+        }, "image/png");
+      };
+      img.onerror = reject;
+      img.src = dataUri;
+    });
+  }
+
+  function downloadBlob(blob: Blob, filename: string) {
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  function setupButtons(certSvg: string, badgeSvg: string, name: string, embedHtml: string) {
+    document.getElementById("btn-download-png")!.addEventListener("click", async function() {
+      try {
+        var blob = await svgToPngBlob(certSvg, 1600, 1200);
+        downloadBlob(blob, "sane-founder-certificate-" + sanitizeFilename(name) + ".png");
+      } catch (e) {
+        alert("Failed to generate PNG. Please try again.");
+      }
+    });
+
+    document.getElementById("btn-download-pdf")!.addEventListener("click", function() {
+      window.print();
+    });
+
+    document.getElementById("btn-download-badge")!.addEventListener("click", function() {
+      var blob = new Blob([badgeSvg], { type: "image/svg+xml" });
+      downloadBlob(blob, "sane-founder-badge-" + sanitizeFilename(name) + ".svg");
+    });
+
+    document.getElementById("btn-copy-embed")!.addEventListener("click", function() {
+      navigator.clipboard.writeText(embedHtml).then(function() {
+        var btn = document.getElementById("btn-copy-embed")!;
+        var original = btn.textContent;
+        btn.textContent = "Copied!";
+        setTimeout(function() { btn.textContent = original; }, 1500);
+      });
+    });
+  }
+
+  function sanitizeFilename(str: string): string {
+    return str.replace(/[^a-zA-Z0-9_-]/g, "_").substring(0, 50);
   }
 
   function escapeXml(str: string): string {
