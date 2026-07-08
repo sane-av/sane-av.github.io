@@ -27,8 +27,12 @@ import PageHeader from "@/partials/PageHeader.astro";
             </div>
 
             <!-- Download buttons -->
-            <div class="mb-8 flex flex-wrap justify-center gap-3">
-              <button id="btn-download-png" class="btn btn-primary">Download PNG</button>
+            <div class="mb-8 flex flex-wrap items-center justify-center gap-3">
+              <div class="flex items-center rounded-lg border border-border dark:border-darkmode-border">
+                <button id="btn-download-png-sm" class="rounded-l-lg px-4 py-2 text-sm hover:bg-primary hover:text-white dark:hover:bg-darkmode-primary dark:hover:text-text-dark transition-colors">PNG Small</button>
+                <button id="btn-download-png-md" class="border-x border-border px-4 py-2 text-sm hover:bg-primary hover:text-white dark:border-darkmode-border dark:hover:bg-darkmode-primary dark:hover:text-text-dark transition-colors">PNG Medium</button>
+                <button id="btn-download-png-lg" class="rounded-r-lg bg-primary px-4 py-2 text-sm text-white dark:bg-darkmode-primary dark:text-text-dark">PNG Large</button>
+              </div>
               <button id="btn-download-pdf" class="btn btn-outline-primary">Download PDF</button>
               <a href="/certifications/founder" class="btn btn-outline-primary">Retake Quiz</a>
               <a href="/certifications" class="btn btn-primary">All Certifications</a>
@@ -156,8 +160,6 @@ import PageHeader from "@/partials/PageHeader.astro";
         canvas.width = width;
         canvas.height = height;
         var ctx = canvas.getContext("2d")!;
-        ctx.fillStyle = "#0f172a";
-        ctx.fillRect(0, 0, width, height);
         ctx.drawImage(img, 0, 0, width, height);
         canvas.toBlob(function(blob) {
           if (blob) resolve(blob);
@@ -181,13 +183,32 @@ import PageHeader from "@/partials/PageHeader.astro";
   }
 
   function setupButtons(certSvg: string, badgeSvg: string, name: string, embedHtml: string) {
-    document.getElementById("btn-download-png")!.addEventListener("click", async function() {
-      try {
-        var blob = await svgToPngBlob(certSvg, 1600, 1200);
-        downloadBlob(blob, "sane-founder-certificate-" + sanitizeFilename(name) + ".png");
-      } catch (e) {
-        alert("Failed to generate PNG. Please try again.");
-      }
+    var sizes: Record<string, [number, number]> = { sm: [400, 300], md: [800, 600], lg: [1600, 1200] };
+    var activeSize = "lg";
+
+    function highlightActive() {
+      ["sm", "md", "lg"].forEach(function(s) {
+        var btn = document.getElementById("btn-download-png-" + s)!;
+        if (s === activeSize) {
+          btn.classList.add("bg-primary", "text-white", "dark:bg-darkmode-primary", "dark:text-text-dark");
+        } else {
+          btn.classList.remove("bg-primary", "text-white", "dark:bg-darkmode-primary", "dark:text-text-dark");
+        }
+      });
+    }
+
+    ["sm", "md", "lg"].forEach(function(s) {
+      document.getElementById("btn-download-png-" + s)!.addEventListener("click", async function() {
+        activeSize = s;
+        highlightActive();
+        try {
+          var dims = sizes[s];
+          var blob = await svgToPngBlob(certSvg, dims[0], dims[1]);
+          downloadBlob(blob, "sane-founder-certificate-" + sanitizeFilename(name) + "-" + dims[0] + "x" + dims[1] + ".png");
+        } catch (e) {
+          alert("Failed to generate PNG. Please try again.");
+        }
+      });
     });
 
     document.getElementById("btn-download-pdf")!.addEventListener("click", function() {
