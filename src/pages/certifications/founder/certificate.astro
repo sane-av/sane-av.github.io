@@ -154,18 +154,17 @@ import PageHeader from "@/partials/PageHeader.astro";
       '<circle cx="28" cy="30" r="15" fill="none" stroke="#3b82f6" stroke-width="1.5"/>' +
       '<path d="M20 30 L26 36 L36 24" stroke="#60a5fa" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>' +
       '<text x="52" y="23" fill="#f8fafc" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="12.5" font-weight="700" letter-spacing="0.5">SANE FOUNDER CERTIFIED</text>' +
-      '<text x="52" y="40" fill="#94a3b8" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="10.5">' + safeName + ' &bull; Society for AV Norms &amp; Engineering</text>' +
+      '<text x="52" y="40" fill="#94a3b8" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="10.5">' + safeName + ' \u2022 Society for AV Norms \u0026 Engineering</text>' +
       '</svg>';
-  }
-
-  function svgToDataUri(svg: string): string {
-    return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
   }
 
   function svgToPngBlob(svg: string, width: number, height: number): Promise<Blob> {
     return new Promise(function(resolve, reject) {
+      var svgBlob = new Blob([svg], { type: "image/svg+xml;charset=utf-8" });
+      var url = URL.createObjectURL(svgBlob);
       var img = new Image();
       img.onload = function() {
+        URL.revokeObjectURL(url);
         var canvas = document.createElement("canvas");
         canvas.width = width;
         canvas.height = height;
@@ -176,15 +175,21 @@ import PageHeader from "@/partials/PageHeader.astro";
           else reject(new Error("Failed to create PNG"));
         }, "image/png");
       };
-      img.onerror = reject;
-      img.src = svgToDataUri(svg);
+      img.onerror = function() {
+        URL.revokeObjectURL(url);
+        reject(new Error("Failed to load SVG"));
+      };
+      img.src = url;
     });
   }
 
   function svgToPngDataUri(svg: string, width: number, height: number): Promise<string> {
     return new Promise(function(resolve, reject) {
+      var svgBlob = new Blob([svg], { type: "image/svg+xml;charset=utf-8" });
+      var url = URL.createObjectURL(svgBlob);
       var img = new Image();
       img.onload = function() {
+        URL.revokeObjectURL(url);
         var canvas = document.createElement("canvas");
         canvas.width = width;
         canvas.height = height;
@@ -192,8 +197,11 @@ import PageHeader from "@/partials/PageHeader.astro";
         ctx.drawImage(img, 0, 0, width, height);
         resolve(canvas.toDataURL("image/png"));
       };
-      img.onerror = reject;
-      img.src = svgToDataUri(svg);
+      img.onerror = function() {
+        URL.revokeObjectURL(url);
+        reject(new Error("Failed to load SVG"));
+      };
+      img.src = url;
     });
   }
 
