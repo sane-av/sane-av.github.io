@@ -2,8 +2,8 @@
 export const sortByDate = (array: any[]) => {
   const sortedArray = array.sort(
     (a: any, b: any) =>
-      new Date(b.data.date && b.data.date).valueOf() -
-      new Date(a.data.date && a.data.date).valueOf(),
+      new Date(b?.data?.date ?? 0).valueOf() -
+      new Date(a?.data?.date ?? 0).valueOf(),
   );
   return sortedArray;
 };

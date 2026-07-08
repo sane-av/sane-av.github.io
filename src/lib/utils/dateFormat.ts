@@ -5,6 +5,7 @@ const dateFormat = (
   pattern: string = "dd MMM, yyyy",
 ): string => {
   const dateObj = new Date(date);
+  if (isNaN(dateObj.getTime())) return "";
   const output = format(dateObj, pattern);
   return output;
 };

@@ -19,11 +19,11 @@ const { Content } = await render(std);
 const pubDate = std.data.pubDate;
 const updatedDate = std.data.updatedDate;
 const standardUrl = `https://sane-av.github.io/standards/${std.id}/`;
-const citationPlain = `SANE. (${pubDate.getFullYear()}). ${std.data.saneId}: ${std.data.title}. ${standardUrl}`;
+const citationPlain = `SANE. (${pubDate?.getFullYear() ?? new Date().getFullYear()}). ${std.data.saneId}: ${std.data.title}. ${standardUrl}`;
 const citationBibtex = `@misc{sane${std.data.saneId.toLowerCase().replace(/[^a-z0-9]/g, "")},
   title = {${std.data.saneId}: ${std.data.title}},
-  author = {${std.data.authors.join(" and ")}},
-  year = {${pubDate.getFullYear()}},
+  author = {${(std.data.authors ?? []).join(" and ")}},
+  year = {${pubDate?.getFullYear() ?? new Date().getFullYear()}},
   url = {${standardUrl}},
   note = {Version ${std.data.version}}
 }`;
@@ -146,9 +146,12 @@ const citationBibtex = `@misc{sane${std.data.saneId.toLowerCase().replace(/[^a-z
   document.querySelectorAll(".copy-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       const text = btn.getAttribute("data-citation")!;
+      const original = btn.textContent;
       navigator.clipboard.writeText(text).then(() => {
-        const original = btn.textContent;
         btn.textContent = "Copied!";
+        setTimeout(() => { btn.textContent = original; }, 1500);
+      }).catch(() => {
+        btn.textContent = "Copy failed";
         setTimeout(() => { btn.textContent = original; }, 1500);
       });
     });

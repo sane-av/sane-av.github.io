@@ -1,6 +1,7 @@
 import type { APIContext } from "astro";
 import { getCollection } from "astro:content";
 import { getGlossaryTerms } from "../lib/glossary";
+import config from "@/config/config.json";
 
 interface SearchEntry {
   title: string;
@@ -12,7 +13,7 @@ interface SearchEntry {
 }
 
 export async function GET(context: APIContext) {
-  const site = context.site ?? new URL("https://sane-av.github.io");
+  const site = context.site ?? new URL(config.site.base_url);
   const entries: SearchEntry[] = [];
 
   const standards = await getCollection("standards");
@@ -68,7 +69,7 @@ export async function GET(context: APIContext) {
       specs: Record<string, string>;
     }>;
   for (const e of equipment) {
-    const specText = Object.entries(e.specs).map(([k, v]) => `${k}: ${v}`).join(", ");
+    const specText = Object.entries(e.specs ?? {}).map(([k, v]) => `${k}: ${v}`).join(", ");
     entries.push({
       title: `${e.manufacturer} ${e.model}`,
       url: new URL(`/equipment/`, site).toString(),

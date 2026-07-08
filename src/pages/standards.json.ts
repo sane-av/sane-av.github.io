@@ -1,8 +1,9 @@
 import type { APIContext } from "astro";
 import { getCollection } from "astro:content";
+import config from "@/config/config.json";
 
 export async function GET(context: APIContext) {
-  const site = context.site ?? new URL("https://sane-av.github.io");
+  const site = context.site ?? new URL(config.site.base_url);
   const standards = await getCollection("standards");
 
   const entries = standards

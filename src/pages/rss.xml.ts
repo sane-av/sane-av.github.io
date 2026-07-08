@@ -1,9 +1,10 @@
 import rss from "@astrojs/rss";
 import type { APIContext } from "astro";
 import { getCollection } from "astro:content";
+import config from "@/config/config.json";
 
 export async function GET(context: APIContext) {
-  const site = context.site ?? new URL("https://sane-av.github.io");
+  const site = context.site ?? new URL(config.site.base_url);
 
   const [blogPosts, standards] = await Promise.all([
     getCollection("blog", (entry) => !entry.data.draft),
@@ -24,10 +25,10 @@ export async function GET(context: APIContext) {
       description: entry.data.description,
       link: `/standards/${entry.id}/`,
       pubDate: entry.data.pubDate,
-      author: entry.data.authors.join(", "),
+      author: (entry.data.authors ?? []).join(", "),
       categories: [...entry.data.tags, entry.data.status],
     })),
-  ].sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime());
+  ].sort((a, b) => (b.pubDate?.getTime() ?? 0) - (a.pubDate?.getTime() ?? 0));
 
   return rss({
     title: "SANE - Society for AV Norms & Engineering",

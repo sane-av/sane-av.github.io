@@ -63,7 +63,7 @@ const allTags = [...new Set(allEquipment.flatMap((e) => e.tags))].sort();
           </thead>
           <tbody>
             {allEquipment.map((item) => (
-              <tr class="border-b border-border dark:border-darkmode-border hover:bg-light dark:hover:bg-darkmode-light" data-cat={item.category} data-search={`${item.manufacturer} ${item.model} ${item.tags.join(" ")} ${Object.values(item.specs).join(" ")}`.toLowerCase()} data-tags={item.tags.join(",")}>
+              <tr class="border-b border-border dark:border-darkmode-border hover:bg-light dark:hover:bg-darkmode-light" data-cat={item.category} data-search={`${item.manufacturer} ${item.model} ${item.tags.join(" ")} ${Object.values(item.specs ?? {}).join(" ")}`.toLowerCase()} data-tags={item.tags.join(",")}>
                 <td class="px-4 py-3 font-semibold text-text-dark dark:text-darkmode-text-dark">{item.manufacturer}</td>
                 <td class="px-4 py-3">{item.model}</td>
                 <td class="px-4 py-3"><span class="rounded bg-light px-2 py-0.5 text-xs dark:bg-darkmode-light">{item.category}</span></td>

@@ -5,7 +5,7 @@ import { getListPage } from "@/lib/contentParser.astro";
 import PageHeader from "@/partials/PageHeader.astro";
 
 const contactIndex = await getListPage("contact", "-index");
-const { contact_form_action }: { contact_form_action: string } = config.params;
+const { contact_form_action }: { contact_form_action: string } = config.params ?? { contact_form_action: "#" };
 const { title, description, meta_title, image } = contactIndex.data;
 
 const buildDrafts = process.argv.includes("--buildDrafts");

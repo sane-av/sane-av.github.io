@@ -24,7 +24,10 @@ interface JsonTerm {
   relatedTerms?: string[];
 }
 
+let glossaryCache: GlossaryTerm[] | null = null;
+
 export async function getGlossaryTerms(): Promise<GlossaryTerm[]> {
+  if (glossaryCache) return glossaryCache;
   const mdEntries = await getCollection("glossary");
   const mdBySlug = new Map<string, (typeof mdEntries)[number]>();
   for (const e of mdEntries) {
@@ -70,7 +73,7 @@ export async function getGlossaryTerms(): Promise<GlossaryTerm[]> {
         .filter((t) => t.slug !== term.slug)
         .map((t) => ({
           term: t.term,
-          shared: t.categories.filter((c) => term.categories.includes(c)).length,
+          shared: (t.categories ?? []).filter((c) => (term.categories ?? []).includes(c)).length,
         }))
         .filter((t) => t.shared > 0)
         .sort((a, b) => b.shared - a.shared || a.term.localeCompare(b.term))
@@ -79,6 +82,7 @@ export async function getGlossaryTerms(): Promise<GlossaryTerm[]> {
     }
   }
 
+  glossaryCache = merged;
   return merged;
 }
 

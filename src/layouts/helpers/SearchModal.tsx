@@ -15,7 +15,8 @@ const SearchModal = () => {
       return { items: [], time: "0.000" };
     }
 
-    const regex = new RegExp(searchString, "gi");
+    const escaped = searchString.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const regex = new RegExp(escaped, "gi");
     const items = (searchData as ISearchItem[]).filter((item) => {
       const title = item.frontmatter.title.toLowerCase().match(regex);
       const description = item.frontmatter.description
