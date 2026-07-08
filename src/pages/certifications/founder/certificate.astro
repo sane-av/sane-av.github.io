@@ -21,43 +21,43 @@ import PageHeader from "@/partials/PageHeader.astro";
 
           <div id="cert-display" class="hidden">
 
-            <!-- Certificate SVG -->
-            <div class="mb-8 text-center">
-              <div id="cert-svg-wrapper"></div>
-            </div>
-
-            <!-- Download buttons -->
-            <div class="mb-8 flex flex-wrap items-center justify-center gap-3">
-              <div class="flex items-center rounded-lg border border-border dark:border-darkmode-border">
-                <button id="btn-download-png-sm" class="rounded-l-lg px-4 py-2 text-sm hover:bg-primary hover:text-white dark:hover:bg-darkmode-primary dark:hover:text-text-dark transition-colors">PNG Small</button>
-                <button id="btn-download-png-md" class="border-x border-border px-4 py-2 text-sm hover:bg-primary hover:text-white dark:border-darkmode-border dark:hover:bg-darkmode-primary dark:hover:text-text-dark transition-colors">PNG Medium</button>
-                <button id="btn-download-png-lg" class="rounded-r-lg bg-primary px-4 py-2 text-sm text-white dark:bg-darkmode-primary dark:text-text-dark">PNG Large</button>
+            <!-- Certificate -->
+            <div class="mb-10 text-center">
+              <div id="cert-svg-wrapper" class="mx-auto inline-block"></div>
+              <div class="mt-6">
+                <button id="btn-download-pdf" class="btn btn-primary">Download PDF</button>
+                <a href="/certifications/founder" class="btn btn-outline-primary ml-3">Retake Quiz</a>
+                <a href="/certifications" class="btn btn-outline-primary ml-3">All Certifications</a>
               </div>
-              <button id="btn-download-pdf" class="btn btn-outline-primary">Download PDF</button>
-              <a href="/certifications/founder" class="btn btn-outline-primary">Retake Quiz</a>
-              <a href="/certifications" class="btn btn-primary">All Certifications</a>
             </div>
 
             <!-- Email Badge -->
             <div class="mb-8 rounded-lg border border-border p-6 dark:border-darkmode-border">
-              <h3 class="mb-4 h5">Email Signature Badge</h3>
+              <h3 class="mb-2 h5">Email Signature Badge</h3>
               <p class="mb-4 text-sm text-text-light dark:text-darkmode-text-light">
-                Add this badge to your email signature to show your SANE Founder certification.
+                Download this badge to add to your email signature. Available in SVG and PNG at three sizes.
               </p>
-              <div id="badge-svg-wrapper" class="mb-4 flex justify-center"></div>
-              <div class="text-center">
-                <button id="btn-download-badge" class="btn btn-outline-primary btn-sm">Download Badge SVG</button>
+              <div id="badge-svg-wrapper" class="mb-6 flex justify-center"></div>
+              <div class="flex flex-wrap items-center justify-center gap-2">
+                <span class="mr-2 text-sm text-text-light dark:text-darkmode-text-light">Download:</span>
+                <button id="btn-badge-svg" class="rounded border border-border px-3 py-1.5 text-sm hover:bg-primary hover:text-white dark:border-darkmode-border dark:hover:bg-darkmode-primary dark:hover:text-text-dark transition-colors">SVG</button>
+                <button id="btn-badge-png-lg" class="rounded border border-border px-3 py-1.5 text-sm hover:bg-primary hover:text-white dark:border-darkmode-border dark:hover:bg-darkmode-primary dark:hover:text-text-dark transition-colors">PNG Large</button>
+                <button id="btn-badge-png-md" class="rounded border border-border px-3 py-1.5 text-sm hover:bg-primary hover:text-white dark:border-darkmode-border dark:hover:bg-darkmode-primary dark:hover:text-text-dark transition-colors">PNG Medium</button>
+                <button id="btn-badge-png-sm" class="rounded border border-border px-3 py-1.5 text-sm hover:bg-primary hover:text-white dark:border-darkmode-border dark:hover:bg-darkmode-primary dark:hover:text-text-dark transition-colors">PNG Small</button>
               </div>
             </div>
 
             <!-- Email embed code -->
             <div class="mb-8 rounded-lg border border-border p-6 dark:border-darkmode-border">
-              <h3 class="mb-4 h5">Email Signature Embed</h3>
+              <h3 class="mb-2 h5">Email Signature Embed</h3>
               <p class="mb-4 text-sm text-text-light dark:text-darkmode-text-light">
-                Copy the HTML below and paste it into your email client's signature settings.
+                Copy the HTML below into your email client's signature settings. The badge links to your certificate.
               </p>
               <pre class="mb-3 overflow-x-auto rounded bg-light p-4 text-xs dark:bg-darkmode-body" id="embed-code"></pre>
               <button id="btn-copy-embed" class="btn btn-outline-primary btn-sm">Copy HTML</button>
+              <p class="mt-3 text-xs text-text-light dark:text-darkmode-text-light">
+                For best results in Outlook and Gmail, download the PNG badge above and host it on your own server or CDN, then replace the <code>src</code> URL in the embed code.
+              </p>
             </div>
 
           </div>
@@ -94,7 +94,7 @@ import PageHeader from "@/partials/PageHeader.astro";
     var scoreNum = parseInt(score);
     var totalNum = parseInt(total);
     var percentage = Math.round((scoreNum / totalNum) * 100);
-    var safeName = escapeXml(name);
+    var safeName = escapeXml(name!);
     var safeDate = escapeXml(date);
 
     var certSvg = buildCertSvg(safeName, safeDate, scoreNum, totalNum, percentage);
@@ -103,11 +103,22 @@ import PageHeader from "@/partials/PageHeader.astro";
     var badgeSvg = buildBadgeSvg(safeName);
     document.getElementById("badge-svg-wrapper")!.innerHTML = badgeSvg;
 
-    var embedUrl = window.location.origin + "/certifications/founder/certificate?name=" + encodeURIComponent(name) + "&date=" + date + "&score=" + score + "&total=" + total;
-    var embedHtml = '<a href="' + embedUrl + '">' + badgeSvg.replace(/"/g, "&quot;") + '</a>';
-    document.getElementById("embed-code")!.textContent = embedHtml;
+    generateBadgePngSm(badgeSvg).then(function(pngDataUri) {
+      var embedUrl = window.location.origin + window.location.pathname + "?name=" + encodeURIComponent(name!) + "&date=" + date + "&score=" + score + "&total=" + total;
+      var embedHtml = '<a href="' + embedUrl + '"><img src="' + pngDataUri + '" alt="SANE Founder Certified" width="200" height="30" style="border:0;display:inline-block;vertical-align:middle"></a>';
+      document.getElementById("embed-code")!.textContent = embedHtml;
 
-    setupButtons(certSvg, badgeSvg, name, embedHtml);
+      document.getElementById("btn-copy-embed")!.addEventListener("click", function() {
+        navigator.clipboard.writeText(embedHtml).then(function() {
+          var btn = document.getElementById("btn-copy-embed")!;
+          var original = btn.textContent;
+          btn.textContent = "Copied!";
+          setTimeout(function() { btn.textContent = original; }, 1500);
+        });
+      });
+    });
+
+    setupButtons(badgeSvg, name);
   }
 
   function buildCertSvg(safeName: string, safeDate: string, scoreNum: number, totalNum: number, percentage: number): string {
@@ -154,7 +165,6 @@ import PageHeader from "@/partials/PageHeader.astro";
   function svgToPngBlob(svg: string, width: number, height: number): Promise<Blob> {
     return new Promise(function(resolve, reject) {
       var img = new Image();
-      var dataUri = svgToDataUri(svg);
       img.onload = function() {
         var canvas = document.createElement("canvas");
         canvas.width = width;
@@ -167,8 +177,28 @@ import PageHeader from "@/partials/PageHeader.astro";
         }, "image/png");
       };
       img.onerror = reject;
-      img.src = dataUri;
+      img.src = svgToDataUri(svg);
     });
+  }
+
+  function svgToPngDataUri(svg: string, width: number, height: number): Promise<string> {
+    return new Promise(function(resolve, reject) {
+      var img = new Image();
+      img.onload = function() {
+        var canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        var ctx = canvas.getContext("2d")!;
+        ctx.drawImage(img, 0, 0, width, height);
+        resolve(canvas.toDataURL("image/png"));
+      };
+      img.onerror = reject;
+      img.src = svgToDataUri(svg);
+    });
+  }
+
+  function generateBadgePngSm(badgeSvg: string): Promise<string> {
+    return svgToPngDataUri(badgeSvg, 200, 30);
   }
 
   function downloadBlob(blob: Blob, filename: string) {
@@ -182,50 +212,26 @@ import PageHeader from "@/partials/PageHeader.astro";
     URL.revokeObjectURL(url);
   }
 
-  function setupButtons(certSvg: string, badgeSvg: string, name: string, embedHtml: string) {
-    var sizes: Record<string, [number, number]> = { sm: [400, 300], md: [800, 600], lg: [1600, 1200] };
-    var activeSize = "lg";
-
-    function highlightActive() {
-      ["sm", "md", "lg"].forEach(function(s) {
-        var btn = document.getElementById("btn-download-png-" + s)!;
-        if (s === activeSize) {
-          btn.classList.add("bg-primary", "text-white", "dark:bg-darkmode-primary", "dark:text-text-dark");
-        } else {
-          btn.classList.remove("bg-primary", "text-white", "dark:bg-darkmode-primary", "dark:text-text-dark");
-        }
-      });
-    }
-
-    ["sm", "md", "lg"].forEach(function(s) {
-      document.getElementById("btn-download-png-" + s)!.addEventListener("click", async function() {
-        activeSize = s;
-        highlightActive();
-        try {
-          var dims = sizes[s];
-          var blob = await svgToPngBlob(certSvg, dims[0], dims[1]);
-          downloadBlob(blob, "sane-founder-certificate-" + sanitizeFilename(name) + "-" + dims[0] + "x" + dims[1] + ".png");
-        } catch (e) {
-          alert("Failed to generate PNG. Please try again.");
-        }
-      });
-    });
-
+  function setupButtons(badgeSvg: string, name: string) {
     document.getElementById("btn-download-pdf")!.addEventListener("click", function() {
       window.print();
     });
 
-    document.getElementById("btn-download-badge")!.addEventListener("click", function() {
+    document.getElementById("btn-badge-svg")!.addEventListener("click", function() {
       var blob = new Blob([badgeSvg], { type: "image/svg+xml" });
       downloadBlob(blob, "sane-founder-badge-" + sanitizeFilename(name) + ".svg");
     });
 
-    document.getElementById("btn-copy-embed")!.addEventListener("click", function() {
-      navigator.clipboard.writeText(embedHtml).then(function() {
-        var btn = document.getElementById("btn-copy-embed")!;
-        var original = btn.textContent;
-        btn.textContent = "Copied!";
-        setTimeout(function() { btn.textContent = original; }, 1500);
+    var badgeSizes: Record<string, [number, number]> = { lg: [800, 120], md: [400, 60], sm: [200, 30] };
+    ["lg", "md", "sm"].forEach(function(s) {
+      document.getElementById("btn-badge-png-" + s)!.addEventListener("click", async function() {
+        try {
+          var dims = badgeSizes[s];
+          var blob = await svgToPngBlob(badgeSvg, dims[0], dims[1]);
+          downloadBlob(blob, "sane-founder-badge-" + sanitizeFilename(name) + "-" + dims[0] + "w.png");
+        } catch (e) {
+          alert("Failed to generate PNG. Please try again.");
+        }
       });
     });
   }
