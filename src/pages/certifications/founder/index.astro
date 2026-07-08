@@ -82,31 +82,24 @@ const passingScore = founderData.passingScore;
 </Base>
 
 <script>
+  import { sha256, hexToBytes, bytesToHex, SIGNING_KEY_HEX } from "@/lib/certification";
+
   var container = document.getElementById("quiz-container")!;
   var certData = JSON.parse(container.getAttribute("data-quiz")!);
 
-  async function sha256(message: string): Promise<string> {
-    var encoder = new TextEncoder();
-    var data = encoder.encode(message);
-    var hashBuffer = await crypto.subtle.digest("SHA-256", data);
-    var hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map(function(b: number) { return b.toString(16).padStart(2, "0"); }).join("");
-  }
+  var questions = certData.questions;
+  var total = questions.length;
+  var passingScore = certData.passingScore;
 
-  function hexToBytes(hex: string): Uint8Array<ArrayBuffer> {
-    var len = hex.length / 2;
-    var bytes = new Uint8Array(len);
-    for (var i = 0; i < len; i++) {
-      bytes[i] = parseInt(hex.substring(i * 2, i * 2 + 2), 16);
-    }
-    return bytes;
-  }
+  var userName = "";
+  var currentIndex = 0;
+  var correctCount = 0;
+  var answers: (number | null)[] = new Array(total).fill(null);
 
-  function bytesToHex(bytes: Uint8Array): string {
-    return Array.from(bytes).map(function(b: number) { return b.toString(16).padStart(2, "0"); }).join("");
+  async function checkAnswer(questionId: string, selectedOption: string, correctHash: string): Promise<boolean> {
+    var h = await sha256(questionId + ":" + selectedOption);
+    return h === correctHash;
   }
-
-  var SIGNING_KEY_HEX = "7b3e4570e05be684b0964d9875e4078d06004bbd287925c199871260b2f0e963";
 
   async function signResult(name: string, score: string, total: string, date: string): Promise<string> {
     var keyData = hexToBytes(SIGNING_KEY_HEX);
@@ -115,15 +108,6 @@ const passingScore = founderData.passingScore;
     var signature = await crypto.subtle.sign("HMAC", key, data);
     return bytesToHex(new Uint8Array(signature));
   }
-
-  async function checkAnswer(questionId: string, selectedOption: string, correctHash: string): Promise<boolean> {
-    var h = await sha256(questionId + ":" + selectedOption);
-    return h === correctHash;
-  }
-
-  var questions = certData.questions;
-  var total = questions.length;
-  var passingScore = certData.passingScore;
 
   var userName = "";
   var currentIndex = 0;

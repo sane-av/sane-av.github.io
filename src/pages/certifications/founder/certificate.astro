@@ -116,16 +116,7 @@ import PageHeader from "@/partials/PageHeader.astro";
     });
   }
 
-  var SIGNING_KEY_HEX = "7b3e4570e05be684b0964d9875e4078d06004bbd287925c199871260b2f0e963";
-
-  function hexToBytes(hex: string): Uint8Array<ArrayBuffer> {
-    var len = hex.length / 2;
-    var bytes = new Uint8Array(len);
-    for (var i = 0; i < len; i++) {
-      bytes[i] = parseInt(hex.substring(i * 2, i * 2 + 2), 16);
-    }
-    return bytes;
-  }
+  import { hexToBytes, SIGNING_KEY_HEX } from "@/lib/certification";
 
   async function verifySig(name: string, date: string, score: string, total: string, sig: string): Promise<boolean> {
     var keyData = hexToBytes(SIGNING_KEY_HEX);
