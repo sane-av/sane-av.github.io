@@ -12,19 +12,15 @@ const people = [
 ];
 ---
 
-<Base title="Who?" description="The people behind SANE - open source AV standards for the professional audiovisual industry.">
-  <PageHeader title="Who is SANE?" />
+<Base title="About SANE" description="SANE builds free, open AV standards for the professional audiovisual industry. Open standards, driven by the community, free to read, easy to cite, and open to improve.">
+  <PageHeader title="About SANE" />
 
   <section class="pt-6 pb-4">
     <div class="container text-center">
       <div class="rounded-2xl bg-gradient px-8 py-4">
-        <p class="mb-4 text-text-light dark:text-darkmode-text-light">
-          SANE is built by AV professionals who believe standards should be open, free, and community-driven.
+        <p class="text-text-light dark:text-darkmode-text-light">
+          SANE is building open, practical AV standards for the everyday parts of the work. Free to read. Public to discuss. Easy to cite. Open to improve.
         </p>
-        <div class="flex flex-wrap justify-center gap-2">
-          <a href="/contributing" class="btn btn-primary btn-sm">Contribute &rarr;</a>
-          <a href="/feeds" class="btn btn-outline-primary btn-sm">Feeds</a>
-        </div>
       </div>
     </div>
   </section>
@@ -33,6 +29,21 @@ const people = [
     <div class="container">
       <div class="row justify-center">
         <div class="lg:col-10">
+
+          <h2 class="mb-3">Why SANE exists</h2>
+
+          <p class="mb-6 text-text-light dark:text-darkmode-text-light">AV has a knowledge problem. Not because people in AV are dumb — quite the opposite. This industry is full of people who can walk into a weird room, inherit a pile of mixed hardware, and somehow make it all behave before the client arrives.</p>
+
+          <p class="mb-6 text-text-light dark:text-darkmode-text-light">The problem is where the knowledge lives. Some of it is in paid documents. Some of it is buried in vendor guides. Some of it is locked inside company standards. A worrying amount of it is in the head of one person who "usually handles that."</p>
+
+          <p class="mb-8 text-text-light dark:text-darkmode-text-light">That works fine until they leave, get busy, switch jobs, or take a vacation. Then suddenly nobody knows why the displays are named that way, what half the cable labels mean, whether the room was actually commissioned, or where the final documentation went.</p>
+
+          <p class="mb-6 text-text-light dark:text-darkmode-text-light">SANE exists because this stuff should be easier to find, easier to use, and easier to improve. We are building open, practical AV standards for naming devices, labeling cables, drawing systems, documenting networks, commissioning rooms, and handing projects over to the people who have to live with them.</p>
+
+          <p class="mb-8 text-text-light dark:text-darkmode-text-light">The goal is not to make standards sound important. The goal is to make them useful. AV is already complicated enough — the standards should not be the hard part.</p>
+
+          <h2 class="mb-3">Who is behind SANE</h2>
+
           {people.map((person) => (
             <div class="mb-8 flex items-start gap-6 rounded-lg border border-border p-6 dark:border-darkmode-border">
               <svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label={`${person.name} initials`} class="shrink-0">
@@ -52,10 +63,11 @@ const people = [
           <div class="mt-12 rounded-lg border border-border p-8 text-center dark:border-darkmode-border">
             <h2 class="mb-4">Get involved</h2>
             <p class="mb-6 text-text-light dark:text-darkmode-text-light">
-              SANE is built by its community. Whether you can contribute a standard, submit data, fix a bug, or just spread the word - every contribution counts.
+              SANE is built by its community. Whether you can contribute a standard, submit data, fix a bug, or just spread the word — every contribution counts.
             </p>
-            <div class="flex justify-center gap-3">
+            <div class="flex flex-wrap justify-center gap-3">
               <a href="/contributing" class="btn btn-primary">Contribution guide</a>
+              <a href="/standards" class="btn btn-outline-primary">Browse standards</a>
               <a href="https://github.com/sane-av/sane-av.github.io" target="_blank" rel="noopener" class="btn btn-outline-primary">View on GitHub</a>
             </div>
             <div class="mt-8 rounded-lg bg-gradient p-6">
@@ -66,6 +78,7 @@ const people = [
               </p>
             </div>
           </div>
+
         </div>
       </div>
     </div>
