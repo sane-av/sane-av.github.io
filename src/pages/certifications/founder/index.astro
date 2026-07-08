@@ -93,6 +93,29 @@ const passingScore = founderData.passingScore;
     return hashArray.map(function(b: number) { return b.toString(16).padStart(2, "0"); }).join("");
   }
 
+  function hexToBytes(hex: string): Uint8Array<ArrayBuffer> {
+    var len = hex.length / 2;
+    var bytes = new Uint8Array(len);
+    for (var i = 0; i < len; i++) {
+      bytes[i] = parseInt(hex.substring(i * 2, i * 2 + 2), 16);
+    }
+    return bytes;
+  }
+
+  function bytesToHex(bytes: Uint8Array): string {
+    return Array.from(bytes).map(function(b: number) { return b.toString(16).padStart(2, "0"); }).join("");
+  }
+
+  var SIGNING_KEY_HEX = "7b3e4570e05be684b0964d9875e4078d06004bbd287925c199871260b2f0e963";
+
+  async function signResult(name: string, score: string, total: string, date: string): Promise<string> {
+    var keyData = hexToBytes(SIGNING_KEY_HEX);
+    var key = await crypto.subtle.importKey("raw", keyData, { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+    var data = new TextEncoder().encode(name + "|" + score + "|" + total + "|" + date);
+    var signature = await crypto.subtle.sign("HMAC", key, data);
+    return bytesToHex(new Uint8Array(signature));
+  }
+
   async function checkAnswer(questionId: string, selectedOption: string, correctHash: string): Promise<boolean> {
     var h = await sha256(questionId + ":" + selectedOption);
     return h === correctHash;
@@ -227,12 +250,18 @@ const passingScore = founderData.passingScore;
 
     if (passed) {
       var date = new Date().toISOString().split("T")[0];
-      certificateLink.setAttribute("href", "/certifications/founder/certificate?name=" + encodeURIComponent(userName) + "&date=" + date + "&score=" + correctCount + "&total=" + total);
-      certificateLink.classList.remove("hidden");
-      certificateLink.textContent = "View Certificate";
+      signResult(userName, String(correctCount), String(total), date).then(function(sig) {
+        certificateLink.setAttribute("href", "/certifications/founder/certificate?name=" + encodeURIComponent(userName) + "&date=" + date + "&score=" + correctCount + "&total=" + total + "&sig=" + sig);
+        certificateLink.classList.remove("hidden");
+        certificateLink.textContent = "View Certificate";
+      });
+    } else {
+      retryBtn.classList.remove("hidden");
     }
 
-    retryBtn.classList.remove("hidden");
+    if (!passed) {
+      retryBtn.classList.remove("hidden");
+    }
   }
 
   retryBtn.addEventListener("click", function() {
