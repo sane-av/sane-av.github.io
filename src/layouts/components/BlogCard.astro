@@ -14,6 +14,10 @@ const image = entry.image;
 const pubDate = entry.pubDate ?? entry.date;
 const author = entry.authors?.[0] ?? entry.author ?? "SANE";
 const tags = entry.tags ?? [];
+const visibleTagCount = 3;
+const extraTagCount = Math.max(0, tags.length - visibleTagCount);
+const sortedTags = [...tags].sort((a: string, b: string) => a.localeCompare(b));
+const cardId = `blog-${data.id.replace(/\//g, "-")}`;
 ---
 
 <div class="h-full flex flex-col rounded-lg border border-border p-6 dark:border-darkmode-border bg-body dark:bg-darkmode-body">
@@ -23,24 +27,54 @@ const tags = entry.tags ?? [];
   <h4 class="mb-3">
     <a href={`/${blog_folder}/${data.id}`}>{title}</a>
   </h4>
-  <ul class="mb-4">
-    <li class="mr-4 inline-block">
-      <a href={`/authors/${slugify(author)}`}>
-        <FaRegUserCircle className={"mr-2 -mt-1 inline-block"} />
-        {author}
+
+  <div class="card-meta">
+    <a href={`/authors/${slugify(author)}`} class="inline-flex items-center gap-1.5 text-xs text-text-dark dark:text-darkmode-text-dark hover:text-primary dark:hover:text-darkmode-primary transition-colors">
+      <FaRegUserCircle className="text-sm" />
+      {author}
+    </a>
+    {pubDate && (
+      <>
+        <span class="meta-sep">&middot;</span>
+        <span class="text-xs text-text-light dark:text-darkmode-text-light">{dateFormat(pubDate, "d MMM yyyy")}</span>
+      </>
+    )}
+  </div>
+
+  <p class="grow mb-6 line-clamp-4 overflow-hidden text-text-light dark:text-darkmode-text-light">{plainify(data.body?.slice(0, Number(summary_length)) || entry.description?.slice(0, Number(summary_length)) || "")}</p>
+
+  <div class="mb-6 flex flex-wrap gap-1" id={`${cardId}-tags`}>
+    {sortedTags.slice(0, visibleTagCount).map((tag: string) => (
+      <a href={`/blog/?tag=${tag}`} class="tag-pill">
+        #{tag}
       </a>
-    </li>
-    {pubDate && <li class="inline-block text-text-light dark:text-darkmode-text-light">{dateFormat(pubDate)}</li>}
-  </ul>
-  <p class="grow mb-6 line-clamp-4 overflow-hidden">{plainify(data.body?.slice(0, Number(summary_length)) || entry.description?.slice(0, Number(summary_length)) || "")}</p>
-  {tags.length > 0 && (
-    <div class="mb-6 flex flex-wrap gap-1">
-      {tags.sort((a, b) => a.localeCompare(b)).map((tag: string) => (
-        <a href={`/blog/?tag=${tag}`} class="rounded bg-light px-2 py-0.5 text-xs underline decoration-text-light/50 underline-offset-2 hover:bg-primary hover:text-white dark:bg-darkmode-body dark:decoration-darkmode-primary/40 dark:hover:bg-darkmode-primary dark:hover:text-dark">
-          #{tag}
-        </a>
-      ))}
-    </div>
-  )}
+    ))}
+    {extraTagCount > 0 && (
+      <button type="button" class="tag-pill" data-expand={cardId} data-extra-tags={sortedTags.slice(visibleTagCount).join(",")}>
+        +{extraTagCount} more
+      </button>
+    )}
+  </div>
+
   <a class="btn btn-outline-primary btn-sm mt-auto" href={`/${blog_folder}/${data.id}`}>Read More</a>
 </div>
+
+{extraTagCount > 0 && (
+  <script>
+    (function() {
+      var btn = document.querySelector('[data-expand="{cardId}"]')!;
+      var tagContainer = document.getElementById("{cardId}-tags")!;
+      var extraTags = btn.getAttribute("data-extra-tags")?.split(",") ?? [];
+      btn.addEventListener("click", function() {
+        extraTags.forEach(function(tag) {
+          var tagBtn = document.createElement("a");
+          tagBtn.href = "/blog/?tag=" + encodeURIComponent(tag);
+          tagBtn.className = "tag-pill";
+          tagBtn.textContent = "#" + tag;
+          tagContainer.insertBefore(tagBtn, btn);
+        });
+        btn.remove();
+      });
+    })();
+  </script>
+)}

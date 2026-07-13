@@ -146,6 +146,19 @@
   @apply absolute right-3 top-3 h-8 w-8 rounded-full bg-light text-center leading-8 text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark;
 }
 
+/* card tag pills */
+.tag-pill {
+  @apply rounded bg-light px-2 py-0.5 text-xs underline decoration-text-light/50 underline-offset-2 transition-colors hover:bg-primary hover:text-white dark:bg-darkmode-body dark:decoration-darkmode-primary/40 dark:hover:bg-darkmode-primary dark:hover:text-text-dark;
+}
+
+/* card metadata row */
+.card-meta {
+  @apply mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm;
+}
+.card-meta .meta-sep {
+  @apply text-text-light/50 dark:text-darkmode-text-light/50 select-none;
+}
+
 /* content style */
 .content {
   @apply [&>*:first-child]:mt-0 [&>*:first-child]:pt-0;
