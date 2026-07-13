@@ -1,7 +1,7 @@
 ---
 import { humanize } from "@/lib/utils/textConverter";
 
-const { tags, categories } = Astro.props;
+const { tags, categories, basePath = "/blog" } = Astro.props;
 ---
 
 <div class="lg:col-4">
@@ -37,7 +37,7 @@ const { tags, categories } = Astro.props;
             tags.map((tag: any) => {
               return (
                 <a
-                  href={`/tags/${tag}`}
+                  href={`${basePath}?tag=${encodeURIComponent(tag)}`}
                   class="tag-pill filter-tag"
                   data-tag={tag}
                 >

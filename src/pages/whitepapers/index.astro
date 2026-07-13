@@ -52,6 +52,7 @@ const allTags: string[] = posts.flatMap((p) => p.data.tags).sort((a, b) => a.loc
         </div>
         <PostSidebar
           tags={[...new Set(allTags)]}
+          basePath="/whitepapers"
         />
       </div>
     </div>
