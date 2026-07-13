@@ -4,11 +4,11 @@
     "base_url": "https://sane-av.github.io",
     "base_path": "/",
     "trailing_slash": false,
-    "favicon": "/images/favicon.svg",
-    "logo": "/images/logo.png",
-    "logo_darkmode": "/images/logo-darkmode.png",
+    "favicon": "/images/SANE_Brain.svg",
+    "logo": "/images/SANE_Brain.svg",
+    "logo_darkmode": "/images/SANE_Brain.svg",
     "logo_width": "48",
-    "logo_height": "42",
+    "logo_height": "48",
     "logo_text": "Society for AV Norms & Engineering"
   },
 
@@ -49,7 +49,7 @@
 
   "metadata": {
     "meta_author": "SANE Contributors",
-    "meta_image": "/images/sanebrain.png",
+    "meta_image": "/images/SANE_Brain.svg",
     "meta_description": "SANE - Society for AV Norms & Engineering. Open source AV standards, data, and tools for the professional audiovisual industry."
   },
 
