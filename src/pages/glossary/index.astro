@@ -24,34 +24,33 @@ const total = merged.length;
         Community-maintained definitions of professional AV terms and abbreviations.
       </p>
 
-      <!-- Search -->
-      <div class="mb-6">
+      <div class="mb-6 flex flex-col gap-3 sm:flex-row">
         <input
           type="search"
           id="glossary-search"
-          class="form-input w-full"
+          class="form-input flex-1"
           placeholder="Search terms..."
           aria-label="Search glossary"
         />
       </div>
 
-      <!-- Category filters -->
       {categories.length > 0 && (
         <div class="mb-4 flex flex-wrap items-center gap-2">
           <span class="mr-2 text-sm font-semibold">Categories:</span>
           {categories.map((cat) => (
-            <button type="button" class="filter-tag rounded bg-light px-3 py-1 text-sm hover:bg-primary hover:text-white dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark" data-category={cat}>
+            <button type="button" class="filter-pill" data-category={cat}>
               {cat}
             </button>
           ))}
-          <button id="tag-clear" class="ml-2 hidden text-sm text-text-light underline hover:text-primary dark:text-darkmode-text-light dark:hover:text-darkmode-primary">Clear</button>
+          <button id="filter-clear" class="ml-2 hidden text-sm text-text-light underline hover:text-primary dark:text-darkmode-text-light dark:hover:text-darkmode-primary transition-colors">
+            Clear filter
+          </button>
         </div>
       )}
 
-      <!-- A-Z Jump -->
       <div class="mb-6 flex flex-wrap gap-1">
         {allLetters.map((letter) => (
-          <button type="button" class="glossary-jump-btn rounded bg-light px-2 py-1 text-sm font-mono hover:bg-primary hover:text-white dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark" data-letter={letter}>
+          <button type="button" class="rounded bg-light px-2 py-1 text-sm font-mono hover:bg-primary hover:text-white dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark transition-all" data-letter={letter}>
             {letter}
           </button>
         ))}
@@ -122,73 +121,115 @@ const total = merged.length;
 </Base>
 
 <script>
-  const searchInput = document.getElementById("glossary-search") as HTMLInputElement;
-  const tagButtons = document.querySelectorAll<HTMLButtonElement>(".filter-tag");
-  const jumpButtons = document.querySelectorAll<HTMLButtonElement>(".glossary-jump-btn");
-  const items = document.querySelectorAll<HTMLElement>(".glossary-item");
-  const letterHeadings = document.querySelectorAll<HTMLElement>(".glossary-letter");
-  const countEl = document.getElementById("glossary-count")!;
-  const noResults = document.getElementById("glossary-no-results")!;
-  const clearBtn = document.getElementById("tag-clear")!;
-  const totalItems = items.length;
+  (function() {
+    var searchInput = document.getElementById("glossary-search") as HTMLInputElement;
+    var categoryBtns = document.querySelectorAll<HTMLButtonElement>(".filter-pill");
+    var items = document.querySelectorAll<HTMLElement>(".glossary-item");
+    var letterHeadings = document.querySelectorAll<HTMLElement>(".glossary-letter");
+    var jumpBtns = document.querySelectorAll<HTMLButtonElement>("[data-letter]");
+    var countEl = document.getElementById("glossary-count")!;
+    var noResults = document.getElementById("glossary-no-results")!;
+    var clearBtn = document.getElementById("filter-clear")!;
+    var totalItems = items.length;
+    var searchTimer = 0;
 
-  let activeCategory = "";
+    // Init from URL params
+    var params = new URLSearchParams(window.location.search);
+    var activeCategory = params.get("category") || "";
+    var activeQuery = params.get("q") || "";
 
-  tagButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const category = btn.dataset.category!;
-      activeCategory = activeCategory === category ? "" : category;
+    if (activeQuery) {
+      searchInput.value = activeQuery;
+    }
+
+    function updateUrl() {
+      var url = new URL(window.location.href);
+      var query = searchInput.value.trim();
+      if (activeCategory) url.searchParams.set("category", activeCategory);
+      else url.searchParams.delete("category");
+      if (query) url.searchParams.set("q", query);
+      else url.searchParams.delete("q");
+      history.replaceState(null, "", url.toString());
+    }
+
+    function applyFilters() {
+      var query = searchInput.value.toLowerCase().trim();
+      var visibleCount = 0;
+      var visibleLetters = new Set<string>();
+
+      // Highlight active category button
+      categoryBtns.forEach(function(btn) {
+        btn.classList.toggle("filter-pill-active", btn.dataset.category === activeCategory);
+      });
+
+      clearBtn.classList.toggle("!inline-block", !!activeCategory);
+
+      // Filter items
+      items.forEach(function(item) {
+        var matchesSearch = !query || item.dataset.term!.includes(query);
+        var itemCats = (item.dataset.categories || "").split(",");
+        var matchesCategory = !activeCategory || itemCats.indexOf(activeCategory) !== -1;
+        var show = matchesSearch && matchesCategory;
+        item.classList.toggle("hidden", !show);
+        if (show) { visibleCount++; visibleLetters.add(item.dataset.letter!); }
+      });
+
+      // Show/hide letter headings
+      letterHeadings.forEach(function(h) {
+        h.classList.toggle("hidden", !visibleLetters.has(h.dataset.letter!));
+      });
+
+      // Dim A-Z jump buttons for empty letters
+      jumpBtns.forEach(function(b) {
+        b.style.opacity = visibleLetters.has(b.dataset.letter!) ? "1" : "0.3";
+      });
+
+      // Update count and no-results
+      var filtering = query || activeCategory;
+      countEl.textContent = filtering ? visibleCount + " of " + totalItems + " terms" : totalItems + " terms";
+      noResults.classList.toggle("hidden", !(filtering && visibleCount === 0));
+
+      if (filtering) updateUrl();
+    }
+
+    // Category buttons
+    categoryBtns.forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        activeCategory = activeCategory === this.dataset.category! ? "" : this.dataset.category!;
+        applyFilters();
+      });
+    });
+
+    // Clear button
+    clearBtn.addEventListener("click", function() {
+      activeCategory = "";
       applyFilters();
     });
-  });
 
-  clearBtn.addEventListener("click", () => { activeCategory = ""; applyFilters(); });
-
-  jumpButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const letter = btn.dataset.letter!;
-      const heading = document.getElementById(`letter-${letter}`);
-      if (heading) heading.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  });
-
-  searchInput.addEventListener("input", applyFilters);
-
-  function applyFilters() {
-    const query = searchInput.value.toLowerCase().trim();
-    let visibleCount = 0;
-    const visibleLetters = new Set<string>();
-
-    tagButtons.forEach((btn) => {
-      const match = btn.dataset.category === activeCategory;
-      btn.classList.toggle("!bg-primary !text-white", match);
-      btn.classList.toggle("dark:!bg-darkmode-primary dark:!text-text-dark", match);
+    // A-Z jump buttons
+    jumpBtns.forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        var heading = document.getElementById("letter-" + this.dataset.letter!);
+        if (heading) heading.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
     });
 
-    items.forEach((item) => {
-      const matchesSearch = !query || item.dataset.term!.includes(query);
-      const itemCategories = (item.dataset.categories || "").split(",");
-      const matchesCategory = !activeCategory || itemCategories.includes(activeCategory);
-      const show = matchesSearch && matchesCategory;
-      item.classList.toggle("hidden", !show);
-      if (show) { visibleCount++; visibleLetters.add(item.dataset.letter!); }
+    // Search with debounce
+    searchInput.addEventListener("input", function() {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(applyFilters, 250);
     });
 
-    letterHeadings.forEach((heading) => {
-      heading.classList.toggle("hidden", !visibleLetters.has(heading.dataset.letter!));
-    });
-
-    jumpButtons.forEach((btn) => {
-      if (visibleLetters.has(btn.dataset.letter!)) {
-        btn.classList.remove("opacity-30");
-      } else {
-        btn.classList.add("opacity-30");
+    // Escape clears search
+    searchInput.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") {
+        searchInput.value = "";
+        searchInput.blur();
+        applyFilters();
       }
     });
 
-    const filtering = query || activeCategory;
-    countEl.textContent = filtering ? `${visibleCount} of ${totalItems} terms` : `${totalItems} terms`;
-    noResults.classList.toggle("hidden", !(filtering && visibleCount === 0));
-    clearBtn.classList.toggle("!inline-block", !!activeCategory);
-  }
+    // Initial apply
+    applyFilters();
+  })();
 </script>

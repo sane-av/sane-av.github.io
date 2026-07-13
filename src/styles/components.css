@@ -191,6 +191,15 @@
   @apply border-primary/40 bg-primary/15 text-primary dark:border-darkmode-primary/40 dark:bg-darkmode-primary/15 dark:text-darkmode-primary;
 }
 
+/* filter pill (reusable for glossary, equipment, etc.) */
+.filter-pill {
+  @apply rounded-md border border-transparent bg-light px-3 py-1 text-sm text-text-light no-underline transition-colors hover:bg-primary hover:text-white dark:bg-darkmode-light dark:text-darkmode-text-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark cursor-pointer;
+}
+
+.filter-pill-active {
+  @apply border-primary/40 bg-primary/15 text-primary dark:border-darkmode-primary/40 dark:bg-darkmode-primary/15 dark:text-darkmode-primary;
+}
+
 /* card metadata row */
 
 /* content style */
