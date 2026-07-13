@@ -5,6 +5,7 @@ function initTagFilter() {
   // Get references to elements that may or may not exist
   const banner = document.getElementById("tag-filter-banner");
   const label = document.getElementById("tag-filter-label");
+  const sidebarClear = document.getElementById("sidebar-clear");
 
   // Always reset state first
   document.querySelectorAll<HTMLElement>("[data-tags]").forEach((card) => {
@@ -21,6 +22,10 @@ function initTagFilter() {
 
   if (banner) {
     banner.classList.add("hidden");
+  }
+
+  if (sidebarClear) {
+    sidebarClear.classList.add("hidden");
   }
 
   // Now check for active tag
@@ -55,6 +60,11 @@ function initTagFilter() {
   if (banner && label) {
     label.textContent = activeTag;
     banner.classList.remove("hidden");
+  }
+
+  // Show sidebar clear button
+  if (sidebarClear) {
+    sidebarClear.classList.remove("hidden");
   }
 }
 
