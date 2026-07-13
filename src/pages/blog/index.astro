@@ -57,42 +57,56 @@ const allTags: string[] = posts.flatMap((p) => p.data.tags).sort((a, b) => a.loc
 </Base>
 
 <script>
-  var cards = document.querySelectorAll<HTMLElement>('[data-tags]');
-  var clearWrapper = document.getElementById("sidebar-clear-wrapper");
-  var clearBtn = document.getElementById("sidebar-clear");
-  var activeTag = "";
+  (function() {
+    var cards = document.querySelectorAll<HTMLElement>('[data-tags]');
+    var clearWrapper = document.getElementById("sidebar-clear-wrapper");
+    var clearBtn = document.getElementById("sidebar-clear");
+    var activeTag = "";
 
-  function apply() {
-    document.querySelectorAll<HTMLElement>(".filter-tag").forEach(function(btn) {
-      var match = btn.dataset.tag === activeTag;
-      btn.classList.toggle("!bg-primary/15 !border-primary/50 !text-primary", match);
-      btn.classList.toggle("dark:!bg-darkmode-primary/15 dark:!border-darkmode-primary/50 dark:!text-darkmode-primary", match);
-    });
-    cards.forEach(function(card) {
-      var cardTags = (card.dataset.tags || "").split(",");
-      var match = !activeTag || cardTags.includes(activeTag);
-      card.classList.toggle("hidden", !match);
-    });
-    if (clearWrapper) clearWrapper.classList.toggle("hidden", !activeTag);
-  }
-
-  document.addEventListener("click", function(e) {
-    var btn = (e.target as HTMLElement).closest(".filter-tag") as HTMLButtonElement | null;
-    if (!btn || !btn.dataset.tag) return;
-    activeTag = activeTag === btn.dataset.tag ? "" : btn.dataset.tag;
-    apply();
-    if (activeTag) {
-      history.replaceState(null, "", window.location.pathname + "?tag=" + encodeURIComponent(activeTag));
-    } else {
-      history.replaceState(null, "", window.location.pathname);
+    function apply() {
+      var btns = document.querySelectorAll<HTMLElement>(".filter-tag");
+      for (var i = 0; i < btns.length; i++) {
+        var match = btns[i].dataset.tag === activeTag;
+        btns[i].classList.toggle("!bg-primary/15 !border-primary/50 !text-primary", match);
+        btns[i].classList.toggle("dark:!bg-darkmode-primary/15 dark:!border-darkmode-primary/50 dark:!text-darkmode-primary", match);
+      }
+      for (var j = 0; j < cards.length; j++) {
+        var cardTags = (cards[j].dataset.tags || "").split(",");
+        var cardMatch = !activeTag || cardTags.indexOf(activeTag) !== -1;
+        cards[j].classList.toggle("hidden", !cardMatch);
+      }
+      if (clearWrapper) clearWrapper.classList.toggle("hidden", !activeTag);
     }
-  });
 
-  if (clearBtn) {
-    clearBtn.addEventListener("click", function() { activeTag = ""; apply(); history.replaceState(null, "", window.location.pathname); });
-  }
+    function onClick(e: Event) {
+      var el = e.target as HTMLElement | null;
+      while (el && el !== document.body) {
+        if (el.classList && el.classList.contains("filter-tag") && el.dataset.tag) {
+          activeTag = activeTag === el.dataset.tag ? "" : el.dataset.tag;
+          apply();
+          if (activeTag) {
+            history.replaceState(null, "", window.location.pathname + "?tag=" + encodeURIComponent(activeTag));
+          } else {
+            history.replaceState(null, "", window.location.pathname);
+          }
+          return;
+        }
+        el = el.parentElement;
+      }
+    }
 
-  var params = new URLSearchParams(window.location.search);
-  var urlTag = params.get("tag");
-  if (urlTag) { activeTag = urlTag; apply(); }
+    document.addEventListener("click", onClick);
+
+    if (clearBtn) {
+      clearBtn.addEventListener("click", function() {
+        activeTag = "";
+        apply();
+        history.replaceState(null, "", window.location.pathname);
+      });
+    }
+
+    var params = new URLSearchParams(window.location.search);
+    var urlTag = params.get("tag");
+    if (urlTag) { activeTag = urlTag; apply(); }
+  })();
 </script>
