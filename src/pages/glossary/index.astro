@@ -44,7 +44,7 @@ const total = merged.length;
         </div>
       </div>
 
-      <nav id="glossary-quicknav" class="fixed left-0 top-1/2 z-40 -translate-y-1/2 flex touch-none select-none flex-col gap-0.5 rounded-r-lg bg-body/95 px-0.5 py-2 shadow-md backdrop-blur-sm dark:bg-darkmode-body/95 sm:left-2 sm:rounded-lg sm:px-1" aria-label="Letter quick navigation">
+      <nav id="glossary-quicknav" class="fixed left-0.5 top-1/2 z-50 -translate-y-1/2 flex touch-none select-none flex-col gap-0.5 rounded-r-lg bg-body/95 px-0.5 py-2 shadow-md backdrop-blur-sm dark:bg-darkmode-body/95 sm:left-2 sm:rounded-lg sm:px-1" aria-label="Letter quick navigation">
         {allLetters.map((letter) => (
           <button type="button" class="glossary-jump flex h-7 w-7 items-center justify-center rounded text-xs font-mono font-semibold text-text-light/60 dark:text-darkmode-text-light/60 sm:h-8 sm:w-8 sm:text-sm" data-letter={letter}>
             {letter}
@@ -52,7 +52,7 @@ const total = merged.length;
         ))}
       </nav>
 
-      <div id="glossary-content" class="mt-6">
+      <div id="glossary-content" class="mt-6 pl-8 sm:pl-0">
         <div class="mb-4 text-sm text-text-light dark:text-darkmode-text-light">
           <span id="glossary-count">{total} terms</span>
           <span id="glossary-filtered" class="hidden ml-2"></span>
