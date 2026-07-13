@@ -44,9 +44,9 @@ const cardId = `blog-${data.id.replace(/\//g, "-")}`;
 
   <p class="card-desc line-clamp-3">{plainify(data.body?.slice(0, Number(summary_length)) || entry.description?.slice(0, Number(summary_length)) || "")}</p>
 
-  <div class="card-tags" id={`${cardId}-tags`}>
+  <div class="card-tags" id={`${cardId}-tags`} data-tag-base={`/${blog_folder}`}>
     {sortedTags.slice(0, visibleTagCount).map((tag: string) => (
-      <a href={`/tags/${tag}`} class="tag-pill filter-tag" data-tag={tag}>
+      <a href={`/${blog_folder}?tag=${encodeURIComponent(tag)}`} class="tag-pill filter-tag" data-tag={tag}>
         {tag}
       </a>
     ))}

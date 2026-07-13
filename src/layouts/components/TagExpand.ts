@@ -8,10 +8,11 @@ document.addEventListener("click", (e) => {
   const tagContainer = document.getElementById(`${cardId}-tags`);
   if (!tagContainer) return;
 
+  const tagBase = tagContainer.getAttribute("data-tag-base") || "";
   const extraTags = btn.getAttribute("data-extra-tags")?.split(",") ?? [];
   extraTags.forEach((tag) => {
     const tagLink = document.createElement("a");
-    tagLink.href = `/tags/${tag}`;
+    tagLink.href = tagBase ? `${tagBase}?tag=${encodeURIComponent(tag)}` : `#`;
     tagLink.className = "tag-pill filter-tag";
     tagLink.dataset.tag = tag;
     tagLink.textContent = tag;

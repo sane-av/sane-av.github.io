@@ -31,9 +31,9 @@ const cardId = `card-${entry.saneId}`;
 
   <p class="card-desc line-clamp-3">{entry.description}</p>
 
-  <div class="card-tags" id={`${cardId}-tags`}>
+  <div class="card-tags" id={`${cardId}-tags`} data-tag-base="/standards">
     {sortedTags.slice(0, visibleTagCount).map((tag: string) => (
-      <a href={`/tags/${tag}`} class="tag-pill filter-tag" data-tag={tag}>
+      <a href={`/standards?tag=${encodeURIComponent(tag)}`} class="tag-pill filter-tag" data-tag={tag}>
         {tag}
       </a>
     ))}
