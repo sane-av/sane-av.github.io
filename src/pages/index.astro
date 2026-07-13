@@ -1,9 +1,9 @@
 ---
 import Base from "@/layouts/Base.astro";
-import ImageMod from "@/layouts/components/ImageMod.astro";
-import BlogCard from "@/layouts/components/BlogCard.astro";
-import StandardCard from "@/layouts/components/StandardCard.astro";
-import WhitepaperCard from "@/layouts/components/WhitepaperCard.astro";
+import ImageMod from "@/components/ImageMod.astro";
+import BlogCard from "@/components/BlogCard.astro";
+import StandardCard from "@/components/StandardCard.astro";
+import WhitepaperCard from "@/components/WhitepaperCard.astro";
 import { getCollection } from "astro:content";
 
 const recentPosts = (await getCollection("blog", ({ data }) => !data.draft))
