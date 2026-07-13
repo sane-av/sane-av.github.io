@@ -61,6 +61,8 @@ const allTags: string[] = posts.flatMap((p) => p.data.tags).sort((a, b) => a.loc
 <script>
   var tagButtons = document.querySelectorAll<HTMLElement>(".filter-tag");
   var cards = document.querySelectorAll<HTMLElement>('[data-tags]');
+  var clearWrapper = document.getElementById("sidebar-clear-wrapper");
+  var clearBtn = document.getElementById("sidebar-clear");
   var activeTag = "";
 
   function apply() {
@@ -74,14 +76,24 @@ const allTags: string[] = posts.flatMap((p) => p.data.tags).sort((a, b) => a.loc
       var match = !activeTag || cardTags.includes(activeTag);
       card.classList.toggle("hidden", !match);
     });
+    if (clearWrapper) clearWrapper.classList.toggle("hidden", !activeTag);
   }
 
   tagButtons.forEach(function(btn) {
     btn.addEventListener("click", function() {
       activeTag = activeTag === btn.dataset.tag ? "" : btn.dataset.tag!;
       apply();
+      if (activeTag) {
+        history.replaceState(null, "", window.location.pathname + "?tag=" + encodeURIComponent(activeTag));
+      } else {
+        history.replaceState(null, "", window.location.pathname);
+      }
     });
   });
+
+  if (clearBtn) {
+    clearBtn.addEventListener("click", function() { activeTag = ""; apply(); history.replaceState(null, "", window.location.pathname); });
+  }
 
   var params = new URLSearchParams(window.location.search);
   var urlTag = params.get("tag");
