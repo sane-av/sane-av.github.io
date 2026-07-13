@@ -46,7 +46,7 @@ const orderedStatuses = (["published", "under-review", "draft", "deprecated"] as
           <div id="tag-filter-banner" class="mb-6 hidden rounded-lg border border-primary/30 bg-primary/5 px-4 py-3 text-sm dark:border-darkmode-primary/30 dark:bg-darkmode-primary/10">
             <span class="text-text-light dark:text-darkmode-text-light">Filtered by tag:</span>
             <strong id="tag-filter-label" class="ml-1 text-text-dark dark:text-darkmode-text-dark"></strong>
-            <button id="tag-filter-clear" class="ml-3 rounded border border-border px-2 py-0.5 text-xs text-text-light hover:text-primary dark:border-darkmode-border dark:text-darkmode-text-light dark:hover:text-darkmode-primary">Clear</button>
+            <button onclick="window.location.href=window.location.pathname" class="ml-3 rounded border border-border px-2 py-0.5 text-xs text-text-light hover:text-primary dark:border-darkmode-border dark:text-darkmode-text-light dark:hover:text-darkmode-primary">Clear</button>
           </div>
           {allStandards.length === 0 ? (
             <div class="rounded-lg border border-border p-8 text-center dark:border-darkmode-border">
