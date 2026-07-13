@@ -21,7 +21,7 @@ const total = merged.length;
   <section class="pt-8 pb-24">
     <div class="container">
 
-      <div id="glossary-toolbar" class="sticky top-[72px] z-20 border-b border-border/80 bg-body/95 pl-10 pr-4 pb-3 pt-6 shadow-sm backdrop-blur-sm dark:border-darkmode-border/60 dark:bg-darkmode-body/95 sm:pl-12">
+      <div id="glossary-toolbar" class="sticky top-[72px] z-20 border-b border-border/80 bg-body/95 px-4 pb-3 pt-6 pr-10 shadow-sm backdrop-blur-sm dark:border-darkmode-border/60 dark:bg-darkmode-body/95 sm:pr-12">
         <div class="mb-3">
           <input
             type="search"
@@ -44,15 +44,18 @@ const total = merged.length;
         </div>
       </div>
 
-      <nav id="glossary-quicknav" class="fixed left-0.5 top-1/2 z-10 -translate-y-1/2 flex max-h-[calc(100vh-8rem)] touch-none select-none flex-col gap-px overflow-y-auto rounded-r-lg bg-body/95 px-0.5 py-1 shadow-md backdrop-blur-sm dark:bg-darkmode-body/95 sm:left-2 sm:rounded-lg sm:px-1 sm:py-2" aria-label="Letter quick navigation">
+      <nav id="glossary-quicknav" class="fixed right-0.5 top-1/2 z-10 -translate-y-1/2 flex max-h-[calc(100vh-10rem)] touch-none select-none flex-col rounded-l-lg bg-body/90 py-1 shadow-lg backdrop-blur-sm dark:bg-darkmode-body/90 sm:right-2 sm:py-2" aria-label="Letter quick navigation" data-letters={allLetters.join("")}>
         {allLetters.map((letter) => (
-          <button type="button" class="glossary-jump flex h-5 w-5 items-center justify-center rounded text-[10px] font-mono font-semibold leading-none text-text-light/60 dark:text-darkmode-text-light/60 sm:h-6 sm:w-6 sm:text-xs" data-letter={letter}>
+          <button type="button" class="glossary-jump flex min-h-0 flex-1 items-center justify-center rounded-sm text-[10px] font-mono font-semibold leading-none text-text-light/50 transition-colors dark:text-darkmode-text-light/50 sm:text-xs" data-letter={letter}>
             {letter}
           </button>
         ))}
       </nav>
+      <div id="glossary-tooltip" class="pointer-events-none fixed z-30 hidden h-10 w-10 items-center justify-center rounded-full bg-primary text-lg font-bold text-white shadow-lg dark:bg-darkmode-primary dark:text-black" aria-hidden="true">
+        <span id="glossary-tooltip-letter"></span>
+      </div>
 
-      <div id="glossary-content" class="mt-6 pl-10 sm:pl-12">
+      <div id="glossary-content" class="mt-6 pr-10 sm:pr-12">
         <div class="mb-4 text-sm text-text-light dark:text-darkmode-text-light">
           <span id="glossary-count">{total} terms</span>
           <span id="glossary-filtered" class="hidden ml-2"></span>
@@ -195,46 +198,76 @@ const total = merged.length;
     clearBtn.addEventListener("click", function() { activeCategory = ""; applyFilters(); });
 
     var navEl = document.getElementById("glossary-quicknav");
-    if (navEl) {
-      var currentLetter = "";
-      var isScrubbing = false;
+    var tooltip = document.getElementById("glossary-tooltip");
+    var tooltipLetter = document.getElementById("glossary-tooltip-letter");
+    var isScrubbing = false;
+    var scrubLetter = "";
 
-      function getLetterAtPoint(x: number, y: number) {
-        var el: Element | null = document.elementFromPoint(x, y);
-        while (el && el !== navEl) {
-          if (el instanceof HTMLElement && el.dataset.letter) return el.dataset.letter;
-          el = el.parentElement;
-        }
-        return "";
+    function highlightActive(letter: string) {
+      jumpBtns.forEach(function(b) {
+        var isActive = b.dataset.letter === letter;
+        b.classList.toggle("!text-primary", isActive);
+        b.classList.toggle("!opacity-100", isActive);
+        b.classList.toggle("bg-primary/10", isActive);
+        b.classList.toggle("dark:bg-darkmode-primary/10", isActive);
+      });
+    }
+
+    if (navEl) {
+      var lettersAttr = navEl.dataset.letters || "";
+
+      function getLetterFromY(y: number) {
+        var rect = navEl!.getBoundingClientRect();
+        var fraction = Math.max(0, Math.min(1, (y - rect.top) / rect.height));
+        var index = Math.min(Math.floor(fraction * lettersAttr.length), lettersAttr.length - 1);
+        return lettersAttr[index] || "";
       }
 
-      function scrollToLetter(letter: string) {
-        if (!letter || letter === currentLetter) return;
-        currentLetter = letter;
-        var section = document.getElementById("section-" + letter);
-        if (section) section.scrollIntoView({ behavior: "auto", block: "start" });
-        jumpBtns.forEach(function(b) {
-          b.classList.toggle("!text-primary !opacity-100", b.dataset.letter === letter);
-        });
+      function showTooltip(letter: string, y: number) {
+        if (!tooltip || !tooltipLetter) return;
+        tooltipLetter.textContent = letter;
+        tooltip.classList.remove("hidden");
+        tooltip.classList.add("flex");
+        var navRect = navEl!.getBoundingClientRect();
+        tooltip.style.left = (navRect.left - 48) + "px";
+        tooltip.style.top = y + "px";
+        tooltip.style.transform = "translateY(-50%)";
+      }
+
+      function hideTooltip() {
+        if (!tooltip) return;
+        tooltip.classList.add("hidden");
+        tooltip.classList.remove("flex");
       }
 
       function onPointerDown(e: PointerEvent) {
         e.preventDefault();
         isScrubbing = true;
-        var letter = getLetterAtPoint(e.clientX, e.clientY);
-        scrollToLetter(letter);
+        var letter = getLetterFromY(e.clientY);
+        scrubLetter = letter;
+        highlightActive(letter);
+        showTooltip(letter, e.clientY);
+        var section = document.getElementById("section-" + letter);
+        if (section) section.scrollIntoView({ behavior: "auto", block: "start" });
       }
 
       function onPointerMove(e: PointerEvent) {
         if (!isScrubbing) return;
         e.preventDefault();
-        var letter = getLetterAtPoint(e.clientX, e.clientY);
-        scrollToLetter(letter);
+        var letter = getLetterFromY(e.clientY);
+        if (letter === scrubLetter) return;
+        scrubLetter = letter;
+        highlightActive(letter);
+        showTooltip(letter, e.clientY);
+        var section = document.getElementById("section-" + letter);
+        if (section) section.scrollIntoView({ behavior: "auto", block: "start" });
       }
 
       function onPointerUp() {
+        if (!isScrubbing) return;
         isScrubbing = false;
-        currentLetter = "";
+        scrubLetter = "";
+        hideTooltip();
       }
 
       navEl.addEventListener("pointerdown", onPointerDown);
@@ -243,7 +276,7 @@ const total = merged.length;
       navEl.addEventListener("pointerleave", onPointerUp);
     }
 
-    // IntersectionObserver for quicknav highlighting
+    // IntersectionObserver for quicknav highlighting (only when not scrubbing)
     var sections = document.querySelectorAll<HTMLElement>("[id^='section-']");
     if (sections.length > 0) {
       var activeLetters = new Set<string>();
@@ -256,11 +289,9 @@ const total = merged.length;
             activeLetters.delete(letter);
           }
         });
-        if (activeLetters.size > 0) {
+        if (!isScrubbing && activeLetters.size > 0) {
           var best = [...activeLetters].sort()[0];
-          jumpBtns.forEach(function(b) {
-            b.classList.toggle("!text-primary !opacity-100", b.dataset.letter === best);
-          });
+          highlightActive(best);
         }
       }, { rootMargin: "-72px 0px -60% 0px" });
 
