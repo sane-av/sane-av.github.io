@@ -148,17 +148,17 @@
 
 /* card common */
 .content-card {
-  @apply h-full flex flex-col rounded-lg border border-border bg-body p-6 transition-colors hover:border-primary/40 dark:border-darkmode-border dark:bg-darkmode-body dark:hover:border-darkmode-primary/40;
+  @apply h-full flex flex-col rounded-lg border border-border bg-body p-6 transition-colors hover:border-primary/40 dark:border-darkmode-border dark:bg-darkmode-body dark:hover:border-darkmode-primary/40 [overflow-wrap:anywhere];
 }
 
 /* card title */
 .content-card .card-title {
-  @apply mb-2 text-lg font-bold text-text-dark no-underline transition-colors hover:text-primary dark:text-darkmode-text-dark dark:hover:text-darkmode-primary;
+  @apply mb-2 text-lg font-bold text-text-dark no-underline transition-colors hover:text-primary dark:text-darkmode-text-dark dark:hover:text-darkmode-primary focus-visible:outline-none focus-visible:text-primary dark:focus-visible:text-darkmode-primary break-words;
 }
 
 /* card metadata row */
 .card-meta {
-  @apply mb-4 flex flex-wrap items-center gap-x-2.5 gap-y-0.5 text-xs;
+  @apply mb-4 flex flex-wrap items-center gap-x-2.5 gap-y-0.5 text-sm text-text-light/70 dark:text-darkmode-text-light/70;
 }
 .card-meta .meta-sep {
   @apply text-text-light/30 dark:text-darkmode-text-light/30 select-none;
@@ -184,7 +184,7 @@
 
 /* tag pill */
 .tag-pill {
-  @apply rounded-md border border-transparent bg-primary/5 px-2 py-1 text-xs text-text-light no-underline transition-colors hover:border-primary/30 hover:bg-primary/15 hover:text-primary dark:bg-darkmode-primary/5 dark:text-darkmode-text-light dark:hover:border-darkmode-primary/30 dark:hover:bg-darkmode-primary/15 dark:hover:text-darkmode-primary sm:py-0.5;
+  @apply rounded-md border border-transparent bg-primary/5 px-2 py-1 text-xs text-text-light no-underline transition-colors hover:border-primary/30 hover:bg-primary/15 hover:text-primary dark:bg-darkmode-primary/5 dark:text-darkmode-text-light dark:hover:border-darkmode-primary/30 dark:hover:bg-darkmode-primary/15 dark:hover:text-darkmode-primary sm:py-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30;
 }
 
 .tag-pill-active {
@@ -193,7 +193,7 @@
 
 /* filter pill (reusable for glossary, equipment, etc.) */
 .filter-pill {
-  @apply rounded-md border border-transparent bg-light px-3 py-1 text-sm text-text-light no-underline transition-colors hover:bg-primary hover:text-white dark:bg-darkmode-light dark:text-darkmode-text-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark cursor-pointer;
+  @apply rounded-md border border-transparent bg-light px-3 py-1 text-sm text-text-light no-underline transition-colors hover:bg-primary hover:text-white dark:bg-darkmode-light dark:text-darkmode-text-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30;
 }
 
 .filter-pill-active {
@@ -205,7 +205,7 @@
 /* content style */
 .content {
   @apply [&>*:first-child]:mt-0 [&>*:first-child]:pt-0;
-  @apply prose max-w-none;
+  @apply prose max-w-none [overflow-wrap:anywhere];
   @apply prose-headings:mb-[.3em] prose-headings:mt-[.6em] prose-headings:text-text-dark dark:prose-headings:text-darkmode-text-dark;
   @apply prose-h1:text-h1-sm md:prose-h1:text-h1;
   @apply prose-h2:text-h2-sm md:prose-h2:text-h2;

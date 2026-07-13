@@ -1,5 +1,5 @@
 .btn {
-  @apply inline-block rounded border border-transparent px-5 py-2 font-semibold transition-all duration-200;
+  @apply inline-block rounded border border-transparent px-5 py-2 font-semibold transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:outline-none;
 }
 
 .btn-sm {
@@ -11,5 +11,5 @@
 }
 
 .btn-outline-primary {
-  @apply border-dark text-text-dark hover:bg-dark hover:text-white dark:border-darkmode-primary dark:text-darkmode-primary dark:hover:bg-darkmode-primary/20 dark:hover:text-darkmode-primary bg-transparent;
+  @apply border-dark text-text-dark hover:bg-dark hover:text-white dark:border-darkmode-primary dark:text-darkmode-primary dark:hover:bg-darkmode-primary/20 dark:hover:text-darkmode-primary bg-transparent focus-visible:ring-darkmode-primary/30;
 }

@@ -14,7 +14,7 @@
   @apply p-4 relative;
 }
 .search-wrapper-header-input {
-  @apply border border-solid w-full focus:ring-0 focus:border-dark border-border rounded-[4px] h-12 pr-4 pl-10 transition duration-200 outline-none dark:bg-darkmode-light dark:text-darkmode-text dark:border-darkmode-border dark:focus:border-darkmode-primary;
+  @apply border border-solid w-full focus:ring-2 focus:ring-primary/40 focus:border-primary border-border rounded-[4px] h-12 pr-4 pl-10 transition duration-200 dark:bg-darkmode-light dark:text-darkmode-text dark:border-darkmode-border dark:focus:border-darkmode-primary dark:focus:ring-darkmode-primary/40;
 }
 .search-wrapper-body {
   @apply dark:bg-darkmode-light dark:shadow-none max-h-[calc(100vh-220px)] sm:max-h-[calc(100vh-350px)] overflow-y-auto bg-light shadow-[inset_0_2px_18px_#ddd] p-4 rounded;

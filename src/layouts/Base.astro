@@ -124,6 +124,7 @@ const pageImage = new URL(image ?? config.metadata.meta_image, config.site.base_
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body class="flex flex-col min-h-screen">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white dark:focus:bg-darkmode-primary dark:focus:text-black">Skip to main content</a>
     <Announcement client:only="react" />
     <Header />
     <SearchModal client:only="react" />
