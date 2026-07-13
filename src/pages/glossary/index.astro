@@ -44,17 +44,9 @@ const total = merged.length;
         </div>
       </div>
 
-      <nav id="glossary-quicknav" class="fixed right-1 top-1/2 z-30 -translate-y-1/2 hidden flex-col gap-px md:flex" aria-label="Letter quick navigation">
+      <nav id="glossary-quicknav" class="fixed right-0 top-1/2 z-30 -translate-y-1/2 flex flex-col gap-0.5 rounded-l-lg bg-body/90 py-2 pl-1.5 pr-1 shadow-sm backdrop-blur-sm dark:bg-darkmode-body/90" aria-label="Letter quick navigation">
         {allLetters.map((letter) => (
-          <button type="button" class="glossary-jump flex h-5 w-5 items-center justify-center rounded text-[10px] font-mono font-semibold text-text-light/50 hover:text-primary hover:bg-primary/10 dark:text-darkmode-text-light/50 dark:hover:text-darkmode-primary dark:hover:bg-darkmode-primary/10 transition-colors md:h-6 md:w-6 md:text-xs" data-letter={letter}>
-            {letter}
-          </button>
-        ))}
-      </nav>
-
-      <nav id="glossary-quicknav-mobile" class="fixed right-0 top-1/2 z-30 -translate-y-1/2 flex flex-col gap-0 md:hidden" aria-label="Letter quick navigation">
-        {allLetters.map((letter) => (
-          <button type="button" class="glossary-jump flex h-5 w-5 items-center justify-center rounded text-[10px] font-mono font-semibold text-text-light/50 hover:text-primary dark:text-darkmode-text-light/50 dark:hover:text-darkmode-primary transition-colors" data-letter={letter}>
+          <button type="button" class="glossary-jump flex h-7 w-7 items-center justify-center rounded text-xs font-mono font-semibold text-text-light/60 hover:text-primary hover:bg-primary/10 dark:text-darkmode-text-light/60 dark:hover:text-darkmode-primary dark:hover:bg-darkmode-primary/10 transition-colors" data-letter={letter}>
             {letter}
           </button>
         ))}
