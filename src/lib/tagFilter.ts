@@ -2,6 +2,10 @@
 // Reads ?tag= from URL and filters cards with data-tags attribute
 
 function initTagFilter() {
+  // Get references to elements that may or may not exist
+  const banner = document.getElementById("tag-filter-banner");
+  const label = document.getElementById("tag-filter-label");
+
   // Always reset state first
   document.querySelectorAll<HTMLElement>("[data-tags]").forEach((card) => {
     card.classList.remove("hidden");
@@ -15,14 +19,8 @@ function initTagFilter() {
     tag.classList.remove("tag-pill-active");
   });
 
-  const banner = document.getElementById("tag-filter-banner");
   if (banner) {
     banner.classList.add("hidden");
-  }
-
-  const sidebarClear = document.getElementById("sidebar-clear");
-  if (sidebarClear) {
-    sidebarClear.classList.add("hidden");
   }
 
   // Now check for active tag
@@ -54,15 +52,9 @@ function initTagFilter() {
   });
 
   // Show filter banner
-  const label = document.getElementById("tag-filter-label");
   if (banner && label) {
     label.textContent = activeTag;
     banner.classList.remove("hidden");
-  }
-
-  // Show sidebar clear button
-  if (sidebarClear) {
-    sidebarClear.classList.remove("hidden");
   }
 }
 
