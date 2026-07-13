@@ -42,14 +42,23 @@ const total = merged.length;
             Clear
           </button>
         </div>
-        <div class="mt-2.5 -mx-4 flex flex-wrap gap-1 bg-light/50 px-4 py-2 dark:bg-darkmode-light/30">
-          {allLetters.map((letter) => (
-            <button type="button" class="glossary-jump flex h-8 w-8 items-center justify-center rounded text-sm font-mono font-semibold text-text-light hover:text-primary hover:bg-primary/10 dark:text-darkmode-text-light dark:hover:text-darkmode-primary dark:hover:bg-darkmode-primary/10 transition-colors" data-letter={letter}>
-              {letter}
-            </button>
-          ))}
-        </div>
       </div>
+
+      <nav id="glossary-quicknav" class="fixed right-1 top-1/2 z-30 -translate-y-1/2 hidden flex-col gap-px md:flex" aria-label="Letter quick navigation">
+        {allLetters.map((letter) => (
+          <button type="button" class="glossary-jump flex h-5 w-5 items-center justify-center rounded text-[10px] font-mono font-semibold text-text-light/50 hover:text-primary hover:bg-primary/10 dark:text-darkmode-text-light/50 dark:hover:text-darkmode-primary dark:hover:bg-darkmode-primary/10 transition-colors md:h-6 md:w-6 md:text-xs" data-letter={letter}>
+            {letter}
+          </button>
+        ))}
+      </nav>
+
+      <nav id="glossary-quicknav-mobile" class="fixed right-0 top-1/2 z-30 -translate-y-1/2 flex flex-col gap-0 md:hidden" aria-label="Letter quick navigation">
+        {allLetters.map((letter) => (
+          <button type="button" class="glossary-jump flex h-5 w-5 items-center justify-center rounded text-[10px] font-mono font-semibold text-text-light/50 hover:text-primary dark:text-darkmode-text-light/50 dark:hover:text-darkmode-primary transition-colors" data-letter={letter}>
+            {letter}
+          </button>
+        ))}
+      </nav>
 
       <div id="glossary-content" class="mt-6">
         <div class="mb-4 text-sm text-text-light dark:text-darkmode-text-light">
@@ -170,8 +179,7 @@ const total = merged.length;
       });
 
       jumpBtns.forEach(function(b) {
-        var visible = visibleSet.has(b.dataset.letter!);
-        b.style.opacity = visible ? "1" : "0.3";
+        b.classList.toggle("opacity-30", !visibleSet.has(b.dataset.letter!));
       });
 
       var filtering = query || activeCategory;
@@ -203,6 +211,23 @@ const total = merged.length;
         }
       });
     });
+
+    // IntersectionObserver for quicknav highlighting
+    var sections = document.querySelectorAll<HTMLElement>("[id^='section-']");
+    if (sections.length > 0) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var letter = entry.target.id.replace("section-", "");
+            jumpBtns.forEach(function(b) {
+              b.classList.toggle("!text-primary !opacity-100", b.dataset.letter === letter);
+            });
+          }
+        });
+      }, { rootMargin: "-64px 0px -80% 0px" });
+
+      sections.forEach(function(s) { observer.observe(s); });
+    }
 
     searchInput.addEventListener("input", function() {
       clearTimeout(searchTimer);
