@@ -54,16 +54,16 @@ function initTagFilter() {
     label.textContent = activeTag;
     banner.classList.remove("hidden");
   }
-}
 
-// Bind clear button (only needs to happen once)
-const clearBtn = document.getElementById("tag-filter-clear");
-if (clearBtn) {
-  clearBtn.addEventListener("click", () => {
-    const url = new URL(window.location.href);
-    url.searchParams.delete("tag");
-    window.location.href = url.toString();
-  });
+  // Bind clear button (re-bind on every page load for view transitions)
+  const clearBtn = document.getElementById("tag-filter-clear");
+  if (clearBtn) {
+    clearBtn.addEventListener("click", () => {
+      const url = new URL(window.location.href);
+      url.searchParams.delete("tag");
+      window.location.href = url.toString();
+    });
+  }
 }
 
 // Run on initial load and after Astro view transitions
