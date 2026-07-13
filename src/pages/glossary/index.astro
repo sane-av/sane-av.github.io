@@ -20,101 +20,93 @@ const total = merged.length;
 
   <section class="section-sm">
     <div class="container">
-      <p class="mb-6 text-text-light dark:text-darkmode-text-light">
-        Community-maintained definitions of professional AV terms and abbreviations.
-      </p>
 
       <div class="mb-6 flex flex-col gap-3 sm:flex-row">
-        <input
-          type="search"
-          id="glossary-search"
-          class="form-input flex-1"
-          placeholder="Search terms..."
-          aria-label="Search glossary"
-        />
+        <div class="relative flex-1">
+          <input
+            type="search"
+            id="glossary-search"
+            class="form-input w-full !py-2.5"
+            placeholder="Search {total} terms..."
+            aria-label="Search glossary"
+          />
+        </div>
       </div>
 
-      {categories.length > 0 && (
-        <div class="mb-4 flex flex-wrap items-center gap-2">
-          <span class="mr-2 text-sm font-semibold">Categories:</span>
-          {categories.map((cat) => (
-            <button type="button" class="filter-pill" data-category={cat}>
-              {cat}
-            </button>
-          ))}
-          <button id="filter-clear" class="ml-2 hidden text-sm text-text-light underline hover:text-primary dark:text-darkmode-text-light dark:hover:text-darkmode-primary transition-colors">
-            Clear filter
-          </button>
-        </div>
-      )}
-
-      <div class="mb-6 flex flex-wrap gap-1">
+      <div class="mb-4 flex flex-wrap items-center gap-1.5">
         {allLetters.map((letter) => (
-          <button type="button" class="rounded bg-light px-2 py-1 text-sm font-mono hover:bg-primary hover:text-white dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark transition-all" data-letter={letter}>
+          <button type="button" class="glossary-jump rounded px-2 py-1 text-xs font-mono font-semibold text-text-light hover:text-primary hover:bg-primary/10 dark:text-darkmode-text-light dark:hover:text-darkmode-primary dark:hover:bg-darkmode-primary/10 transition-colors" data-letter={letter}>
             {letter}
           </button>
         ))}
       </div>
 
-      <p id="glossary-count" class="mb-6 text-text-light dark:text-darkmode-text-light">{total} terms</p>
+      {categories.length > 0 && (
+        <div class="mb-4 flex flex-wrap items-center gap-1.5">
+          <span class="text-xs font-semibold text-text-light dark:text-darkmode-text-light">Filter:</span>
+          {categories.map((cat) => (
+            <button type="button" class="filter-pill !px-2 !py-0.5 !text-xs" data-category={cat}>
+              {cat}
+            </button>
+          ))}
+          <button id="filter-clear" class="hidden text-xs text-text-light underline hover:text-primary dark:text-darkmode-text-light dark:hover:text-darkmode-primary transition-colors">
+            Clear
+          </button>
+        </div>
+      )}
+
+      <div class="mb-3 flex items-center justify-between text-xs text-text-light dark:text-darkmode-text-light">
+        <span id="glossary-count">{total} terms</span>
+        <span id="glossary-filtered" class="hidden"></span>
+      </div>
 
       {merged.length === 0 ? (
         <div class="rounded-lg border border-border p-8 text-center dark:border-darkmode-border">
-          <p class="text-text-light dark:text-darkmode-text-light">
-            No glossary entries yet.
-            <a href="https://github.com/sane-av/sane-av.github.io" class="underline hover:text-primary dark:hover:text-darkmode-primary"> Contribute the first term &rarr;</a>
-          </p>
+          <a href="https://github.com/sane-av/sane-av.github.io" class="underline hover:text-primary dark:hover:text-darkmode-primary">Contribute the first term &rarr;</a>
         </div>
       ) : (
-        <div class="space-y-1" id="glossary-list">
-          {merged.map((entry, i) => {
-            const letter = entry.term[0].toUpperCase();
-            const prevLetter = i > 0 ? merged[i - 1].term[0].toUpperCase() : null;
-            const isNewLetter = letter !== prevLetter;
+        <div id="glossary-list" class="rounded-lg border border-border dark:border-darkmode-border divide-y divide-border/50 dark:divide-darkmode-border/50 overflow-hidden">
+          {merged.map((entry) => {
             const catData = entry.categories.join(",");
             return (
-              <>
-                {isNewLetter && (
-                  <h3 id={`letter-${letter}`} class="glossary-letter pt-6 h4 font-bold text-primary dark:text-darkmode-primary border-t border-border dark:border-darkmode-border mt-2" data-letter={letter}>
-                    {letter}
-                  </h3>
-                )}
-                <div
-                  class="glossary-item rounded px-3 py-2 transition-colors hover:bg-light dark:hover:bg-darkmode-light"
-                  data-term={entry.term.toLowerCase()}
-                  data-categories={catData}
-                  data-letter={letter}
-                >
-                  <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                    <span class="font-semibold text-text-dark dark:text-darkmode-text-dark">
-                      {entry.hasPage ? (
-                        <a href={`/glossary/${entry.redirectTo ?? entry.slug}`} class="text-primary hover:underline dark:text-darkmode-primary">
-                          {entry.abbreviation ? `${entry.abbreviation} (${entry.term})` : entry.term}
-                        </a>
-                      ) : (
-                        <>{entry.abbreviation ? `${entry.abbreviation} (${entry.term})` : entry.term}</>
-                      )}
-                    </span>
-                    <span class="flex flex-wrap gap-1">
-                      {entry.categories.map((cat: string) => (
-                        <span class="rounded bg-light px-1.5 py-0.5 text-xs text-text-light dark:bg-darkmode-body dark:text-darkmode-text-light">{cat}</span>
-                      ))}
-                    </span>
-                  </div>
-                  <p class="mt-1 text-sm text-text-light dark:text-darkmode-text-light">{entry.definition}</p>
-                  {entry.relatedTerms.length > 0 && (
-                    <p class="mt-1 text-xs text-text-light dark:text-darkmode-text-light">
-                      Related: {entry.relatedTerms.join(", ")}
-                    </p>
-                  )}
+              <div
+                class="glossary-item flex flex-col sm:flex-row sm:items-baseline gap-x-4 gap-y-1 px-4 py-2.5 transition-colors hover:bg-light dark:hover:bg-darkmode-light"
+                data-term={entry.term.toLowerCase()}
+                data-categories={catData}
+                data-letter={entry.term[0].toUpperCase()}
+              >
+                <div class="flex items-baseline gap-x-2 min-w-0 sm:w-48 shrink-0">
+                  <span class="text-xs text-text-light dark:text-darkmode-text-light shrink-0">
+                    {entry.term[0].toUpperCase()}
+                  </span>
+                  <span class="font-semibold text-text-dark dark:text-darkmode-text-dark truncate">
+                    {entry.hasPage ? (
+                      <a href={`/glossary/${entry.redirectTo ?? entry.slug}`} class="text-primary hover:underline dark:text-darkmode-primary">
+                        {entry.abbreviation ? entry.abbreviation : entry.term}
+                      </a>
+                    ) : (
+                      <>{entry.abbreviation ? entry.abbreviation : entry.term}</>
+                    )}
+                  </span>
                 </div>
-              </>
+                <div class="text-sm text-text-light dark:text-darkmode-text-light line-clamp-1 min-w-0 flex-1">
+                  {entry.abbreviation && <span class="text-xs text-text-light/60 dark:text-darkmode-text-light/60">{entry.term}</span>}
+                  {entry.abbreviation && <span class="mx-1.5 text-border dark:text-darkmode-border">&middot;</span>}
+                  {entry.definition}
+                </div>
+                <div class="flex gap-1 shrink-0">
+                  {entry.categories.slice(0, 2).map((cat: string) => (
+                    <span class="rounded bg-light px-1.5 py-0.5 text-[10px] text-text-light/70 dark:bg-darkmode-body dark:text-darkmode-text-light/70">{cat}</span>
+                  ))}
+                </div>
+              </div>
             );
           })}
         </div>
       )}
-      <p id="glossary-no-results" class="mt-6 hidden text-center text-text-light dark:text-darkmode-text-light">
-        No terms match your filters. Try adjusting your search or clearing the category.
+
+      <p id="glossary-no-results" class="mt-6 hidden text-center text-sm text-text-light dark:text-darkmode-text-light">
+        No terms match. Try a different search or category.
       </p>
     </div>
   </section>
@@ -123,24 +115,21 @@ const total = merged.length;
 <script>
   (function() {
     var searchInput = document.getElementById("glossary-search") as HTMLInputElement;
-    var categoryBtns = document.querySelectorAll<HTMLButtonElement>(".filter-pill");
     var items = document.querySelectorAll<HTMLElement>(".glossary-item");
-    var letterHeadings = document.querySelectorAll<HTMLElement>(".glossary-letter");
-    var jumpBtns = document.querySelectorAll<HTMLButtonElement>("[data-letter]");
+    var categoryBtns = document.querySelectorAll<HTMLButtonElement>(".filter-pill");
+    var jumpBtns = document.querySelectorAll<HTMLButtonElement>(".glossary-jump");
     var countEl = document.getElementById("glossary-count")!;
+    var filteredEl = document.getElementById("glossary-filtered")!;
     var noResults = document.getElementById("glossary-no-results")!;
     var clearBtn = document.getElementById("filter-clear")!;
     var totalItems = items.length;
     var searchTimer = 0;
 
-    // Init from URL params
     var params = new URLSearchParams(window.location.search);
     var activeCategory = params.get("category") || "";
     var activeQuery = params.get("q") || "";
 
-    if (activeQuery) {
-      searchInput.value = activeQuery;
-    }
+    if (activeQuery) searchInput.value = activeQuery;
 
     function updateUrl() {
       var url = new URL(window.location.href);
@@ -155,44 +144,34 @@ const total = merged.length;
     function applyFilters() {
       var query = searchInput.value.toLowerCase().trim();
       var visibleCount = 0;
-      var visibleLetters = new Set<string>();
+      var visibleSet = new Set<string>();
 
-      // Highlight active category button
-      categoryBtns.forEach(function(btn) {
-        btn.classList.toggle("filter-pill-active", btn.dataset.category === activeCategory);
+      categoryBtns.forEach(function(b) {
+        b.classList.toggle("filter-pill-active", b.dataset.category === activeCategory);
       });
-
       clearBtn.classList.toggle("!inline-block", !!activeCategory);
 
-      // Filter items
       items.forEach(function(item) {
-        var matchesSearch = !query || item.dataset.term!.includes(query);
-        var itemCats = (item.dataset.categories || "").split(",");
-        var matchesCategory = !activeCategory || itemCats.indexOf(activeCategory) !== -1;
-        var show = matchesSearch && matchesCategory;
+        var mq = !query || item.dataset.term!.includes(query);
+        var mc = !activeCategory || (item.dataset.categories || "").split(",").indexOf(activeCategory) !== -1;
+        var show = mq && mc;
         item.classList.toggle("hidden", !show);
-        if (show) { visibleCount++; visibleLetters.add(item.dataset.letter!); }
+        if (show) { visibleCount++; visibleSet.add(item.dataset.letter!); }
       });
 
-      // Show/hide letter headings
-      letterHeadings.forEach(function(h) {
-        h.classList.toggle("hidden", !visibleLetters.has(h.dataset.letter!));
-      });
-
-      // Dim A-Z jump buttons for empty letters
       jumpBtns.forEach(function(b) {
-        b.style.opacity = visibleLetters.has(b.dataset.letter!) ? "1" : "0.3";
+        b.style.opacity = visibleSet.has(b.dataset.letter!) ? "1" : "0.3";
       });
 
-      // Update count and no-results
       var filtering = query || activeCategory;
-      countEl.textContent = filtering ? visibleCount + " of " + totalItems + " terms" : totalItems + " terms";
+      countEl.classList.toggle("hidden", !!filtering);
+      filteredEl.classList.toggle("hidden", !filtering);
+      if (filtering) filteredEl.textContent = visibleCount + " of " + totalItems;
       noResults.classList.toggle("hidden", !(filtering && visibleCount === 0));
 
       if (filtering) updateUrl();
     }
 
-    // Category buttons
     categoryBtns.forEach(function(btn) {
       btn.addEventListener("click", function() {
         activeCategory = activeCategory === this.dataset.category! ? "" : this.dataset.category!;
@@ -200,36 +179,24 @@ const total = merged.length;
       });
     });
 
-    // Clear button
-    clearBtn.addEventListener("click", function() {
-      activeCategory = "";
-      applyFilters();
-    });
+    clearBtn.addEventListener("click", function() { activeCategory = ""; applyFilters(); });
 
-    // A-Z jump buttons
     jumpBtns.forEach(function(btn) {
       btn.addEventListener("click", function() {
-        var heading = document.getElementById("letter-" + this.dataset.letter!);
-        if (heading) heading.scrollIntoView({ behavior: "smooth", block: "start" });
+        var first = document.querySelector<HTMLElement>('.glossary-item[data-letter="' + this.dataset.letter + '"]:not(.hidden)');
+        if (first) first.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     });
 
-    // Search with debounce
     searchInput.addEventListener("input", function() {
       clearTimeout(searchTimer);
-      searchTimer = setTimeout(applyFilters, 250);
+      searchTimer = setTimeout(applyFilters, 200);
     });
 
-    // Escape clears search
     searchInput.addEventListener("keydown", function(e) {
-      if (e.key === "Escape") {
-        searchInput.value = "";
-        searchInput.blur();
-        applyFilters();
-      }
+      if (e.key === "Escape") { searchInput.value = ""; searchInput.blur(); applyFilters(); }
     });
 
-    // Initial apply
     applyFilters();
   })();
 </script>
