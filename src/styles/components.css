@@ -184,7 +184,7 @@
 
 /* tag pill */
 .tag-pill {
-  @apply rounded-md border border-transparent bg-light px-2 py-0.5 text-xs no-underline transition-colors hover:border-primary/30 hover:bg-primary/10 hover:text-primary dark:bg-darkmode-body dark:hover:border-darkmode-primary/30 dark:hover:bg-darkmode-primary/10 dark:hover:text-darkmode-primary;
+  @apply rounded-md border border-transparent bg-primary/5 px-2 py-0.5 text-xs text-text-light no-underline transition-colors hover:border-primary/30 hover:bg-primary/15 hover:text-primary dark:bg-darkmode-primary/5 dark:text-darkmode-text-light dark:hover:border-darkmode-primary/30 dark:hover:bg-darkmode-primary/15 dark:hover:text-darkmode-primary;
 }
 
 /* card metadata row */
