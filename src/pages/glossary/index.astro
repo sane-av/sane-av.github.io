@@ -19,27 +19,21 @@ const total = merged.length;
   <PageHeader title="AV Glossary" />
 
   <section class="pt-8 pb-24 xl:pt-10 xl:pb-28">
-    <div class="container max-w-3xl">
+    <div class="container">
 
-      <div class="mb-6">
-        <input
-          type="search"
-          id="glossary-search"
-          class="form-input w-full !py-2.5 !text-base"
-          placeholder={`Search ${total} terms...`}
-          aria-label="Search glossary"
-        />
+      <div class="mb-6 flex flex-col gap-3 sm:flex-row">
+        <div class="relative flex-1">
+          <input
+            type="search"
+            id="glossary-search"
+            class="form-input w-full"
+            placeholder={`Search ${total} terms...`}
+            aria-label="Search glossary"
+          />
+        </div>
       </div>
 
-      <div class="mb-5 flex flex-wrap gap-1">
-        {allLetters.map((letter) => (
-          <button type="button" class="glossary-jump flex h-7 w-7 items-center justify-center rounded text-sm font-mono font-semibold text-text-light hover:text-primary hover:bg-primary/10 dark:text-darkmode-text-light dark:hover:text-darkmode-primary dark:hover:bg-darkmode-primary/10 transition-colors" data-letter={letter}>
-            {letter}
-          </button>
-        ))}
-      </div>
-
-      <div class="mb-6 flex flex-wrap items-center gap-1.5">
+      <div class="mb-4 flex flex-wrap items-center gap-1.5">
         <span class="text-sm font-medium text-text-light dark:text-darkmode-text-light">Filter:</span>
         {categories.map((cat) => (
           <button type="button" class="filter-pill" data-category={cat}>
@@ -49,6 +43,14 @@ const total = merged.length;
         <button id="filter-clear" class="hidden text-sm text-text-light underline hover:text-primary dark:text-darkmode-text-light dark:hover:text-darkmode-primary transition-colors">
           Clear
         </button>
+      </div>
+
+      <div class="mb-6 flex flex-wrap gap-1">
+        {allLetters.map((letter) => (
+          <button type="button" class="glossary-jump flex h-7 w-7 items-center justify-center rounded text-sm font-mono font-semibold text-text-light hover:text-primary hover:bg-primary/10 dark:text-darkmode-text-light dark:hover:text-darkmode-primary dark:hover:bg-darkmode-primary/10 transition-colors" data-letter={letter}>
+            {letter}
+          </button>
+        ))}
       </div>
 
       <div class="mb-4 text-sm text-text-light dark:text-darkmode-text-light">
@@ -62,46 +64,60 @@ const total = merged.length;
         </div>
       ) : (
         <div id="glossary-list">
-          {merged.map((entry, i) => {
-            const letter = entry.term[0].toUpperCase();
-            const prevLetter = i > 0 ? merged[i - 1].term[0].toUpperCase() : null;
-            const catData = entry.categories.join(",");
+          {allLetters.map((letter) => {
+            const letterTerms = merged.filter((e) => e.term[0].toUpperCase() === letter);
+            if (letterTerms.length === 0) return null;
             return (
-              <div
-                class={`glossary-item${i > 0 && letter !== prevLetter ? " mt-8 border-t border-border dark:border-darkmode-border pt-6" : ""}`}
-                data-term={entry.term.toLowerCase()}
-                data-categories={catData}
-                data-letter={letter}
-              >
-                {letter !== prevLetter && (
-                  <div class="mb-5 -mt-[1.625rem]">
-                    <span class="inline-flex items-center justify-center rounded-md bg-primary/10 px-2.5 py-0.5 text-xs font-bold font-mono text-primary dark:bg-darkmode-primary/15 dark:text-darkmode-primary">{letter}</span>
-                  </div>
-                )}
-                <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                  <span class="text-base font-semibold text-text-dark dark:text-darkmode-text-dark">
-                    {entry.hasPage ? (
-                      <a href={`/glossary/${entry.redirectTo ?? entry.slug}`} class="text-primary hover:underline dark:text-darkmode-primary">
-                        {entry.abbreviation || entry.term}
-                      </a>
-                    ) : (
-                      <>{entry.abbreviation || entry.term}</>
-                    )}
-                  </span>
-                  {entry.abbreviation && (
-                    <span class="text-sm text-text-light/60 dark:text-darkmode-text-light/60">{entry.term}</span>
-                  )}
+              <div class="mb-8">
+                <div class="mb-5 flex items-center gap-2">
+                  <span class="flex h-6 w-6 items-center justify-center rounded bg-primary/10 text-xs font-bold font-mono text-primary dark:bg-darkmode-primary/15 dark:text-darkmode-primary">{letter}</span>
+                  <span class="h-px flex-1 bg-border/40 dark:bg-darkmode-border/40"></span>
                 </div>
-                <p class="mt-1 text-sm leading-relaxed text-text-light dark:text-darkmode-text-light">
-                  {entry.definition}
-                </p>
-                {entry.categories.length > 0 && (
-                  <div class="mt-2 flex flex-wrap gap-1">
-                    {entry.categories.map((cat: string) => (
-                      <span class="rounded bg-light px-1.5 py-0.5 text-[11px] text-text-light/60 dark:bg-darkmode-body dark:text-darkmode-text-light/60">{cat}</span>
-                    ))}
-                  </div>
-                )}
+                <div class="space-y-4">
+                  {letterTerms.map((entry) => {
+                    const catData = entry.categories.join(",");
+                    return (
+                      <div
+                        class="glossary-item"
+                        data-term={entry.term.toLowerCase()}
+                        data-categories={catData}
+                        data-letter={letter}
+                      >
+                        <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                          <span class="font-semibold text-text-dark dark:text-darkmode-text-dark">
+                            {entry.hasPage ? (
+                              <a href={`/glossary/${entry.redirectTo ?? entry.slug}`} class="text-primary hover:underline dark:text-darkmode-primary">
+                                {entry.abbreviation || entry.term}
+                              </a>
+                            ) : (
+                              <>{entry.abbreviation || entry.term}</>
+                            )}
+                          </span>
+                          {entry.abbreviation && (
+                            <span class="text-sm text-text-light/60 dark:text-darkmode-text-light/60">{entry.term}</span>
+                          )}
+                        </div>
+                        <p class="mt-0.5 text-sm leading-relaxed text-text-light dark:text-darkmode-text-light">
+                          {entry.definition}
+                        </p>
+                        {entry.categories.length > 0 && (
+                          <span class="mr-1 inline-flex gap-1">
+                            {entry.categories.map((cat: string) => (
+                              <span class="text-[11px] text-text-light/40 dark:text-darkmode-text-light/40">{cat}</span>
+                            ))}
+                          </span>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+                <div class="mt-8 flex flex-wrap gap-1">
+                  {allLetters.map((l) => (
+                    <button type="button" class="glossary-jump flex h-6 w-6 items-center justify-center rounded text-xs font-mono font-semibold text-text-light/40 hover:text-primary hover:bg-primary/10 dark:text-darkmode-text-light/40 dark:hover:text-darkmode-primary dark:hover:bg-darkmode-primary/10 transition-colors" data-letter={l}>
+                      {l}
+                    </button>
+                  ))}
+                </div>
               </div>
             );
           })}
@@ -109,7 +125,7 @@ const total = merged.length;
       )}
 
       <p id="glossary-no-results" class="mt-8 hidden text-center text-sm text-text-light dark:text-darkmode-text-light">
-        No terms match. Try a different search or category.
+        No terms match. Try different search or category.
       </p>
     </div>
   </section>
@@ -119,8 +135,8 @@ const total = merged.length;
   (function() {
     var searchInput = document.getElementById("glossary-search") as HTMLInputElement;
     var items = document.querySelectorAll<HTMLElement>(".glossary-item");
-    var categoryBtns = document.querySelectorAll<HTMLButtonElement>(".filter-pill");
-    var jumpBtns = document.querySelectorAll<HTMLButtonElement>(".glossary-jump");
+    var categoryBtns = document.querySelectorAll<HTMLElement>(".filter-pill");
+    var jumpBtns = document.querySelectorAll<HTMLElement>(".glossary-jump");
     var countEl = document.getElementById("glossary-count")!;
     var filteredEl = document.getElementById("glossary-filtered")!;
     var noResults = document.getElementById("glossary-no-results")!;
@@ -163,7 +179,8 @@ const total = merged.length;
       });
 
       jumpBtns.forEach(function(b) {
-        b.style.opacity = visibleSet.has(b.dataset.letter!) ? "1" : "0.3";
+        var visible = visibleSet.has(b.dataset.letter!);
+        b.style.opacity = visible ? "1" : "0.3";
       });
 
       var filtering = query || activeCategory;
