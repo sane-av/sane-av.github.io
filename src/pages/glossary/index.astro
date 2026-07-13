@@ -21,7 +21,7 @@ const total = merged.length;
   <section class="pt-8 pb-24">
     <div class="container">
 
-      <div id="glossary-toolbar" class="sticky top-[72px] z-20 border-b border-border/80 bg-body/95 px-4 pb-3 pt-6 pr-10 shadow-sm backdrop-blur-sm dark:border-darkmode-border/60 dark:bg-darkmode-body/95 sm:pr-12">
+      <div id="glossary-toolbar" class="sticky top-[72px] z-20 border-b border-border/80 bg-body/95 pl-10 pr-4 pb-3 pt-6 shadow-sm backdrop-blur-sm dark:border-darkmode-border/60 dark:bg-darkmode-body/95 sm:pl-12">
         <div class="mb-3">
           <input
             type="search"
@@ -44,9 +44,9 @@ const total = merged.length;
         </div>
       </div>
 
-      <nav id="glossary-quicknav" class="fixed right-0.5 top-1/2 z-10 -translate-y-1/2 flex max-h-[calc(100vh-10rem)] touch-none select-none flex-col rounded-l-lg bg-body/90 py-1 shadow-lg backdrop-blur-sm dark:bg-darkmode-body/90 sm:right-2 sm:py-2" aria-label="Letter quick navigation" data-letters={allLetters.join("")}>
+      <nav id="glossary-quicknav" class="fixed left-0.5 top-1/2 z-10 -translate-y-1/2 flex max-h-[calc(100vh-10rem)] touch-none select-none flex-col rounded-r-lg bg-body/90 py-1 shadow-lg backdrop-blur-sm dark:bg-darkmode-body/90 sm:left-2 sm:py-2" aria-label="Letter quick navigation" data-letters={allLetters.join("")}>
         {allLetters.map((letter) => (
-          <button type="button" class="glossary-jump flex min-h-0 flex-1 items-center justify-center rounded-sm text-[10px] font-mono font-semibold leading-none text-text-light/50 transition-colors dark:text-darkmode-text-light/50 sm:text-xs" data-letter={letter}>
+          <button type="button" class="glossary-jump flex min-h-7 flex-1 items-center justify-center rounded-sm text-[10px] font-mono font-semibold leading-none text-text-light/50 transition-colors dark:text-darkmode-text-light/50 sm:min-h-8 sm:text-xs" data-letter={letter}>
             {letter}
           </button>
         ))}
@@ -55,7 +55,7 @@ const total = merged.length;
         <span id="glossary-tooltip-letter"></span>
       </div>
 
-      <div id="glossary-content" class="mt-6 pr-10 sm:pr-12">
+      <div id="glossary-content" class="mt-6 pl-10 sm:pl-12">
         <div class="mb-4 text-sm text-text-light dark:text-darkmode-text-light">
           <span id="glossary-count">{total} terms</span>
           <span id="glossary-filtered" class="hidden ml-2"></span>
@@ -229,7 +229,7 @@ const total = merged.length;
         tooltip.classList.remove("hidden");
         tooltip.classList.add("flex");
         var navRect = navEl!.getBoundingClientRect();
-        tooltip.style.left = (navRect.left - 48) + "px";
+        tooltip.style.left = (navRect.right + 8) + "px";
         tooltip.style.top = y + "px";
         tooltip.style.transform = "translateY(-50%)";
       }
