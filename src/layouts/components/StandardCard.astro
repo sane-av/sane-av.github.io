@@ -10,7 +10,7 @@ const sortedTags = entry.tags.sort((a: string, b: string) => a.localeCompare(b))
 const cardId = `card-${entry.saneId}`;
 ---
 
-<div class="content-card" data-tags={entry.tags.join(",")} id={cardId}>
+<div class="content-card" id={cardId}>
   <div class="mb-3">
     <span class={`inline-block rounded-full px-2.5 py-0.5 text-[11px] font-medium uppercase tracking-wide ${statusColors[entry.status] || ""}`} title={statusDescriptions[entry.status] ?? ""}>
       {entry.status}

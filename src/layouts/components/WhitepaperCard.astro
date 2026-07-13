@@ -20,7 +20,7 @@ const sortedTags = [...tags].sort((a: string, b: string) => a.localeCompare(b));
 const cardId = `wp-${data.id.replace(/\//g, "-")}`;
 ---
 
-<div class="content-card" data-tags={tags.join(",")}>
+<div class="content-card">
   {image && (
     <ImageMod class="mb-4 w-full rounded-lg" src={image} alt={title} width={445} height={230} format="webp" />
   )}

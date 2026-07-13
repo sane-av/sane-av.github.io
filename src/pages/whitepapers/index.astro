@@ -43,7 +43,7 @@ const allTags: string[] = posts.flatMap((p) => p.data.tags).sort((a, b) => a.loc
         <div class="lg:col-8">
           <div class="row">
             {currentPosts.map((post) => (
-              <div class="mb-14 md:col-6">
+              <div class="mb-14 md:col-6" data-tags={(post.data.tags ?? []).join(",")}>
                 <WhitepaperCard data={post} />
               </div>
             ))}
@@ -68,8 +68,8 @@ const allTags: string[] = posts.flatMap((p) => p.data.tags).sort((a, b) => a.loc
   function apply() {
     tagButtons.forEach(function(btn) {
       var match = btn.dataset.tag === activeTag;
-      btn.classList.toggle("!border-primary/50", match);
-      btn.classList.toggle("dark:!border-darkmode-primary/50", match);
+      btn.classList.toggle("!bg-primary/15 !border-primary/50 !text-primary", match);
+      btn.classList.toggle("dark:!bg-darkmode-primary/15 dark:!border-darkmode-primary/50 dark:!text-darkmode-primary", match);
     });
     cards.forEach(function(card) {
       var cardTags = (card.dataset.tags || "").split(",");
