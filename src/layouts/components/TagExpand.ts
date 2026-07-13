@@ -10,12 +10,12 @@ document.addEventListener("click", (e) => {
 
   const extraTags = btn.getAttribute("data-extra-tags")?.split(",") ?? [];
   extraTags.forEach((tag) => {
-    const tagBtn = document.createElement("button");
-    tagBtn.type = "button";
-    tagBtn.className = "tag-pill filter-tag";
-    tagBtn.dataset.tag = tag;
-    tagBtn.textContent = tag;
-    tagContainer.insertBefore(tagBtn, btn);
+    const tagLink = document.createElement("a");
+    tagLink.href = `/tags/${tag}`;
+    tagLink.className = "tag-pill filter-tag";
+    tagLink.dataset.tag = tag;
+    tagLink.textContent = tag;
+    tagContainer.insertBefore(tagLink, btn);
   });
   btn.remove();
 });

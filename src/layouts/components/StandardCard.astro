@@ -33,9 +33,9 @@ const cardId = `card-${entry.saneId}`;
 
   <div class="card-tags" id={`${cardId}-tags`}>
     {sortedTags.slice(0, visibleTagCount).map((tag: string) => (
-      <button type="button" class="tag-pill filter-tag" data-tag={tag}>
+      <a href={`/tags/${tag}`} class="tag-pill filter-tag" data-tag={tag}>
         {tag}
-      </button>
+      </a>
     ))}
     {extraTagCount > 0 && (
       <button type="button" class="tag-pill" data-expand={cardId} data-extra-tags={sortedTags.slice(visibleTagCount).join(",")}>

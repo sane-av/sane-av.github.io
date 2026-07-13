@@ -82,6 +82,7 @@ const allTags: string[] = posts.flatMap((p) => p.data.tags).sort((a, b) => a.loc
       var el = e.target as HTMLElement | null;
       while (el && el !== document.body) {
         if (el.classList && el.classList.contains("filter-tag") && el.dataset.tag) {
+          e.preventDefault();
           activeTag = activeTag === el.dataset.tag ? "" : el.dataset.tag;
           apply();
           if (activeTag) {
