@@ -55,3 +55,33 @@ const allTags: string[] = posts.flatMap((p) => p.data.tags).sort((a, b) => a.loc
     </div>
   </section>
 </Base>
+
+<script>
+  var tagButtons = document.querySelectorAll<HTMLElement>(".filter-tag");
+  var cards = document.querySelectorAll<HTMLElement>('[data-tags]');
+  var activeTag = "";
+
+  function apply() {
+    tagButtons.forEach(function(btn) {
+      var match = btn.dataset.tag === activeTag;
+      btn.classList.toggle("!border-primary/50", match);
+      btn.classList.toggle("dark:!border-darkmode-primary/50", match);
+    });
+    cards.forEach(function(card) {
+      var cardTags = (card.dataset.tags || "").split(",");
+      var match = !activeTag || cardTags.includes(activeTag);
+      card.classList.toggle("hidden", !match);
+    });
+  }
+
+  tagButtons.forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      activeTag = activeTag === btn.dataset.tag ? "" : btn.dataset.tag!;
+      apply();
+    });
+  });
+
+  var params = new URLSearchParams(window.location.search);
+  var urlTag = params.get("tag");
+  if (urlTag) { activeTag = urlTag; apply(); }
+</script>

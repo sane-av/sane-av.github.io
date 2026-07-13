@@ -20,7 +20,7 @@ const sortedTags = [...tags].sort((a: string, b: string) => a.localeCompare(b));
 const cardId = `blog-${data.id.replace(/\//g, "-")}`;
 ---
 
-<div class="content-card">
+<div class="content-card" data-tags={tags.join(",")}>
   {image && (
     <ImageMod class="mb-4 w-full rounded-lg" src={image} alt={title} width={445} height={230} format="webp" />
   )}
@@ -46,9 +46,9 @@ const cardId = `blog-${data.id.replace(/\//g, "-")}`;
 
   <div class="card-tags" id={`${cardId}-tags`}>
     {sortedTags.slice(0, visibleTagCount).map((tag: string) => (
-      <a href={`/blog/?tag=${tag}`} class="tag-pill">
+      <button type="button" class="tag-pill filter-tag" data-tag={tag}>
         {tag}
-      </a>
+      </button>
     ))}
     {extraTagCount > 0 && (
       <button type="button" class="tag-pill" data-expand={cardId} data-extra-tags={sortedTags.slice(visibleTagCount).join(",")}>
@@ -68,9 +68,10 @@ const cardId = `blog-${data.id.replace(/\//g, "-")}`;
       var extraTags = btn.getAttribute("data-extra-tags")?.split(",") ?? [];
       btn.addEventListener("click", function() {
         extraTags.forEach(function(tag) {
-          var tagBtn = document.createElement("a");
-          tagBtn.href = "/blog/?tag=" + encodeURIComponent(tag);
-          tagBtn.className = "tag-pill";
+          var tagBtn = document.createElement("button");
+          tagBtn.type = "button";
+          tagBtn.className = "tag-pill filter-tag";
+          tagBtn.dataset.tag = tag;
           tagBtn.textContent = tag;
           tagContainer.insertBefore(tagBtn, btn);
         });
