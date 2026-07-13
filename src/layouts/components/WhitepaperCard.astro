@@ -14,10 +14,7 @@ const image = entry.image;
 const pubDate = entry.pubDate ?? entry.date;
 const author = entry.authors?.[0] ?? entry.author ?? "SANE";
 const tags = entry.tags ?? [];
-const visibleTagCount = 3;
-const extraTagCount = Math.max(0, tags.length - visibleTagCount);
 const sortedTags = [...tags].sort((a: string, b: string) => a.localeCompare(b));
-const cardId = `wp-${data.id.replace(/\//g, "-")}`;
 ---
 
 <div class="content-card">
@@ -44,22 +41,15 @@ const cardId = `wp-${data.id.replace(/\//g, "-")}`;
 
   <p class="card-desc line-clamp-3">{plainify(data.body?.slice(0, Number(summary_length)) || entry.description?.slice(0, Number(summary_length)) || "")}</p>
 
-  <div class="card-tags" id={`${cardId}-tags`} data-tag-base={`/${whitepapers_folder}`}>
-    {sortedTags.slice(0, visibleTagCount).map((tag: string) => (
-      <a href={`/${whitepapers_folder}?tag=${encodeURIComponent(tag)}`} class="tag-pill filter-tag" data-tag={tag}>
-        {tag}
-      </a>
-    ))}
-    {extraTagCount > 0 && (
-      <button type="button" class="tag-pill" data-expand={cardId} data-extra-tags={sortedTags.slice(visibleTagCount).join(",")}>
-        +{extraTagCount}
-      </button>
-    )}
-  </div>
+  {sortedTags.length > 0 && (
+    <div class="card-tags">
+      {sortedTags.map((tag: string) => (
+        <a href={`/${whitepapers_folder}?tag=${encodeURIComponent(tag)}`} class="tag-pill">
+          {tag}
+        </a>
+      ))}
+    </div>
+  )}
 
   <a href={`/${whitepapers_folder}/${data.id}`} class="card-link">Read paper <span aria-hidden="true">&rarr;</span></a>
 </div>
-
-{extraTagCount > 0 && (
-  <script src="./TagExpand.ts" />
-)}

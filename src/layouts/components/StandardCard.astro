@@ -4,13 +4,10 @@ import { statusColors, statusDescriptions } from "@/lib/statusColors";
 
 const { data } = Astro.props;
 const entry = data.data;
-const visibleTagCount = 3;
-const extraTagCount = Math.max(0, entry.tags.length - visibleTagCount);
-const sortedTags = entry.tags.sort((a: string, b: string) => a.localeCompare(b));
-const cardId = `card-${entry.saneId}`;
+const sortedTags = [...entry.tags].sort((a: string, b: string) => a.localeCompare(b));
 ---
 
-<div class="content-card" id={cardId}>
+<div class="content-card">
   <div class="mb-3">
     <span class={`inline-block rounded-full px-2.5 py-0.5 text-[11px] font-medium uppercase tracking-wide ${statusColors[entry.status] || ""}`} title={statusDescriptions[entry.status] ?? ""}>
       {entry.status}
@@ -31,22 +28,15 @@ const cardId = `card-${entry.saneId}`;
 
   <p class="card-desc line-clamp-3">{entry.description}</p>
 
-  <div class="card-tags" id={`${cardId}-tags`} data-tag-base="/standards">
-    {sortedTags.slice(0, visibleTagCount).map((tag: string) => (
-      <a href={`/standards?tag=${encodeURIComponent(tag)}`} class="tag-pill filter-tag" data-tag={tag}>
-        {tag}
-      </a>
-    ))}
-    {extraTagCount > 0 && (
-      <button type="button" class="tag-pill" data-expand={cardId} data-extra-tags={sortedTags.slice(visibleTagCount).join(",")}>
-        +{extraTagCount}
-      </button>
-    )}
-  </div>
+  {sortedTags.length > 0 && (
+    <div class="card-tags">
+      {sortedTags.map((tag: string) => (
+        <a href={`/standards?tag=${encodeURIComponent(tag)}`} class="tag-pill">
+          {tag}
+        </a>
+      ))}
+    </div>
+  )}
 
   <a href={`/standards/${data.id}`} class="card-link">Read standard <span aria-hidden="true">&rarr;</span></a>
 </div>
-
-{extraTagCount > 0 && (
-  <script src="./TagExpand.ts" />
-)}

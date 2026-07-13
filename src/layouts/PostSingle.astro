@@ -54,7 +54,7 @@ const similarPosts = (await getCollection("blog", ({ data }) => !data.draft))
                   {displayTags.map((tag: string) => (
                     <li class="inline-block">
                       <a
-                        class="m-1 block rounded bg-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark"
+                        class="tag-pill"
                         href={`/blog?tag=${encodeURIComponent(tag)}`}
                       >
                         {tag}

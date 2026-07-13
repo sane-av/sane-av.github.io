@@ -3,23 +3,15 @@ import Base from "@/layouts/Base.astro";
 import PageHeader from "@/partials/PageHeader.astro";
 import PostSidebar from "@/partials/PostSidebar.astro";
 import StandardCard from "@/components/StandardCard.astro";
-import Pagination from "@/components/Pagination.astro";
-import config from "@/config/config.json";
 import { getCollection } from "astro:content";
 import { statusColors } from "@/lib/statusColors";
-
-const STANDARDS_SECTION = "standards";
-const PAGE_SIZE = config.settings.pagination;
 
 const allStandards = (await getCollection("standards"))
   .sort((a, b) => a.data.saneId.localeCompare(b.data.saneId));
 
 const allTags = [...new Set(allStandards.flatMap((s) => s.data.tags))].sort((a, b) => a.localeCompare(b));
 
-const totalPages = Math.ceil(allStandards.length / PAGE_SIZE);
-const pageStandards = allStandards.slice(0, PAGE_SIZE);
-
-const grouped = pageStandards.reduce<Record<string, typeof pageStandards>>((groups, standard) => {
+const grouped = allStandards.reduce<Record<string, typeof allStandards>>((groups, standard) => {
   const status = standard.data.status;
   if (!groups[status]) groups[status] = [];
   groups[status].push(standard);
@@ -51,6 +43,11 @@ const orderedStatuses = (["published", "under-review", "draft", "deprecated"] as
     <div class="container">
       <div class="row gx-5">
         <div class="lg:col-8">
+          <div id="tag-filter-banner" class="mb-6 hidden rounded-lg border border-primary/30 bg-primary/5 px-4 py-3 text-sm dark:border-darkmode-primary/30 dark:bg-darkmode-primary/10">
+            <span class="text-text-light dark:text-darkmode-text-light">Filtered by tag:</span>
+            <strong id="tag-filter-label" class="ml-1 text-text-dark dark:text-darkmode-text-dark"></strong>
+            <button id="tag-filter-clear" class="ml-3 rounded border border-border px-2 py-0.5 text-xs text-text-light hover:text-primary dark:border-darkmode-border dark:text-darkmode-text-light dark:hover:text-darkmode-primary">Clear</button>
+          </div>
           {allStandards.length === 0 ? (
             <div class="rounded-lg border border-border p-8 text-center dark:border-darkmode-border">
               <h3 class="mb-2">No standards published yet</h3>
@@ -60,7 +57,7 @@ const orderedStatuses = (["published", "under-review", "draft", "deprecated"] as
           ) : (
             <>
               {orderedStatuses.map((status) => (
-                <div class="status-group mb-10">
+                <div class="status-group mb-10" data-collapse-when-empty>
                   <h2 class="mb-4 flex items-center gap-3">
                     <span class={`rounded-full px-3 py-1 text-sm font-medium ${statusColors[status] || "bg-gray-100 text-gray-800 dark:bg-gray-900/40 dark:text-gray-300"}`}>{status}</span>
                     <span class="text-text-light dark:text-darkmode-text-light text-base font-normal">
@@ -76,80 +73,15 @@ const orderedStatuses = (["published", "under-review", "draft", "deprecated"] as
                   </div>
                 </div>
               ))}
-              <Pagination section={STANDARDS_SECTION} currentPage={1} totalPages={totalPages} />
             </>
           )}
         </div>
         <PostSidebar
           tags={allTags}
-          basePath="/standards"
         />
       </div>
     </div>
   </section>
 </Base>
 
-<script>
-  (function() {
-    var cards = document.querySelectorAll<HTMLElement>('[data-tags]');
-    var statusGroups = document.querySelectorAll<HTMLElement>(".status-group");
-    var clearWrapper = document.getElementById("sidebar-clear-wrapper");
-    var clearBtn = document.getElementById("sidebar-clear");
-    var activeTag = "";
-
-    function apply() {
-      var btns = document.querySelectorAll<HTMLElement>(".filter-tag");
-      for (var i = 0; i < btns.length; i++) {
-        var match = btns[i].dataset.tag === activeTag;
-        btns[i].classList.toggle("!bg-primary/15 !border-primary/50 !text-primary", match);
-        btns[i].classList.toggle("dark:!bg-darkmode-primary/15 dark:!border-darkmode-primary/50 dark:!text-darkmode-primary", match);
-      }
-      for (var j = 0; j < cards.length; j++) {
-        var cardTags = (cards[j].dataset.tags || "").split(",");
-        var cardMatch = !activeTag || cardTags.indexOf(activeTag) !== -1;
-        cards[j].classList.toggle("hidden", !cardMatch);
-      }
-      for (var k = 0; k < statusGroups.length; k++) {
-        var children = statusGroups[k].querySelectorAll<HTMLElement>('[data-tags]');
-        var hasVisible = false;
-        for (var m = 0; m < children.length; m++) {
-          if (!children[m].classList.contains("hidden")) { hasVisible = true; break; }
-        }
-        statusGroups[k].classList.toggle("hidden", !hasVisible);
-      }
-      if (clearWrapper) clearWrapper.classList.toggle("hidden", !activeTag);
-    }
-
-    function onClick(e: Event) {
-      var el = e.target as HTMLElement | null;
-      while (el && el !== document.body) {
-        if (el.classList && el.classList.contains("filter-tag") && el.dataset.tag) {
-          e.preventDefault();
-          activeTag = activeTag === el.dataset.tag ? "" : el.dataset.tag;
-          apply();
-          if (activeTag) {
-            history.replaceState(null, "", window.location.pathname + "?tag=" + encodeURIComponent(activeTag));
-          } else {
-            history.replaceState(null, "", window.location.pathname);
-          }
-          return;
-        }
-        el = el.parentElement;
-      }
-    }
-
-    document.addEventListener("click", onClick);
-
-    if (clearBtn) {
-      clearBtn.addEventListener("click", function() {
-        activeTag = "";
-        apply();
-        history.replaceState(null, "", window.location.pathname);
-      });
-    }
-
-    var params = new URLSearchParams(window.location.search);
-    var urlTag = params.get("tag");
-    if (urlTag) { activeTag = urlTag; apply(); }
-  })();
-</script>
+<script src="../../lib/tagFilter.ts"></script>
