@@ -20,43 +20,44 @@ const sortedTags = [...tags].sort((a: string, b: string) => a.localeCompare(b));
 const cardId = `blog-${data.id.replace(/\//g, "-")}`;
 ---
 
-<div class="h-full flex flex-col rounded-lg border border-border p-6 dark:border-darkmode-border bg-body dark:bg-darkmode-body">
+<div class="content-card">
   {image && (
-    <ImageMod class="mb-6 w-full rounded" src={image} alt={title} width={445} height={230} format="webp" />
+    <ImageMod class="mb-4 w-full rounded-lg" src={image} alt={title} width={445} height={230} format="webp" />
   )}
-  <h4 class="mb-3">
-    <a href={`/${blog_folder}/${data.id}`}>{title}</a>
-  </h4>
+
+  <a href={`/${blog_folder}/${data.id}`} class="card-title" style="text-decoration: none">
+    {title}
+  </a>
 
   <div class="card-meta">
-    <a href={`/authors/${slugify(author)}`} class="inline-flex items-center gap-1.5 text-xs text-text-dark dark:text-darkmode-text-dark hover:text-primary dark:hover:text-darkmode-primary transition-colors">
-      <FaRegUserCircle className="text-sm" />
+    <a href={`/authors/${slugify(author)}`} class="meta-author">
+      <FaRegUserCircle className="text-[13px]" />
       {author}
     </a>
     {pubDate && (
       <>
         <span class="meta-sep">&middot;</span>
-        <span class="text-xs text-text-light dark:text-darkmode-text-light">{dateFormat(pubDate, "d MMM yyyy")}</span>
+        <span class="text-text-light dark:text-darkmode-text-light">{dateFormat(pubDate, "d MMM yyyy")}</span>
       </>
     )}
   </div>
 
-  <p class="grow mb-6 line-clamp-4 overflow-hidden text-text-light dark:text-darkmode-text-light">{plainify(data.body?.slice(0, Number(summary_length)) || entry.description?.slice(0, Number(summary_length)) || "")}</p>
+  <p class="card-desc line-clamp-3">{plainify(data.body?.slice(0, Number(summary_length)) || entry.description?.slice(0, Number(summary_length)) || "")}</p>
 
-  <div class="mb-6 flex flex-wrap gap-1" id={`${cardId}-tags`}>
+  <div class="card-tags" id={`${cardId}-tags`}>
     {sortedTags.slice(0, visibleTagCount).map((tag: string) => (
       <a href={`/blog/?tag=${tag}`} class="tag-pill">
-        #{tag}
+        {tag}
       </a>
     ))}
     {extraTagCount > 0 && (
       <button type="button" class="tag-pill" data-expand={cardId} data-extra-tags={sortedTags.slice(visibleTagCount).join(",")}>
-        +{extraTagCount} more
+        +{extraTagCount}
       </button>
     )}
   </div>
 
-  <a class="btn btn-outline-primary btn-sm mt-auto" href={`/${blog_folder}/${data.id}`}>Read More</a>
+  <a href={`/${blog_folder}/${data.id}`} class="card-link">Read post <span aria-hidden="true">&rarr;</span></a>
 </div>
 
 {extraTagCount > 0 && (
@@ -70,7 +71,7 @@ const cardId = `blog-${data.id.replace(/\//g, "-")}`;
           var tagBtn = document.createElement("a");
           tagBtn.href = "/blog/?tag=" + encodeURIComponent(tag);
           tagBtn.className = "tag-pill";
-          tagBtn.textContent = "#" + tag;
+          tagBtn.textContent = tag;
           tagContainer.insertBefore(tagBtn, btn);
         });
         btn.remove();

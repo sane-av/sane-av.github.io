@@ -10,39 +10,41 @@ const sortedTags = entry.tags.sort((a: string, b: string) => a.localeCompare(b))
 const cardId = `card-${entry.saneId}`;
 ---
 
-<div class="h-full flex flex-col rounded-lg border border-border p-6 dark:border-darkmode-border bg-body dark:bg-darkmode-body" data-tags={entry.tags.join(",")} id={cardId}>
-  <h4 class="mb-3">
-    <a href={`/standards/${data.id}`}>{entry.title}</a>
-  </h4>
-
-  <div class="card-meta">
-    <span class={`rounded-full px-2 py-0.5 text-xs font-medium ${statusColors[entry.status] || ""}`} title={statusDescriptions[entry.status] ?? ""}>
+<div class="content-card" data-tags={entry.tags.join(",")} id={cardId}>
+  <div class="mb-3">
+    <span class={`inline-block rounded-full px-2.5 py-0.5 text-[11px] font-medium uppercase tracking-wide ${statusColors[entry.status] || ""}`} title={statusDescriptions[entry.status] ?? ""}>
       {entry.status}
     </span>
-    <span class="meta-sep">&middot;</span>
-    <span class="font-mono text-xs font-bold tracking-wide text-primary dark:text-darkmode-primary">{entry.saneId}</span>
-    <span class="meta-sep">&middot;</span>
-    <span class="text-xs text-text-light dark:text-darkmode-text-light">v{entry.version}</span>
-    <span class="meta-sep">&middot;</span>
-    <span class="text-xs text-text-light dark:text-darkmode-text-light">{dateFormat(entry.pubDate, "d MMM yyyy")}</span>
   </div>
 
-  <p class="grow mb-6 line-clamp-4 overflow-hidden text-text-light dark:text-darkmode-text-light">{entry.description}</p>
+  <a href={`/standards/${data.id}`} class="card-title" style="text-decoration: none">
+    {entry.title}
+  </a>
 
-  <div class="mb-6 flex flex-wrap gap-1" id={`${cardId}-tags`}>
+  <div class="card-meta">
+    <span class="font-mono font-semibold tracking-tight text-primary dark:text-darkmode-primary">{entry.saneId}</span>
+    <span class="meta-sep">&middot;</span>
+    <span class="text-text-light dark:text-darkmode-text-light">v{entry.version}</span>
+    <span class="meta-sep">&middot;</span>
+    <span class="text-text-light dark:text-darkmode-text-light">{dateFormat(entry.pubDate, "d MMM yyyy")}</span>
+  </div>
+
+  <p class="card-desc line-clamp-3">{entry.description}</p>
+
+  <div class="card-tags" id={`${cardId}-tags`}>
     {sortedTags.slice(0, visibleTagCount).map((tag: string) => (
       <button type="button" class="tag-pill filter-tag" data-tag={tag}>
-        #{tag}
+        {tag}
       </button>
     ))}
     {extraTagCount > 0 && (
       <button type="button" class="tag-pill" data-expand={cardId} data-extra-tags={sortedTags.slice(visibleTagCount).join(",")}>
-        +{extraTagCount} more
+        +{extraTagCount}
       </button>
     )}
   </div>
 
-  <a class="btn btn-outline-primary btn-sm mt-auto" href={`/standards/${data.id}`}>Read More</a>
+  <a href={`/standards/${data.id}`} class="card-link">Read standard <span aria-hidden="true">&rarr;</span></a>
 </div>
 
 {extraTagCount > 0 && (
@@ -57,7 +59,7 @@ const cardId = `card-${entry.saneId}`;
           tagBtn.type = "button";
           tagBtn.className = "tag-pill filter-tag";
           tagBtn.dataset.tag = tag;
-          tagBtn.textContent = "#" + tag;
+          tagBtn.textContent = tag;
           tagContainer.insertBefore(tagBtn, btn);
         });
         btn.remove();

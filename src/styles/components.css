@@ -146,18 +146,48 @@
   @apply absolute right-3 top-3 h-8 w-8 rounded-full bg-light text-center leading-8 text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark;
 }
 
-/* card tag pills */
-.tag-pill {
-  @apply rounded bg-light px-2 py-0.5 text-xs underline decoration-text-light/50 underline-offset-2 transition-colors hover:bg-primary hover:text-white dark:bg-darkmode-body dark:decoration-darkmode-primary/40 dark:hover:bg-darkmode-primary dark:hover:text-text-dark;
+/* card common */
+.content-card {
+  @apply h-full flex flex-col rounded-lg border border-border bg-body p-6 transition-colors hover:border-primary/40 dark:border-darkmode-border dark:bg-darkmode-body dark:hover:border-darkmode-primary/40;
+}
+
+/* card title */
+.content-card .card-title {
+  @apply mb-2 text-lg font-bold text-text-dark no-underline transition-colors hover:text-primary dark:text-darkmode-text-dark dark:hover:text-darkmode-primary;
 }
 
 /* card metadata row */
 .card-meta {
-  @apply mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm;
+  @apply mb-4 flex flex-wrap items-center gap-x-2.5 gap-y-0.5 text-xs;
 }
 .card-meta .meta-sep {
-  @apply text-text-light/50 dark:text-darkmode-text-light/50 select-none;
+  @apply text-text-light/30 dark:text-darkmode-text-light/30 select-none;
 }
+.card-meta .meta-author {
+  @apply inline-flex items-center gap-1.5 text-text-light hover:text-primary dark:text-darkmode-text-light dark:hover:text-darkmode-primary transition-colors;
+}
+
+/* card description */
+.card-desc {
+  @apply mb-5 text-sm leading-relaxed text-text-light dark:text-darkmode-text-light;
+}
+
+/* card tags area */
+.card-tags {
+  @apply mb-5 flex flex-wrap gap-1;
+}
+
+/* card read-more link */
+.card-link {
+  @apply mt-auto inline-flex items-center gap-1 text-sm font-medium text-primary no-underline transition-colors hover:gap-2 dark:text-darkmode-primary;
+}
+
+/* tag pill */
+.tag-pill {
+  @apply rounded-md border border-transparent bg-light px-2 py-0.5 text-xs no-underline transition-colors hover:border-primary/30 hover:bg-primary/10 hover:text-primary dark:bg-darkmode-body dark:hover:border-darkmode-primary/30 dark:hover:bg-darkmode-primary/10 dark:hover:text-darkmode-primary;
+}
+
+/* card metadata row */
 
 /* content style */
 .content {
