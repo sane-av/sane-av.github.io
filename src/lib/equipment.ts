@@ -3,7 +3,7 @@ export interface EquipmentEntry {
   manufacturer: string;
   model: string;
   category: string;
-  specs: Record<string, string>;
+  specs: Record<string, string | undefined>;
   tags: string[];
   notes?: string;
 }

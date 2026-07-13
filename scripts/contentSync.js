@@ -1,5 +1,5 @@
 import { execSync } from "node:child_process";
-import { existsSync, mkdirSync } from "node:fs";
+import { existsSync, mkdirSync, renameSync } from "node:fs";
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -30,7 +30,7 @@ for (const [type, entry] of Object.entries(repos)) {
     if (existsSync(targetDir)) {
       const backup = `${targetDir}_backup_${Date.now()}`;
       console.log(`Backing up existing ${type} to ${backup}`);
-      execSync(`move "${targetDir}" "${backup}"`, { cwd: path.dirname(targetDir), stdio: "inherit", shell: true });
+      renameSync(targetDir, backup);
     } else {
       mkdirSync(parentDir, { recursive: true });
     }

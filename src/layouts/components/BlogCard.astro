@@ -61,22 +61,5 @@ const cardId = `blog-${data.id.replace(/\//g, "-")}`;
 </div>
 
 {extraTagCount > 0 && (
-  <script>
-    (function() {
-      var btn = document.querySelector('[data-expand="{cardId}"]')!;
-      var tagContainer = document.getElementById("{cardId}-tags")!;
-      var extraTags = btn.getAttribute("data-extra-tags")?.split(",") ?? [];
-      btn.addEventListener("click", function() {
-        extraTags.forEach(function(tag) {
-          var tagBtn = document.createElement("button");
-          tagBtn.type = "button";
-          tagBtn.className = "tag-pill filter-tag";
-          tagBtn.dataset.tag = tag;
-          tagBtn.textContent = tag;
-          tagContainer.insertBefore(tagBtn, btn);
-        });
-        btn.remove();
-      });
-    })();
-  </script>
+  <script src="./TagExpand.ts" />
 )}

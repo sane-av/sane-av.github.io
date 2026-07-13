@@ -1,6 +1,6 @@
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -170,7 +170,7 @@ if (process.argv.includes("--watch")) {
         try {
           generateThemeCSS();
         } catch (error) {
-          console.error("❌ Error regenerating theme CSS:", error.message);
+          console.error("Error regenerating theme CSS:", error.message);
         }
       }, 300);
     }
@@ -180,9 +180,9 @@ if (process.argv.includes("--watch")) {
   process.on("SIGINT", () => {
     clearTimeout(debounceTimer);
     watcher.close();
-    console.log("\n👋 Watcher stopped");
+    console.log("\nWatcher stopped");
     process.exit(0);
   });
 
-  console.log("👁️  Watching for changes to:", themePath);
+  console.log("Watching for changes to:", themePath);
 }

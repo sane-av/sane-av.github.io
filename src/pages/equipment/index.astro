@@ -3,7 +3,7 @@ import Base from "@/layouts/Base.astro";
 import PageHeader from "@/partials/PageHeader.astro";
 import type { EquipmentEntry } from "@/lib/equipment";
 
-const files = import.meta.glob<{ default: unknown[] }>("../../data/equipment/*.json", { eager: true });
+const files = import.meta.glob<{ default: EquipmentEntry[] }>("../../data/equipment/*.json", { eager: true });
 const allEquipment: EquipmentEntry[] = Object.entries(files)
   .filter(([path]) => !path.endsWith("schema.json"))
   .flatMap(([, f]) => (Array.isArray(f.default) ? f.default : []));

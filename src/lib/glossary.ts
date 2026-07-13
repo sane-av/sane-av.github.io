@@ -26,6 +26,19 @@ interface JsonTerm {
 
 let glossaryCache: GlossaryTerm[] | null = null;
 
+function scoreRelatedTerms(terms: GlossaryTerm[], targetSlug: string, targetCategories: string[]): string[] {
+  const scored = terms
+    .filter((t) => t.slug !== targetSlug)
+    .map((t) => ({
+      term: t.term,
+      shared: t.categories.filter((c) => targetCategories.includes(c)).length,
+    }))
+    .filter((t) => t.shared > 0)
+    .sort((a, b) => b.shared - a.shared || a.term.localeCompare(b.term))
+    .slice(0, 5);
+  return scored.map((t) => t.term);
+}
+
 export async function getGlossaryTerms(): Promise<GlossaryTerm[]> {
   if (glossaryCache) return glossaryCache;
   const mdEntries = await getCollection("glossary");
@@ -69,16 +82,7 @@ export async function getGlossaryTerms(): Promise<GlossaryTerm[]> {
 
   for (const term of merged) {
     if (term.hasPage && term.relatedTerms.length === 0) {
-      const scored = merged
-        .filter((t) => t.slug !== term.slug)
-        .map((t) => ({
-          term: t.term,
-          shared: (t.categories ?? []).filter((c) => (term.categories ?? []).includes(c)).length,
-        }))
-        .filter((t) => t.shared > 0)
-        .sort((a, b) => b.shared - a.shared || a.term.localeCompare(b.term))
-        .slice(0, 5);
-      term.relatedTerms = scored.map((t) => t.term);
+      term.relatedTerms = scoreRelatedTerms(merged, term.slug, term.categories);
     }
   }
 
@@ -102,15 +106,5 @@ export function getRelatedTerms(slug: string, categories: string[]): string[] {
 
   if (entry.relatedTerms.length > 0) return entry.relatedTerms;
 
-  const scored = allTerms
-    .filter((t) => t.slug !== slug)
-    .map((t) => ({
-      term: t.term,
-      shared: t.categories.filter((c) => categories.includes(c)).length,
-    }))
-    .filter((t) => t.shared > 0)
-    .sort((a, b) => b.shared - a.shared || a.term.localeCompare(b.term))
-    .slice(0, 5);
-
-  return scored.map((t) => t.term);
+  return scoreRelatedTerms(allTerms, slug, categories);
 }

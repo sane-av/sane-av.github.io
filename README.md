@@ -3,9 +3,9 @@
 > Open source AV standards, data, and tools for the professional audiovisual industry!
 
 [![License: Apache 2.0](https://img.shields.io/badge/Code-Apache%202.0-blue.svg)](LICENSE)
-[![License: CC BY-SA 4.0](https://img.shields.io/badge/Content-CC%20BY--SA%204.0-lightgrey.svg)](CONTENT-LICENSE.md)
+[![License: CC BY-SA 4.0](https://img.shields.io/badge/Content-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
-**Website:** https://sane-av.org
+**Website:** https://sane-av.github.io
 
 SANE is building free, open, and transparent standards for professional audiovisual systems.
 
@@ -69,5 +69,5 @@ SANE is funded by community donations. Sponsors help cover infrastructure, legal
 ## License
 
 - **Code** (site, tools, components): [Apache 2.0](LICENSE)
-- **Content** (standards, blog, whitepapers, glossary, data): [CC BY-SA 4.0](CONTENT-LICENSE.md)
+- **Content** (standards, blog, whitepapers, glossary, data): [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 - **Trademarks** (SANE name, logo, certification marks): See [NOTICE](NOTICE)

@@ -29,6 +29,10 @@ export interface Props {
 // destructure frontmatter
 const { title, meta_title, description, image, noindex, canonical } =
   Astro.props;
+
+const pageTitle = plainify(meta_title ?? title ?? config.site.title);
+const pageDescription = plainify(description ?? config.metadata.meta_description);
+const pageImage = new URL(image ?? config.metadata.meta_image, config.site.base_url).href;
 ---
 
 <!doctype html>
@@ -79,9 +83,7 @@ const { title, meta_title, description, image, noindex, canonical } =
     />
 
     <!-- title -->
-    <title>
-      {plainify(meta_title ? meta_title : title ? title : config.site.title)}
-    </title>
+    <title>{pageTitle}</title>
 
     <!-- canonical url -->
     {canonical && <link rel="canonical" href={canonical} itemprop="url" />}
@@ -90,12 +92,7 @@ const { title, meta_title, description, image, noindex, canonical } =
     {noindex && <meta name="robots" content="noindex,nofollow" />}
 
     <!-- meta-description -->
-    <meta
-      name="description"
-      content={plainify(
-        description ? description : config.metadata.meta_description,
-      )}
-    />
+    <meta name="description" content={pageDescription} />
 
     <ClientRouter />
 
@@ -103,20 +100,10 @@ const { title, meta_title, description, image, noindex, canonical } =
     <meta name="author" content={config.metadata.meta_author} />
 
     <!-- og-title -->
-    <meta
-      property="og:title"
-      content={plainify(
-        meta_title ? meta_title : title ? title : config.site.title,
-      )}
-    />
+    <meta property="og:title" content={pageTitle} />
 
     <!-- og-description -->
-    <meta
-      property="og:description"
-      content={plainify(
-        description ? description : config.metadata.meta_description,
-      )}
-    />
+    <meta property="og:description" content={pageDescription} />
     <meta property="og:type" content="website" />
     <meta
       property="og:url"
@@ -124,32 +111,16 @@ const { title, meta_title, description, image, noindex, canonical } =
     />
 
     <!-- twitter-title -->
-    <meta
-      name="twitter:title"
-      content={plainify(
-        meta_title ? meta_title : title ? title : config.site.title,
-      )}
-    />
+    <meta name="twitter:title" content={pageTitle} />
 
     <!-- twitter-description -->
-    <meta
-      name="twitter:description"
-      content={plainify(
-        description ? description : config.metadata.meta_description,
-      )}
-    />
+    <meta name="twitter:description" content={pageDescription} />
 
     <!-- og-image -->
-    <meta
-      property="og:image"
-      content={new URL(image ? image : config.metadata.meta_image, config.site.base_url).href}
-    />
+    <meta property="og:image" content={pageImage} />
 
     <!-- twitter-image -->
-    <meta
-      name="twitter:image"
-      content={new URL(image ? image : config.metadata.meta_image, config.site.base_url).href}
-    />
+    <meta name="twitter:image" content={pageImage} />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body class="flex flex-col min-h-screen">

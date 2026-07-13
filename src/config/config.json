@@ -7,8 +7,8 @@
     "favicon": "/images/SANE_Brain.svg",
     "logo": "/images/SANE_Brain.svg",
     "logo_darkmode": "/images/SANE_Brain.svg",
-    "logo_width": "48",
-    "logo_height": "48",
+    "logo_width": 48,
+    "logo_height": 48,
     "logo_text": "Society for AV Norms & Engineering"
   },
 

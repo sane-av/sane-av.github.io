@@ -52,9 +52,6 @@ try {
 
   // create posts.json
   const posts = getData(BLOG_FOLDER, 2);
-  fs.writeFileSync(`${JSON_FOLDER}/posts.json`, JSON.stringify(posts));
-
-  // create search.json from the same posts data
   fs.writeFileSync(`${JSON_FOLDER}/search.json`, JSON.stringify(posts));
 } catch (err) {
   console.error(err);
