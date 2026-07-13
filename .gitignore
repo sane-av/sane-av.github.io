@@ -20,10 +20,6 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# unoptimized source images (use webp instead)
-public/images/*.jpg
-public/images/*.png
-
 # synced content repos
 src/content/blog/
 src/content/equipment/
