@@ -33,6 +33,5 @@ src/data/equipment/
 
 .agents/
 skills-lock.json
-AGENTS.md
 
 *.code-workspace
