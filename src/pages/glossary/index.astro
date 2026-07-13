@@ -21,7 +21,7 @@ const total = merged.length;
   <section class="pt-8 pb-24">
     <div class="container">
 
-      <div id="glossary-toolbar" class="sticky top-[72px] z-20 -mx-4 border-b border-border/80 bg-body/95 px-4 pb-3 pt-6 shadow-sm backdrop-blur-sm dark:border-darkmode-border/60 dark:bg-darkmode-body/95">
+      <div id="glossary-toolbar" class="sticky top-[72px] z-20 border-b border-border/80 bg-body/95 pl-10 pr-4 pb-3 pt-6 shadow-sm backdrop-blur-sm dark:border-darkmode-border/60 dark:bg-darkmode-body/95 sm:pl-12">
         <div class="mb-3">
           <input
             type="search"
@@ -44,9 +44,9 @@ const total = merged.length;
         </div>
       </div>
 
-      <nav id="glossary-quicknav" class="fixed left-0.5 top-1/2 z-10 -translate-y-1/2 flex touch-none select-none flex-col gap-0.5 rounded-r-lg bg-body/95 px-0.5 py-2 shadow-md backdrop-blur-sm dark:bg-darkmode-body/95 sm:left-2 sm:rounded-lg sm:px-1" aria-label="Letter quick navigation">
+      <nav id="glossary-quicknav" class="fixed left-0.5 top-1/2 z-10 -translate-y-1/2 flex max-h-[calc(100vh-8rem)] touch-none select-none flex-col gap-px overflow-y-auto rounded-r-lg bg-body/95 px-0.5 py-1 shadow-md backdrop-blur-sm dark:bg-darkmode-body/95 sm:left-2 sm:rounded-lg sm:px-1 sm:py-2" aria-label="Letter quick navigation">
         {allLetters.map((letter) => (
-          <button type="button" class="glossary-jump flex h-7 w-7 items-center justify-center rounded text-xs font-mono font-semibold text-text-light/60 dark:text-darkmode-text-light/60 sm:h-8 sm:w-8 sm:text-sm" data-letter={letter}>
+          <button type="button" class="glossary-jump flex h-5 w-5 items-center justify-center rounded text-[10px] font-mono font-semibold leading-none text-text-light/60 dark:text-darkmode-text-light/60 sm:h-6 sm:w-6 sm:text-xs" data-letter={letter}>
             {letter}
           </button>
         ))}
@@ -246,16 +246,23 @@ const total = merged.length;
     // IntersectionObserver for quicknav highlighting
     var sections = document.querySelectorAll<HTMLElement>("[id^='section-']");
     if (sections.length > 0) {
+      var activeLetters = new Set<string>();
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
+          var letter = entry.target.id.replace("section-", "");
           if (entry.isIntersecting) {
-            var letter = entry.target.id.replace("section-", "");
-            jumpBtns.forEach(function(b) {
-              b.classList.toggle("!text-primary !opacity-100", b.dataset.letter === letter);
-            });
+            activeLetters.add(letter);
+          } else {
+            activeLetters.delete(letter);
           }
         });
-      }, { rootMargin: "-64px 0px -80% 0px" });
+        if (activeLetters.size > 0) {
+          var best = [...activeLetters].sort()[0];
+          jumpBtns.forEach(function(b) {
+            b.classList.toggle("!text-primary !opacity-100", b.dataset.letter === best);
+          });
+        }
+      }, { rootMargin: "-72px 0px -60% 0px" });
 
       sections.forEach(function(s) { observer.observe(s); });
     }
