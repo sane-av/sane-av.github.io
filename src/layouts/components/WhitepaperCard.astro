@@ -55,7 +55,7 @@ const basePath = `/${whitepapers_folder}`;
         </a>
       ))}
       {extraTagCount > 0 && (
-        <button type="button" class="tag-pill" data-hidden={JSON.stringify(hiddenTags)} data-base={basePath} onclick="var h=JSON.parse(this.dataset.hidden),b=this.dataset.base,p=this.parentElement;h.forEach(function(t){var a=document.createElement('a');a.href=b+'?tag='+encodeURIComponent(t);a.className='tag-pill';a.textContent=t;p.insertBefore(a,this)});this.remove()">
+        <button type="button" class="tag-pill" data-hidden={JSON.stringify(hiddenTags)} data-base={basePath} onclick="var s=this,h=JSON.parse(s.dataset.hidden),b=s.dataset.base,p=s.parentElement;h.forEach(function(t){var a=document.createElement('a');a.href=b+'?tag='+encodeURIComponent(t);a.className='tag-pill';a.textContent=t;p.insertBefore(a,s)});s.remove()">
           +{extraTagCount}
         </button>
       )}
