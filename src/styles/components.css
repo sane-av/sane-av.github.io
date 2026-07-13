@@ -28,7 +28,7 @@
 
 /* notice */
 .notice {
-  @apply mb-6 rounded-lg border px-8 py-6;
+  @apply mb-6 rounded-lg border px-4 py-6 sm:px-6 md:px-8;
 }
 
 .notice-head {
@@ -73,15 +73,15 @@
 
 /* tab */
 .tab {
-  @apply overflow-hidden rounded-lg border border-border dark:border-darkmode-border;
+  @apply overflow-hidden rounded-lg border border-border dark:border-darkmode-border md:overflow-x-auto;
 }
 
 .tab-nav {
-  @apply flex border-b border-border bg-light dark:border-darkmode-border dark:bg-darkmode-light !m-0 !list-none;
+  @apply flex border-b border-border bg-light dark:border-darkmode-border dark:bg-darkmode-light !m-0 !list-none overflow-x-auto;
 }
 
 .tab-nav-item {
-  @apply cursor-pointer border-b-[3px] border-border py-2 text-lg text-text-dark opacity-80 dark:border-darkmode-border !my-0 !px-8;
+  @apply cursor-pointer border-b-[3px] border-border py-2 text-lg text-text-dark opacity-80 dark:border-darkmode-border !my-0 !px-4 sm:!px-8;
 }
 
 .tab-nav-item.active {
@@ -110,7 +110,7 @@
 }
 
 .accordion-header {
-  @apply flex w-full cursor-pointer items-center justify-between px-8 py-4 text-lg text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-light;
+  @apply flex w-full cursor-pointer items-center justify-between px-4 py-4 text-lg text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-light sm:px-6 md:px-8;
 }
 
 .accordion-icon {
@@ -118,7 +118,7 @@
 }
 
 .accordion-content {
-  @apply max-h-0 overflow-hidden px-8 py-0;
+  @apply max-h-0 overflow-hidden px-4 py-0 sm:px-6 md:px-8;
 }
 
 .accordion.active .accordion-icon {
@@ -139,7 +139,7 @@
 }
 
 .modal-content {
-  @apply relative top-1/2 z-50 mx-auto max-w-[90%] -translate-y-1/2 rounded-lg bg-body p-8 dark:bg-darkmode-body;
+  @apply relative top-1/2 z-50 mx-auto max-w-[90%] -translate-y-1/2 rounded-lg bg-body p-4 dark:bg-darkmode-body sm:p-6 md:p-8;
 }
 
 .modal-close {
@@ -184,7 +184,7 @@
 
 /* tag pill */
 .tag-pill {
-  @apply rounded-md border border-transparent bg-primary/5 px-2 py-0.5 text-xs text-text-light no-underline transition-colors hover:border-primary/30 hover:bg-primary/15 hover:text-primary dark:bg-darkmode-primary/5 dark:text-darkmode-text-light dark:hover:border-darkmode-primary/30 dark:hover:bg-darkmode-primary/15 dark:hover:text-darkmode-primary;
+  @apply rounded-md border border-transparent bg-primary/5 px-2 py-1 text-xs text-text-light no-underline transition-colors hover:border-primary/30 hover:bg-primary/15 hover:text-primary dark:bg-darkmode-primary/5 dark:text-darkmode-text-light dark:hover:border-darkmode-primary/30 dark:hover:bg-darkmode-primary/15 dark:hover:text-darkmode-primary sm:py-0.5;
 }
 
 .tag-pill-active {
@@ -218,8 +218,8 @@
   @apply prose-pre:rounded-lg prose-pre:bg-light dark:prose-pre:bg-darkmode-light;
   @apply prose-code:text-darkmode-text-dark;
   @apply prose-li:text-text dark:prose-li:text-darkmode-text;
-  @apply prose-blockquote:rounded-lg prose-blockquote:border prose-blockquote:border-l-[10px] prose-blockquote:border-primary prose-blockquote:bg-light prose-blockquote:px-8 prose-blockquote:py-10 prose-blockquote:font-secondary prose-blockquote:text-2xl prose-blockquote:not-italic prose-blockquote:text-text-dark dark:prose-blockquote:border-darkmode-primary dark:prose-blockquote:bg-darkmode-light dark:prose-blockquote:text-darkmode-text-light;
-  @apply prose-table:relative prose-table:overflow-hidden prose-table:rounded-lg prose-table:before:absolute prose-table:before:left-0 prose-table:before:top-0 prose-table:before:h-full prose-table:before:w-full prose-table:before:rounded-[inherit] prose-table:before:border prose-table:before:border-border prose-table:before:content-[""] dark:prose-table:before:border-darkmode-border;
+  @apply prose-blockquote:rounded-lg prose-blockquote:border prose-blockquote:border-l-[10px] prose-blockquote:border-primary prose-blockquote:bg-light prose-blockquote:px-4 prose-blockquote:py-6 prose-blockquote:font-secondary prose-blockquote:text-2xl prose-blockquote:not-italic prose-blockquote:text-text-dark dark:prose-blockquote:border-darkmode-primary dark:prose-blockquote:bg-darkmode-light dark:prose-blockquote:text-darkmode-text-light sm:prose-blockquote:px-8 sm:prose-blockquote:py-10;
+  @apply prose-table:relative prose-table:overflow-x-auto prose-table:rounded-lg prose-table:before:absolute prose-table:before:left-0 prose-table:before:top-0 prose-table:before:h-full prose-table:before:w-full prose-table:before:rounded-[inherit] prose-table:before:border prose-table:before:border-border prose-table:before:content-[""] dark:prose-table:before:border-darkmode-border;
   @apply prose-thead:border-border prose-thead:bg-light dark:prose-thead:border-darkmode-border dark:prose-thead:bg-darkmode-light;
   @apply prose-th:relative prose-th:z-10 prose-th:px-4 prose-th:py-[18px] prose-th:text-text-dark dark:prose-th:text-darkmode-text;
   @apply prose-tr:border-border dark:prose-tr:border-darkmode-border;

@@ -26,7 +26,7 @@ const recentWhitepapers = (await getCollection("whitepapers", ({ data }) => !dat
     <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60"></div>
     <div class="relative section-sm py-16 xl:py-24">
       <div class="container text-center">
-        <h1 class="mb-6 text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">Open Source AV Standards<br />for the Modern World</h1>
+        <h1 class="mb-6 text-pretty text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">Open Source AV Standards for the Modern World</h1>
         <p class="mx-auto mb-4 max-w-2xl text-lg text-gray-200 text-pretty">
           SANE is building free, open, and transparent standards for building professional audiovisual systems. No membership fees. No paywalls. No gatekeeping.
         </p>
@@ -73,7 +73,7 @@ const recentWhitepapers = (await getCollection("whitepapers", ({ data }) => !dat
       <p class="mb-6 text-text-light dark:text-darkmode-text-light">Get new standards, blog posts, and tools delivered to your inbox.</p>
       <form
         action="https://app.kit.com/forms/9585155/subscriptions"
-        class="mx-auto flex max-w-md gap-2"
+        class="mx-auto flex max-w-md flex-col gap-2 sm:flex-row"
         method="post"
         data-sv-form="9585155"
         data-uid="b3f2fa3c84"

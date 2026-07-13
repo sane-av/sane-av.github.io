@@ -57,8 +57,8 @@ const allTags = [...new Set(allEquipment.flatMap((e) => e.tags))].sort();
               <th class="px-4 py-3 font-secondary text-text-dark dark:text-darkmode-text-dark">Manufacturer</th>
               <th class="px-4 py-3 font-secondary text-text-dark dark:text-darkmode-text-dark">Model</th>
               <th class="px-4 py-3 font-secondary text-text-dark dark:text-darkmode-text-dark">Category</th>
-              <th class="px-4 py-3 font-secondary text-text-dark dark:text-darkmode-text-dark">Key Specs</th>
-              <th class="px-4 py-3 font-secondary text-text-dark dark:text-darkmode-text-dark">Tags</th>
+              <th class="hidden px-4 py-3 font-secondary text-text-dark dark:text-darkmode-text-dark md:table-cell">Key Specs</th>
+              <th class="hidden px-4 py-3 font-secondary text-text-dark dark:text-darkmode-text-dark md:table-cell">Tags</th>
             </tr>
           </thead>
           <tbody>
@@ -67,12 +67,12 @@ const allTags = [...new Set(allEquipment.flatMap((e) => e.tags))].sort();
                 <td class="px-4 py-3 font-semibold text-text-dark dark:text-darkmode-text-dark">{item.manufacturer}</td>
                 <td class="px-4 py-3">{item.model}</td>
                 <td class="px-4 py-3"><span class="rounded bg-light px-2 py-0.5 text-xs dark:bg-darkmode-light">{item.category}</span></td>
-                <td class="px-4 py-3">
+                <td class="hidden px-4 py-3 md:table-cell">
                   {Object.entries(item.specs).slice(0, 3).map(([k, v]) => (
                     <div class="text-xs"><span class="text-text-light dark:text-darkmode-text-light">{k}:</span> {v}</div>
                   ))}
                 </td>
-                <td class="px-4 py-3">
+                <td class="hidden px-4 py-3 md:table-cell">
                   <div class="flex flex-wrap gap-1">
                     {item.tags.map((t: string) => (
                       <button type="button" class="filter-tag rounded bg-light px-2 py-0.5 text-xs hover:bg-primary hover:text-white dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark" data-tag={t}>{t}</button>

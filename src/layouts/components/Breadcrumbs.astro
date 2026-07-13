@@ -24,7 +24,7 @@ paths.forEach((label: string, i: number) => {
 ---
 
 <nav aria-label="Breadcrumb" class={className}>
-  <ol class="inline-flex" role="list">
+  <ol class="inline-flex flex-wrap" role="list">
     {
       parts.map(({ label, ...attrs }, index) => (
         <li class="mx-1 capitalize" role="listitem">
