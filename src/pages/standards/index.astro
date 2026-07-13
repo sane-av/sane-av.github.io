@@ -89,42 +89,35 @@ const orderedStatuses = (["published", "under-review", "draft", "deprecated"] as
 </Base>
 
 <script>
-  const tagButtons = document.querySelectorAll<HTMLButtonElement>(".filter-tag");
-  const cards = document.querySelectorAll<HTMLElement>('[data-tags]');
-  const countEl = document.getElementById("count")!;
-  const statusGroups = document.querySelectorAll<HTMLElement>(".status-group");
-  const clearWrapper = document.getElementById("sidebar-clear-wrapper");
-  const clearBtn = document.getElementById("sidebar-clear");
-  const totalCount = cards.length;
-  let activeTag = "";
+  var tagButtons = document.querySelectorAll<HTMLButtonElement>(".filter-tag");
+  var cards = document.querySelectorAll<HTMLElement>('[data-tags]');
+  var statusGroups = document.querySelectorAll<HTMLElement>(".status-group");
+  var clearWrapper = document.getElementById("sidebar-clear-wrapper");
+  var clearBtn = document.getElementById("sidebar-clear");
+  var activeTag = "";
 
   function apply() {
-    let visible = 0;
-    tagButtons.forEach((btn) => {
+    tagButtons.forEach(function(btn) {
       var match = btn.dataset.tag === activeTag;
       btn.classList.toggle("!border-primary/50", match);
       btn.classList.toggle("dark:!border-darkmode-primary/50", match);
     });
-    cards.forEach((card) => {
-      const cardTags = (card.dataset.tags || "").split(",");
-      const match = !activeTag || cardTags.includes(activeTag);
+    cards.forEach(function(card) {
+      var cardTags = (card.dataset.tags || "").split(",");
+      var match = !activeTag || cardTags.includes(activeTag);
       card.classList.toggle("hidden", !match);
-      if (match) visible++;
     });
-    statusGroups.forEach((group) => {
-      const hasVisible = Array.from(group.querySelectorAll<HTMLElement>('[data-tags]'))
-        .some((c) => !c.classList.contains("hidden"));
+    statusGroups.forEach(function(group) {
+      var hasVisible = Array.from(group.querySelectorAll<HTMLElement>('[data-tags]'))
+        .some(function(c) { return !c.classList.contains("hidden"); });
       group.classList.toggle("hidden", !hasVisible);
     });
-    countEl.textContent = activeTag
-      ? `${visible} of ${totalCount} standard${totalCount !== 1 ? "s" : ""}`
-      : `${totalCount} standard${totalCount !== 1 ? "s" : ""}`;
     if (clearWrapper) clearWrapper.classList.toggle("hidden", !activeTag);
   }
 
-  tagButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const tag = btn.dataset.tag!;
+  tagButtons.forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      var tag = btn.dataset.tag!;
       activeTag = activeTag === tag ? "" : tag;
       apply();
       if (activeTag) {
@@ -136,10 +129,10 @@ const orderedStatuses = (["published", "under-review", "draft", "deprecated"] as
   });
 
   if (clearBtn) {
-    clearBtn.addEventListener("click", () => { activeTag = ""; apply(); history.replaceState(null, "", window.location.pathname); });
+    clearBtn.addEventListener("click", function() { activeTag = ""; apply(); history.replaceState(null, "", window.location.pathname); });
   }
 
-  const params = new URLSearchParams(window.location.search);
-  const urlTag = params.get("tag");
+  var params = new URLSearchParams(window.location.search);
+  var urlTag = params.get("tag");
   if (urlTag) { activeTag = urlTag; apply(); }
 </script>
