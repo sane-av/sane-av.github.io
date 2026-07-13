@@ -59,14 +59,13 @@ const allTags: string[] = posts.flatMap((p) => p.data.tags).sort((a, b) => a.loc
 </Base>
 
 <script>
-  var tagButtons = document.querySelectorAll<HTMLElement>(".filter-tag");
   var cards = document.querySelectorAll<HTMLElement>('[data-tags]');
   var clearWrapper = document.getElementById("sidebar-clear-wrapper");
   var clearBtn = document.getElementById("sidebar-clear");
   var activeTag = "";
 
   function apply() {
-    tagButtons.forEach(function(btn) {
+    document.querySelectorAll<HTMLElement>(".filter-tag").forEach(function(btn) {
       var match = btn.dataset.tag === activeTag;
       btn.classList.toggle("!bg-primary/15 !border-primary/50 !text-primary", match);
       btn.classList.toggle("dark:!bg-darkmode-primary/15 dark:!border-darkmode-primary/50 dark:!text-darkmode-primary", match);
@@ -79,16 +78,16 @@ const allTags: string[] = posts.flatMap((p) => p.data.tags).sort((a, b) => a.loc
     if (clearWrapper) clearWrapper.classList.toggle("hidden", !activeTag);
   }
 
-  tagButtons.forEach(function(btn) {
-    btn.addEventListener("click", function() {
-      activeTag = activeTag === btn.dataset.tag ? "" : btn.dataset.tag!;
-      apply();
-      if (activeTag) {
-        history.replaceState(null, "", window.location.pathname + "?tag=" + encodeURIComponent(activeTag));
-      } else {
-        history.replaceState(null, "", window.location.pathname);
-      }
-    });
+  document.addEventListener("click", function(e) {
+    var btn = (e.target as HTMLElement).closest(".filter-tag") as HTMLButtonElement | null;
+    if (!btn || !btn.dataset.tag) return;
+    activeTag = activeTag === btn.dataset.tag ? "" : btn.dataset.tag;
+    apply();
+    if (activeTag) {
+      history.replaceState(null, "", window.location.pathname + "?tag=" + encodeURIComponent(activeTag));
+    } else {
+      history.replaceState(null, "", window.location.pathname);
+    }
   });
 
   if (clearBtn) {
