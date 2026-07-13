@@ -20,6 +20,11 @@ function initTagFilter() {
     banner.classList.add("hidden");
   }
 
+  const sidebarClear = document.getElementById("sidebar-clear");
+  if (sidebarClear) {
+    sidebarClear.classList.add("hidden");
+  }
+
   // Now check for active tag
   const params = new URLSearchParams(window.location.search);
   const activeTag = params.get("tag") || "";
@@ -53,6 +58,11 @@ function initTagFilter() {
   if (banner && label) {
     label.textContent = activeTag;
     banner.classList.remove("hidden");
+  }
+
+  // Show sidebar clear button
+  if (sidebarClear) {
+    sidebarClear.classList.remove("hidden");
   }
 }
 
