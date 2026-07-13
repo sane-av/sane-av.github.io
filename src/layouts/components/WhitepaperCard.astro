@@ -15,6 +15,10 @@ const pubDate = entry.pubDate ?? entry.date;
 const author = entry.authors?.[0] ?? entry.author ?? "SANE";
 const tags = entry.tags ?? [];
 const sortedTags = [...tags].sort((a: string, b: string) => a.localeCompare(b));
+const VISIBLE = 3;
+const hiddenTags = sortedTags.slice(VISIBLE);
+const extraTagCount = hiddenTags.length;
+const basePath = `/${whitepapers_folder}`;
 ---
 
 <div class="content-card">
@@ -41,15 +45,20 @@ const sortedTags = [...tags].sort((a: string, b: string) => a.localeCompare(b));
 
   <p class="card-desc line-clamp-3">{plainify(data.body?.slice(0, Number(summary_length)) || entry.description?.slice(0, Number(summary_length)) || "")}</p>
 
+  <a href={`/${whitepapers_folder}/${data.id}`} class="card-link">Read paper <span aria-hidden="true">&rarr;</span></a>
+
   {sortedTags.length > 0 && (
     <div class="card-tags">
-      {sortedTags.map((tag: string) => (
-        <a href={`/${whitepapers_folder}?tag=${encodeURIComponent(tag)}`} class="tag-pill">
+      {sortedTags.slice(0, VISIBLE).map((tag: string) => (
+        <a href={`${basePath}?tag=${encodeURIComponent(tag)}`} class="tag-pill">
           {tag}
         </a>
       ))}
+      {extraTagCount > 0 && (
+        <button type="button" class="tag-pill" data-hidden={JSON.stringify(hiddenTags)} data-base={basePath} onclick="var h=JSON.parse(this.dataset.hidden),b=this.dataset.base,p=this.parentElement;h.forEach(function(t){var a=document.createElement('a');a.href=b+'?tag='+encodeURIComponent(t);a.className='tag-pill';a.textContent=t;p.insertBefore(a,this)});this.remove()">
+          +{extraTagCount}
+        </button>
+      )}
     </div>
   )}
-
-  <a href={`/${whitepapers_folder}/${data.id}`} class="card-link">Read paper <span aria-hidden="true">&rarr;</span></a>
 </div>
