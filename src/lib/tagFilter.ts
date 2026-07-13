@@ -28,7 +28,7 @@ function initTagFilter() {
   const sidebarTags = document.querySelectorAll<HTMLElement>("[data-tag]");
   sidebarTags.forEach((tag) => {
     if (tag.dataset.tag === activeTag) {
-      tag.classList.add("bg-primary/10", "border-primary/30", "text-primary");
+      tag.classList.add("tag-pill-active");
     }
   });
   
@@ -39,18 +39,20 @@ function initTagFilter() {
     label.textContent = activeTag;
     banner.classList.remove("hidden");
   }
+  
+  // Bind clear button
+  const clearBtn = document.getElementById("tag-filter-clear");
+  if (clearBtn) {
+    clearBtn.addEventListener("click", () => {
+      const url = new URL(window.location.href);
+      url.searchParams.delete("tag");
+      window.location.href = url.toString();
+    });
+  }
 }
 
-// Clear filter handler
-document.getElementById("tag-filter-clear")?.addEventListener("click", () => {
-  const url = new URL(window.location.href);
-  url.searchParams.delete("tag");
-  window.location.href = url.toString();
-});
-
-// Initialize on page load
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initTagFilter);
-} else {
+// Run on initial load and after Astro view transitions
+document.addEventListener("astro:page-load", initTagFilter);
+if (document.readyState !== "loading") {
   initTagFilter();
 }

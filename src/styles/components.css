@@ -187,6 +187,10 @@
   @apply rounded-md border border-transparent bg-primary/5 px-2 py-0.5 text-xs text-text-light no-underline transition-colors hover:border-primary/30 hover:bg-primary/15 hover:text-primary dark:bg-darkmode-primary/5 dark:text-darkmode-text-light dark:hover:border-darkmode-primary/30 dark:hover:bg-darkmode-primary/15 dark:hover:text-darkmode-primary;
 }
 
+.tag-pill-active {
+  @apply border-primary/40 bg-primary/15 text-primary dark:border-darkmode-primary/40 dark:bg-darkmode-primary/15 dark:text-darkmode-primary;
+}
+
 /* card metadata row */
 
 /* content style */
