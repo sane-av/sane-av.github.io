@@ -52,6 +52,10 @@ jobs:
           CHANGED=$(grep -cE 'Updating|Cloning' /tmp/sync.log || echo 0)
           echo "changed=$CHANGED" >> "$GITHUB_OUTPUT"
 
+      - name: Type check
+        if: steps.sync.outputs.changed != '0' || github.event_name == 'push' || github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request'
+        run: npx astro check
+
       - name: Build
         if: steps.sync.outputs.changed != '0' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         run: node scripts/themeGenerator.js && node scripts/jsonGenerator.js && npx astro build && node scripts/llmsGenerator.js

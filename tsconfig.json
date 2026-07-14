@@ -3,7 +3,6 @@
   "compilerOptions": {
     "paths": {
       "@/components/*": ["./src/layouts/components/*"],
-      "@/shortcodes/*": ["./src/layouts/shortcodes/*"],
       "@/helpers/*": ["./src/layouts/helpers/*"],
       "@/partials/*": ["./src/layouts/partials/*"],
       "@/*": ["./src/*"]

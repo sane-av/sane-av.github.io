@@ -1,8 +1,7 @@
-import mdx from "@astrojs/mdx";
+import { unified } from "@astrojs/markdown-remark";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
-import AutoImport from "astro-auto-import";
 import { defineConfig, fontProviders } from "astro/config";
 import remarkCollapse from "remark-collapse";
 import remarkToc from "remark-toc";
@@ -54,24 +53,13 @@ export default defineConfig({
   image: { service: sharp() },
   vite: { plugins: [tailwindcss()] },
   fonts: fontsConfig,
-  integrations: [
-    react(),
-    sitemap(),
-    AutoImport({
-      imports: [
-        "@/shortcodes/Button",
-        "@/shortcodes/Accordion",
-        "@/shortcodes/Notice",
-        "@/shortcodes/Video",
-        "@/shortcodes/Youtube",
-        "@/shortcodes/Tabs",
-        "@/shortcodes/Tab",
-      ],
-    }),
-    mdx(),
-  ],
+  integrations: [react(), sitemap()],
   markdown: {
-    remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
+    // Astro v7 deprecated markdown.remarkPlugins; the unified() processor from
+    // @astrojs/markdown-remark keeps the remark pipeline for our plugins.
+    processor: unified({
+      remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
+    }),
     shikiConfig: { theme: "one-dark-pro", wrap: true },
   },
 });
