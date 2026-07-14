@@ -173,15 +173,18 @@ function initGlossaryPage() {
     { signal }
   );
 
-  // === Rail: position between the sticky toolbar and the viewport bottom ===
-  // The toolbar (search + filters) is sticky with a higher z-index; the rail must
-  // never slide underneath it, and the toolbar's height varies as filter pills wrap.
+  // === Rail: position alongside the whole glossary section ===
+  // The rail spans the left gutter next to BOTH the sticky toolbar and the terms
+  // list (they read as one section). The toolbar reserves that gutter with its
+  // left margin, and the rail sits on a higher z-layer, so no collision.
   // When the footer scrolls into view, the rail's zone shrinks to stay above it.
 
   const footer = document.querySelector("footer");
 
   function positionRail() {
-    const zoneTop = toolbarBottom() + RAIL_GAP_PX;
+    // Section top = toolbar's top edge (docks at the site header when stuck)
+    const sectionTop = toolbar ? toolbar.getBoundingClientRect().top : HEADER_OFFSET_PX;
+    const zoneTop = Math.max(sectionTop, HEADER_OFFSET_PX) + RAIL_GAP_PX;
     let zoneBottom = window.innerHeight - RAIL_GAP_PX;
     if (footer) {
       const footerTop = footer.getBoundingClientRect().top;

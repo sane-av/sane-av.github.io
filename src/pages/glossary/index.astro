@@ -34,35 +34,38 @@ const total = merged.length;
   <section class="pt-8 pb-24">
     <div class="container">
 
-      <div id="glossary-toolbar" class="sticky top-[72px] z-20 border-b border-border/80 bg-body/95 pl-10 pr-4 pb-3 pt-6 shadow-sm backdrop-blur-sm dark:border-darkmode-border/60 dark:bg-darkmode-body/95 sm:pl-12">
-        <div class="mb-3 flex items-center gap-2">
-          <input
-            type="search"
-            id="glossary-search"
-            class="form-input w-full"
-            placeholder={`Search ${total} terms...`}
-            aria-label="Search glossary"
-          />
-          <button
-            type="button"
-            id="glossary-filters-toggle"
-            class="filter-pill glossary-filters-toggle shrink-0 whitespace-nowrap"
-            aria-expanded="false"
-            aria-controls="glossary-filters"
-          >
-            Filters ▾
-          </button>
-        </div>
-        <div id="glossary-filters" class="glossary-filters">
-          <span class="text-xs font-medium text-text-light/80 dark:text-darkmode-text-light/80">Filter:</span>
-          {categories.map((cat) => (
-            <button type="button" class="filter-pill" data-category={cat}>
-              {cat}
+      <div id="glossary-toolbar" class="sticky top-[72px] z-20 bg-body/95 pr-4 shadow-sm backdrop-blur-sm dark:bg-darkmode-body/95">
+        <!-- border + content start after the rail gutter so the break never crosses the index scroller -->
+        <div class="ml-10 border-b border-border/80 pb-3 pt-6 dark:border-darkmode-border/60 sm:ml-12">
+          <div class="mb-3 flex items-center gap-2">
+            <input
+              type="search"
+              id="glossary-search"
+              class="form-input w-full"
+              placeholder={`Search ${total} terms...`}
+              aria-label="Search glossary"
+            />
+            <button
+              type="button"
+              id="glossary-filters-toggle"
+              class="filter-pill glossary-filters-toggle shrink-0 whitespace-nowrap"
+              aria-expanded="false"
+              aria-controls="glossary-filters"
+            >
+              Filters ▾
             </button>
-          ))}
-          <button id="filter-clear" class="hidden text-xs text-text-light underline hover:text-primary dark:text-darkmode-text-light dark:hover:text-darkmode-primary transition-colors">
-            Clear
-          </button>
+          </div>
+          <div id="glossary-filters" class="glossary-filters">
+            <span class="text-xs font-medium text-text-light/80 dark:text-darkmode-text-light/80">Filter:</span>
+            {categories.map((cat) => (
+              <button type="button" class="filter-pill" data-category={cat}>
+                {cat}
+              </button>
+            ))}
+            <button id="filter-clear" class="hidden text-xs text-text-light underline hover:text-primary dark:text-darkmode-text-light dark:hover:text-darkmode-primary transition-colors">
+              Clear
+            </button>
+          </div>
         </div>
       </div>
 
