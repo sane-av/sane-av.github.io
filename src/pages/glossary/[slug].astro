@@ -1,29 +1,44 @@
 ---
 import Base from "@/layouts/Base.astro";
 import { getCollection, render } from "astro:content";
-import { getRelatedTerms } from "@/lib/glossary";
+import { getGlossaryTerms } from "@/lib/glossary";
+import type { GlossaryTerm } from "@/lib/glossary";
+import type { CollectionEntry } from "astro:content";
 
+// Every term gets a page: markdown-backed terms render their full article,
+// JSON-only terms render their definition.
 export async function getStaticPaths() {
   const mdEntries = await getCollection("glossary");
-  return mdEntries.map((entry) => ({
-    params: { slug: entry.id },
-    props: { entry },
+  const mdById = new Map(mdEntries.map((e) => [e.id, e]));
+  const terms = await getGlossaryTerms();
+  const slugByName = new Map(terms.map((t) => [t.term, t.redirectTo ?? t.slug]));
+  return terms.map((term) => ({
+    params: { slug: term.slug },
+    props: { term, entry: mdById.get(term.slug) ?? null, slugByName },
   }));
 }
 
-const { entry } = Astro.props;
+interface Props {
+  term: GlossaryTerm;
+  entry: CollectionEntry<"glossary"> | null;
+  slugByName: Map<string, string>;
+}
 
-if (entry.data.redirectTo) {
+const { term, entry, slugByName } = Astro.props;
+
+if (entry?.data.redirectTo) {
   return Astro.redirect(`/glossary/${entry.data.redirectTo}`, 301);
 }
 
-const { Content } = await render(entry);
+const Content = entry ? (await render(entry)).Content : null;
 
-const termName = entry.data.term;
-const category = entry.data.category;
-const abbreviation = entry.data.abbreviation ?? null;
-const relatedTerms = getRelatedTerms(entry.id, [category]);
-const description = `Definition of ${termName} in professional AV.`;
+const termName = term.term;
+const categories = term.categories;
+const abbreviation = term.abbreviation;
+const relatedTerms = term.relatedTerms;
+const description = term.definition
+  ? term.definition.slice(0, 155)
+  : `Definition of ${termName} in professional AV.`;
 ---
 
 <Base title={abbreviation ? `${abbreviation} (${termName})` : termName} description={description}>
@@ -37,22 +52,36 @@ const description = `Definition of ${termName} in professional AV.`;
             <h1 class="mb-3">
               {abbreviation ? `${abbreviation} (${termName})` : termName}
             </h1>
-            <span class="rounded bg-light px-3 py-1 text-sm dark:bg-darkmode-light">{category}</span>
+            <div class="flex flex-wrap gap-2">
+              {categories.map((cat) => (
+                <a href={`/glossary?category=${encodeURIComponent(cat)}`} class="rounded bg-light px-3 py-1 text-sm hover:text-primary dark:bg-darkmode-light dark:hover:text-darkmode-primary">{cat}</a>
+              ))}
+            </div>
           </div>
 
           <!-- Content -->
-          <div class="content mb-10">
-            <Content />
-          </div>
+          {Content ? (
+            <div class="content mb-10">
+              <Content />
+            </div>
+          ) : (
+            <div class="content mb-10">
+              <p>{term.definition}</p>
+            </div>
+          )}
 
           <!-- Related Terms -->
           {relatedTerms.length > 0 && (
             <div class="mb-8 rounded-lg border border-border p-6 dark:border-darkmode-border">
               <h3 class="mb-3">Related Terms</h3>
               <div class="flex flex-wrap gap-2">
-                {relatedTerms.map((t: string) => (
-                  <span class="rounded bg-light px-3 py-1 text-sm dark:bg-darkmode-light">{t}</span>
-                ))}
+                {relatedTerms.map((t: string) =>
+                  slugByName.has(t) ? (
+                    <a href={`/glossary/${slugByName.get(t)}`} class="rounded bg-light px-3 py-1 text-sm text-primary hover:underline dark:bg-darkmode-light dark:text-darkmode-primary">{t}</a>
+                  ) : (
+                    <span class="rounded bg-light px-3 py-1 text-sm dark:bg-darkmode-light">{t}</span>
+                  )
+                )}
               </div>
             </div>
           )}

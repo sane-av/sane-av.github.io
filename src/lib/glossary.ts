@@ -81,30 +81,11 @@ export async function getGlossaryTerms(): Promise<GlossaryTerm[]> {
   merged.sort((a, b) => a.term.localeCompare(b.term));
 
   for (const term of merged) {
-    if (term.hasPage && term.relatedTerms.length === 0) {
+    if (term.relatedTerms.length === 0) {
       term.relatedTerms = scoreRelatedTerms(merged, term.slug, term.categories);
     }
   }
 
   glossaryCache = merged;
   return merged;
-}
-
-export function getRelatedTerms(slug: string, categories: string[]): string[] {
-  const allTerms: GlossaryTerm[] = (baseTerms as JsonTerm[]).map((t) => ({
-    term: t.term,
-    slug: t.slug,
-    definition: t.definition,
-    categories: t.categories ?? [t.category ?? "General"],
-    abbreviation: t.abbreviation,
-    relatedTerms: t.relatedTerms ?? [],
-    hasPage: false,
-  }));
-
-  const entry = allTerms.find((t) => t.slug === slug);
-  if (!entry) return [];
-
-  if (entry.relatedTerms.length > 0) return entry.relatedTerms;
-
-  return scoreRelatedTerms(allTerms, slug, categories);
 }
