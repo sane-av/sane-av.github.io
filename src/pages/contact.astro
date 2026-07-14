@@ -1,71 +1,64 @@
 ---
-import config from "@/config/config.json";
 import Base from "@/layouts/Base.astro";
-import { getListPage } from "@/lib/contentParser.astro";
 import PageHeader from "@/partials/PageHeader.astro";
-
-const contactIndex = await getListPage("contact", "-index");
-const { contact_form_action }: { contact_form_action: string } = config.params ?? { contact_form_action: "#" };
-const { title, description, meta_title, image } = contactIndex.data;
-
-const buildDrafts = process.argv.includes("--buildDrafts");
-if (!buildDrafts && contactIndex.data.draft) {
-  return Astro.redirect("/404");
-}
 ---
 
 <Base
-  title={title}
-  meta_title={meta_title}
-  description={description}
-  image={image}
+  title="Contact"
+  description="How to reach the SANE community: GitHub Discussions for questions, Issues for bugs and proposals."
 >
-  <PageHeader title={title} />
+  <PageHeader title="Contact" />
+
   <section class="section-sm">
     <div class="container">
-      <div class="row">
-        <div class="mx-auto md:col-10 lg:col-6">
-          <form action={contact_form_action} method="POST">
-            <div class="mb-6">
-              <label for="name" class="form-label">
-                Full Name <span class="text-red-500">*</span>
-              </label>
-              <input
-                id="name"
-                name="name"
-                class="form-input"
-                placeholder="John Doe"
-                type="text"
-                required
-              />
+      <div class="row justify-center">
+        <div class="lg:col-8">
+          <p class="mb-10 text-center text-lg text-text-light dark:text-darkmode-text-light">
+            SANE is an open community project — everything happens in public on GitHub.
+            Pick the channel that fits:
+          </p>
+
+          <div class="row g-4">
+            <div class="mb-6 md:col-6">
+              <div class="h-full rounded-lg border border-border p-6 dark:border-darkmode-border">
+                <h3 class="mb-2 text-h5">Questions &amp; ideas</h3>
+                <p class="mb-4 text-sm text-text-light dark:text-darkmode-text-light">
+                  General questions, feedback, and open-ended discussion about standards or the project.
+                </p>
+                <a href="https://github.com/sane-av/sane-av.github.io/discussions" target="_blank" rel="noopener" class="btn btn-primary btn-sm">GitHub Discussions &rarr;</a>
+              </div>
             </div>
-            <div class="mb-6">
-              <label for="email" class="form-label">
-                Working Mail <span class="text-red-500">*</span>
-              </label>
-              <input
-                id="email"
-                name="email"
-                class="form-input"
-                placeholder="john.doe@email.com"
-                type="email"
-                required
-              />
+
+            <div class="mb-6 md:col-6">
+              <div class="h-full rounded-lg border border-border p-6 dark:border-darkmode-border">
+                <h3 class="mb-2 text-h5">Bugs &amp; proposals</h3>
+                <p class="mb-4 text-sm text-text-light dark:text-darkmode-text-light">
+                  Site issues, content corrections, or formal RFC proposals for new standards.
+                </p>
+                <a href="https://github.com/sane-av/sane-av.github.io/issues" target="_blank" rel="noopener" class="btn btn-primary btn-sm">GitHub Issues &rarr;</a>
+              </div>
             </div>
-            <div class="mb-6">
-              <label for="message" class="form-label">
-                Anything else? <span class="text-red-500">*</span>
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                class="form-input"
-                placeholder="Message goes here..."
-                required
-                rows="8"></textarea>
+
+            <div class="mb-6 md:col-6">
+              <div class="h-full rounded-lg border border-border p-6 dark:border-darkmode-border">
+                <h3 class="mb-2 text-h5">Contributing</h3>
+                <p class="mb-4 text-sm text-text-light dark:text-darkmode-text-light">
+                  Want to write, review, or improve standards, glossary terms, or tools? Start here.
+                </p>
+                <a href="/contributing" class="btn btn-outline-primary btn-sm">Contribution guide &rarr;</a>
+              </div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
+
+            <div class="mb-6 md:col-6">
+              <div class="h-full rounded-lg border border-border p-6 dark:border-darkmode-border">
+                <h3 class="mb-2 text-h5">Stay updated</h3>
+                <p class="mb-4 text-sm text-text-light dark:text-darkmode-text-light">
+                  Occasional project updates by email, or subscribe to the machine-readable feeds.
+                </p>
+                <a href="/#newsletter" class="btn btn-outline-primary btn-sm">Newsletter &rarr;</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

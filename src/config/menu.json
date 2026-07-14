@@ -47,55 +47,5 @@
       "name": "Contribute",
       "url": "/contributing"
     }
-  ],
-  "footer": [
-    {
-      "name": "Standards",
-      "url": "/standards"
-    },
-    {
-      "name": "Whitepapers",
-      "url": "/whitepapers"
-    },
-    {
-      "name": "Certifications",
-      "url": "/certifications"
-    },
-    {
-      "name": "Blog",
-      "url": "/blog"
-    },
-    {
-      "name": "Glossary",
-      "url": "/glossary"
-    },
-    {
-      "name": "Equipment DB",
-      "url": "/equipment"
-    },
-    {
-      "name": "Tools",
-      "url": "/tools"
-    },
-    {
-      "name": "About",
-      "url": "/about"
-    },
-    {
-      "name": "Contribute",
-      "url": "/contributing"
-    },
-    {
-      "name": "Partners",
-      "url": "/partners"
-    },
-    {
-      "name": "Governance",
-      "url": "/governance"
-    },
-    {
-      "name": "RSS Feed",
-      "url": "/rss.xml"
-    }
   ]
 }

@@ -83,39 +83,11 @@ const glossaryCollection = defineCollection({
 });
 
 // === Authors ===
-const authorsCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/authors" }),
-  schema: z.object({
-    ...commonFields,
-    social: z
-      .array(
-        z
-          .object({
-            name: z.string().optional(),
-            icon: z.string().optional(),
-            link: z.string().optional(),
-          })
-          .optional(),
-      )
-      .optional(),
-  }),
-});
+// (removed — author pages were Astroplate demo content; cards render authors as plain text)
 
 // === Pages ===
 const pagesCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/pages" }),
-  schema: z.object({ ...commonFields }),
-});
-
-// === About ===
-const aboutCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/about" }),
-  schema: z.object({ ...commonFields }),
-});
-
-// === Contact ===
-const contactCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/contact" }),
   schema: z.object({ ...commonFields }),
 });
 
@@ -124,8 +96,5 @@ export const collections = {
   standards: standardsCollection,
   whitepapers: whitepapersCollection,
   glossary: glossaryCollection,
-  authors: authorsCollection,
   pages: pagesCollection,
-  about: aboutCollection,
-  contact: contactCollection,
 };

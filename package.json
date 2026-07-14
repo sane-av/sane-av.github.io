@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "GitHub Pages site for sane-av",
   "author": "sane-av",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "packageManager": "pnpm@11.5.1",
   "type": "module",
   "scripts": {
