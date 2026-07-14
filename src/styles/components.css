@@ -169,12 +169,12 @@
 
 /* card description */
 .card-desc {
-  @apply mb-5 grow text-sm leading-relaxed text-text-light dark:text-darkmode-text-light;
+  @apply mb-4 text-sm leading-relaxed text-text-light dark:text-darkmode-text-light;
 }
 
 /* card tags area */
 .card-tags {
-  @apply flex flex-wrap gap-1;
+  @apply flex flex-wrap gap-1 mb-1;
 }
 
 /* card read-more link */
