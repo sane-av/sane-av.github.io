@@ -219,8 +219,19 @@
 /* glossary alphabet rail (iOS-contacts-style scrubber) */
 /* top/height are set by glossaryPage.ts so the rail always sits below the sticky toolbar */
 /* left offset centers the rail within the content's gutter (pl-10 sm:pl-12) */
+/* server-rendered hidden; JS unhides once positioned (prevents unstyled flash) */
 .glossary-rail {
   @apply fixed left-2 top-24 z-10 flex touch-none select-none flex-col rounded-lg bg-body/90 py-1 shadow-lg backdrop-blur-sm dark:bg-darkmode-body/90 sm:left-2.5 sm:py-2;
+  animation: glossary-rail-in 0.15s ease-out;
+}
+
+@keyframes glossary-rail-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .glossary-rail-btn {

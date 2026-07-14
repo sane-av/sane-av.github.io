@@ -45,13 +45,13 @@ const people = [
           <h2 class="mb-3">Who is behind SANE</h2>
 
           {people.map((person) => (
-            <div class="mb-8 flex items-start gap-6 rounded-lg border border-border p-6 dark:border-darkmode-border">
-              <svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label={`${person.name} initials`} class="shrink-0">
+            <div class="mb-8 flex flex-col items-center gap-6 rounded-lg border border-border p-6 dark:border-darkmode-border sm:flex-row sm:items-start">
+              <svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label={`${person.name} initials`} class="h-24 w-24 shrink-0 sm:h-[120px] sm:w-[120px]">
                 <circle cx="60" cy="60" r="58" fill="#f1a10d" stroke="#353540" stroke-width="2" />
                 <text x="60" y="60" text-anchor="middle" dominant-baseline="central" font-family="system-ui, sans-serif" font-size="36" font-weight="700" fill="#0a0a0c">{person.initials}</text>
               </svg>
-              <div>
-                <div class="mb-1 flex items-baseline gap-3">
+              <div class="min-w-0">
+                <div class="mb-1 flex flex-wrap items-baseline gap-x-3 gap-y-1">
                   <h2 class="text-h4">{person.name}</h2>
                   <span class="rounded bg-primary/10 px-2 py-0.5 text-sm font-medium text-primary dark:bg-darkmode-primary/20 dark:text-darkmode-primary">{person.role}</span>
                 </div>
