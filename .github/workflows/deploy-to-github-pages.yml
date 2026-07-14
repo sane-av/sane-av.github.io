@@ -54,7 +54,7 @@ jobs:
 
       - name: Type check
         if: steps.sync.outputs.changed != '0' || github.event_name == 'push' || github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request'
-        run: npx astro check
+        run: node scripts/themeGenerator.js && node scripts/jsonGenerator.js && npx astro check
 
       - name: Build
         if: steps.sync.outputs.changed != '0' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
