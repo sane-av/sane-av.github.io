@@ -40,9 +40,9 @@ const allTags = [...new Set(allEquipment.flatMap((e) => e.tags))].sort();
         <div class="mb-4 flex flex-wrap items-center gap-2">
           <span class="mr-2 text-sm font-semibold">Tags:</span>
           {allTags.map((tag) => (
-            <button type="button" class="filter-tag rounded bg-light px-3 py-1 text-sm hover:bg-primary hover:text-white dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark" data-tag={tag}>{tag}</button>
+            <a href={`/equipment?tag=${encodeURIComponent(tag)}`} class="tag-pill" data-tag={tag}>{tag}</a>
           ))}
-          <button id="tag-clear" class="ml-2 hidden text-sm text-text-light underline hover:text-primary dark:text-darkmode-text-light dark:hover:text-darkmode-primary">Clear</button>
+          <button id="tag-clear" class="ml-2 hidden text-sm text-text-light underline hover:text-primary dark:text-darkmode-text-light dark:hover:text-darkmode-primary" onclick="window.location.href=window.location.pathname">Clear</button>
         </div>
       )}
 
@@ -75,7 +75,7 @@ const allTags = [...new Set(allEquipment.flatMap((e) => e.tags))].sort();
                 <td class="hidden px-4 py-3 md:table-cell">
                   <div class="flex flex-wrap gap-1">
                     {item.tags.map((t: string) => (
-                      <button type="button" class="filter-tag rounded bg-light px-2 py-0.5 text-xs hover:bg-primary hover:text-white dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark" data-tag={t}>{t}</button>
+                      <a href={`/equipment?tag=${encodeURIComponent(t)}`} class="tag-pill" data-tag={t}>{t}</a>
                     ))}
                   </div>
                 </td>
@@ -89,48 +89,43 @@ const allTags = [...new Set(allEquipment.flatMap((e) => e.tags))].sort();
 </Base>
 
 <script>
-  const search = document.getElementById("eq-search") as HTMLInputElement;
-  const catSelect = document.getElementById("eq-cat") as HTMLSelectElement;
-  const tagButtons = document.querySelectorAll<HTMLButtonElement>(".filter-tag");
-  const rows = document.querySelectorAll<HTMLTableRowElement>("#eq-table tbody tr");
-  const countEl = document.getElementById("eq-count")!;
-  const clearBtn = document.getElementById("tag-clear")!;
-  let activeTag = "";
+  // Tag filtering is URL-driven (?tag=X, pills are plain links); search and
+  // category stay client-side. Re-inits on every navigation (view transitions).
+  function initEquipmentPage() {
+    const search = document.getElementById("eq-search") as HTMLInputElement | null;
+    const catSelect = document.getElementById("eq-cat") as HTMLSelectElement | null;
+    if (!search || !catSelect) return; // not on the equipment page
 
-  function filter() {
-    const query = search.value.toLowerCase();
-    const category = catSelect.value;
-    let visible = 0;
-    tagButtons.forEach((btn) => {
-      const match = btn.dataset.tag === activeTag;
-      btn.classList.toggle("!bg-primary !text-white", match);
-      btn.classList.toggle("dark:!bg-darkmode-primary dark:!text-text-dark", match);
+    const rows = document.querySelectorAll<HTMLTableRowElement>("#eq-table tbody tr");
+    const tagPills = document.querySelectorAll<HTMLElement>("[data-tag]");
+    const countEl = document.getElementById("eq-count");
+    const clearBtn = document.getElementById("tag-clear");
+    const activeTag = new URLSearchParams(window.location.search).get("tag") || "";
+
+    tagPills.forEach((pill) => {
+      pill.classList.toggle("tag-pill-active", pill.dataset.tag === activeTag);
     });
-    rows.forEach((row) => {
-      const matchSearch = !query || row.dataset.search?.includes(query);
-      const matchCategory = !category || row.dataset.cat === category;
-      const rowTags = (row.dataset.tags || "").split(",");
-      const matchTag = !activeTag || rowTags.includes(activeTag);
-      const show = matchSearch && matchCategory && matchTag;
-      row.classList.toggle("hidden", !show);
-      if (show) visible++;
-    });
-    countEl.textContent = `${visible} entries`;
-    clearBtn.classList.toggle("!inline-block", !!activeTag);
+    clearBtn?.classList.toggle("!inline-block", !!activeTag);
+
+    function filter() {
+      const query = search!.value.toLowerCase();
+      const category = catSelect!.value;
+      let visible = 0;
+      rows.forEach((row) => {
+        const matchSearch = !query || (row.dataset.search || "").includes(query);
+        const matchCategory = !category || row.dataset.cat === category;
+        const matchTag = !activeTag || (row.dataset.tags || "").split(",").includes(activeTag);
+        const show = matchSearch && matchCategory && matchTag;
+        row.classList.toggle("hidden", !show);
+        if (show) visible++;
+      });
+      if (countEl) countEl.textContent = `${visible} entries`;
+    }
+
+    search.addEventListener("input", filter);
+    catSelect.addEventListener("change", filter);
+    filter();
   }
 
-  search.addEventListener("input", filter);
-  catSelect.addEventListener("change", filter);
-  tagButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const tag = btn.dataset.tag!;
-      activeTag = activeTag === tag ? "" : tag;
-      filter();
-    });
-  });
-  clearBtn.addEventListener("click", () => { activeTag = ""; filter(); });
-
-  const params = new URLSearchParams(window.location.search);
-  const urlTag = params.get("tag");
-  if (urlTag) { activeTag = urlTag; filter(); }
+  document.addEventListener("astro:page-load", initEquipmentPage);
 </script>

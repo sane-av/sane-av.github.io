@@ -58,5 +58,9 @@ import Base from "@/layouts/Base.astro";
 
 <script>
   import { initThrowRatioCalculator } from "@/lib/tools/throw-ratio";
-  initThrowRatioCalculator();
+  // Re-init on every navigation (view transitions); guard because the event
+  // fires on all pages once this module is loaded.
+  document.addEventListener("astro:page-load", () => {
+    if (document.getElementById("tr-calc")) initThrowRatioCalculator();
+  });
 </script>

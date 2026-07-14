@@ -74,49 +74,54 @@ import PageHeader from "@/partials/PageHeader.astro";
 </style>
 
 <script>
-  var params = new URLSearchParams(window.location.search);
-  var name = params.get("name");
-  var date = params.get("date");
-  var score = params.get("score");
-  var total = params.get("total");
+  import { hexToBytes, SIGNING_KEY_HEX } from "@/lib/certification";
 
-  var uid = Math.random().toString(36).substring(2, 8);
-  var sig = params.get("sig");
+  // Re-inits on every navigation (view transitions); guard because the event
+  // fires on all pages once this module is loaded.
+  function initCertificatePage() {
+    const noData = document.getElementById("cert-no-data");
+    if (!noData) return;
 
-  if (!name || !date || !score || !total || !sig) {
-    document.getElementById("cert-no-data")!.classList.remove("hidden");
-  } else {
-    var verifiedName = name;
-    var verifiedDate = date;
-    var verifiedScore = score;
-    var verifiedTotal = total;
-    verifySig(name, date, score, total, sig).then(function(valid) {
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name");
+    const date = params.get("date");
+    const score = params.get("score");
+    const total = params.get("total");
+    const sig = params.get("sig");
+    const uid = Math.random().toString(36).substring(2, 8);
+
+    if (!name || !date || !score || !total || !sig) {
+      noData.classList.remove("hidden");
+      return;
+    }
+
+    verifySig(name, date, score, total, sig).then((valid) => {
       if (!valid) {
-        document.getElementById("cert-no-data")!.classList.remove("hidden");
+        noData.classList.remove("hidden");
         return;
       }
 
       document.getElementById("cert-display")!.classList.remove("hidden");
-      var scoreNum = parseInt(verifiedScore);
-      var totalNum = parseInt(verifiedTotal);
-      var percentage = Math.round((scoreNum / totalNum) * 100);
-      var safeName = escapeXml(verifiedName);
-      var safeDate = escapeXml(verifiedDate);
+      const scoreNum = parseInt(score);
+      const totalNum = parseInt(total);
+      const percentage = Math.round((scoreNum / totalNum) * 100);
+      const safeName = escapeXml(name);
+      const safeDate = escapeXml(date);
 
-      document.getElementById("congrats-heading")!.textContent = "Congratulations, " + verifiedName + "!";
+      document.getElementById("congrats-heading")!.textContent = "Congratulations, " + name + "!";
       document.getElementById("congrats-score")!.textContent = "You earned the SANE-F Founder Certification with a score of " + percentage + "% (" + scoreNum + "/" + totalNum + "). Your certificate is below, or download the badge for your email signature.";
 
-      var certSvg = buildCertSvg(safeName, safeDate, scoreNum, totalNum, percentage, uid);
+      const certSvg = buildCertSvg(safeName, safeDate, scoreNum, totalNum, percentage, uid);
       document.getElementById("cert-svg-wrapper")!.innerHTML = certSvg;
 
-      var badgeSvg = buildBadgeSvg(safeName, uid);
+      const badgeSvg = buildBadgeSvg(safeName, uid);
       document.getElementById("badge-svg-wrapper")!.innerHTML = badgeSvg;
 
-      setupButtons(badgeSvg, verifiedName);
+      setupButtons(badgeSvg, name);
     });
   }
 
-  import { hexToBytes, SIGNING_KEY_HEX } from "@/lib/certification";
+  document.addEventListener("astro:page-load", initCertificatePage);
 
   async function verifySig(name: string, date: string, score: string, total: string, sig: string): Promise<boolean> {
     var keyData = hexToBytes(SIGNING_KEY_HEX);

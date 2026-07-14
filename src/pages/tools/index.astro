@@ -23,9 +23,9 @@ const allTags = [...new Set(tools.flatMap((t) => t.tags))].sort();
         <div class="mb-4 flex flex-wrap items-center gap-2">
           <span class="mr-2 text-sm font-semibold">Categories:</span>
           {allTags.map((tag) => (
-            <button type="button" class="filter-tag rounded bg-light px-3 py-1 text-sm hover:bg-primary hover:text-white dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark" data-tag={tag}>{tag}</button>
+            <a href={`/tools?tag=${encodeURIComponent(tag)}`} class="tag-pill" data-tag={tag}>{tag}</a>
           ))}
-          <button id="tag-clear" class="ml-2 hidden text-sm text-text-light underline hover:text-primary dark:text-darkmode-text-light dark:hover:text-darkmode-primary">Clear</button>
+          <button id="tag-clear" class="ml-2 hidden text-sm text-text-light underline hover:text-primary dark:text-darkmode-text-light dark:hover:text-darkmode-primary" onclick="window.location.href=window.location.pathname">Clear</button>
         </div>
       )}
 
@@ -61,35 +61,33 @@ const allTags = [...new Set(tools.flatMap((t) => t.tags))].sort();
 </Base>
 
 <script>
-  const tagButtons = document.querySelectorAll<HTMLButtonElement>(".filter-tag");
-  const cards = document.querySelectorAll<HTMLElement>('[data-tags]');
-  const countEl = document.getElementById("tool-count")!;
-  const clearBtn = document.getElementById("tag-clear")!;
-  const total = cards.length;
-  let activeTag = "";
+  // Tag filtering is URL-driven (?tag=X, pills are plain links).
+  // Re-inits on every navigation (view transitions).
+  function initToolsPage() {
+    const grid = document.getElementById("card-grid");
+    const countEl = document.getElementById("tool-count");
+    if (!grid || !countEl) return; // not on the tools page
 
-  function apply() {
-    let visible = 0;
-    tagButtons.forEach((btn) => {
-      const match = btn.dataset.tag === activeTag;
-      btn.classList.toggle("!bg-primary !text-white", match);
-      btn.classList.toggle("dark:!bg-darkmode-primary dark:!text-text-dark", match);
+    const cards = grid.querySelectorAll<HTMLElement>("[data-tags]");
+    const tagPills = document.querySelectorAll<HTMLElement>("[data-tag]");
+    const clearBtn = document.getElementById("tag-clear");
+    const total = cards.length;
+    const activeTag = new URLSearchParams(window.location.search).get("tag") || "";
+
+    tagPills.forEach((pill) => {
+      pill.classList.toggle("tag-pill-active", pill.dataset.tag === activeTag);
     });
+    clearBtn?.classList.toggle("!inline-block", !!activeTag);
+
+    let visible = 0;
     cards.forEach((card) => {
-      const tags = (card.dataset.tags || "").split(",");
-      const show = !activeTag || tags.includes(activeTag);
+      const show = !activeTag || (card.dataset.tags || "").split(",").includes(activeTag);
       card.classList.toggle("hidden", !show);
       if (show) visible++;
     });
-    countEl.textContent = activeTag ? `${visible} of ${total} tool${total !== 1 ? "s" : ""}` : `${total} tool${total !== 1 ? "s" : ""}`;
-    clearBtn.classList.toggle("!inline-block", !!activeTag);
+    const label = (n: number) => `${n} tool${n !== 1 ? "s" : ""}`;
+    countEl.textContent = activeTag ? `${visible} of ${label(total)}` : label(total);
   }
 
-  tagButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      activeTag = activeTag === btn.dataset.tag! ? "" : btn.dataset.tag!;
-      apply();
-    });
-  });
-  clearBtn.addEventListener("click", () => { activeTag = ""; apply(); });
+  document.addEventListener("astro:page-load", initToolsPage);
 </script>

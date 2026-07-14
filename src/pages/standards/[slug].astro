@@ -143,17 +143,22 @@ const citationBibtex = `@misc{sane${std.data.saneId.toLowerCase().replace(/[^a-z
 </Base>
 
 <script>
-  document.querySelectorAll(".copy-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const text = btn.getAttribute("data-citation")!;
-      const original = btn.textContent;
-      navigator.clipboard.writeText(text).then(() => {
-        btn.textContent = "Copied!";
-        setTimeout(() => { btn.textContent = original; }, 1500);
-      }).catch(() => {
-        btn.textContent = "Copy failed";
-        setTimeout(() => { btn.textContent = original; }, 1500);
+  // Re-attach copy buttons on every navigation (view transitions)
+  function initCopyButtons() {
+    document.querySelectorAll(".copy-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const text = btn.getAttribute("data-citation")!;
+        const original = btn.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          btn.textContent = "Copied!";
+          setTimeout(() => { btn.textContent = original; }, 1500);
+        }).catch(() => {
+          btn.textContent = "Copy failed";
+          setTimeout(() => { btn.textContent = original; }, 1500);
+        });
       });
     });
-  });
+  }
+
+  document.addEventListener("astro:page-load", initCopyButtons);
 </script>

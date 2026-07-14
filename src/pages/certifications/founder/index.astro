@@ -84,176 +84,166 @@ const passingScore = founderData.passingScore;
 <script>
   import { sha256, hexToBytes, bytesToHex, SIGNING_KEY_HEX } from "@/lib/certification";
 
-  var container = document.getElementById("quiz-container")!;
-  var certData = JSON.parse(container.getAttribute("data-quiz")!);
-
-  var questions = certData.questions;
-  var total = questions.length;
-  var passingScore = certData.passingScore;
-
-  var userName = "";
-  var currentIndex = 0;
-  var correctCount = 0;
-  var answers: (number | null)[] = new Array(total).fill(null);
-
   async function checkAnswer(questionId: string, selectedOption: string, correctHash: string): Promise<boolean> {
-    var h = await sha256(questionId + ":" + selectedOption);
+    const h = await sha256(questionId + ":" + selectedOption);
     return h === correctHash;
   }
 
   async function signResult(name: string, score: string, total: string, date: string): Promise<string> {
-    var keyData = hexToBytes(SIGNING_KEY_HEX);
-    var key = await crypto.subtle.importKey("raw", keyData, { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
-    var data = new TextEncoder().encode(name + "|" + score + "|" + total + "|" + date);
-    var signature = await crypto.subtle.sign("HMAC", key, data);
+    const keyData = hexToBytes(SIGNING_KEY_HEX);
+    const key = await crypto.subtle.importKey("raw", keyData, { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+    const data = new TextEncoder().encode(name + "|" + score + "|" + total + "|" + date);
+    const signature = await crypto.subtle.sign("HMAC", key, data);
     return bytesToHex(new Uint8Array(signature));
   }
 
-  var userName = "";
-  var currentIndex = 0;
-  var correctCount = 0;
-  var answers: (number | null)[] = new Array(total).fill(null);
+  // Re-inits on every navigation (view transitions); guard because the event
+  // fires on all pages once this module is loaded.
+  function initFounderQuiz() {
+    const container = document.getElementById("quiz-container");
+    if (!container) return;
 
-  var nameEntry = document.getElementById("name-entry")!;
-  var quizArea = document.getElementById("quiz-area")!;
-  var resultsArea = document.getElementById("results-area")!;
-  var nameInput = document.getElementById("user-name") as HTMLInputElement;
-  var nameError = document.getElementById("name-error")!;
-  var questionCounter = document.getElementById("question-counter")!;
-  var scoreTracker = document.getElementById("score-tracker")!;
-  var progressBar = document.getElementById("progress-bar")!;
-  var questionText = document.getElementById("question-text")!;
-  var optionsList = document.getElementById("options-list")!;
-  var prevBtn = document.getElementById("prev-btn") as HTMLButtonElement;
-  var nextBtn = document.getElementById("next-btn") as HTMLButtonElement;
-  var resultsHeading = document.getElementById("results-heading")!;
-  var resultsScore = document.getElementById("results-score")!;
-  var resultsMessage = document.getElementById("results-message")!;
-  var certificateLink = document.getElementById("certificate-link")!;
-  var retryBtn = document.getElementById("retry-btn")!;
+    const certData = JSON.parse(container.getAttribute("data-quiz")!);
+    const questions = certData.questions;
+    const total = questions.length;
+    const passingScore = certData.passingScore;
 
-  document.getElementById("start-btn")!.addEventListener("click", function() {
-    userName = nameInput.value.trim();
-    if (!userName) {
-      nameError.classList.remove("hidden");
-      return;
-    }
-    nameError.classList.add("hidden");
-    nameEntry.classList.add("hidden");
-    quizArea.classList.remove("hidden");
-    renderQuestion();
-  });
+    let userName = "";
+    let currentIndex = 0;
+    let correctCount = 0;
+    let answers: (number | null)[] = new Array(total).fill(null);
 
-  nameInput.addEventListener("keydown", function(e: KeyboardEvent) {
-    if (e.key === "Enter") {
-      document.getElementById("start-btn")!.click();
-    }
-  });
+    const nameEntry = document.getElementById("name-entry")!;
+    const quizArea = document.getElementById("quiz-area")!;
+    const resultsArea = document.getElementById("results-area")!;
+    const nameInput = document.getElementById("user-name") as HTMLInputElement;
+    const nameError = document.getElementById("name-error")!;
+    const questionCounter = document.getElementById("question-counter")!;
+    const scoreTracker = document.getElementById("score-tracker")!;
+    const progressBar = document.getElementById("progress-bar")!;
+    const questionText = document.getElementById("question-text")!;
+    const optionsList = document.getElementById("options-list")!;
+    const prevBtn = document.getElementById("prev-btn") as HTMLButtonElement;
+    const nextBtn = document.getElementById("next-btn") as HTMLButtonElement;
+    const resultsHeading = document.getElementById("results-heading")!;
+    const resultsScore = document.getElementById("results-score")!;
+    const resultsMessage = document.getElementById("results-message")!;
+    const certificateLink = document.getElementById("certificate-link")!;
+    const retryBtn = document.getElementById("retry-btn")!;
+    const startBtn = document.getElementById("start-btn")!;
 
-  function renderQuestion() {
-    var q = questions[currentIndex];
-    questionCounter.textContent = "Question " + (currentIndex + 1) + " of " + total;
-    scoreTracker.textContent = "Score: " + correctCount + "/" + currentIndex;
-    progressBar.style.width = (currentIndex / total) * 100 + "%";
-    questionText.textContent = q.question;
-
-    optionsList.innerHTML = "";
-    q.options.forEach(function(opt: string, optIdx: number) {
-      var label = document.createElement("label");
-      label.className = "flex cursor-pointer items-start gap-3 rounded-lg border border-border p-3 transition-colors hover:border-primary dark:border-darkmode-border dark:hover:border-darkmode-primary";
-      var radio = document.createElement("input");
-      radio.type = "radio";
-      radio.name = "quiz-option";
-      radio.value = optIdx.toString();
-      radio.className = "mt-1";
-      if (answers[currentIndex] === optIdx) {
-        radio.checked = true;
-        label.classList.add("border-primary", "dark:border-darkmode-primary");
+    startBtn.addEventListener("click", () => {
+      userName = nameInput.value.trim();
+      if (!userName) {
+        nameError.classList.remove("hidden");
+        return;
       }
-      radio.addEventListener("change", (function(idx: number) {
-        return function() {
-          answers[currentIndex] = idx;
-          renderQuestion();
-        };
-      })(optIdx));
-      var span = document.createElement("span");
-      span.className = "select-none";
-      span.textContent = opt;
-      label.appendChild(radio);
-      label.appendChild(span);
-      optionsList.appendChild(label);
+      nameError.classList.add("hidden");
+      nameEntry.classList.add("hidden");
+      quizArea.classList.remove("hidden");
+      renderQuestion();
     });
 
-    if (currentIndex === 0) {
-      prevBtn.classList.add("hidden");
-    } else {
-      prevBtn.classList.remove("hidden");
-    }
-    nextBtn.textContent = currentIndex === total - 1 ? "Finish" : "Next";
-    nextBtn.disabled = answers[currentIndex] === null;
-  }
+    nameInput.addEventListener("keydown", (e: KeyboardEvent) => {
+      if (e.key === "Enter") startBtn.click();
+    });
 
-  prevBtn.addEventListener("click", function() {
-    if (currentIndex > 0) {
-      currentIndex--;
-      renderQuestion();
-    }
-  });
+    function renderQuestion() {
+      const q = questions[currentIndex];
+      questionCounter.textContent = "Question " + (currentIndex + 1) + " of " + total;
+      scoreTracker.textContent = "Score: " + correctCount + "/" + currentIndex;
+      progressBar.style.width = (currentIndex / total) * 100 + "%";
+      questionText.textContent = q.question;
 
-  nextBtn.addEventListener("click", async function() {
-    if (answers[currentIndex] === null) return;
-
-    if (currentIndex < total - 1) {
-      currentIndex++;
-      renderQuestion();
-    } else {
-      correctCount = 0;
-      for (var i = 0; i < total; i++) {
-        var q = questions[i];
-        var chosen = q.options[answers[i]!];
-        var isCorrect = await checkAnswer(q.id, chosen, q.answerHash);
-        if (isCorrect) correctCount++;
-      }
-
-      showResults();
-    }
-  });
-
-  function showResults() {
-    quizArea.classList.add("hidden");
-    resultsArea.classList.remove("hidden");
-
-    var percentage = Math.round((correctCount / total) * 100);
-    var passed = correctCount >= passingScore;
-
-    resultsHeading.textContent = passed ? "Congratulations!" : "Not quite there";
-    resultsScore.textContent = correctCount + " / " + total + " (" + percentage + "%)";
-    resultsMessage.textContent = passed
-      ? "You passed the " + certData.title + "! Download or screenshot your certificate below."
-      : "You need " + passingScore + "/" + total + " correct to pass. Review the standards and try again.";
-
-    if (passed) {
-      var date = new Date().toISOString().split("T")[0];
-      signResult(userName, String(correctCount), String(total), date).then(function(sig) {
-        certificateLink.setAttribute("href", "/certifications/founder/certificate?name=" + encodeURIComponent(userName) + "&date=" + date + "&score=" + correctCount + "&total=" + total + "&sig=" + sig);
-        certificateLink.classList.remove("hidden");
-        certificateLink.textContent = "View Certificate";
+      optionsList.innerHTML = "";
+      q.options.forEach((opt: string, optIdx: number) => {
+        const label = document.createElement("label");
+        label.className = "flex cursor-pointer items-start gap-3 rounded-lg border border-border p-3 transition-colors hover:border-primary dark:border-darkmode-border dark:hover:border-darkmode-primary";
+        const radio = document.createElement("input");
+        radio.type = "radio";
+        radio.name = "quiz-option";
+        radio.value = optIdx.toString();
+        radio.className = "mt-1";
+        if (answers[currentIndex] === optIdx) {
+          radio.checked = true;
+          label.classList.add("border-primary", "dark:border-darkmode-primary");
+        }
+        radio.addEventListener("change", () => {
+          answers[currentIndex] = optIdx;
+          renderQuestion();
+        });
+        const span = document.createElement("span");
+        span.className = "select-none";
+        span.textContent = opt;
+        label.appendChild(radio);
+        label.appendChild(span);
+        optionsList.appendChild(label);
       });
-    } else {
-      retryBtn.classList.remove("hidden");
+
+      prevBtn.classList.toggle("hidden", currentIndex === 0);
+      nextBtn.textContent = currentIndex === total - 1 ? "Finish" : "Next";
+      nextBtn.disabled = answers[currentIndex] === null;
     }
 
-    if (!passed) {
-      retryBtn.classList.remove("hidden");
+    prevBtn.addEventListener("click", () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderQuestion();
+      }
+    });
+
+    nextBtn.addEventListener("click", async () => {
+      if (answers[currentIndex] === null) return;
+
+      if (currentIndex < total - 1) {
+        currentIndex++;
+        renderQuestion();
+      } else {
+        correctCount = 0;
+        for (let i = 0; i < total; i++) {
+          const q = questions[i];
+          const chosen = q.options[answers[i]!];
+          const isCorrect = await checkAnswer(q.id, chosen, q.answerHash);
+          if (isCorrect) correctCount++;
+        }
+        showResults();
+      }
+    });
+
+    function showResults() {
+      quizArea.classList.add("hidden");
+      resultsArea.classList.remove("hidden");
+
+      const percentage = Math.round((correctCount / total) * 100);
+      const passed = correctCount >= passingScore;
+
+      resultsHeading.textContent = passed ? "Congratulations!" : "Not quite there";
+      resultsScore.textContent = correctCount + " / " + total + " (" + percentage + "%)";
+      resultsMessage.textContent = passed
+        ? "You passed the " + certData.title + "! Download or screenshot your certificate below."
+        : "You need " + passingScore + "/" + total + " correct to pass. Review the standards and try again.";
+
+      if (passed) {
+        const date = new Date().toISOString().split("T")[0];
+        signResult(userName, String(correctCount), String(total), date).then((sig) => {
+          certificateLink.setAttribute("href", "/certifications/founder/certificate?name=" + encodeURIComponent(userName) + "&date=" + date + "&score=" + correctCount + "&total=" + total + "&sig=" + sig);
+          certificateLink.classList.remove("hidden");
+          certificateLink.textContent = "View Certificate";
+        });
+      } else {
+        retryBtn.classList.remove("hidden");
+      }
     }
+
+    retryBtn.addEventListener("click", () => {
+      currentIndex = 0;
+      correctCount = 0;
+      answers = new Array(total).fill(null);
+      resultsArea.classList.add("hidden");
+      quizArea.classList.remove("hidden");
+      renderQuestion();
+    });
   }
 
-  retryBtn.addEventListener("click", function() {
-    currentIndex = 0;
-    correctCount = 0;
-    answers = new Array(total).fill(null);
-    resultsArea.classList.add("hidden");
-    quizArea.classList.remove("hidden");
-    renderQuestion();
-  });
+  document.addEventListener("astro:page-load", initFounderQuiz);
 </script>

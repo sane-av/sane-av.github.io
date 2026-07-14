@@ -78,5 +78,9 @@ import Base from "@/layouts/Base.astro";
 
 <script>
   import { initSplCalculator } from "@/lib/tools/spl-calculator";
-  initSplCalculator();
+  // Re-init on every navigation (view transitions); guard because the event
+  // fires on all pages once this module is loaded.
+  document.addEventListener("astro:page-load", () => {
+    if (document.getElementById("level-result")) initSplCalculator();
+  });
 </script>
