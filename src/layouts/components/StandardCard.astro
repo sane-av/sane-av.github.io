@@ -27,9 +27,10 @@ const basePath = "/standards";
     <span class="text-text-light dark:text-darkmode-text-light">{dateFormat(entry.pubDate, "d MMM yyyy")}</span>
   </div>
 
-  <p class="card-desc line-clamp-3">{entry.description}</p>
+  <p class="card-desc">{entry.description}</p>
 
-  <CardTags tags={entry.tags} basePath={basePath} />
-
-  <a href={`/standards/${data.id}`} class="btn btn-outline-primary btn-sm mt-auto">Read standard &rarr;</a>
+  <div class="card-footer">
+    <CardTags tags={entry.tags} basePath={basePath} />
+    <a href={`/standards/${data.id}`} class="btn btn-outline-primary btn-sm">Read standard &rarr;</a>
+  </div>
 </div>

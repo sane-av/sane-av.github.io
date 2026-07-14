@@ -39,9 +39,10 @@ const basePath = `/${blog_folder}`;
     )}
   </div>
 
-  <p class="card-desc line-clamp-3">{plainify(data.body?.slice(0, Number(summary_length)) || entry.description?.slice(0, Number(summary_length)) || "")}</p>
+  <p class="card-desc">{plainify(data.body?.slice(0, Number(summary_length)) || entry.description?.slice(0, Number(summary_length)) || "")}</p>
 
-  <CardTags tags={entry.tags ?? []} basePath={basePath} />
-
-  <a href={`/${blog_folder}/${data.id}`} class="btn btn-outline-primary btn-sm mt-auto">Read post &rarr;</a>
+  <div class="card-footer">
+    <CardTags tags={entry.tags ?? []} basePath={basePath} />
+    <a href={`/${blog_folder}/${data.id}`} class="btn btn-outline-primary btn-sm">Read post &rarr;</a>
+  </div>
 </div>

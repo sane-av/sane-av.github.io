@@ -167,14 +167,19 @@
   @apply inline-flex items-center gap-1.5 text-text-light hover:text-primary dark:text-darkmode-text-light dark:hover:text-darkmode-primary transition-colors;
 }
 
-/* card description */
+/* card description — grows to push card-footer to the bottom */
 .card-desc {
-  @apply mb-4 text-sm leading-relaxed text-text-light dark:text-darkmode-text-light;
+  @apply mb-4 grow text-sm leading-relaxed text-text-light dark:text-darkmode-text-light;
+}
+
+/* pinned footer: tags + button always at the same position in a row */
+.card-footer {
+  @apply flex flex-col gap-3;
 }
 
 /* card tags area */
 .card-tags {
-  @apply flex flex-wrap gap-1 mb-1;
+  @apply flex flex-wrap gap-1;
 }
 
 /* card tags area */
