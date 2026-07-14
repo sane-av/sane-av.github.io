@@ -11,7 +11,20 @@ for (const e of merged) {
   for (const c of e.categories) allCats.add(c);
 }
 const categories = [...allCats].sort();
-const allLetters = [...new Set(merged.map((e) => e.term[0].toUpperCase()))].sort();
+// Bucket terms iOS-contacts style: A-Z, with digits/symbols grouped under "#" (listed first)
+const bucketOf = (term: string) => (/^[a-z]/i.test(term) ? term[0].toUpperCase() : "#");
+const sectionIdOf = (letter: string) => `section-${letter === "#" ? "num" : letter}`;
+
+const termsByLetter = new Map<string, GlossaryTerm[]>();
+for (const entry of merged) {
+  const letter = bucketOf(entry.term);
+  const group = termsByLetter.get(letter);
+  if (group) group.push(entry);
+  else termsByLetter.set(letter, [entry]);
+}
+const allLetters = [...termsByLetter.keys()].sort((a, b) =>
+  a === "#" ? -1 : b === "#" ? 1 : a.localeCompare(b)
+);
 const total = merged.length;
 ---
 
@@ -22,7 +35,7 @@ const total = merged.length;
     <div class="container">
 
       <div id="glossary-toolbar" class="sticky top-[72px] z-20 border-b border-border/80 bg-body/95 pl-10 pr-4 pb-3 pt-6 shadow-sm backdrop-blur-sm dark:border-darkmode-border/60 dark:bg-darkmode-body/95 sm:pl-12">
-        <div class="mb-3">
+        <div class="mb-3 flex items-center gap-2">
           <input
             type="search"
             id="glossary-search"
@@ -30,8 +43,17 @@ const total = merged.length;
             placeholder={`Search ${total} terms...`}
             aria-label="Search glossary"
           />
+          <button
+            type="button"
+            id="glossary-filters-toggle"
+            class="filter-pill glossary-filters-toggle shrink-0 whitespace-nowrap"
+            aria-expanded="false"
+            aria-controls="glossary-filters"
+          >
+            Filters ▾
+          </button>
         </div>
-        <div class="flex flex-wrap items-center gap-2">
+        <div id="glossary-filters" class="glossary-filters">
           <span class="text-xs font-medium text-text-light/80 dark:text-darkmode-text-light/80">Filter:</span>
           {categories.map((cat) => (
             <button type="button" class="filter-pill" data-category={cat}>
@@ -44,14 +66,14 @@ const total = merged.length;
         </div>
       </div>
 
-      <nav id="glossary-quicknav" class="fixed left-0.5 top-1/2 z-10 -translate-y-1/2 flex max-h-[calc(100vh-10rem)] touch-none select-none flex-col rounded-r-lg bg-body/90 py-1 shadow-lg backdrop-blur-sm dark:bg-darkmode-body/90 sm:left-2 sm:py-2" aria-label="Letter quick navigation" data-letters={allLetters.join("")}>
+      <nav id="glossary-quicknav" class="glossary-rail" aria-label="Letter quick navigation" data-letters={allLetters.join("")}>
         {allLetters.map((letter) => (
-          <button type="button" class="glossary-jump flex min-h-7 flex-1 items-center justify-center rounded-sm text-[10px] font-mono font-semibold leading-none text-text-light/50 transition-colors dark:text-darkmode-text-light/50 sm:min-h-8 sm:text-xs" data-letter={letter}>
+          <button type="button" class="glossary-jump glossary-rail-btn" data-letter={letter} aria-label={`Jump to ${letter === "#" ? "numbers and symbols" : letter}`}>
             {letter}
           </button>
         ))}
       </nav>
-      <div id="glossary-tooltip" class="pointer-events-none fixed z-30 hidden h-10 w-10 items-center justify-center rounded-full bg-primary text-lg font-bold text-white shadow-lg dark:bg-darkmode-primary dark:text-black" aria-hidden="true">
+      <div id="glossary-tooltip" class="glossary-bubble hidden" aria-hidden="true">
         <span id="glossary-tooltip-letter"></span>
       </div>
 
@@ -67,10 +89,9 @@ const total = merged.length;
           </div>
         ) : (
           allLetters.map((letter) => {
-            const letterTerms = merged.filter((e) => e.term[0].toUpperCase() === letter);
-            if (letterTerms.length === 0) return null;
+            const letterTerms = termsByLetter.get(letter) ?? [];
             return (
-              <div id={`section-${letter}`} class="scroll-mt-56 rounded-lg border border-border bg-light px-5 py-4 mb-6 dark:border-darkmode-border dark:bg-darkmode-light">
+              <div id={sectionIdOf(letter)} data-letter={letter} class="glossary-section scroll-mt-56 rounded-lg border border-border bg-light px-5 py-4 mb-6 dark:border-darkmode-border dark:bg-darkmode-light">
                 <div class="mb-4 flex items-center gap-2">
                   <span class="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-sm font-bold font-mono text-white dark:bg-darkmode-primary dark:text-black">{letter}</span>
                   <span class="h-px flex-1 bg-border/60 dark:bg-darkmode-border/60"></span>
@@ -126,187 +147,4 @@ const total = merged.length;
   </section>
 </Base>
 
-<script>
-  (function() {
-    var searchInput = document.getElementById("glossary-search") as HTMLInputElement;
-    var items = document.querySelectorAll<HTMLElement>(".glossary-item");
-    var categoryBtns = document.querySelectorAll<HTMLElement>(".filter-pill");
-    var jumpBtns = document.querySelectorAll<HTMLElement>(".glossary-jump");
-    var filteredEl = document.getElementById("glossary-filtered")!;
-    var noResults = document.getElementById("glossary-no-results")!;
-    var clearBtn = document.getElementById("filter-clear")!;
-    var totalItems = items.length;
-    var searchTimer: ReturnType<typeof setTimeout>;
-
-    var params = new URLSearchParams(window.location.search);
-    var activeCategory = params.get("category") || "";
-    var activeQuery = params.get("q") || "";
-
-    if (activeQuery) searchInput.value = activeQuery;
-
-    function updateUrl() {
-      var url = new URL(window.location.href);
-      var query = searchInput.value.trim();
-      if (activeCategory) url.searchParams.set("category", activeCategory);
-      else url.searchParams.delete("category");
-      if (query) url.searchParams.set("q", query);
-      else url.searchParams.delete("q");
-      history.replaceState(null, "", url.toString());
-    }
-
-    function applyFilters() {
-      var query = searchInput.value.toLowerCase().trim();
-      var visibleCount = 0;
-      var visibleSet = new Set<string>();
-
-      categoryBtns.forEach(function(b) {
-        b.classList.toggle("filter-pill-active", b.dataset.category === activeCategory);
-      });
-      clearBtn.classList.toggle("!inline-block", !!activeCategory);
-
-      items.forEach(function(item) {
-        var mq = !query || item.dataset.term!.includes(query);
-        var mc = !activeCategory || (item.dataset.categories || "").split(",").indexOf(activeCategory) !== -1;
-        var show = mq && mc;
-        item.classList.toggle("hidden", !show);
-        if (show) { visibleCount++; visibleSet.add(item.dataset.letter!); }
-      });
-
-      jumpBtns.forEach(function(b) {
-        b.classList.toggle("opacity-30", !visibleSet.has(b.dataset.letter!));
-      });
-
-      var filtering = query || activeCategory;
-      if (filtering) {
-        filteredEl.textContent = "(" + visibleCount + " of " + totalItems + ")";
-        filteredEl.classList.remove("hidden");
-      } else {
-        filteredEl.classList.add("hidden");
-      }
-      noResults.classList.toggle("hidden", !(filtering && visibleCount === 0));
-
-      if (filtering) updateUrl();
-    }
-
-    categoryBtns.forEach(function(btn) {
-      btn.addEventListener("click", function() {
-        activeCategory = activeCategory === this.dataset.category! ? "" : this.dataset.category!;
-        applyFilters();
-      });
-    });
-
-    clearBtn.addEventListener("click", function() { activeCategory = ""; applyFilters(); });
-
-    var navEl = document.getElementById("glossary-quicknav");
-    var tooltip = document.getElementById("glossary-tooltip");
-    var tooltipLetter = document.getElementById("glossary-tooltip-letter");
-    var isScrubbing = false;
-    var scrubLetter = "";
-
-    function highlightActive(letter: string) {
-      jumpBtns.forEach(function(b) {
-        var isActive = b.dataset.letter === letter;
-        b.classList.toggle("!text-primary", isActive);
-        b.classList.toggle("!opacity-100", isActive);
-        b.classList.toggle("bg-primary/10", isActive);
-        b.classList.toggle("dark:bg-darkmode-primary/10", isActive);
-      });
-    }
-
-    if (navEl) {
-      var lettersAttr = navEl.dataset.letters || "";
-
-      function getLetterFromY(y: number) {
-        var rect = navEl!.getBoundingClientRect();
-        var fraction = Math.max(0, Math.min(1, (y - rect.top) / rect.height));
-        var index = Math.min(Math.floor(fraction * lettersAttr.length), lettersAttr.length - 1);
-        return lettersAttr[index] || "";
-      }
-
-      function showTooltip(letter: string, y: number) {
-        if (!tooltip || !tooltipLetter) return;
-        tooltipLetter.textContent = letter;
-        tooltip.classList.remove("hidden");
-        tooltip.classList.add("flex");
-        var navRect = navEl!.getBoundingClientRect();
-        tooltip.style.left = (navRect.right + 8) + "px";
-        tooltip.style.top = y + "px";
-        tooltip.style.transform = "translateY(-50%)";
-      }
-
-      function hideTooltip() {
-        if (!tooltip) return;
-        tooltip.classList.add("hidden");
-        tooltip.classList.remove("flex");
-      }
-
-      function onPointerDown(e: PointerEvent) {
-        e.preventDefault();
-        isScrubbing = true;
-        var letter = getLetterFromY(e.clientY);
-        scrubLetter = letter;
-        highlightActive(letter);
-        showTooltip(letter, e.clientY);
-        var section = document.getElementById("section-" + letter);
-        if (section) section.scrollIntoView({ behavior: "auto", block: "start" });
-      }
-
-      function onPointerMove(e: PointerEvent) {
-        if (!isScrubbing) return;
-        e.preventDefault();
-        var letter = getLetterFromY(e.clientY);
-        if (letter === scrubLetter) return;
-        scrubLetter = letter;
-        highlightActive(letter);
-        showTooltip(letter, e.clientY);
-        var section = document.getElementById("section-" + letter);
-        if (section) section.scrollIntoView({ behavior: "auto", block: "start" });
-      }
-
-      function onPointerUp() {
-        if (!isScrubbing) return;
-        isScrubbing = false;
-        scrubLetter = "";
-        hideTooltip();
-      }
-
-      navEl.addEventListener("pointerdown", onPointerDown);
-      navEl.addEventListener("pointermove", onPointerMove);
-      navEl.addEventListener("pointerup", onPointerUp);
-      navEl.addEventListener("pointerleave", onPointerUp);
-    }
-
-    // IntersectionObserver for quicknav highlighting (only when not scrubbing)
-    var sections = document.querySelectorAll<HTMLElement>("[id^='section-']");
-    if (sections.length > 0) {
-      var activeLetters = new Set<string>();
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          var letter = entry.target.id.replace("section-", "");
-          if (entry.isIntersecting) {
-            activeLetters.add(letter);
-          } else {
-            activeLetters.delete(letter);
-          }
-        });
-        if (!isScrubbing && activeLetters.size > 0) {
-          var best = [...activeLetters].sort()[0];
-          highlightActive(best);
-        }
-      }, { rootMargin: "-72px 0px -60% 0px" });
-
-      sections.forEach(function(s) { observer.observe(s); });
-    }
-
-    searchInput.addEventListener("input", function() {
-      clearTimeout(searchTimer);
-      searchTimer = setTimeout(applyFilters, 200);
-    });
-
-    searchInput.addEventListener("keydown", function(e) {
-      if (e.key === "Escape") { searchInput.value = ""; searchInput.blur(); applyFilters(); }
-    });
-
-    applyFilters();
-  })();
-</script>
+<script src="../../lib/glossaryPage.ts"></script>

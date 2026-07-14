@@ -200,6 +200,46 @@
   @apply border-primary/40 bg-primary/15 text-primary dark:border-darkmode-primary/40 dark:bg-darkmode-primary/15 dark:text-darkmode-primary;
 }
 
+/* glossary filter row: shown by default only on viewports that are BOTH wide and
+   tall enough; otherwise collapsed behind the "Filters" toggle (JS adds !flex) */
+.glossary-filters {
+  @apply hidden flex-wrap items-center gap-2;
+}
+
+@media (min-width: 768px) and (min-height: 500px) {
+  .glossary-filters {
+    display: flex;
+  }
+
+  .glossary-filters-toggle {
+    display: none;
+  }
+}
+
+/* glossary alphabet rail (iOS-contacts-style scrubber) */
+/* top/height are set by glossaryPage.ts so the rail always sits below the sticky toolbar */
+/* left offset centers the rail within the content's gutter (pl-10 sm:pl-12) */
+.glossary-rail {
+  @apply fixed left-2 top-24 z-10 flex touch-none select-none flex-col rounded-lg bg-body/90 py-1 shadow-lg backdrop-blur-sm dark:bg-darkmode-body/90 sm:left-2.5 sm:py-2;
+}
+
+.glossary-rail-btn {
+  @apply flex min-h-0 w-7 flex-1 basis-0 cursor-pointer items-center justify-center rounded-sm font-mono text-xs font-semibold leading-none text-text-light/50 transition-colors dark:text-darkmode-text-light/50 sm:w-8 sm:text-sm;
+}
+
+.glossary-rail-btn-active {
+  @apply bg-primary/10 text-primary dark:bg-darkmode-primary/10 dark:text-darkmode-primary;
+}
+
+.glossary-rail-btn-dimmed {
+  @apply opacity-30;
+}
+
+/* floating letter bubble shown while scrubbing (JS sets left/top) */
+.glossary-bubble {
+  @apply pointer-events-none fixed z-30 h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-primary text-xl font-bold text-white shadow-lg dark:bg-darkmode-primary dark:text-black;
+}
+
 /* card metadata row */
 
 /* content style */
