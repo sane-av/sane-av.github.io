@@ -176,10 +176,17 @@ function initGlossaryPage() {
   // === Rail: position between the sticky toolbar and the viewport bottom ===
   // The toolbar (search + filters) is sticky with a higher z-index; the rail must
   // never slide underneath it, and the toolbar's height varies as filter pills wrap.
+  // When the footer scrolls into view, the rail's zone shrinks to stay above it.
+
+  const footer = document.querySelector("footer");
 
   function positionRail() {
     const zoneTop = toolbarBottom() + RAIL_GAP_PX;
-    const zoneBottom = window.innerHeight - RAIL_GAP_PX;
+    let zoneBottom = window.innerHeight - RAIL_GAP_PX;
+    if (footer) {
+      const footerTop = footer.getBoundingClientRect().top;
+      zoneBottom = Math.min(zoneBottom, footerTop - RAIL_GAP_PX);
+    }
     const avail = zoneBottom - zoneTop;
     // Very short viewports (e.g. landscape phones with the keyboard up): the rail
     // would overlap the toolbar or shrink into an unusable strip — hide it instead.

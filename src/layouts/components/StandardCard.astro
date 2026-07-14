@@ -1,13 +1,10 @@
 ---
 import dateFormat from "@/lib/utils/dateFormat";
 import { statusColors, statusDescriptions } from "@/lib/statusColors";
+import CardTags from "./CardTags.astro";
 
 const { data } = Astro.props;
 const entry = data.data;
-const sortedTags = [...entry.tags].sort((a: string, b: string) => a.localeCompare(b));
-const VISIBLE = 3;
-const hiddenTags = sortedTags.slice(VISIBLE);
-const extraTagCount = hiddenTags.length;
 const basePath = "/standards";
 ---
 
@@ -18,7 +15,7 @@ const basePath = "/standards";
     </span>
   </div>
 
-  <a href={`/standards/${data.id}`} class="card-title" style="text-decoration: none">
+  <a href={`/standards/${data.id}`} class="card-title">
     {entry.title}
   </a>
 
@@ -34,18 +31,5 @@ const basePath = "/standards";
 
   <a href={`/standards/${data.id}`} class="card-link">Read standard <span aria-hidden="true">&rarr;</span></a>
 
-  {sortedTags.length > 0 && (
-    <div class="card-tags">
-      {sortedTags.slice(0, VISIBLE).map((tag: string) => (
-        <a href={`${basePath}?tag=${encodeURIComponent(tag)}`} class="tag-pill">
-          {tag}
-        </a>
-      ))}
-      {extraTagCount > 0 && (
-        <button type="button" class="tag-pill" data-hidden={JSON.stringify(hiddenTags)} data-base={basePath} onclick="var s=this,h=JSON.parse(s.dataset.hidden),b=s.dataset.base,p=s.parentElement;h.forEach(function(t){var a=document.createElement('a');a.href=b+'?tag='+encodeURIComponent(t);a.className='tag-pill';a.textContent=t;p.insertBefore(a,s)});s.remove()">
-          +{extraTagCount}
-        </button>
-      )}
-    </div>
-  )}
+  <CardTags tags={entry.tags} basePath={basePath} />
 </div>

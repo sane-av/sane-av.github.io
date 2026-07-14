@@ -3,6 +3,7 @@ import config from "@/config/config.json";
 import dateFormat from "@/lib/utils/dateFormat";
 import { plainify } from "@/lib/utils/textConverter";
 import { FaRegUserCircle } from "react-icons/fa";
+import CardTags from "./CardTags.astro";
 import ImageMod from "./ImageMod.astro";
 
 const { summary_length, blog_folder } = config.settings;
@@ -13,11 +14,6 @@ const title = entry.title;
 const image = entry.image;
 const pubDate = entry.pubDate ?? entry.date;
 const author = entry.authors?.[0] ?? entry.author ?? "SANE";
-const tags = entry.tags ?? [];
-const sortedTags = [...tags].sort((a: string, b: string) => a.localeCompare(b));
-const VISIBLE = 3;
-const hiddenTags = sortedTags.slice(VISIBLE);
-const extraTagCount = hiddenTags.length;
 const basePath = `/${blog_folder}`;
 ---
 
@@ -26,7 +22,7 @@ const basePath = `/${blog_folder}`;
     <ImageMod class="mb-4 w-full rounded-lg" src={image} alt={title} width={445} height={230} format="webp" />
   )}
 
-  <a href={`/${blog_folder}/${data.id}`} class="card-title" style="text-decoration: none">
+  <a href={`/${blog_folder}/${data.id}`} class="card-title">
     {title}
   </a>
 
@@ -43,22 +39,9 @@ const basePath = `/${blog_folder}`;
     )}
   </div>
 
-  <p class="card-desc">{plainify(data.body?.slice(0, Number(summary_length)) || entry.description?.slice(0, Number(summary_length)) || "")}</p>
+  <p class="card-desc line-clamp-3">{plainify(data.body?.slice(0, Number(summary_length)) || entry.description?.slice(0, Number(summary_length)) || "")}</p>
 
   <a href={`/${blog_folder}/${data.id}`} class="card-link">Read post <span aria-hidden="true">&rarr;</span></a>
 
-  {sortedTags.length > 0 && (
-    <div class="card-tags">
-      {sortedTags.slice(0, VISIBLE).map((tag: string) => (
-        <a href={`${basePath}?tag=${encodeURIComponent(tag)}`} class="tag-pill">
-          {tag}
-        </a>
-      ))}
-      {extraTagCount > 0 && (
-        <button type="button" class="tag-pill" data-hidden={JSON.stringify(hiddenTags)} data-base={basePath} onclick="var s=this,h=JSON.parse(s.dataset.hidden),b=s.dataset.base,p=s.parentElement;h.forEach(function(t){var a=document.createElement('a');a.href=b+'?tag='+encodeURIComponent(t);a.className='tag-pill';a.textContent=t;p.insertBefore(a,s)});s.remove()">
-          +{extraTagCount}
-        </button>
-      )}
-    </div>
-  )}
+  <CardTags tags={entry.tags ?? []} basePath={basePath} />
 </div>

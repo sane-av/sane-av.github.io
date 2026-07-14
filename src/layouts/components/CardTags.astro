@@ -1,0 +1,30 @@
+---
+// Shared card tag row: sorted pills linking to /<section>?tag=X, with a "+N"
+// expander for overflow. The expander uses an inline onclick (survives view
+// transitions without JS re-init, per project convention).
+interface Props {
+  tags: string[];
+  basePath: string;
+  visible?: number;
+}
+
+const { tags, basePath, visible = 3 } = Astro.props;
+const sortedTags = [...tags].sort((a, b) => a.localeCompare(b));
+const hiddenTags = sortedTags.slice(visible);
+const extraTagCount = hiddenTags.length;
+---
+
+{sortedTags.length > 0 && (
+  <div class="card-tags">
+    {sortedTags.slice(0, visible).map((tag) => (
+      <a href={`${basePath}?tag=${encodeURIComponent(tag)}`} class="tag-pill">
+        {tag}
+      </a>
+    ))}
+    {extraTagCount > 0 && (
+      <button type="button" class="tag-pill" data-hidden={JSON.stringify(hiddenTags)} data-base={basePath} onclick="var s=this,h=JSON.parse(s.dataset.hidden),b=s.dataset.base,p=s.parentElement;h.forEach(function(t){var a=document.createElement('a');a.href=b+'?tag='+encodeURIComponent(t);a.className='tag-pill';a.textContent=t;p.insertBefore(a,s)});s.remove()">
+        +{extraTagCount}
+      </button>
+    )}
+  </div>
+)}
