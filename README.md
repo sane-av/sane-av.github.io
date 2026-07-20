@@ -23,7 +23,7 @@ Content lives in separate repos, synced into this site at build time.
 |---|---|---|
 | Standards | [sane-av/sane-av-standards](https://github.com/sane-av/sane-av-standards) | CC BY-SA 4.0 |
 | Blog | [sane-av/sane-av-blog](https://github.com/sane-av/sane-av-blog) | CC BY-SA 4.0 |
-| Whitepapers | [sane-av/sane-av-whitepapers](https://github.com/sane-av/sane-av-whitepapers) | CC BY-SA 4.0 |
+| Deep Dives | [sane-av/sane-av-whitepapers](https://github.com/sane-av/sane-av-whitepapers) | CC BY-SA 4.0 |
 | Glossary | [sane-av/sane-av-glossary](https://github.com/sane-av/sane-av-glossary) | CC BY-SA 4.0 |
 | Equipment | [sane-av/sane-av-equipment-list](https://github.com/sane-av/sane-av-equipment-list) | CC BY-SA 4.0 |
 
@@ -38,7 +38,7 @@ Everything starts at [sane-av.org/contributing](https://sane-av.org/contributing
 | I want to... | Go here |
 |---|---|
 | Propose a new standard | [Start an RFC](https://github.com/sane-av/sane-av.org/issues/new?template=rfc.yml) |
-| Submit a whitepaper | [Open a proposal](https://github.com/sane-av/sane-av-whitepapers/issues/new?template=new-whitepaper.yml) |
+| Submit a deep dive | [Open a proposal](https://github.com/sane-av/sane-av-whitepapers/issues/new?template=new-whitepaper.yml) |
 | Add or edit a glossary term | [New term](https://github.com/sane-av/sane-av-glossary/issues/new?template=new-term.yml) or [edit term](https://github.com/sane-av/sane-av-glossary/issues/new?template=edit-term.yml) |
 | Submit equipment data | [New entry](https://github.com/sane-av/sane-av-equipment-list/issues/new?template=new-equipment.yml) |
 | Report a site bug | [Bug report](https://github.com/sane-av/sane-av.org/issues/new?template=bug.yml) |
@@ -69,5 +69,5 @@ SANE is funded by community donations. Sponsors help cover infrastructure, legal
 ## License
 
 - **Code** (site, tools, components): [Apache 2.0](LICENSE)
-- **Content** (standards, blog, whitepapers, glossary, data): [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+- **Content** (standards, blog, deep dives, glossary, data): [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 - **Trademarks** (SANE name, logo, certification marks): See [NOTICE](NOTICE)

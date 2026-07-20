@@ -1,20 +1,13 @@
 ---
-import Base from "@/layouts/Base.astro";
-import PostSingle from "@/layouts/PostSingle.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
   const papers = await getCollection("whitepapers", ({ data }) => !data.draft);
   return papers.map((post) => ({
     params: { slug: post.id },
-    props: { post },
   }));
 }
 
-const { post } = Astro.props;
-const { title, description, image } = post.data;
+const { slug } = Astro.params;
+return Astro.redirect(`/deep-dives/${slug}`, 301);
 ---
-
-<Base title={title} description={description} image={image}>
-  <PostSingle post={post} />
-</Base>

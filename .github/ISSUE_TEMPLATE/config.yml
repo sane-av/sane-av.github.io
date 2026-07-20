@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Submit a Whitepaper
+  - name: Submit a Deep Dive
     url: https://github.com/sane-av/sane-av-whitepapers/issues/new?template=new-whitepaper.yml
-    about: Propose a technical whitepaper
+    about: Propose a technical deep dive
   - name: Add or Edit a Glossary Term
     url: https://github.com/sane-av/sane-av-glossary/issues
     about: Open a new term or edit term issue

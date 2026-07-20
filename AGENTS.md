@@ -38,7 +38,7 @@ Content is stored in separate repos and synced at build time via `scripts/conten
 |---|---|---|
 | Standards | `sane-av/sane-av-standards` | CC BY-SA 4.0 |
 | Blog | `sane-av/sane-av-blog` | CC BY-SA 4.0 |
-| Whitepapers | `sane-av/sane-av-whitepapers` | CC BY-SA 4.0 |
+| Deep Dives | `sane-av/sane-av-whitepapers` | CC BY-SA 4.0 |
 | Glossary | `sane-av/sane-av-glossary` | CC BY-SA 4.0 |
 | Equipment | `sane-av/sane-av-equipment-list` | CC BY-SA 4.0 |
 
@@ -61,7 +61,7 @@ All five repos should be cloned as siblings for convenient editing.
 ## Page Conventions
 
 ### Intro boxes
-Content list pages (standards, whitepapers, blog, why-sane, about) use a unified intro box pattern below the PageHeader:
+Content list pages (standards, deep-dives, blog, why-sane, about) use a unified intro box pattern below the PageHeader:
 ```astro
 <section class="pt-6 pb-4">
   <div class="container text-center">
@@ -75,7 +75,7 @@ Content list pages (standards, whitepapers, blog, why-sane, about) use a unified
 ```
 
 ### Breadcrumbs
-Single-post pages (blog, whitepapers, standards) use the same gradient box for breadcrumbs:
+Single-post pages (blog, deep-dives, standards) use the same gradient box for breadcrumbs:
 ```astro
 <section class="pt-6 pb-4">
   <div class="container text-center">
@@ -136,7 +136,7 @@ All card types (BlogCard, StandardCard, WhitepaperCard) follow the same pattern:
 ### Architecture
 Tag pills in card components are plain `<a href="/section?tag=X">` links. **No `filter-tag` class, no `data-tag` attributes on cards, no click interception.** The browser handles all navigation.
 
-Listing pages (blog, standards, whitepapers) use a single shared script `src/lib/tagFilter.ts` that:
+Listing pages (blog, standards, deep-dives) use a single shared script `src/lib/tagFilter.ts` that:
 1. Reads `?tag=X` from URL on page load
 2. Filters cards by `data-tags` attribute on wrapper `<div>`s
 3. Highlights sidebar tags with `data-tag` attribute using `.tag-pill-active` CSS class
@@ -146,7 +146,7 @@ Listing pages (blog, standards, whitepapers) use a single shared script `src/lib
 - Show ALL items unpaginated so filtering works (hidden items are still in DOM)
 - Use `data-collapse-when-empty` on standards status groups for group-level hiding
 - Sidebar tags link to `?tag=X` (relative URL, resolves to current page path)
-- Card tag pills link to absolute paths: `/blog?tag=X`, `/standards?tag=X`, `/whitepapers?tag=X`
+- Card tag pills link to absolute paths: `/blog?tag=X`, `/standards?tag=X`, `/deep-dives?tag=X`
 - Clear buttons use inline `onclick="window.location.href=window.location.pathname"` — NO JavaScript event listeners for clear buttons
 
 ### Client-side scripts and Astro view transitions

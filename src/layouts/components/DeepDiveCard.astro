@@ -6,7 +6,7 @@ import { FaRegUserCircle } from "react-icons/fa";
 import CardTags from "./CardTags.astro";
 import ImageMod from "./ImageMod.astro";
 
-const { summary_length, whitepapers_folder } = config.settings;
+const { summary_length } = config.settings;
 const { data } = Astro.props;
 const entry = data.data;
 
@@ -14,7 +14,7 @@ const title = entry.title;
 const image = entry.image;
 const pubDate = entry.pubDate ?? entry.date;
 const author = entry.authors?.[0] ?? entry.author ?? "SANE";
-const basePath = `/${whitepapers_folder}`;
+const basePath = "/deep-dives";
 ---
 
 <div class="content-card">
@@ -22,7 +22,7 @@ const basePath = `/${whitepapers_folder}`;
     <ImageMod class="mb-4 w-full rounded-lg" src={image} alt={title} width={445} height={230} format="webp" />
   )}
 
-  <a href={`/${whitepapers_folder}/${data.id}`} class="card-title">
+  <a href={`/deep-dives/${data.id}`} class="card-title">
     {title}
   </a>
 
@@ -43,6 +43,6 @@ const basePath = `/${whitepapers_folder}`;
 
   <div class="card-footer">
     <CardTags tags={entry.tags ?? []} basePath={basePath} />
-    <a href={`/${whitepapers_folder}/${data.id}`} class="btn btn-outline-primary btn-sm">Read paper &rarr;</a>
+    <a href={`/deep-dives/${data.id}`} class="btn btn-outline-primary btn-sm">Read more &rarr;</a>
   </div>
 </div>

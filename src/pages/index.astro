@@ -3,7 +3,7 @@ import Base from "@/layouts/Base.astro";
 import ImageMod from "@/components/ImageMod.astro";
 import BlogCard from "@/components/BlogCard.astro";
 import StandardCard from "@/components/StandardCard.astro";
-import WhitepaperCard from "@/components/WhitepaperCard.astro";
+import DeepDiveCard from "@/components/DeepDiveCard.astro";
 import { getCollection } from "astro:content";
 
 const recentPosts = (await getCollection("blog", ({ data }) => !data.draft))
@@ -118,29 +118,29 @@ const recentWhitepapers = (await getCollection("whitepapers", ({ data }) => !dat
     </div>
   </section>
 
-  <!-- Latest Whitepapers -->
+  <!-- Latest Deep Dives -->
   <section class="section-sm py-10 xl:py-14">
     <div class="container">
-      <h2 class="mb-2 text-center">Latest Whitepapers</h2>
-      <p class="mb-10 text-center text-text-light dark:text-darkmode-text-light">Technical deep dives and analysis by SANE editors.</p>
+      <h2 class="mb-2 text-center">Latest Deep Dives</h2>
+      <p class="mb-10 text-center text-text-light dark:text-darkmode-text-light">In-depth technical explorations by SANE editors.</p>
       {recentWhitepapers.length > 0 ? (
         <>
           <div class="row justify-center">
             {recentWhitepapers.map((wp) => (
               <div class="md:col-6 lg:col-4 mb-8">
-                <WhitepaperCard data={wp} />
+                <DeepDiveCard data={wp} />
               </div>
             ))}
           </div>
           <p class="text-center">
-            <a href="/whitepapers" class="btn btn-outline-primary">All Whitepapers &rarr;</a>
+            <a href="/deep-dives" class="btn btn-outline-primary">All Deep Dives &rarr;</a>
           </p>
         </>
       ) : (
         <div class="rounded-lg border border-dashed border-border p-8 text-center dark:border-darkmode-border">
-          <h3 class="mb-2">No whitepapers yet</h3>
+          <h3 class="mb-2">No deep dives yet</h3>
           <p class="mb-4 text-text-light dark:text-darkmode-text-light">Be the first to publish a technical deep dive or industry analysis.</p>
-          <a href="/contributing" class="btn btn-primary btn-sm">Contribute a Whitepaper &rarr;</a>
+          <a href="/contributing" class="btn btn-primary btn-sm">Contribute a Deep Dive &rarr;</a>
         </div>
       )}
     </div>
